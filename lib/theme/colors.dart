@@ -3,11 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class CustomColors {
-  static const BackgroundColor = Colors.transparent;
-  static const PrimaryColor = Color(0xFF391F4E);
-  static const SecondaryColor = Color(0xFFE72967);
-  static const GrayColor = Color.fromRGBO(223, 218, 218, 1);
-  static const Transparent = Color.fromRGBO(255, 255, 255, 0.3);
+  static const AppBarBackground = Color.fromRGBO(0, 0, 0, 0.72);
 
   static const BlackBackgroundChart = Color.fromRGBO(0, 0, 0, 0.5);
   static const BlueChart = Color.fromRGBO(0, 204, 255, 1);

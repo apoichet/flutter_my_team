@@ -22,8 +22,8 @@ class NavBarIcon extends StatelessWidget {
         children: <Widget>[
           Container(
               margin: EdgeInsets.all(2),
-              width: 55,
-              height: 55,
+              width: 40,
+              height: 40,
               child: SvgPicture.asset(
                   'assets/icon/' + pathIcon + '.svg',
                   fit: BoxFit.fill,
