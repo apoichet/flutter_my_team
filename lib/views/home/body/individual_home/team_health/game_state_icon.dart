@@ -38,7 +38,7 @@ class _GameStateIconState extends State<GameStateIcon> {
     switch(widget.state) {
 
       case GameState.DEFEAT : {
-        letter = 'P';
+        letter = 'D';
         color = CustomColors.RedDefeatGameState;
         break;
       }

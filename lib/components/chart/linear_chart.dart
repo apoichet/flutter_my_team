@@ -42,6 +42,7 @@ class _LinearChartState extends State<LinearChart> {
               animation: true,
               percent: percent,
               progressColor: widget.color,
+              linearGradient: widget.linearGradient,
               backgroundColor: widget.backgroundColor,
             ),
           ),
@@ -56,7 +57,7 @@ class _LinearChartState extends State<LinearChart> {
     if (widget.rounded) {
       text = widget.value.round().toString();
     }
-    return Text(text, style: _getChartNumberStyle(widget.color));
+    return Text(text, style: _getChartNumberStyle(widget.valueColor));
   }
 
   _joinTextHeader() {
@@ -94,6 +95,8 @@ class LinearChart extends StatefulWidget {
   final double width;
   final Color color;
   final Color backgroundColor;
+  final Color valueColor;
+  final LinearGradient linearGradient;
   final double value;
   final double valueMax;
   final bool rounded;
@@ -104,7 +107,9 @@ class LinearChart extends StatefulWidget {
         @required this.width,
         @required this.color,
         @required this.backgroundColor,
+        @required this.valueColor,
         this.value = 0.0,
+        this.linearGradient,
         @required this.valueMax,
         this.rounded = true,
         this.last = false,

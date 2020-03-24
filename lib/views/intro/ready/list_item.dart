@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/player.dart';
+import 'package:my_team/services/data_service.dart';
 
 class ListItem extends StatelessWidget {
   final Player player;
@@ -26,25 +27,24 @@ class ListItem extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Image.asset(
-            pathImage + player.avatar + '.' + definitionImage,
-            height: 40,
-            alignment: Alignment.centerLeft,
+              "assets/img/player/" + player.avatar + ".png",
+              height: 40
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
-              children: <Widget>[
-                Text(player.firstName,
-                  style: Theme.of(context).textTheme.headline.copyWith(fontWeight: FontWeight.normal)),
-                Text(" ",
-                    style: Theme.of(context).textTheme.headline.copyWith(fontWeight: FontWeight.normal)),
-                Text(player.lastName,
-                    style: Theme.of(context).textTheme.headline),
-                Text(" - n°",
-                    style: Theme.of(context).textTheme.headline.copyWith(fontWeight: FontWeight.normal)),
-                Text(player.number.toString(),
-                    style: Theme.of(context).textTheme.headline),
-              ]
+                children: <Widget>[
+                  Text(player.firstName,
+                      style: Theme.of(context).textTheme.headline.copyWith(fontWeight: FontWeight.normal)),
+                  Text(" ",
+                      style: Theme.of(context).textTheme.headline.copyWith(fontWeight: FontWeight.normal)),
+                  Text(player.lastName,
+                      style: Theme.of(context).textTheme.headline),
+                  Text(" - n°",
+                      style: Theme.of(context).textTheme.headline.copyWith(fontWeight: FontWeight.normal)),
+                  Text(player.number.toString(),
+                      style: Theme.of(context).textTheme.headline),
+                ]
             ),
           )
         ],

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_gradient.dart';
 import 'package:my_team/components/chart/box_circular_chart.dart';
@@ -58,7 +59,7 @@ class _IndividualCardState extends State<IndividualCard> {
             Expanded(
                 flex: 5,
                 child: FittedBox(
-                  child: buildBody(),
+                  child: _buildBody(),
                 )
             ),
             Expanded(
@@ -71,38 +72,39 @@ class _IndividualCardState extends State<IndividualCard> {
   }
 
   Widget _buildHeader(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 15),
-      child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              flex: 2,
-              child: Container(
-                child: Transform.scale(
-                  scale: 1.35,
-                  child: Image.asset(
-                      widget.pathImage + player.avatar + '.png'
-                  ),
-                ),
+    return Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            flex: 2,
+            child: Container(
+              padding: const EdgeInsets.only(top: 20),
+              child: Transform.scale(
+                scale: 1.4,
+                child: Image.asset("assets/img/player/" + player.avatar + ".png")
               ),
             ),
-            Expanded(
-              flex: 4,
-              child: FittedBox(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(widget.titleCard,
-                        style: Theme.of(context).textTheme.caption),
-                  )
-              ),
+          ),
+          Expanded(
+            flex: 4,
+            child: FittedBox(
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: Text(widget.titleCard,
+                      style: TextStyle(
+                          fontFamily: 'Arial',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25
+                      )),
+                )
             ),
-          ]),
-    );
+          ),
+        ]);
   }
 
-  Row buildBody() {
+
+  Widget _buildBody() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -200,8 +202,11 @@ class _IndividualCardState extends State<IndividualCard> {
       value: player.nbrPass.toDouble(),
       valueMax: maxPass.toDouble(),
       rounded: true,
-      color: CustomColors.PinkChart,
-      backgroundColor: CustomColors.PinkChartTransparent,
+      backgroundColor: CustomColors.RedTransparent,
+      valueColor: CustomColors.RedGradientEnd,
+      linearGradient: LinearGradient(
+          colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
+      ),
     );
   }
 
@@ -212,8 +217,11 @@ class _IndividualCardState extends State<IndividualCard> {
       value: player.nbrGoal.toDouble(),
       valueMax: maxGoal.toDouble(),
       rounded: true,
-      color: CustomColors.BlueChart,
-      backgroundColor: CustomColors.BlueChartTransparent,
+      backgroundColor: CustomColors.OrangeTransparent,
+      valueColor: CustomColors.OrangeGradientStart,
+      linearGradient: LinearGradient(
+          colors: [CustomColors.OrangeGradientStart, CustomColors.OrangeGradientEnd]
+      ),
     );
   }
 
@@ -224,8 +232,11 @@ class _IndividualCardState extends State<IndividualCard> {
       value: player.gameTime.toDouble(),
       valueMax: maxGameTime.toDouble(),
       rounded: true,
-      color: CustomColors.GreenChart,
-      backgroundColor: CustomColors.GreenChartTransparent,
+      backgroundColor: CustomColors.OrangeTransparent,
+      valueColor: CustomColors.OrangeGradientStart,
+      linearGradient: LinearGradient(
+          colors: [CustomColors.OrangeGradientStart, CustomColors.OrangeGradientEnd]
+      ),
     );
   }
 
@@ -236,35 +247,45 @@ class _IndividualCardState extends State<IndividualCard> {
       value: player.nbrGame.toDouble(),
       valueMax: maxGame.toDouble(),
       rounded: true,
-      color: CustomColors.PinkChart,
-      backgroundColor: CustomColors.PinkChartTransparent,
+      backgroundColor: CustomColors.RedTransparent,
+      valueColor: CustomColors.RedGradientEnd,
+      linearGradient: LinearGradient(
+          colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
+      ),
     );
   }
 
   LinearChart _buildLinearYellowCardChart() {
     return LinearChart(
-      color: CustomColors.BlueChart,
-      backgroundColor: CustomColors.BlueChartTransparent,
+      valueColor: CustomColors.OrangeGradientStart,
+      backgroundColor: CustomColors.OrangeTransparent,
       value: player.nbrYellowCard.toDouble(),
       valueMax: maxYellowCard.toDouble(),
       width: ChartsSize.YELLOW_CARD_LINEAR_WIDTH,
       last: true,
+      linearGradient: LinearGradient(
+          colors: [CustomColors.OrangeGradientStart, CustomColors.OrangeGradientEnd]
+      ),
     );
   }
 
   LinearChart _buildLinearLateChart() {
     return LinearChart(
-        color: CustomColors.PinkChart,
-        backgroundColor: CustomColors.PinkChartTransparent,
+        valueColor: CustomColors.RedGradientEnd,
+        backgroundColor: CustomColors.RedTransparent,
         value: player.nbrLateGame.toDouble(),
         valueMax: maxLate.toDouble(),
-        width: ChartsSize.LATE_LINEAR_WIDTH);
+        width: ChartsSize.LATE_LINEAR_WIDTH,
+        linearGradient: LinearGradient(
+            colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
+        ));
   }
 
   LinearChart _buildLinearMissingChart() {
     return LinearChart(
-        color: CustomColors.GreenChart,
-        backgroundColor: CustomColors.GreenChartTransparent,
+        color: CustomColors.GreenApple,
+        valueColor: CustomColors.GreenApple,
+        backgroundColor: CustomColors.GreenAppleTransparent,
         value: player.nbrMissingGame.toDouble(),
         valueMax: maxMissing.toDouble(),
         width: ChartsSize.MISSING_LINEAR_WIDTH);
@@ -284,8 +305,8 @@ class _IndividualCardState extends State<IndividualCard> {
 }
 
 class IndividualCard extends StatefulWidget {
-  final titleCard = 'FIche Individuelle';
-  final pathImage = 'assets/img/';
+  final titleCard = 'FIche individuelle';
+  final pathImage = 'assets/img/player/';
 
   @override
   State<StatefulWidget> createState() => _IndividualCardState();

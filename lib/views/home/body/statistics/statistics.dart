@@ -30,7 +30,7 @@ class _StatisticsState extends State<Statistics> {
     return Container(
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: CustomColors.BlueChartTransparent,
+        color: CustomColors.OrangeTransparent,
         borderRadius: BorderRadius.circular(50)
       ),
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),

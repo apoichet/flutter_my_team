@@ -38,7 +38,7 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
     if (chart.rounded) {
       text = chart.value.round().toString();
     }
-    return Text(text, style: _getChartNumberStyle(chart.color));
+    return Text(text, style: _getChartNumberStyle(chart.valueColor));
   }
 
   _joinTextWidgets(List<Text> texts) {

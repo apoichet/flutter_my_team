@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 class Player {
 
   final String firstName;
@@ -14,7 +16,7 @@ class Player {
   final int nbrLateGame;
   final int nbrYellowCard;
 
-  final String avatar = 'avatar';
+  String avatar;
 
   getId() {
     return this.firstName + this.lastName + this.number.toString();
@@ -22,6 +24,15 @@ class Player {
 
   getName() {
     return this.firstName + " " + this.lastName;
+  }
+
+  buildAvatar() async {
+    await rootBundle.load("assets/img/player/" + this.getId() + ".png").then((value) {
+      this.avatar = this.getId();
+    }).catchError((_) {
+      print("Error avatar nor found");
+      this.avatar = "avatar";
+    });
   }
 
   Player({
@@ -35,7 +46,8 @@ class Player {
     this.gameTime = 0,
     this.nbrMissingGame = 0,
     this.nbrLateGame = 0,
-    this.nbrYellowCard = 0});
+    this.nbrYellowCard = 0,
+    this.avatar = "avatar"});
 
   factory Player.fromJson(Map<String, dynamic> json) {
     return Player(

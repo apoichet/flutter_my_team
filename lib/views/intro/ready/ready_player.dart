@@ -77,7 +77,7 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
         ),
         Container(
           decoration: new BoxDecoration(
-              color: CustomColors.IndividualCardContainerGradientStart,
+              color: CustomColors.IndividualCardContainerGradientMiddle,
               borderRadius: BorderRadius.circular(20)
           ),
           padding: EdgeInsets.only(bottom: 40 ,right: 10, left: 10),

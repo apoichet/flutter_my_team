@@ -9,13 +9,8 @@ class _CircularChartState extends State<CircularChart> {
 
   @override
   void initState() {
-    percent = _calculPercent();
+    percent = _getPercent();
     super.initState();
-  }
-  @override
-  void didUpdateWidget(CircularChart oldWidget) {
-    percent = _calculPercent();
-    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -30,10 +25,11 @@ class _CircularChartState extends State<CircularChart> {
       percent: percent,
       progressColor: widget.color,
       backgroundColor: widget.backgroundColor,
+      linearGradient: widget.color != null ? null : widget.linearGradient,
     );
   }
 
-  _calculPercent() {
+  _getPercent() {
     var percent = widget.value / widget.valueMax;
     if(percent.isNaN) {
       return 0.0;
@@ -47,22 +43,26 @@ class CircularChart extends StatefulWidget {
   final double strokeWidth;
   final Color color;
   final Color backgroundColor;
+  final Color valueColor;
   final double value;
   final double valueMax;
   final bool rounded;
+  final LinearGradient linearGradient;
+
+  @override
+  State<StatefulWidget> createState() => _CircularChartState();
 
   const CircularChart(
       {Key key,
         @required this.width,
         @required this.strokeWidth,
-        @required this.color,
         @required this.backgroundColor,
+        @required this.valueColor,
+        this.color,
+        this.linearGradient,
         this.value = 0.0,
         @required this.valueMax,
         this.rounded = true
       }
       ) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _CircularChartState();
 }

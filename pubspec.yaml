@@ -83,6 +83,7 @@ flutter:
     - assets/img/
     - assets/img/background/
     - assets/img/boarding/
+    - assets/img/player/
     - assets/icon/
     - assets/data/
 
