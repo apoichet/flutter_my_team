@@ -1,8 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as math;
-import 'dart:developer' as logger;
 
 enum CircularStrokeCap { butt, round, square }
 
@@ -296,7 +293,7 @@ class CirclePainter extends CustomPainter {
     if (arcType != null) {
       if (arcType == ArcType.FULL) {
         fixedStartAngle = 185;
-        startAngleFixedMargin = 172 / fixedStartAngle;
+        startAngleFixedMargin = 185 / fixedStartAngle;
       } else {
         fixedStartAngle = 270;
         startAngleFixedMargin = 135 / fixedStartAngle;

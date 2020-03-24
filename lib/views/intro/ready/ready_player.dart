@@ -52,6 +52,7 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
               child: RaisedButton(
                 disabledColor: Colors.transparent,
                 onPressed: idPlayerSelected == null ? null : () {
+                  setPlayerFromId(idPlayerSelected);
                   Navigator.push(
                       context, MaterialPageRoute(builder: (context) => Home()));
                 },
