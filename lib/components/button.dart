@@ -18,7 +18,7 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return _isNullOrEmpty(text) ? Text("") : RaisedButton(
       disabledColor: Colors.transparent,
       onPressed: onPressed,
       color: CustomColors.RaisedButtonBackground,
@@ -38,6 +38,10 @@ class Button extends StatelessWidget {
               style: Theme.of(context).textTheme.caption)
       ),
     );
+  }
+
+  _isNullOrEmpty(String text) {
+    return text == null || text == "";
   }
 }
 

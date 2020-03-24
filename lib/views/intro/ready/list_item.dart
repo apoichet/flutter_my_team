@@ -32,8 +32,20 @@ class ListItem extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Text(player.getName() + " - n°" + player.number.toString(),
-                style: Theme.of(context).textTheme.headline),
+            child: Row(
+              children: <Widget>[
+                Text(player.firstName,
+                  style: Theme.of(context).textTheme.headline.copyWith(fontWeight: FontWeight.normal)),
+                Text(" ",
+                    style: Theme.of(context).textTheme.headline.copyWith(fontWeight: FontWeight.normal)),
+                Text(player.lastName,
+                    style: Theme.of(context).textTheme.headline),
+                Text(" - n°",
+                    style: Theme.of(context).textTheme.headline.copyWith(fontWeight: FontWeight.normal)),
+                Text(player.number.toString(),
+                    style: Theme.of(context).textTheme.headline),
+              ]
+            ),
           )
         ],
       ),

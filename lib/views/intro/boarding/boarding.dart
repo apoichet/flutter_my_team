@@ -29,7 +29,6 @@ class Boarding extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-            padding: EdgeInsets.all(0),
             height: size.height * 0.65,
             child: Image.asset('assets/img/boarding/' + imagePath + '.png')
         ),

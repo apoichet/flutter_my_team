@@ -15,6 +15,12 @@ TextTheme buildTextTheme() {
           fontWeight: FontWeight.w600,
           fontSize: 12),
 
+      display3: TextStyle(
+          fontFamily: 'Arial',
+          color: Colors.white,
+          fontWeight: FontWeight.w600,
+          fontSize: 12),
+
       body1: TextStyle(
           fontFamily: 'Montserrat',
           fontSize: 14,
@@ -25,6 +31,7 @@ TextTheme buildTextTheme() {
           color: Colors.white,
           fontSize: 12
       ),
+
 
       subhead: TextStyle(
           fontFamily: 'Arial' ,

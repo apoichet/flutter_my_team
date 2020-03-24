@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/components/background_decoration.dart';
+import 'package:my_team/components/button.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/theme/colors.dart';
@@ -24,48 +26,40 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      decoration: new BoxDecoration(
-          image: new DecorationImage(
-              image: new AssetImage("assets/img/background/background_6.png"),
-              fit: BoxFit.fill)
-      ),
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-      child: Column(
-        children: <Widget>[
-          Expanded(
-              child: Column(
-                children: <Widget>[
-                  Text('Prêt ?', style: Theme.of(context).textTheme.caption),
-                  Text('Dis nous qui tu es !', style: Theme.of(context).textTheme.title)
-                ],
-              )
-          ),
-          Expanded(
-              flex: 6,
-              child: _buildListPlayer(size)
-          ),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(10),
-              width: size.width * 0.8,
-              child: RaisedButton(
-                disabledColor: Colors.transparent,
-                onPressed: idPlayerSelected == null ? null : () {
-                  setPlayerFromId(idPlayerSelected);
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Home()));
-                },
-                color: CustomColors.RaisedButtonBackground,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50)
-                ),
-                child: idPlayerSelected == null ? null : Text('C\'est parti !', style: Theme.of(context).textTheme.caption),
+    return BackgroundDecoration(
+        img: "background_6.png",
+        child : Padding(
+          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                  child: Center(child: Text('Dis nous qui tu es...',
+                      style: Theme.of(context).textTheme.caption
+                          .copyWith(fontFamily: 'Arial')))
               ),
-            ),
-          )
-        ],
-      ),
+              Expanded(
+                  flex: 6,
+                  child: _buildListPlayer(size)
+              ),
+              Expanded(
+                child: Container(
+                    padding: EdgeInsets.all(10),
+                    width: size.width * 0.8,
+                    child: Button(
+                      onPressed: idPlayerSelected == null ? null : () {
+                        setPlayerFromId(idPlayerSelected);
+                        Navigator.push(
+                            context, MaterialPageRoute(builder: (context) => Home()));
+                      },
+                      text: idPlayerSelected == null ? null : "Je suis prêt",
+                    )
+                ),
+              )
+            ],
+          ),
+
+        )
+
 
     );
   }
@@ -78,11 +72,7 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
           bottom: 5,
           width: size.width,
           child: Center(
-            child: RotatedBox(
-                quarterTurns: 1,
-                child: Text('>',
-                    style: Theme.of(context).textTheme.display1)
-            ),
+            child: Image.asset("assets/img/arrow_down.png")
           ),
         ),
         Container(
