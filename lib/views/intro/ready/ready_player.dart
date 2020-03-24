@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/background_decoration.dart';
+import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/button.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
@@ -26,8 +26,8 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BackgroundDecoration(
-        img: "background_6.png",
+    return BackgroundImage(
+        image: "background_6.png",
         child : Padding(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           child: Column(
@@ -77,7 +77,7 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
         ),
         Container(
           decoration: new BoxDecoration(
-              color: CustomColors.IndividualCardContainer,
+              color: CustomColors.IndividualCardContainerGradientStart,
               borderRadius: BorderRadius.circular(20)
           ),
           padding: EdgeInsets.only(bottom: 40 ,right: 10, left: 10),

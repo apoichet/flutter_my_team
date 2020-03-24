@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 
-class BackgroundDecoration extends StatelessWidget {
+class BackgroundImage extends StatelessWidget {
   final Widget child;
-  final String img;
+  final String image;
 
-  BackgroundDecoration({@required this.child, @required this.img});
+  BackgroundImage({@required this.child, @required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class BackgroundDecoration extends StatelessWidget {
       decoration: new BoxDecoration(
           image: new DecorationImage(
               image: new AssetImage(
-                  "assets/img/background/" + img
+                  "assets/img/background/" + image
               ),
               fit: BoxFit.fill)
       ),

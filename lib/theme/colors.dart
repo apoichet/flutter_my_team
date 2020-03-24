@@ -17,7 +17,9 @@ class CustomColors {
   static const OrangeDrawGameState = Color.fromRGBO(255, 153, 51, 1);
   static const RedDefeatGameState = Color.fromRGBO(255, 51, 0, 1);
 
-  static const IndividualCardContainer = Color.fromRGBO(255, 255, 255, 0.1);
+  static const IndividualCardContainerGradientStart = Color.fromRGBO(44, 42, 42, 0.9);
+  static const IndividualCardContainerGradientMiddle = Color.fromRGBO(255, 255, 255, 0.2);
+  static const IndividualCardContainerGradientEnd = Color.fromRGBO(44, 42, 42, 0.0);
 
   static const RaisedButtonBackground = Color.fromRGBO(149, 138, 138, 0.42);
   static const RaisedButtonBorder = Color.fromRGBO(255, 255, 255, 1);

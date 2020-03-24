@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/background_decoration.dart';
+import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/button.dart';
 import 'package:my_team/components/chart/linear_percent_indicator.dart';
 import 'package:my_team/theme/colors.dart';
@@ -14,8 +14,8 @@ class _LoaderState extends State<Loader> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BackgroundDecoration(
-        img: 'background_1.png',
+    return BackgroundImage(
+        image: 'background_1.png',
         child: Container(
           child: Stack(
               children: <Widget>[

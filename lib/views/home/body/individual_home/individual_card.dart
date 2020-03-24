@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/components/background_gradient.dart';
 import 'package:my_team/components/chart/box_circular_chart.dart';
 import 'package:my_team/components/chart/box_linear_chart.dart';
 import 'package:my_team/components/chart/circular_chart.dart';
@@ -42,62 +43,63 @@ class _IndividualCardState extends State<IndividualCard> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      margin: EdgeInsets.all(3),
-      width: size.width * 0.9,
-      alignment: Alignment.center,
-      padding: EdgeInsets.all(2),
-      decoration: BoxDecoration(
-        color: CustomColors.IndividualCardContainer,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Expanded(
-              flex: 2,
-              child: _buildHeader(context)
-          ),
-          Expanded(
-              flex: 5,
-              child: FittedBox(
-                child: buildBody(),
-              )
-          ),
-          Expanded(
-            child: buildFooter(size, context),
-          ),
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: BackgroundGradient(
+        width: size.width * 0.9,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+                flex: 2,
+                child: _buildHeader(context)
+            ),
+            Expanded(
+                flex: 5,
+                child: FittedBox(
+                  child: buildBody(),
+                )
+            ),
+            Expanded(
+              child: buildFooter(size, context),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  Row _buildHeader(BuildContext context) {
-    return Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            flex: 2,
-            child: Container(
-              padding: EdgeInsets.all(3),
-              child: Image.asset(
-                  widget.pathImage + player.avatar + '.'
-                      + widget.definitionImage
+  Widget _buildHeader(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 15),
+      child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+              flex: 2,
+              child: Container(
+                child: Transform.scale(
+                  scale: 1.35,
+                  child: Image.asset(
+                      widget.pathImage + player.avatar + '.png'
+                  ),
+                ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 4,
-            child: FittedBox(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(widget.titleCard,
-                      style: Theme.of(context).textTheme.caption),
-                )
+            Expanded(
+              flex: 4,
+              child: FittedBox(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(widget.titleCard,
+                        style: Theme.of(context).textTheme.caption),
+                  )
+              ),
             ),
-          ),
-        ]);
+          ]),
+    );
   }
 
   Row buildBody() {
@@ -127,7 +129,6 @@ class _IndividualCardState extends State<IndividualCard> {
 
   Widget buildFooter(Size size, BuildContext context) {
     return Container(
-        margin: EdgeInsets.all(5),
         width: size.width * 0.8,
         alignment: Alignment.center,
         decoration: BoxDecoration(
@@ -138,11 +139,13 @@ class _IndividualCardState extends State<IndividualCard> {
             borderRadius: BorderRadius.circular(50)
         ),
         child: FittedBox(
-          child: Padding(
-            padding: const EdgeInsets.all(2),
-            child: Text(
-                player.firstName + " " + player.lastName,
-                style: Theme.of(context).textTheme.caption),
+          fit: BoxFit.fitHeight,
+          child: Row(
+            children: <Widget>[
+              Text(player.firstName, style: TextStyle(fontFamily: 'Arial', fontSize: 21)),
+              Text(" ", style: TextStyle(fontFamily: 'Arial', fontSize: 21)),
+              Text(player.lastName, style: TextStyle(fontFamily: 'Arial', fontSize: 21, fontWeight: FontWeight.bold)),
+            ],
           ),
         )
     );
@@ -283,7 +286,6 @@ class _IndividualCardState extends State<IndividualCard> {
 class IndividualCard extends StatefulWidget {
   final titleCard = 'FIche Individuelle';
   final pathImage = 'assets/img/';
-  final definitionImage = 'png';
 
   @override
   State<StatefulWidget> createState() => _IndividualCardState();
