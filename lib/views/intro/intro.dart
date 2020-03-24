@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/components/circle.dart';
 
 import 'boarding/boardings_builder.dart';
-import 'ready/ready.dart';
+import 'ready/ready_player.dart';
 
 class _IntroState extends State<Intro> {
   var circles;
@@ -85,7 +85,7 @@ class _IntroState extends State<Intro> {
 
   void nextPage(context) {
     if(indexBoarding == widget.boardings.length - 1) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Ready()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => ReadyPlayer()));
     }
     else {
       _controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.linear);

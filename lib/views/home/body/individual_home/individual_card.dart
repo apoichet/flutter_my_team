@@ -10,9 +10,34 @@ import 'package:my_team/components/chart/linear_chart.dart';
 import 'package:my_team/const/charts_size.dart';
 import 'package:my_team/const/charts_title.dart';
 import 'package:my_team/domain/player.dart';
+import 'package:my_team/domain/team.dart';
+import 'package:my_team/services/data_service.dart';
 import 'package:my_team/theme/colors.dart';
 
 class _IndividualCardState extends State<IndividualCard> {
+
+  Player player;
+  int maxGoal;
+  int maxPass;
+  int maxGame;
+  int maxGameTime;
+  int maxMissing;
+  int maxLate;
+  int maxYellowCard;
+
+  @override
+  void initState() {
+    player = getPlayer();
+    Team team = getTeam();
+    maxGoal = team.maxPlayerGoal;
+    maxPass= team.maxPlayerPass;
+    maxGame= team.maxPlayerGame;
+    maxGameTime= team.maxPlayerGameTime;
+    maxMissing= team.maxPlayerMissingGame;
+    maxLate= team.maxPlayerLateGame;
+    maxYellowCard= team.maxPlayerYellowCard;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +82,7 @@ class _IndividualCardState extends State<IndividualCard> {
             child: Container(
               padding: EdgeInsets.all(3),
               child: Image.asset(
-                  widget.pathImage + widget.player.avatar + '.'
+                  widget.pathImage + player.avatar + '.'
                       + widget.definitionImage
               ),
             ),
@@ -116,7 +141,7 @@ class _IndividualCardState extends State<IndividualCard> {
           child: Padding(
             padding: const EdgeInsets.all(2),
             child: Text(
-                widget.player.firstName + " " + widget.player.lastName,
+                player.firstName + " " + player.lastName,
                 style: Theme.of(context).textTheme.caption),
           ),
         )
@@ -169,8 +194,8 @@ class _IndividualCardState extends State<IndividualCard> {
     return CircularChart(
       width: ChartsSize.PASS_CIRCULAR_WIDTH,
       strokeWidth: ChartsSize.PASS_CIRCULAR_STROKE_WIDTH,
-      value: widget.player.nbrPass.toDouble(),
-      valueMax: widget.maxPass.toDouble(),
+      value: player.nbrPass.toDouble(),
+      valueMax: maxPass.toDouble(),
       rounded: true,
       color: CustomColors.PinkChart,
       backgroundColor: CustomColors.PinkChartTransparent,
@@ -181,8 +206,8 @@ class _IndividualCardState extends State<IndividualCard> {
     return CircularChart(
       width: ChartsSize.GOAL_CIRCULAR_WIDTH,
       strokeWidth: ChartsSize.GOAL_CIRCULAR_STROKE_WIDTH,
-      value: widget.player.nbrGoal.toDouble(),
-      valueMax: widget.maxGoal.toDouble(),
+      value: player.nbrGoal.toDouble(),
+      valueMax: maxGoal.toDouble(),
       rounded: true,
       color: CustomColors.BlueChart,
       backgroundColor: CustomColors.BlueChartTransparent,
@@ -193,8 +218,8 @@ class _IndividualCardState extends State<IndividualCard> {
     return CircularChart(
       width: ChartsSize.GAME_TIME_WIDTH,
       strokeWidth: ChartsSize.GAME_TIME_STROKE_WIDTH,
-      value: widget.player.gameTime.toDouble(),
-      valueMax: widget.maxGameTime.toDouble(),
+      value: player.gameTime.toDouble(),
+      valueMax: maxGameTime.toDouble(),
       rounded: true,
       color: CustomColors.GreenChart,
       backgroundColor: CustomColors.GreenChartTransparent,
@@ -205,8 +230,8 @@ class _IndividualCardState extends State<IndividualCard> {
     return CircularChart(
       width: ChartsSize.GAME_PLAYED_WIDTH,
       strokeWidth: ChartsSize.GAME_PLAYED_STROKE_WIDTH,
-      value: widget.player.nbrGame.toDouble(),
-      valueMax: widget.maxGame.toDouble(),
+      value: player.nbrGame.toDouble(),
+      valueMax: maxGame.toDouble(),
       rounded: true,
       color: CustomColors.PinkChart,
       backgroundColor: CustomColors.PinkChartTransparent,
@@ -217,8 +242,8 @@ class _IndividualCardState extends State<IndividualCard> {
     return LinearChart(
       color: CustomColors.BlueChart,
       backgroundColor: CustomColors.BlueChartTransparent,
-      value: widget.player.nbrYellowCard.toDouble(),
-      valueMax: widget.maxYellowCard.toDouble(),
+      value: player.nbrYellowCard.toDouble(),
+      valueMax: maxYellowCard.toDouble(),
       width: ChartsSize.YELLOW_CARD_LINEAR_WIDTH,
       last: true,
     );
@@ -228,8 +253,8 @@ class _IndividualCardState extends State<IndividualCard> {
     return LinearChart(
         color: CustomColors.PinkChart,
         backgroundColor: CustomColors.PinkChartTransparent,
-        value: widget.player.nbrLateGame.toDouble(),
-        valueMax: widget.maxLate.toDouble(),
+        value: player.nbrLateGame.toDouble(),
+        valueMax: maxLate.toDouble(),
         width: ChartsSize.LATE_LINEAR_WIDTH);
   }
 
@@ -237,8 +262,8 @@ class _IndividualCardState extends State<IndividualCard> {
     return LinearChart(
         color: CustomColors.GreenChart,
         backgroundColor: CustomColors.GreenChartTransparent,
-        value: widget.player.nbrMissingGame.toDouble(),
-        valueMax: widget.maxMissing.toDouble(),
+        value: player.nbrMissingGame.toDouble(),
+        valueMax: maxMissing.toDouble(),
         width: ChartsSize.MISSING_LINEAR_WIDTH);
   }
 
@@ -259,25 +284,6 @@ class IndividualCard extends StatefulWidget {
   final titleCard = 'FIche Individuelle';
   final pathImage = 'assets/img/';
   final definitionImage = 'png';
-
-  final Player player;
-  final int maxGoal;
-  final int maxPass;
-  final int maxGame;
-  final int maxGameTime;
-  final int maxMissing;
-  final int maxLate;
-  final int maxYellowCard;
-
-  IndividualCard({
-      this.player,
-      this.maxGoal = 0,
-      this.maxPass = 0,
-      this.maxGame = 0,
-      this.maxGameTime = 0,
-      this.maxMissing = 0,
-      this.maxLate = 0,
-      this.maxYellowCard = 0});
 
   @override
   State<StatefulWidget> createState() => _IndividualCardState();
