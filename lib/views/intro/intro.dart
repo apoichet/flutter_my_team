@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/circle.dart';
+import 'package:my_team/views/intro/boarding/circle.dart';
 
 import 'boarding/boardings_builder.dart';
 import 'ready/ready_player.dart';
