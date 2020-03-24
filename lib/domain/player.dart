@@ -39,8 +39,9 @@ class Player {
 
   factory Player.fromJson(Map<String, dynamic> json) {
     return Player(
-      firstName: json['name'].split(" ")[0],
-      lastName: json['name'].split(" ")[1],
+      firstName: json['firstName'],
+      lastName: json['lastName'],
+      number: json['number'],
       nbrGoal: json['goal'],
       nbrPass: json['decisivePass'],
       nbrGame: json['present'],
