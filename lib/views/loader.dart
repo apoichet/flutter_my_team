@@ -29,7 +29,10 @@ class _LoaderState extends State<Loader> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Text('Un petit instant...', style: Theme.of(context).textTheme.subtitle),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Un petit instant...', style: Theme.of(context).textTheme.subtitle),
+                      ),
                       LinearPercentIndicator(
                         alignment: MainAxisAlignment.center,
                         animationDuration: 1000,

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/theme/colors.dart';
 
-import 'boarding_image.dart';
-
 class Boarding extends StatelessWidget {
 
   const Boarding({
@@ -48,12 +46,12 @@ class Boarding extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 10),
                 child: Text(
                   title,
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.display1,
                 ),
               ),
               Text(
                 description,
-                style: Theme.of(context).textTheme.subtitle,
+                style: Theme.of(context).textTheme.display2,
                 textAlign: TextAlign.center,
               )
             ],
