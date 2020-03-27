@@ -60,6 +60,7 @@ class Player {
       gameTime: json['gameMinute'],
       nbrMissingGame: json['absent'],
       nbrYellowCard: json['yellowCard'],
+      nbrLateGame: json['late']
     );
   }
 }

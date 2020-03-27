@@ -52,6 +52,7 @@ class Team {
     var maxPlayerGameTime = players.map((p) => p.gameTime).reduce(max);
     var maxPlayerMissingGame = players.map((p) => p.nbrMissingGame).reduce(max);
     var maxPlayerYellowCard = players.map((p) => p.nbrYellowCard).reduce(max);
+    var maxPlayerLaterGame = players.map((p) => p.nbrLateGame).reduce(max);
     return Team(
       games: games,
       players: players,
@@ -66,6 +67,7 @@ class Team {
       maxPlayerGameTime : maxPlayerGameTime,
       maxPlayerMissingGame : maxPlayerMissingGame,
       maxPlayerYellowCard : maxPlayerYellowCard,
+      maxPlayerLateGame: maxPlayerLaterGame
     );
   }
 }
