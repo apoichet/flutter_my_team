@@ -3,9 +3,21 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/services/number_service.dart';
+import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
+import 'package:my_team/theme/font_family.dart';
 
 import 'circular_chart.dart';
+
+
+class BoxCircularChart extends StatefulWidget {
+  final List<CircularChart> circularCharts;
+
+  const BoxCircularChart(this.circularCharts, {Key key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _BoxCircularChartState();
+}
 
 class _BoxCircularChartState extends State<BoxCircularChart> {
 
@@ -27,10 +39,11 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
   }
 
   _buildHeader() {
-    List<Text> texts = widget.circularCharts.map((chart) => _buildTextHeader(chart)).toList();
+    List<Text> texts = widget.circularCharts.map((chart) =>
+        _buildTextHeader(chart)).toList();
     return Row(
-      mainAxisSize: MainAxisSize.max,
-      children: _joinTextWidgets(texts)
+        mainAxisSize: MainAxisSize.max,
+        children: _joinTextWidgets(texts)
     );
   }
 
@@ -39,7 +52,13 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
     if (chart.rounded) {
       text = chart.value.round().toString();
     }
-    return Text(text, style: _getChartNumberStyle(chart.valueColor));
+    return buildWidgetText(
+        text: text,
+        family: FontFamily.ARIAL,
+        weight: FontWeight.bold,
+        size: 24,
+        color: chart.valueColor
+    );
   }
 
   _joinTextWidgets(List<Text> texts) {
@@ -47,7 +66,11 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
     for (var text in texts) {
       textsJoined.add(text);
       if (text != texts.last) {
-        textsJoined.add(Text('/', style: Theme.of(context).textTheme.subtitle));
+        textsJoined.add(buildWidgetText(
+            text: '/',
+            family: FontFamily.ARIAL,
+            size: 15
+        ));
       }
     }
     return textsJoined;
@@ -58,7 +81,7 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
     for (var chart in widget.circularCharts) {
       if (chart == widget.circularCharts.first) {
         charts.add(
-          chart
+            chart
         );
       } else {
         charts.add(
@@ -74,22 +97,4 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
     );
   }
 
-  _getChartNumberStyle(color) {
-    return TextStyle(
-        color: color,
-        fontFamily: 'Avenir',
-        fontWeight: FontWeight.bold,
-        fontSize: 24
-    );
-  }
-
-}
-
-class BoxCircularChart extends StatefulWidget {
-  final List<CircularChart> circularCharts;
-
-  const BoxCircularChart(this.circularCharts, {Key key}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _BoxCircularChartState();
 }

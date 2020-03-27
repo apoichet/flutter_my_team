@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/game.dart';
 import 'package:my_team/domain/game_state.dart';
+import 'package:my_team/services/widget_service.dart';
+import 'package:my_team/theme/font_family.dart';
 
 import 'game_state_icon.dart';
 
@@ -11,7 +13,12 @@ class _TeamHealthState extends State<TeamHealth> {
     return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          Text('Forme du moment', textAlign: TextAlign.end, style: Theme.of(context).textTheme.title),
+          buildWidgetText(
+              text: "Forme du moment",
+              family: FontFamily.ARIAL,
+              size: 22,
+              weight: FontWeight.bold
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children:

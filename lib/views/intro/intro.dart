@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/services/widget_service.dart';
+import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/intro/circle.dart';
 
 import 'boarding/boardings_builder.dart';
@@ -59,7 +61,12 @@ class _IntroState extends State<Intro> {
                 Expanded(
                     child: GestureDetector(
                         onTap: () =>  _controller.previousPage(duration: Duration(milliseconds: 300), curve: Curves.linear),
-                        child: Text(indexBoarding == 0 ? '' : widget.previous, textAlign: TextAlign.center, style: Theme.of(context).textTheme.subhead)
+                        child: buildWidgetText(
+                            text: indexBoarding == 0 ? '' : widget.previous,
+                            family: FontFamily.ARIAL,
+                            size: 17,
+                            weight: FontWeight.bold
+                        )
                     )
                 ),
                 Expanded(
@@ -72,7 +79,12 @@ class _IntroState extends State<Intro> {
                 Expanded(
                     child: GestureDetector(
                         onTap: () => nextPage(context),
-                        child: Text(widget.next, textAlign: TextAlign.center, style: Theme.of(context).textTheme.subhead)
+                        child: buildWidgetText(
+                            text: widget.next,
+                            family: FontFamily.ARIAL,
+                            size: 17,
+                            weight: FontWeight.bold
+                        )
                     )
                 ),
               ],

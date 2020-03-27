@@ -3,8 +3,40 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/services/number_service.dart';
+import 'package:my_team/services/widget_service.dart';
+import 'package:my_team/theme/font_family.dart';
 
 import 'linear_percent_indicator.dart';
+
+class LinearChart extends StatefulWidget {
+  final double width;
+  final Color color;
+  final Color backgroundColor;
+  final Color valueColor;
+  final LinearGradient linearGradient;
+  final double value;
+  final double valueMax;
+  final bool rounded;
+  final bool last;
+
+  const LinearChart(
+      {Key key,
+        @required this.width,
+        @required this.color,
+        @required this.backgroundColor,
+        @required this.valueColor,
+        this.value = 0.0,
+        this.linearGradient,
+        @required this.valueMax,
+        this.rounded = true,
+        this.last = false,
+      }
+      ) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _LinearChartState();
+}
+
 
 class _LinearChartState extends State<LinearChart> {
 
@@ -52,57 +84,24 @@ class _LinearChartState extends State<LinearChart> {
     if (widget.rounded) {
       text = widget.value.round().toString();
     }
-    return Text(text, style: _getChartNumberStyle(widget.valueColor));
+    return buildWidgetText(
+        text: text,
+        color: widget.valueColor,
+        family: FontFamily.ARIAL,
+        size: 24,
+        weight: FontWeight.bold
+    );
   }
 
   _joinTextHeader() {
     if(widget.last) {
-      return Text('');
+      return SizedBox.shrink();
     }
-    return Text('/', style: Theme.of(context).textTheme.subtitle);
-  }
-
-
-  double roundDouble(double value, int places){
-    double mod = pow(10.0, places);
-    return ((value * mod).round().toDouble() / mod);
-  }
-
-  _getChartNumberStyle(color) {
-    return TextStyle(
-        color: color,
-        fontFamily: 'Avenir',
-        fontWeight: FontWeight.bold,
-        fontSize: 24
+    return buildWidgetText(
+        text: '/',
+        family: FontFamily.ARIAL,
+        size: 15
     );
   }
-}
 
-class LinearChart extends StatefulWidget {
-  final double width;
-  final Color color;
-  final Color backgroundColor;
-  final Color valueColor;
-  final LinearGradient linearGradient;
-  final double value;
-  final double valueMax;
-  final bool rounded;
-  final bool last;
-
-  const LinearChart(
-      {Key key,
-        @required this.width,
-        @required this.color,
-        @required this.backgroundColor,
-        @required this.valueColor,
-        this.value = 0.0,
-        this.linearGradient,
-        @required this.valueMax,
-        this.rounded = true,
-        this.last = false,
-      }
-      ) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _LinearChartState();
 }

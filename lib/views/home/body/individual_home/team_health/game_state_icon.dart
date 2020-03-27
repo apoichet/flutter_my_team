@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/game_state.dart';
+import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
+import 'package:my_team/theme/font_family.dart';
 
 class _GameStateIconState extends State<GameStateIcon> {
 
@@ -26,10 +28,12 @@ class _GameStateIconState extends State<GameStateIcon> {
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(12)
       ),
-      child: Text(
-          letter,
-          style: Theme.of(context).textTheme.title
-      ),
+      child: buildWidgetText(
+          text: letter,
+          family: FontFamily.ARIAL,
+          weight: FontWeight.bold,
+          size: 25
+      )
     );
   }
 

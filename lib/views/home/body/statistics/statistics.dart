@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/player.dart';
+import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
+import 'package:my_team/theme/font_family.dart';
 
 class _StatisticsState extends State<Statistics> {
 
@@ -34,7 +36,12 @@ class _StatisticsState extends State<Statistics> {
         borderRadius: BorderRadius.circular(50)
       ),
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        child: Text('Satistiques', style: Theme.of(context).textTheme.caption)
+        child: buildWidgetText(
+            text: "Prochain Match",
+            family: FontFamily.ARIAL,
+            size: 25,
+            weight: FontWeight.bold
+        )
     );
   }
 
@@ -42,29 +49,23 @@ class _StatisticsState extends State<Statistics> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        Text('Individuel', style: Theme.of(context).textTheme.caption),
-        Text('Collectives', style: Theme.of(context).textTheme.caption)
+        buildWidgetText(
+            text: "Individuel",
+            family: FontFamily.ARIAL,
+            size: 25,
+            weight: FontWeight.bold
+        ),
+        buildWidgetText(
+            text: "Collectives",
+            family: FontFamily.ARIAL,
+            size: 25,
+            weight: FontWeight.bold
+        )
       ]
     );
   }
 
   _buildSwipe() {
-    /*return Swiper(
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration:
-              BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: CustomColors.PinkChartTransparent,
-              ),
-
-            ),
-          );
-        },
-        itemCount: 2
-    );*/
 
   }
 

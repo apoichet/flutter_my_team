@@ -29,14 +29,6 @@ class _CircularChartState extends State<CircularChart> {
       linearGradient: widget.color != null ? null : widget.linearGradient,
     );
   }
-
-  _getPercent() {
-    var percent = widget.value / widget.valueMax;
-    if(percent.isNaN) {
-      return 0.0;
-    }
-    return percent;
-  }
 }
 
 class CircularChart extends StatefulWidget {

@@ -214,7 +214,7 @@ class _IndividualCardState extends State<IndividualCard> {
       valueMax: widget.maxPass.toDouble(),
       rounded: true,
       backgroundColor: CustomColors.RedTransparent,
-      valueColor: CustomColors.RedGradientEnd,
+      valueColor: CustomColors.RedGradientStart,
       linearGradient: LinearGradient(
           colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
       ),
@@ -305,12 +305,11 @@ class _IndividualCardState extends State<IndividualCard> {
   _buildFooter(String footer) {
     return Padding(
       padding: const EdgeInsets.all(3.0),
-      child: Text(footer,
-          textAlign: TextAlign.center,
-          maxLines: 2,
-          softWrap: true,
-          overflow: TextOverflow.ellipsis,
-          style: Theme.of(context).textTheme.body2),
+      child: buildWidgetText(
+          text: footer,
+          family: FontFamily.ARIAL,
+          size: 12
+      ),
     );
   }
 }

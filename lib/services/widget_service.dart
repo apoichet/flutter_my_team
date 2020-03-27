@@ -7,14 +7,15 @@ Text buildWidgetText({
   double size = 12.0,
   FontFamily family = FontFamily.MONTSERRAT,
   FontWeight weight =  FontWeight.normal,
-  TextAlign align = TextAlign.center
+  TextAlign align = TextAlign.center,
+  Color color = Colors.white
 }) {
   return Text(
       text,
       textAlign: align,
       style: TextStyle(
           decoration: TextDecoration.none,
-          color: Colors.white,
+          color: color,
           fontSize: size,
           fontFamily: getFontFamily(family),
           fontWeight: weight

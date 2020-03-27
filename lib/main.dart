@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_team/theme/fonts.dart';
 
 import 'views/starter.dart';
 
@@ -14,8 +13,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         accentColor: Colors.white,
-        primaryColor: Colors.red,
-        textTheme: buildTextTheme()
+        primaryColor: Colors.red
       ),
       home: Starter()
     );
