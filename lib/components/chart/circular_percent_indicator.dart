@@ -153,7 +153,8 @@ class _CircularPercentIndicatorState extends State<CircularPercentIndicator>
   @override
   void didUpdateWidget(CircularPercentIndicator oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.percent != widget.percent ||
+    if (oldWidget != widget ||
+        oldWidget.percent != widget.percent ||
         oldWidget.startAngle != widget.startAngle) {
       if (_animationController != null) {
         _animationController.duration =

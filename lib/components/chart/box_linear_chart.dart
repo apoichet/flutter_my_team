@@ -29,7 +29,7 @@ class _BoxLinearChartState extends State<BoxLinearChart> {
 
 class BoxLinearChart extends StatefulWidget {
   final List<LinearChart> linearCharts;
-  const BoxLinearChart({Key key, this.linearCharts}) : super(key: key);
+  const BoxLinearChart(this.linearCharts, {Key key}) : super(key: key);
   @override
   State<StatefulWidget> createState() => _BoxLinearChartState();
 }

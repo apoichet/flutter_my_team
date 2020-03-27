@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/services/number_service.dart';
 
 import 'linear_percent_indicator.dart';
 
@@ -11,14 +12,8 @@ class _LinearChartState extends State<LinearChart> {
 
   @override
   void initState() {
-    percent = _calculPercent();
+    percent = calcPercent(widget.value, widget.valueMax);
     super.initState();
-  }
-
-  @override
-  void didUpdateWidget(LinearChart oldWidget) {
-    percent = _calculPercent();
-    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -80,14 +75,6 @@ class _LinearChartState extends State<LinearChart> {
         fontWeight: FontWeight.bold,
         fontSize: 24
     );
-  }
-
-  _calculPercent() {
-    var percent = widget.value / widget.valueMax;
-    if(percent.isNaN) {
-      return 0.0;
-    }
-    return percent;
   }
 }
 

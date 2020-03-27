@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_gradient.dart';
 import 'package:my_team/components/chart/box_circular_chart.dart';
@@ -14,30 +13,48 @@ import 'package:my_team/const/charts_title.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/domain/team.dart';
 import 'package:my_team/services/data_service.dart';
+import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
+import 'package:my_team/theme/font_family.dart';
+
+class IndividualCard extends StatefulWidget {
+  static Team team = getTeam();
+
+  final titleCard = 'FIche individuelle';
+  final pathImage = 'assets/img/player/';
+  final Player player = getPlayer();
+  final int maxGoal = team.maxPlayerGoal;
+  final int maxPass = team.maxPlayerPass;
+  final int maxGame = team.maxPlayerGame;
+  final int maxGameTime = team.maxPlayerGameTime;
+  final int maxMissing = team.maxPlayerMissingGame;
+  final int maxLate = team.maxPlayerLateGame;
+  final int maxYellowCard = team.maxPlayerYellowCard;
+
+  @override
+  State<StatefulWidget> createState() => _IndividualCardState();
+}
 
 class _IndividualCardState extends State<IndividualCard> {
 
-  Player player;
-  int maxGoal;
-  int maxPass;
-  int maxGame;
-  int maxGameTime;
-  int maxMissing;
-  int maxLate;
-  int maxYellowCard;
+  CircularChart chartGoal;
+  CircularChart chartPass;
+  CircularChart chartGame;
+  CircularChart chartGameTime;
+
+  LinearChart chartMissing;
+  LinearChart chartLate;
+  LinearChart chartYellowCard;
 
   @override
   void initState() {
-    player = getPlayer();
-    Team team = getTeam();
-    maxGoal = team.maxPlayerGoal;
-    maxPass= team.maxPlayerPass;
-    maxGame= team.maxPlayerGame;
-    maxGameTime= team.maxPlayerGameTime;
-    maxMissing= team.maxPlayerMissingGame;
-    maxLate= team.maxPlayerLateGame;
-    maxYellowCard= team.maxPlayerYellowCard;
+    chartPass = _buildChartPass();
+    chartGame = _buildChartGame();
+    chartGoal = _buildChartGoal();
+    chartGameTime = _buildChartGameTime();
+    chartMissing = _buildChartMissing();
+    chartLate = _buildChartLate();
+    chartYellowCard = _buildChartYellowCard();
     super.initState();
   }
 
@@ -81,8 +98,8 @@ class _IndividualCardState extends State<IndividualCard> {
             child: Container(
               padding: const EdgeInsets.only(top: 20),
               child: Transform.scale(
-                scale: 1.4,
-                child: Image.asset("assets/img/player/" + player.avatar + ".png")
+                  scale: 1.4,
+                  child: Image.asset("assets/img/player/" + player.avatar + ".png")
               ),
             ),
           ),
@@ -90,13 +107,13 @@ class _IndividualCardState extends State<IndividualCard> {
             flex: 4,
             child: FittedBox(
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: Text(widget.titleCard,
-                      style: TextStyle(
-                          fontFamily: 'Arial',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25
-                      )),
+                    padding: const EdgeInsets.only(right: 10),
+                    child: buildWidgetText(
+                        text: widget.titleCard,
+                        family: FontFamily.ARIAL,
+                        weight: FontWeight.bold,
+                        size: 25
+                    )
                 )
             ),
           ),
@@ -110,17 +127,17 @@ class _IndividualCardState extends State<IndividualCard> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         _buildChart(
-            _buildGoalPassCircularCharts(),
+            BoxCircularChart([chartGoal, chartPass]),
             _buildFooter(ChartsTitle.GOAL_CIRCULAR_TITLE + ' /\n' +
                 ChartsTitle.PASS_CIRCULAR_TITLE)
         ),
         _buildChart(
-            _buildGameTimeCircularCharts(),
+            BoxCircularChart([chartGame, chartGameTime]),
             _buildFooter(ChartsTitle.GAME_PLAYED_TITLE + ' /\n' +
                 ChartsTitle.GAME_TIME_TITLE)
         ),
         _buildChart(
-          _buildMissingLateCardLinearCharts(),
+          BoxLinearChart([chartMissing, chartLate, chartYellowCard]),
           _buildFooter(ChartsTitle.MISSING_LINEAR_TITLE + ' /\n' +
               ChartsTitle.LATE_LINEAR_TITLE + ' / ' +
               ChartsTitle.YELLOW_CARD_LINEAR_TITLE),
@@ -140,17 +157,40 @@ class _IndividualCardState extends State<IndividualCard> {
             ),
             borderRadius: BorderRadius.circular(50)
         ),
-        child: FittedBox(
-          fit: BoxFit.fitHeight,
-          child: Row(
-            children: <Widget>[
-              Text(player.firstName, style: TextStyle(fontFamily: 'Arial', fontSize: 21)),
-              Text(" ", style: TextStyle(fontFamily: 'Arial', fontSize: 21)),
-              Text(player.lastName, style: TextStyle(fontFamily: 'Arial', fontSize: 21, fontWeight: FontWeight.bold)),
-            ],
+        child: GestureDetector(
+          onDoubleTap: _doubleTap,
+          child: FittedBox(
+            fit: BoxFit.fitHeight,
+            child: Row(
+              children: <Widget>[
+                buildWidgetText(
+                    text: player.firstName + " ",
+                    family: FontFamily.ARIAL,
+                    size: 21
+                ),
+                buildWidgetText(
+                    text: player.lastName,
+                    family: FontFamily.ARIAL,
+                    size: 21,
+                    weight: FontWeight.bold
+                )
+              ],
+            ),
           ),
         )
     );
+  }
+
+  _doubleTap() {
+    setState(() {
+      chartPass = _buildChartPass();
+      chartGameTime = _buildChartGameTime();
+      chartGoal = _buildChartGoal();
+      chartGame = _buildChartGame();
+      chartYellowCard = _buildChartYellowCard();
+      chartLate = _buildChartLate();
+      chartMissing = _buildChartMissing();
+    });
   }
 
   Widget _buildChart(Widget chart, Widget footer) {
@@ -166,41 +206,12 @@ class _IndividualCardState extends State<IndividualCard> {
     );
   }
 
-  BoxCircularChart _buildGoalPassCircularCharts() {
-    return BoxCircularChart(
-        circularCharts: [
-          _buildCircularGoalChart(),
-          _buildCircularPassChart()
-        ]
-    );
-  }
-
-  BoxCircularChart _buildGameTimeCircularCharts() {
-    return BoxCircularChart(
-        circularCharts: [
-          _buildCircularGameChart(),
-          _buildCircularGameTimeChart()
-        ]
-    );
-  }
-
-  BoxLinearChart _buildMissingLateCardLinearCharts() {
-    return BoxLinearChart(
-      linearCharts:
-      [
-        _buildLinearMissingChart(),
-        _buildLinearLateChart(),
-        _buildLinearYellowCardChart()
-      ],
-    );
-  }
-
-  CircularChart _buildCircularPassChart() {
+  CircularChart _buildChartPass() {
     return CircularChart(
       width: ChartsSize.PASS_CIRCULAR_WIDTH,
       strokeWidth: ChartsSize.PASS_CIRCULAR_STROKE_WIDTH,
-      value: player.nbrPass.toDouble(),
-      valueMax: maxPass.toDouble(),
+      value: widget.player.nbrPass.toDouble(),
+      valueMax: widget.maxPass.toDouble(),
       rounded: true,
       backgroundColor: CustomColors.RedTransparent,
       valueColor: CustomColors.RedGradientEnd,
@@ -210,12 +221,12 @@ class _IndividualCardState extends State<IndividualCard> {
     );
   }
 
-  CircularChart _buildCircularGoalChart() {
+  CircularChart _buildChartGoal() {
     return CircularChart(
       width: ChartsSize.GOAL_CIRCULAR_WIDTH,
       strokeWidth: ChartsSize.GOAL_CIRCULAR_STROKE_WIDTH,
-      value: player.nbrGoal.toDouble(),
-      valueMax: maxGoal.toDouble(),
+      value: widget.player.nbrGoal.toDouble(),
+      valueMax: widget.maxGoal.toDouble(),
       rounded: true,
       backgroundColor: CustomColors.OrangeTransparent,
       valueColor: CustomColors.OrangeGradientStart,
@@ -225,12 +236,12 @@ class _IndividualCardState extends State<IndividualCard> {
     );
   }
 
-  CircularChart _buildCircularGameTimeChart() {
+  CircularChart _buildChartGameTime() {
     return CircularChart(
       width: ChartsSize.GAME_TIME_WIDTH,
       strokeWidth: ChartsSize.GAME_TIME_STROKE_WIDTH,
-      value: player.gameTime.toDouble(),
-      valueMax: maxGameTime.toDouble(),
+      value: widget.player.gameTime.toDouble(),
+      valueMax: widget.maxGameTime.toDouble(),
       rounded: true,
       backgroundColor: CustomColors.OrangeTransparent,
       valueColor: CustomColors.OrangeGradientStart,
@@ -240,12 +251,12 @@ class _IndividualCardState extends State<IndividualCard> {
     );
   }
 
-  CircularChart _buildCircularGameChart() {
+  CircularChart _buildChartGame() {
     return CircularChart(
       width: ChartsSize.GAME_PLAYED_WIDTH,
       strokeWidth: ChartsSize.GAME_PLAYED_STROKE_WIDTH,
-      value: player.nbrGame.toDouble(),
-      valueMax: maxGame.toDouble(),
+      value: widget.player.nbrGame.toDouble(),
+      valueMax: widget.maxGame.toDouble(),
       rounded: true,
       backgroundColor: CustomColors.RedTransparent,
       valueColor: CustomColors.RedGradientEnd,
@@ -255,12 +266,12 @@ class _IndividualCardState extends State<IndividualCard> {
     );
   }
 
-  LinearChart _buildLinearYellowCardChart() {
+  LinearChart _buildChartYellowCard() {
     return LinearChart(
       valueColor: CustomColors.OrangeGradientStart,
       backgroundColor: CustomColors.OrangeTransparent,
-      value: player.nbrYellowCard.toDouble(),
-      valueMax: maxYellowCard.toDouble(),
+      value: widget.player.nbrYellowCard.toDouble(),
+      valueMax: widget.maxYellowCard.toDouble(),
       width: ChartsSize.YELLOW_CARD_LINEAR_WIDTH,
       last: true,
       linearGradient: LinearGradient(
@@ -269,25 +280,25 @@ class _IndividualCardState extends State<IndividualCard> {
     );
   }
 
-  LinearChart _buildLinearLateChart() {
+  LinearChart _buildChartLate() {
     return LinearChart(
         valueColor: CustomColors.RedGradientEnd,
         backgroundColor: CustomColors.RedTransparent,
-        value: player.nbrLateGame.toDouble(),
-        valueMax: maxLate.toDouble(),
+        value: widget.player.nbrLateGame.toDouble(),
+        valueMax: widget.maxLate.toDouble(),
         width: ChartsSize.LATE_LINEAR_WIDTH,
         linearGradient: LinearGradient(
             colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
         ));
   }
 
-  LinearChart _buildLinearMissingChart() {
+  LinearChart _buildChartMissing() {
     return LinearChart(
         color: CustomColors.GreenApple,
         valueColor: CustomColors.GreenApple,
         backgroundColor: CustomColors.GreenAppleTransparent,
-        value: player.nbrMissingGame.toDouble(),
-        valueMax: maxMissing.toDouble(),
+        value: widget.player.nbrMissingGame.toDouble(),
+        valueMax: widget.maxMissing.toDouble(),
         width: ChartsSize.MISSING_LINEAR_WIDTH);
   }
 
@@ -304,10 +315,4 @@ class _IndividualCardState extends State<IndividualCard> {
   }
 }
 
-class IndividualCard extends StatefulWidget {
-  final titleCard = 'FIche individuelle';
-  final pathImage = 'assets/img/player/';
 
-  @override
-  State<StatefulWidget> createState() => _IndividualCardState();
-}

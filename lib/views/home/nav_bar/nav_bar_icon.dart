@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:my_team/services/widget_service.dart';
+import 'package:my_team/theme/font_family.dart';
 
 class NavBarIcon extends StatelessWidget {
   final String pathIcon;
@@ -29,11 +31,11 @@ class NavBarIcon extends StatelessWidget {
                   fit: BoxFit.fill,
                   semanticsLabel: 'Nav Bar Icon')
           ),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.body2,
+          buildWidgetText(
+              text: title,
+              family: FontFamily.ARIAL,
+              size: 12
           )
-
         ],
       ),
     );

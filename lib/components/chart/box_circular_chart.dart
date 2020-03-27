@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/services/number_service.dart';
 import 'package:my_team/theme/colors.dart';
 
 import 'circular_chart.dart';
@@ -52,12 +53,6 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
     return textsJoined;
   }
 
-
-  double roundDouble(double value, int places){
-    double mod = pow(10.0, places);
-    return ((value * mod).round().toDouble() / mod);
-  }
-
   _buildCharts() {
     var charts = <Widget>[];
     for (var chart in widget.circularCharts) {
@@ -79,8 +74,6 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
     );
   }
 
-
-
   _getChartNumberStyle(color) {
     return TextStyle(
         color: color,
@@ -95,7 +88,7 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
 class BoxCircularChart extends StatefulWidget {
   final List<CircularChart> circularCharts;
 
-  const BoxCircularChart({Key key, this.circularCharts}) : super(key: key);
+  const BoxCircularChart(this.circularCharts, {Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _BoxCircularChartState();

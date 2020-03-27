@@ -145,7 +145,7 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
   @override
   void didUpdateWidget(LinearPercentIndicator oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.percent != widget.percent) {
+    if (oldWidget != widget || oldWidget.percent != widget.percent) {
       if (_animationController != null) {
         _animationController.duration =
             Duration(milliseconds: widget.animationDuration);
