@@ -132,7 +132,12 @@ class _CircularPercentIndicatorState extends State<CircularPercentIndicator>
           vsync: this,
           duration: Duration(milliseconds: widget.animationDuration));
       _animation =
-      Tween(begin: 0.0, end: widget.percent).animate(_animationController)
+      Tween(begin: 0.0, end: widget.percent).animate(
+          CurvedAnimation(
+              parent: _animationController,
+              curve: Curves.easeInToLinear
+          )
+      )
         ..addListener(() {
           setState(() {
             _percent = _animation.value;

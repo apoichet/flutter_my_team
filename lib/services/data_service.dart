@@ -8,10 +8,9 @@ var team;
 var player;
 
 Future<Team> fetchData() async {
-  final response = await Future.delayed(new Duration(seconds: 2), () {
-    return rootBundle.loadString('assets/data/data.json');
-  });
-  return Team.fromJson(json.decode(response));
+  String data = await rootBundle.loadString('assets/data/data.json');
+  await Future.delayed(new Duration(milliseconds: 2000));
+  return Team.fromJson(json.decode(data));
 }
 
 void setTeam(Team teamSet) {
