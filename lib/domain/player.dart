@@ -27,10 +27,9 @@ class Player {
   }
 
   buildAvatar() async {
-    await rootBundle.load("assets/img/player/" + this.getId() + ".png").then((value) {
+    rootBundle.load("assets/img/player/" + this.getId() + ".png").then((value) {
       this.avatar = this.getId();
     }).catchError((_) {
-      print("Error avatar nor found");
       this.avatar = "avatar";
     });
   }

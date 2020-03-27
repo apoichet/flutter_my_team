@@ -39,7 +39,7 @@ class Team {
 
   factory Team.fromJson(Map<String, dynamic> json) {
     List<Player> players = (json['players'] as List).map((p) => Player.fromJson(p)).toList();
-    //players.forEach((p) => p.buildAvatar());
+    players.forEach((p) => p.buildAvatar());
     List<Game> games = (json['games'] as List).map((g) => Game.fromJson(g)).toList();
     var nbrTeamGoal = players.map((p) => p.nbrGoal).reduce((goal1, goal2) => goal1 + goal2);
     var nbrTeamPass = players.map((p) => p.nbrPass).reduce((pass1, pass2) => pass1 + pass2);

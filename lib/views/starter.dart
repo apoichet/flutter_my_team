@@ -14,14 +14,23 @@ class Starter extends StatefulWidget {
 }
 
 class _StarterState extends State<Starter> {
+
+  Future<StarterResponse> _future;
+
+  @override
+  void initState() {
+    _future = Future.wait([fetchData(), getUser()])
+        .then((futuresResponse) => StarterResponse(
+        team: futuresResponse[0],
+        user: futuresResponse[1]
+    ));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: Future.wait([fetchData(), getUser()])
-            .then((futuresResponse) => StarterResponse(
-            team: futuresResponse[0],
-            user: futuresResponse[1]
-        )),
+        future: _future,
         builder: (BuildContext context, AsyncSnapshot<StarterResponse> snapshot) {
           if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
             return _evaluateResponse(snapshot.data);
