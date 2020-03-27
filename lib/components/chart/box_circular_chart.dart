@@ -24,6 +24,7 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 3.0),
       decoration: BoxDecoration(
           color: CustomColors.BlackBackgroundChart,
           borderRadius: BorderRadius.circular(5)
@@ -89,11 +90,8 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
         );
       }
     }
-    return Padding(
-      padding: const EdgeInsets.all(3.0),
-      child: Stack(
-        children: charts,
-      ),
+    return Stack(
+      children: charts,
     );
   }
 

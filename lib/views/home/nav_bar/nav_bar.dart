@@ -11,7 +11,7 @@ class _AppNavBarState extends State<AppNavBar> {
     return BottomAppBar(
       color: CustomColors.AppBarBackground,
       child: Container(
-        height: 80,
+        height: 75,
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

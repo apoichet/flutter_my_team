@@ -61,30 +61,23 @@ class _IndividualCardState extends State<IndividualCard> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: BackgroundGradient(
-        width: size.width * 0.9,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Expanded(
-                flex: 2,
-                child: _buildHeader(context)
-            ),
-            Expanded(
-                flex: 5,
-                child: FittedBox(
-                  child: _buildBody(),
-                )
-            ),
-            Expanded(
-              child: buildFooter(size, context),
-            ),
-          ],
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Expanded(
+            flex: 2,
+            child: _buildHeader(context)
         ),
-      ),
+        Expanded(
+            flex: 5,
+            child: FittedBox(
+              child: _buildBody(),
+            )
+        ),
+        Expanded(
+          child: buildFooter(),
+        ),
+      ],
     );
   }
 
@@ -94,17 +87,17 @@ class _IndividualCardState extends State<IndividualCard> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Expanded(
-            flex: 2,
+            flex: 1,
             child: Container(
               padding: const EdgeInsets.only(top: 20),
               child: Transform.scale(
-                  scale: 1.4,
+                  scale: 1.3,
                   child: Image.asset("assets/img/player/" + player.avatar + ".png")
               ),
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 2,
             child: FittedBox(
                 child: Padding(
                     padding: const EdgeInsets.only(right: 10),
@@ -124,7 +117,6 @@ class _IndividualCardState extends State<IndividualCard> {
   Widget _buildBody() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         _buildChart(
             BoxCircularChart([chartGoal, chartPass]),
@@ -146,9 +138,8 @@ class _IndividualCardState extends State<IndividualCard> {
     );
   }
 
-  Widget buildFooter(Size size, BuildContext context) {
+  Widget buildFooter() {
     return Container(
-        width: size.width * 0.8,
         alignment: Alignment.center,
         decoration: BoxDecoration(
             border: Border.all(
@@ -195,7 +186,7 @@ class _IndividualCardState extends State<IndividualCard> {
 
   Widget _buildChart(Widget chart, Widget footer) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(5.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
@@ -214,7 +205,7 @@ class _IndividualCardState extends State<IndividualCard> {
       valueMax: widget.maxPass.toDouble(),
       rounded: true,
       backgroundColor: CustomColors.RedTransparent,
-      valueColor: CustomColors.RedGradientStart,
+      valueColor: CustomColors.RedGradientEnd,
       linearGradient: LinearGradient(
           colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
       ),

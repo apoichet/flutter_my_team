@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/game.dart';
 import 'package:my_team/domain/game_state.dart';
+import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/widget_service.dart';
+import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
 
 import 'game_state_icon.dart';
 
-class _TeamHealthState extends State<TeamHealth> {
+class TeamHealth extends StatelessWidget {
+  final List<Game> lastGames = getTeam().games.sublist(0, 5);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,40 +20,37 @@ class _TeamHealthState extends State<TeamHealth> {
           buildWidgetText(
               text: "Forme du moment",
               family: FontFamily.ARIAL,
-              size: 22,
+              size: 19,
               weight: FontWeight.bold
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children:
-              _buildGameState([
-                GameState.DRAW,
-                GameState.VICTORY,
-                GameState.VICTORY,
-                GameState.VICTORY,
-                GameState.DEFEAT,
-              ])
-            ,
+            children: lastGames.map((game) =>
+                _buildGameStateIcon(game.state)).toList(),
           )
         ]
     );
   }
 
-  _buildGameState(List<GameState> states) {
-    var gameStates = <GameStateIcon>[];
-    for (final state in states) {
-      gameStates.add(GameStateIcon(state: state));
+   Widget _buildGameStateIcon(GameState state) {
+    switch(state) {
+      case GameState.DEFEAT :
+        return GameStateIconState(
+          letter: 'D',
+          color: CustomColors.RedDefeatGameState,
+        );
+      case GameState.DRAW :
+        return GameStateIconState(
+          letter: 'N',
+          color: CustomColors.OrangeDrawGameState,
+        );
+      case GameState.VICTORY:
+        return GameStateIconState(
+          letter: 'V',
+          color: CustomColors.GreenVictoryGameState,
+        );
     }
-    return gameStates;
+    return SizedBox.shrink();
+
   }
-
-}
-
-class TeamHealth extends StatefulWidget {
-  final List<Game> lastGames;
-
-  TeamHealth({this.lastGames});
-
-  @override
-  State<StatefulWidget> createState() => _TeamHealthState();
 }

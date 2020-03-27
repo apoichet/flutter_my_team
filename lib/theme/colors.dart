@@ -23,13 +23,13 @@ class CustomColors {
   static const GreenChart = Color.fromRGBO(173, 255, 47, 1);
   static const GreenChartTransparent = Color.fromRGBO(173, 255, 47, 0.2);
 
-  static const GreenVictoryGameState = GreenApple;
-  static const OrangeDrawGameState = OrangeGradientStart;
-  static const RedDefeatGameState = RedGradientStart;
+  static const GreenVictoryGameState = Color.fromRGBO(145, 203, 38, 1.0);
+  static const OrangeDrawGameState = Color.fromRGBO(254, 127, 0, 1.0);
+  static const RedDefeatGameState = Color.fromRGBO(204, 0, 20, 1.0);
 
   static const IndividualCardContainerGradientStart = Color.fromRGBO(44, 42, 42, 0.9);
   static const IndividualCardContainerGradientMiddle = Color.fromRGBO(255, 255, 255, 0.2);
-  static const IndividualCardContainerGradientEnd = Color.fromRGBO(44, 42, 42, 0.0);
+  static const IndividualCardContainerGradientEnd = Color.fromRGBO(255, 255, 255, 0);
 
   static const RaisedButtonBackground = Color.fromRGBO(149, 138, 138, 0.42);
   static const RaisedButtonBorder = Color.fromRGBO(255, 255, 255, 1);

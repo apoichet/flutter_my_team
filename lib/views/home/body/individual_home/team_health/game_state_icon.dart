@@ -1,72 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/domain/game_state.dart';
 import 'package:my_team/services/widget_service.dart';
-import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
 
-class _GameStateIconState extends State<GameStateIcon> {
+class GameStateIconState extends StatelessWidget {
 
-  var color;
-  var letter;
+  final Color color;
+  final String letter;
 
-  @override
-  void initState() {
-    _getState();
-    super.initState();
-  }
+  GameStateIconState({@required this.color, @required this.letter});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
       margin: const EdgeInsets.only(left: 7, right: 7),
-      width: 35,
-      height: 35,
+      width: 33,
+      height: 33,
       decoration: BoxDecoration(
           color: color,
           shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.circular(12)
+          borderRadius: BorderRadius.circular(10)
       ),
       child: buildWidgetText(
           text: letter,
           family: FontFamily.ARIAL,
           weight: FontWeight.bold,
-          size: 25
+          size: 22
       )
     );
   }
 
-  _getState() {
-
-    switch(widget.state) {
-
-      case GameState.DEFEAT : {
-        letter = 'D';
-        color = CustomColors.RedDefeatGameState;
-        break;
-      }
-      case GameState.DRAW : {
-        letter = 'N';
-        color = CustomColors.OrangeDrawGameState;
-        break;
-      }
-      case GameState.VICTORY: {
-        letter = 'V';
-        color = CustomColors.GreenVictoryGameState;
-      }
-
-    }
-
-  }
-
 }
 
-class GameStateIcon extends StatefulWidget {
-  final GameState state;
-
-  const GameStateIcon({Key key, @required this.state}) : assert(state != null), super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _GameStateIconState();
-}
