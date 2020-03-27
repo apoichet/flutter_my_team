@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/player.dart';
-import 'package:my_team/services/data_service.dart';
+import 'package:my_team/services/widget_service.dart';
+import 'package:my_team/theme/font_family.dart';
 
 class ListItem extends StatelessWidget {
   final Player player;
@@ -34,16 +35,28 @@ class ListItem extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
                 children: <Widget>[
-                  Text(player.firstName,
-                      style: Theme.of(context).textTheme.headline.copyWith(fontWeight: FontWeight.normal)),
-                  Text(" ",
-                      style: Theme.of(context).textTheme.headline.copyWith(fontWeight: FontWeight.normal)),
-                  Text(player.lastName,
-                      style: Theme.of(context).textTheme.headline),
-                  Text(" - n°",
-                      style: Theme.of(context).textTheme.headline.copyWith(fontWeight: FontWeight.normal)),
-                  Text(player.number.toString(),
-                      style: Theme.of(context).textTheme.headline),
+                  buildWidgetText(
+                      text: player.firstName + " ",
+                      family: FontFamily.ARIAL,
+                      size: 20
+                  ),
+                  buildWidgetText(
+                      text: player.lastName,
+                      family: FontFamily.ARIAL,
+                      size: 21,
+                      weight: FontWeight.bold
+                  ),
+                  buildWidgetText(
+                      text: " - n°",
+                      family: FontFamily.ARIAL,
+                      size: 20
+                  ),
+                  buildWidgetText(
+                      text: player.number.toString(),
+                      family: FontFamily.ARIAL,
+                      size: 22,
+                      weight: FontWeight.bold
+                  )
                 ]
             ),
           )

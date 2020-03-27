@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
+import 'package:my_team/theme/font_family.dart';
 
 class Boarding extends StatelessWidget {
 
@@ -42,17 +44,18 @@ class Boarding extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: Text(
-                  title,
-                  style: Theme.of(context).textTheme.display1,
-                ),
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: buildWidgetText(
+                      text: title,
+                      size: 22,
+                      family: FontFamily.MONTSERRAT_ALTERNATES,
+                      weight: FontWeight.w600)
               ),
-              Text(
-                description,
-                style: Theme.of(context).textTheme.display2,
-                textAlign: TextAlign.center,
-              )
+              buildWidgetText(
+                  text: description,
+                  size: 12,
+                  family: FontFamily.MONTSERRAT_ALTERNATES,
+                  weight: FontWeight.w600),
             ],
           ),
         ),

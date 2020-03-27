@@ -6,10 +6,12 @@ Text buildWidgetText({
   @required String text,
   double size = 12.0,
   FontFamily family = FontFamily.MONTSERRAT,
-  FontWeight weight: FontWeight.normal
+  FontWeight weight =  FontWeight.normal,
+  TextAlign align = TextAlign.center
 }) {
   return Text(
       text,
+      textAlign: align,
       style: TextStyle(
           decoration: TextDecoration.none,
           color: Colors.white,

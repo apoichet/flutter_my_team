@@ -6,6 +6,9 @@ import 'package:my_team/components/button.dart';
 import '../intro.dart';
 
 class Ready extends StatelessWidget {
+
+  final String buttonReadyText = "C'est parti !";
+
   @override
   Widget build(BuildContext context) {
     return BackgroundImage(
@@ -20,7 +23,7 @@ class Ready extends StatelessWidget {
                   margin: EdgeInsets.only(bottom: 30),
                   alignment: Alignment.bottomCenter,
                   child: Button(
-                    text: 'C\'est parti !',
+                    text: buttonReadyText,
                     onPressed: () =>
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => Intro()))

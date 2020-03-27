@@ -8,6 +8,10 @@ import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
 
 class Loader extends StatefulWidget {
+  final String waitingText = "Un petit instant...";
+  final FontFamily waitingTextFamily = FontFamily.MONTSERRAT;
+  final double waitingTextSize = 15.0;
+  
   @override
   _LoaderState createState() => _LoaderState();
 }
@@ -38,9 +42,9 @@ class _LoaderState extends State<Loader> {
                   padding: EdgeInsets.only(bottom: 50),
                   alignment: Alignment.bottomCenter,
                   child: buildWidgetText(
-                      text: "Un petit instant...",
-                      family: FontFamily.MONTSERRAT,
-                      size: 15),
+                      text: widget.waitingText,
+                      family: widget.waitingTextFamily,
+                      size: widget.waitingTextSize),
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 30),

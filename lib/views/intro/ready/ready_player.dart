@@ -4,11 +4,15 @@ import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/button.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
+import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
+import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/home/home.dart';
 import 'package:my_team/views/intro/ready/list_item.dart';
 
 class ReadyPlayer extends StatefulWidget {
+  final String readyTitleText = "Dis nous qui tu es...";
+  final String readyBottomText = "Je suis prêt";
   @override
   _ReadyPlayerState createState() => _ReadyPlayerState();
 }
@@ -33,9 +37,13 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
           child: Column(
             children: <Widget>[
               Expanded(
-                  child: Center(child: Text('Dis nous qui tu es...',
-                      style: Theme.of(context).textTheme.caption
-                          .copyWith(fontFamily: 'Arial')))
+                child: Center(
+                    child: buildWidgetText(
+                        text: widget.readyTitleText,
+                        family: FontFamily.ARIAL,
+                        size: 25,
+                        weight: FontWeight.bold
+                    )),
               ),
               Expanded(
                   flex: 6,
@@ -51,7 +59,7 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
                         Navigator.push(
                             context, MaterialPageRoute(builder: (context) => Home()));
                       },
-                      text: idPlayerSelected == null ? null : "Je suis prêt",
+                      text: idPlayerSelected == null ? null : widget.readyBottomText,
                     )
                 ),
               )
@@ -72,7 +80,7 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
           bottom: 5,
           width: size.width,
           child: Center(
-            child: Image.asset("assets/img/arrow_down.png")
+              child: Image.asset("assets/img/arrow_down.png")
           ),
         ),
         Container(
