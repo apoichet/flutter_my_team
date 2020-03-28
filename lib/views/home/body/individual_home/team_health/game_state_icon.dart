@@ -13,21 +13,30 @@ class GameStateIconState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.center,
-      margin: const EdgeInsets.only(left: 7, right: 7),
-      width: 33,
-      height: 33,
-      decoration: BoxDecoration(
-          color: color,
-          shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.circular(10)
-      ),
-      child: buildWidgetText(
-          text: letter,
-          family: FontFamily.ARIAL,
-          weight: FontWeight.bold,
-          size: 22
-      )
+        alignment: Alignment.center,
+        margin: const EdgeInsets.only(left: 7, right: 7),
+        width: 30,
+        height: 30,
+        decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromRGBO(0, 0, 0, 0.8),
+                blurRadius: 6,
+                offset: Offset(
+                  0.0, // horizontal, move right 10
+                  4.0, // vertical, move down 10
+                ),
+              )
+            ]
+        ),
+        child: buildWidgetText(
+            text: letter,
+            family: FontFamily.ARIAL,
+            weight: FontWeight.bold,
+            size: 19
+        )
     );
   }
 

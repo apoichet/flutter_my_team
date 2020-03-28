@@ -118,28 +118,30 @@ class _IndividualCardState extends State<IndividualCard> {
         ]);
   }
 
-
   Widget _buildBody() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: <Widget>[
-        _buildChart(
-            BoxCircularChart([chartGoal, chartPass]),
-            _buildFooter(ChartsTitle.GOAL_CIRCULAR_TITLE + ' /\n' +
-                ChartsTitle.PASS_CIRCULAR_TITLE)
-        ),
-        _buildChart(
-            BoxCircularChart([chartGame, chartGameTime]),
-            _buildFooter(ChartsTitle.GAME_PLAYED_TITLE + ' /\n' +
-                ChartsTitle.GAME_TIME_TITLE)
-        ),
-        _buildChart(
-          BoxLinearChart([chartMissing, chartLate, chartYellowCard]),
-          _buildFooter(ChartsTitle.MISSING_LINEAR_TITLE + ' /\n' +
-              ChartsTitle.LATE_LINEAR_TITLE + ' / ' +
-              ChartsTitle.YELLOW_CARD_LINEAR_TITLE),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          _buildChart(
+              BoxCircularChart([chartGoal, chartPass]),
+              _buildFooter(ChartsTitle.GOAL_CIRCULAR_TITLE + ' /\n' +
+                  ChartsTitle.PASS_CIRCULAR_TITLE)
+          ),
+          _buildChart(
+              BoxCircularChart([chartGame, chartGameTime]),
+              _buildFooter(ChartsTitle.GAME_PLAYED_TITLE + ' /\n' +
+                  ChartsTitle.GAME_TIME_TITLE)
+          ),
+          _buildChart(
+            BoxLinearChart([chartMissing, chartLate, chartYellowCard]),
+            _buildFooter(ChartsTitle.MISSING_LINEAR_TITLE + ' /\n' +
+                ChartsTitle.LATE_LINEAR_TITLE + ' / ' +
+                ChartsTitle.YELLOW_CARD_LINEAR_TITLE),
+          ),
+        ],
+      ),
     );
   }
 
@@ -304,7 +306,7 @@ class _IndividualCardState extends State<IndividualCard> {
       child: buildWidgetText(
           text: footer,
           family: FontFamily.ARIAL,
-          size: 12
+          size: 11
       ),
     );
   }

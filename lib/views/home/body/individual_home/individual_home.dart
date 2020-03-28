@@ -15,34 +15,41 @@ class _IndividualHomeState extends State<IndividualHome> {
       child: Column(
         children: <Widget>[
           Expanded(
-              flex: 2,
+              flex: 3,
               child: Padding(
-                padding: const EdgeInsets.only(top: 25, bottom: 10),
+                padding: const EdgeInsets.only(top: 30.0, bottom: 8.0),
                 child: BackgroundGradient(
                   colors: [
                     Color.fromRGBO(44, 42, 42, 1.0),
                     Color.fromRGBO(113, 111, 11, 0.22)
                   ],
                   width: size.width * 0.9,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Expanded(
-                          child: NextGame()
-                      ),
-                      Expanded(
-                          flex: 2,
-                          child: TeamHealth()
-                      )
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(3.0),
+                    child: Column(
+                      children: <Widget>[
+                        Expanded(
+                          child: _buildHeaderContainer(
+                              child: NextGame(),
+                              size: size
+                          )
+                        ),
+                        Expanded(
+                            child: _buildHeaderContainer(
+                                child: TeamHealth(),
+                                size: size
+                            )
+                        )
+                      ],
+                    ),
                   ),
                 ),
               )
           ),
           Expanded(
-            flex: 4,
+            flex: 5,
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 25),
+              padding: const EdgeInsets.only(bottom: 15),
               child: BackgroundGradient(
                   colors: [
                     Color.fromRGBO(76, 47, 35, 0.56),
@@ -57,6 +64,20 @@ class _IndividualHomeState extends State<IndividualHome> {
       ),
     );
   }
+
+  _buildHeaderContainer({@required Widget child, Size size}) {
+    return Container(
+        decoration: BoxDecoration(
+            color: Color.fromRGBO(255, 255, 255, 0.3),
+            borderRadius: BorderRadius.circular(20)
+        ),
+        width: size.width * 0.85,
+        padding: EdgeInsets.all(3.0),
+        margin: EdgeInsets.all(3.0),
+        child: child
+    );
+  }
+
 }
 
 class IndividualHome extends StatefulWidget {

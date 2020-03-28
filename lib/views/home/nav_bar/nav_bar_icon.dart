@@ -19,25 +19,13 @@ class NavBarIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
-      child: Column(
-        children: <Widget>[
-          Container(
-              margin: EdgeInsets.all(2),
-              width: 35,
-              height: 35,
-              child: SvgPicture.asset(
-                  'assets/icon/' + pathIcon + '.svg',
-                  fit: BoxFit.fill,
-                  semanticsLabel: 'Nav Bar Icon')
-          ),
-          buildWidgetText(
-              text: title,
-              family: FontFamily.ARIAL,
-              size: 12
-          )
-        ],
-      ),
+        margin: EdgeInsets.all(2),
+        width: 35,
+        height: 35,
+        child: SvgPicture.asset(
+            'assets/icon/' + pathIcon + '.svg',
+            fit: BoxFit.fill,
+            semanticsLabel: 'Nav Bar Icon')
     );
   }
 

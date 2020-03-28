@@ -17,11 +17,14 @@ class TeamHealth extends StatelessWidget {
     return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          buildWidgetText(
-              text: "Forme du moment",
-              family: FontFamily.ARIAL,
-              size: 19,
-              weight: FontWeight.bold
+          Padding(
+            padding: const EdgeInsets.only(bottom: 1.0),
+            child: buildWidgetText(
+                text: "Forme du moment",
+                family: FontFamily.ARIAL,
+                size: 18,
+                weight: FontWeight.bold
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
