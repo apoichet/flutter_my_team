@@ -47,9 +47,9 @@ class Boarding extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 10),
                   child: buildWidgetText(
                       text: title,
-                      size: 22,
+                      size: 23,
                       family: FontFamily.MONTSERRAT_ALTERNATES,
-                      weight: FontWeight.w600)
+                      weight: FontWeight.w700)
               ),
               buildWidgetText(
                   text: description,
