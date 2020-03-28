@@ -7,6 +7,8 @@ class CustomColors {
 
   static const BlackBackgroundChart = Color.fromRGBO(0, 0, 0, 0.5);
 
+  static const BlueSelectedPlayerItem = Color.fromRGBO(126, 156, 160, 1.0);
+
   static const RedGradientStart = Color.fromRGBO(226, 3, 25, 1);
   static const RedGradientEnd = Color.fromRGBO(251, 43, 119, 1);
   static const RedTransparent = Color.fromRGBO(226, 3, 25, 0.2);

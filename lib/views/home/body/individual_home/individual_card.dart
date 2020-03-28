@@ -86,6 +86,7 @@ class _IndividualCardState extends State<IndividualCard> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Container(
+            height: 105,
             transform: Matrix4.translationValues(10, 15, 0),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
@@ -102,7 +103,7 @@ class _IndividualCardState extends State<IndividualCard> {
             child: Image.asset(
               "assets/img/player/" + player.avatar + ".png",
               filterQuality: FilterQuality.high,
-              height: 105,
+              fit: BoxFit.fill,
             ),
           ),
           Container(

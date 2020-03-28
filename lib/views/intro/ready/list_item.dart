@@ -27,9 +27,13 @@ class ListItem extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          Image.asset(
+          Container(
+            height: 40,
+            child: Image.asset(
               "assets/img/player/" + player.avatar + ".png",
-              height: 40
+              fit: BoxFit.fill,
+              filterQuality: FilterQuality.high,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),

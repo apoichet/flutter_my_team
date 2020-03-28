@@ -93,7 +93,7 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
               itemCount: players.length,
               itemBuilder: (BuildContext context, int index) {
                 var listItem = players[index].getId() == idPlayerSelected ?
-                ListItem(player: players[index], color: CustomColors.BlackBackgroundChart) :
+                ListItem(player: players[index], color: CustomColors.BlueSelectedPlayerItem) :
                 ListItem(player: players[index], color: Colors.transparent);
                 return GestureDetector(
                     onTap: () => _onTapPlayer(players[index]),
