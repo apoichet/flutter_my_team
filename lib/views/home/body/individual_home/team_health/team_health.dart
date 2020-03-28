@@ -22,7 +22,7 @@ class TeamHealth extends StatelessWidget {
             child: buildWidgetText(
                 text: "Forme du moment",
                 family: FontFamily.ARIAL,
-                size: 18,
+                size: 19,
                 weight: FontWeight.bold
             ),
           ),
