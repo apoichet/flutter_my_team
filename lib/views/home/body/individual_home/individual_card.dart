@@ -139,17 +139,17 @@ class _IndividualCardState extends State<IndividualCard> {
   }
 
   Widget buildFooter() {
-    return Container(
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-            border: Border.all(
-                width: 1.2,
-                color: Colors.white
-            ),
-            borderRadius: BorderRadius.circular(50)
-        ),
-        child: GestureDetector(
-          onDoubleTap: _doubleTap,
+    return GestureDetector(
+      onDoubleTap: _doubleTap,
+      child: Container(
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+              border: Border.all(
+                  width: 1.2,
+                  color: Colors.white
+              ),
+              borderRadius: BorderRadius.circular(50)
+          ),
           child: FittedBox(
             fit: BoxFit.fitHeight,
             child: Row(
@@ -167,8 +167,8 @@ class _IndividualCardState extends State<IndividualCard> {
                 )
               ],
             ),
-          ),
-        )
+          )
+      ),
     );
   }
 
