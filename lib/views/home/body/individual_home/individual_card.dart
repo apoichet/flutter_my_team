@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/background_gradient.dart';
 import 'package:my_team/components/chart/box_circular_chart.dart';
 import 'package:my_team/components/chart/box_linear_chart.dart';
 import 'package:my_team/components/chart/circular_chart.dart';
@@ -20,7 +19,7 @@ import 'package:my_team/theme/font_family.dart';
 class IndividualCard extends StatefulWidget {
   static Team team = getTeam();
 
-  final titleCard = 'FIche individuelle';
+  final titleCard = 'Fiche individuelle';
   final pathImage = 'assets/img/player/';
   final Player player = getPlayer();
   final int maxGoal = team.maxPlayerGoal;
@@ -86,28 +85,33 @@ class _IndividualCardState extends State<IndividualCard> {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: const EdgeInsets.only(top: 20),
-              child: Transform.scale(
-                  scale: 1.3,
-                  child: Image.asset("assets/img/player/" + player.avatar + ".png")
-              ),
+          Container(
+            transform: Matrix4.translationValues(10, 15, 0),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromRGBO(0, 0, 0, 0.7),
+                    blurRadius: 6,
+                    offset: Offset(
+                      0.0, // horizontal, move right 10
+                      3.0, // vertical, move down 10
+                    ),
+                  )]
+            ),
+            child: Image.asset(
+              "assets/img/player/" + player.avatar + ".png",
+              filterQuality: FilterQuality.high,
+              height: 105,
             ),
           ),
-          Expanded(
-            flex: 2,
-            child: FittedBox(
-                child: Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: buildWidgetText(
-                        text: widget.titleCard,
-                        family: FontFamily.ARIAL,
-                        weight: FontWeight.bold,
-                        size: 25
-                    )
-                )
+          Container(
+            transform: Matrix4.translationValues(20, 10, 0),
+            child: buildWidgetText(
+                text: widget.titleCard,
+                family: FontFamily.ARIAL,
+                weight: FontWeight.bold,
+                size: 23
             ),
           ),
         ]);
