@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/components/background_gradient.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/theme/colors.dart';
@@ -26,7 +27,6 @@ class _PlayerListState extends State<PlayerList> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Stack(
       children: <Widget>[
         Align(
@@ -36,23 +36,25 @@ class _PlayerListState extends State<PlayerList> {
             child: Image.asset("assets/img/arrow_down.png"),
           ),
         ),
-        Container(
-          decoration: new BoxDecoration(
-              color: CustomColors.IndividualCardContainerGradientMiddle,
-              borderRadius: BorderRadius.circular(20)
-          ),
-          padding: EdgeInsets.only(bottom: 40 ,right: 10, left: 10),
-          child: ListView.builder(
-              itemCount: players.length,
-              itemBuilder: (BuildContext context, int index) {
-                var listItem = players[index].getId() == idPlayerSelected ?
-                ListItem(player: players[index], color: CustomColors.BlueSelectedPlayerItem) :
-                ListItem(player: players[index], color: Colors.transparent);
-                return GestureDetector(
-                    onTap: () => _onTapPlayer(players[index]),
-                    child: listItem
-                );
-              }
+        BackgroundGradient(
+          colors: [
+            Color.fromRGBO(165, 201, 219, 0.44),
+            Color.fromRGBO(165, 201, 219, 0.10)
+          ],
+          child: Container(
+            padding: EdgeInsets.only(bottom: 40 ,right: 10, left: 10),
+            child: ListView.builder(
+                itemCount: players.length,
+                itemBuilder: (BuildContext context, int index) {
+                  var listItem = players[index].getId() == idPlayerSelected ?
+                  ListItem(player: players[index], color: CustomColors.BlueSelectedPlayerItem) :
+                  ListItem(player: players[index], color: Colors.transparent);
+                  return GestureDetector(
+                      onTap: () => _onTapPlayer(players[index]),
+                      child: listItem
+                  );
+                }
+            ),
           ),
         ),
       ],

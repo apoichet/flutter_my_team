@@ -15,19 +15,20 @@ class _StatisticsState extends State<Statistics> {
     return BackgroundImage(
       image: "background_8.png",
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 30.0),
         child: Column(
           children: <Widget>[
             Expanded(
                 child: _buildHeader()
             ),
             Expanded(
+                flex: 2,
                 child: _buildTopics()
             ),
             Expanded(
-              flex: 8,
+                flex: 7,
                 child: _buildSwipe()
-            )
+            ),
           ],
         ),
       ),
@@ -71,19 +72,27 @@ class _StatisticsState extends State<Statistics> {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          buildWidgetText(
-              text: "Individuel",
-              family: FontFamily.ARIAL,
-              size: 23,
-              weight: FontWeight.bold
-          ),
-          buildWidgetText(
-              text: "Collectives",
-              family: FontFamily.ARIAL,
-              size: 23,
-              weight: FontWeight.bold
-          )
+          _buildUnderlineText(text: "Individuel", underlineColor: Colors.white),
+          _buildUnderlineText(text: "Collective", underlineColor: Colors.transparent),
         ]
+    );
+  }
+
+  _buildUnderlineText({String text, Color underlineColor}) {
+    return Container(
+      padding: EdgeInsets.only(bottom: 5.0),
+      decoration: BoxDecoration(
+          border: Border(bottom: BorderSide(
+            color: underlineColor,  // Text colour here
+            width: 3.0, // Underline width
+          ))
+      ),
+      child: buildWidgetText(
+          text: text,
+          family: FontFamily.ARIAL,
+          size: 23,
+          weight: FontWeight.bold
+      ),
     );
   }
 
