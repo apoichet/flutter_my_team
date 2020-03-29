@@ -11,13 +11,13 @@ class _AppNavBarState extends State<AppNavBar> {
     return BottomAppBar(
       color: CustomColors.AppBarBackground,
       child: Container(
-        height: 60,
+        height: 55,
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             NavBarIcon(pathIcon: 'home_icon', title: 'Accueil', width: 30, height: 30),
-            NavBarIcon(pathIcon: 'foot_boots_icon', title: 'Statistiques', width: 37, height: 37),
+            NavBarIcon(pathIcon: 'foot_boots_icon', title: 'Statistiques', width: 40, height: 40),
             NavBarIcon(pathIcon: 'composition_icon', title: 'Compo', width: 30, height: 30),
             NavBarIcon(pathIcon: 'calendar_icon', title: 'Calendrier', width: 30, height: 30),
           ],
