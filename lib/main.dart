@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My Team',
+      title: 'FC Parisii',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.transparent,
         backgroundColor: Colors.transparent,
