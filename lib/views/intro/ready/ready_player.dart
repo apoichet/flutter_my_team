@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/button.dart';
+import 'package:my_team/components/player_list.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/widget_service.dart';
-import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/home/home.dart';
-import 'package:my_team/views/intro/ready/list_item.dart';
 
 class ReadyPlayer extends StatefulWidget {
   final String readyTitleText = "Dis nous qui tu es...";
@@ -47,7 +46,7 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
               ),
               Expanded(
                   flex: 6,
-                  child: _buildListPlayer(size)
+                  child: PlayerList(onTapPlayerParent: _onTapPlayer)
               ),
               Expanded(
                 child: Container(
@@ -65,45 +64,7 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
               )
             ],
           ),
-
         )
-
-
-    );
-  }
-
-  _buildListPlayer(Size size) {
-    var players = getTeam().players;
-    return Stack(
-      children: <Widget>[
-        Positioned(
-          bottom: 5,
-          width: size.width,
-          child: Center(
-              child: Image.asset("assets/img/arrow_down.png")
-          ),
-        ),
-        Container(
-          decoration: new BoxDecoration(
-              color: CustomColors.IndividualCardContainerGradientMiddle,
-              borderRadius: BorderRadius.circular(20)
-          ),
-          padding: EdgeInsets.only(bottom: 40 ,right: 10, left: 10),
-          child: ListView.builder(
-              itemCount: players.length,
-              itemBuilder: (BuildContext context, int index) {
-                var listItem = players[index].getId() == idPlayerSelected ?
-                ListItem(player: players[index], color: CustomColors.BlueSelectedPlayerItem) :
-                ListItem(player: players[index], color: Colors.transparent);
-                return GestureDetector(
-                    onTap: () => _onTapPlayer(players[index]),
-                    child: listItem
-                );
-              }
-          ),
-        ),
-      ],
-
     );
   }
   _onTapPlayer(Player playerTap) {
@@ -111,5 +72,4 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
       idPlayerSelected = playerTap.getId();
     });
   }
-
 }
