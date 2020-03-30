@@ -30,7 +30,6 @@ class _IntroState extends State<Intro> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    var image = 'background_4';
     return Container(
       decoration: BoxDecoration(
         image: new DecorationImage(

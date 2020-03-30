@@ -31,39 +31,36 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
     Size size = MediaQuery.of(context).size;
     return BackgroundImage(
         image: "background_6.png",
-        child : Padding(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: Center(
-                    child: buildWidgetText(
-                        text: widget.readyTitleText,
-                        family: FontFamily.ARIAL,
-                        size: 25,
-                        weight: FontWeight.bold
-                    )),
+        child : Column(
+          children: <Widget>[
+            Expanded(
+              child: Center(
+                  child: buildWidgetText(
+                      text: widget.readyTitleText,
+                      family: FontFamily.ARIAL,
+                      size: 25,
+                      weight: FontWeight.bold
+                  )),
+            ),
+            Expanded(
+                flex: 6,
+                child: PlayerList(onTapPlayerParent: _onTapPlayer)
+            ),
+            Expanded(
+              child: Container(
+                  padding: EdgeInsets.all(10),
+                  width: size.width * 0.8,
+                  child: Button(
+                    onPressed: idPlayerSelected == null ? null : () {
+                      setPlayerFromId(idPlayerSelected);
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: (context) => Home()));
+                    },
+                    text: idPlayerSelected == null ? null : widget.readyBottomText,
+                  )
               ),
-              Expanded(
-                  flex: 6,
-                  child: PlayerList(onTapPlayerParent: _onTapPlayer)
-              ),
-              Expanded(
-                child: Container(
-                    padding: EdgeInsets.all(10),
-                    width: size.width * 0.8,
-                    child: Button(
-                      onPressed: idPlayerSelected == null ? null : () {
-                        setPlayerFromId(idPlayerSelected);
-                        Navigator.push(
-                            context, MaterialPageRoute(builder: (context) => Home()));
-                      },
-                      text: idPlayerSelected == null ? null : widget.readyBottomText,
-                    )
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         )
     );
   }

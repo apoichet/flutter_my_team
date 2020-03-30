@@ -58,7 +58,6 @@ class _IndividualCardState extends State<IndividualCard> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[

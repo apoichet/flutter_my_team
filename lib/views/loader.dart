@@ -28,7 +28,6 @@ class _LoaderState extends State<Loader> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return BackgroundImage(
         image: 'background_1.png',
         child: Container(
@@ -38,7 +37,6 @@ class _LoaderState extends State<Loader> {
                     child: Image.asset("assets/img/logo.png")
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 30),
                   padding: EdgeInsets.only(bottom: 50),
                   alignment: Alignment.bottomCenter,
                   child: buildWidgetText(
@@ -47,8 +45,7 @@ class _LoaderState extends State<Loader> {
                       size: widget.waitingTextSize),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 30),
-                  padding: EdgeInsets.only(bottom: 15),
+                  padding: EdgeInsets.only(bottom: 20),
                   alignment: Alignment.bottomCenter,
                   child: FutureBuilder(
                       future: _delay,

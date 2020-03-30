@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/views/home/body/compositions/compositions.dart';
 import 'package:my_team/views/home/body/statistics/statistics.dart';
 import 'package:my_team/views/home/nav_bar/nav_bar.dart';
 
@@ -23,7 +24,7 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             IndividualHome(),
             Statistics(),
-            Statistics(),
+            Compositions(),
             Statistics()
           ],
         ),

@@ -20,7 +20,7 @@ class _IndividualHomeState extends State<IndividualHome> {
             Expanded(
                 flex: 3,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 30.0, bottom: 8.0),
+                  padding: const EdgeInsets.only(bottom: 8.0),
                   child: BackgroundGradient(
                     colors: [
                       Color.fromRGBO(44, 42, 42, 1.0),
@@ -51,16 +51,13 @@ class _IndividualHomeState extends State<IndividualHome> {
             ),
             Expanded(
               flex: 5,
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 15),
-                child: BackgroundGradient(
-                    colors: [
-                      Color.fromRGBO(76, 47, 35, 0.56),
-                      Color.fromRGBO(255, 255, 255, 0.0),
-                    ],
-                    width: size.width * 0.9,
-                    child: IndividualCard()
-                ),
+              child: BackgroundGradient(
+                  colors: [
+                    Color.fromRGBO(76, 47, 35, 0.56),
+                    Color.fromRGBO(255, 255, 255, 0.0),
+                  ],
+                  width: size.width * 0.9,
+                  child: IndividualCard()
               ),
             )
           ],

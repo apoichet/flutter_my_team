@@ -8,14 +8,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FC Parisii',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        accentColor: Colors.white,
-        primaryColor: Colors.red
-      ),
-      home: Starter()
+        title: 'FC Parisii',
+        theme: ThemeData(
+            scaffoldBackgroundColor: Colors.transparent,
+            backgroundColor: Colors.transparent,
+            accentColor: Colors.white,
+            primaryColor: Colors.red
+        ),
+        home: SafeArea(
+            bottom: true,
+            top: true,
+            child: Starter()
+        )
     );
   }
 }
