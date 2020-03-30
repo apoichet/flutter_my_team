@@ -38,7 +38,7 @@ class Player {
     this.firstName,
     this.lastName,
     this.number = 0,
-    this.position,
+    this.position = "Joueur",
     this.nbrGoal = 0,
     this.nbrPass = 0,
     this.nbrGame = 0,
@@ -50,16 +50,17 @@ class Player {
 
   factory Player.fromJson(Map<String, dynamic> json) {
     return Player(
-      firstName: json['firstName'],
-      lastName: json['lastName'],
-      number: json['number'],
-      nbrGoal: json['goal'],
-      nbrPass: json['decisivePass'],
-      nbrGame: json['present'],
-      gameTime: json['gameMinute'],
-      nbrMissingGame: json['absent'],
-      nbrYellowCard: json['yellowCard'],
-      nbrLateGame: json['late']
+        firstName: json['firstName'],
+        lastName: json['lastName'],
+        number: json['number'],
+        nbrGoal: json['goal'],
+        nbrPass: json['decisivePass'],
+        nbrGame: json['present'],
+        gameTime: json['gameMinute'],
+        nbrMissingGame: json['absent'],
+        nbrYellowCard: json['yellowCard'],
+        nbrLateGame: json['late'],
+        position: json['position']
     );
   }
 }

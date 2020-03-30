@@ -19,7 +19,6 @@ import 'package:my_team/theme/font_family.dart';
 class IndividualCard extends StatefulWidget {
   static Team team = getTeam();
 
-  final titleCard = 'Fiche individuelle';
   final pathImage = 'assets/img/player/';
   final Player player = getPlayer();
   final int maxGoal = team.maxPlayerGoal;
@@ -109,13 +108,22 @@ class _IndividualCardState extends State<IndividualCard> {
           Container(
             transform: Matrix4.translationValues(20, 10, 0),
             child: buildWidgetText(
-                text: widget.titleCard,
+                text: _buildTextHeader(),
                 family: FontFamily.ARIAL,
                 weight: FontWeight.bold,
                 size: 23
             ),
           ),
         ]);
+  }
+
+  _buildTextHeader() {
+    String position = widget.player.position;
+    String number = widget.player.number.toString();
+    if(position.length > 10) {
+      return position + "\nn° " + number;
+    }
+    return position + " n° " + number;
   }
 
   Widget _buildBody() {
