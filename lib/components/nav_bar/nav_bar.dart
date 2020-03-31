@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/theme/colors.dart';
 import 'package:my_team/views/compositions/compositions.dart';
 import 'package:my_team/views/home/home.dart';
+import 'package:my_team/views/results/results.dart';
 import 'package:my_team/views/statistics/statistics.dart';
 import 'package:my_team/views/view.dart';
 
@@ -33,7 +34,7 @@ class _NavBarState extends State<NavBar> {
             NavBarIcon(pathIcon: 'composition_icon', title: 'Compo', width: 30, height: 30,
                 onTap: () => _goTo(Compositions())),
             NavBarIcon(pathIcon: 'calendar_icon', title: 'Calendrier', width: 30, height: 30,
-                onTap: () => _goTo(Statistics())),
+                onTap: () => _goTo(Results())),
           ],
         ),
       ),

@@ -12,8 +12,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             scaffoldBackgroundColor: Colors.transparent,
             backgroundColor: Colors.transparent,
-            accentColor: Colors.white,
-            primaryColor: Colors.red
+            accentColor: Colors.white
         ),
         home: SafeArea(
             bottom: true,
