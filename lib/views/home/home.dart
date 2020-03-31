@@ -12,7 +12,7 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    currentIndex = 0;
+    currentIndex = 2;
     super.initState();
   }
 

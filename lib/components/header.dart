@@ -7,8 +7,11 @@ import 'package:my_team/theme/font_family.dart';
 class Header extends StatelessWidget {
 
   final String textHeader;
+  final Color backgroundColor;
 
-  Header({@required this.textHeader});
+  Header({
+    @required this.textHeader,
+    this.backgroundColor = CustomColors.BlackBackgroundChart});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class Header extends StatelessWidget {
         Container(
           alignment: Alignment.centerLeft,
           child: GestureDetector(
-            onTap: () => Navigator.pop(context),
+            onTap: () => Navigator.of(context).maybePop(),
             child: SvgPicture.asset(
                 'assets/icon/backward_arrow_icon.svg',
                 fit: BoxFit.fill,
@@ -26,20 +29,16 @@ class Header extends StatelessWidget {
         ),
         Center(
           child: Container(
-              height: 43,
-              width: 182,
+            padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
               decoration: BoxDecoration(
-                  color: CustomColors.BlackBackgroundChart,
+                  color: backgroundColor,
                   borderRadius: BorderRadius.circular(50)
               ),
-              child: Align(
-                alignment: Alignment.center,
-                child: buildWidgetText(
-                    text: textHeader,
-                    family: FontFamily.MONTSERRAT_ALTERNATES,
-                    size: 25,
-                    weight: FontWeight.w600
-                ),
+              child: buildWidgetText(
+                  text: textHeader,
+                  family: FontFamily.MONTSERRAT_ALTERNATES,
+                  size: 25,
+                  weight: FontWeight.w600
               )
           ),
         ),

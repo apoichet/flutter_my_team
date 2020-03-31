@@ -16,7 +16,9 @@ class _StatisticsState extends State<Statistics> {
       child: Column(
         children: <Widget>[
           Expanded(
-              child: Header(textHeader: "Statistiques")
+              child: Header(
+                  textHeader: "Statistiques"
+              )
           ),
           Expanded(
               flex: 2,
