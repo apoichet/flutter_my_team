@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/domain/team.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/user_service.dart';
-
-import 'home/home.dart';
+import 'package:my_team/views/home/home.dart';
+import 'package:my_team/views/view.dart';
 import 'intro/ready/ready.dart';
 import 'loader.dart';
 
@@ -45,7 +46,10 @@ class _StarterState extends State<Starter> {
     String user = starterResponse.user;
     if (user != null) {
       setPlayerFromId(user);
-      return Home();
+      return View(
+          body: Home(),
+          bottomBar: NavBar()
+      );
     }
     return Ready();
   }

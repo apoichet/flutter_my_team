@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/button.dart';
+import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/components/player_list.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/home/home.dart';
+import 'package:my_team/views/view.dart';
 
 class ReadyPlayer extends StatefulWidget {
   final String readyTitleText = "Dis nous qui tu es...";
@@ -54,7 +56,12 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
                     onPressed: idPlayerSelected == null ? null : () {
                       setPlayerFromId(idPlayerSelected);
                       Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => Home()));
+                          context, MaterialPageRoute(builder: (context) =>
+                          View(
+                            body: Home(),
+                            bottomBar: NavBar(),
+                          )
+                      ));
                     },
                     text: idPlayerSelected == null ? null : widget.readyBottomText,
                   )
