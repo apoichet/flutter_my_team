@@ -16,10 +16,8 @@ class BackgroundImage extends StatelessWidget {
               ),
               fit: BoxFit.fill)
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 30.0),
-        child: child,
-      ),
+      child: child,
     );
   }
+
 }

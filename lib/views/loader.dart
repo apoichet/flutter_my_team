@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/button.dart';
 import 'package:my_team/components/chart/linear_percent_indicator.dart';
+import 'package:my_team/components/view_padding.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
@@ -30,7 +31,7 @@ class _LoaderState extends State<Loader> {
   Widget build(BuildContext context) {
     return BackgroundImage(
         image: 'background_1.png',
-        child: Container(
+        child: ViewPadding(
           child: Stack(
               children: <Widget>[
                 Positioned.fill(

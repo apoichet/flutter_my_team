@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/button.dart';
+import 'package:my_team/components/view_padding.dart';
 
 import '../intro.dart';
 
@@ -13,7 +14,7 @@ class Ready extends StatelessWidget {
   Widget build(BuildContext context) {
     return BackgroundImage(
         image: 'background_1.png',
-        child: Container(
+        child: ViewPadding(
           child: Stack(
               children: <Widget>[
                 Positioned.fill(

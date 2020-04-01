@@ -7,28 +7,32 @@ import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 
+import '../../components/view_scaffold.dart';
+
 class _StatisticsState extends State<Statistics> {
 
   @override
   Widget build(BuildContext context) {
     return BackgroundImage(
       image: "background_8.png",
-      child: Column(
-        children: <Widget>[
-          Expanded(
-              child: Header(
-                  textHeader: "Statistiques"
-              )
-          ),
-          Expanded(
-              flex: 2,
-              child: _buildTopics()
-          ),
-          Expanded(
-              flex: 7,
-              child: PlayerList()
-          ),
-        ],
+      child: ViewScaffold(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+                child: Header(
+                    textHeader: "Statistiques"
+                )
+            ),
+            Expanded(
+                flex: 2,
+                child: _buildTopics()
+            ),
+            Expanded(
+                flex: 7,
+                child: PlayerList()
+            ),
+          ],
+        ),
       ),
     );
   }

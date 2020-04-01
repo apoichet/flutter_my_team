@@ -5,7 +5,7 @@ import 'package:my_team/domain/team.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/user_service.dart';
 import 'package:my_team/views/home/home.dart';
-import 'package:my_team/views/view.dart';
+import 'package:my_team/components/view_scaffold.dart';
 import 'intro/ready/ready.dart';
 import 'loader.dart';
 
@@ -46,10 +46,7 @@ class _StarterState extends State<Starter> {
     String user = starterResponse.user;
     if (user != null) {
       setPlayerFromId(user);
-      return View(
-          body: Home(),
-          bottomBar: NavBar()
-      );
+      return Home();
     }
     return Ready();
   }

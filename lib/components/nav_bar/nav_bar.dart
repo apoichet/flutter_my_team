@@ -5,7 +5,6 @@ import 'package:my_team/views/compositions/compositions.dart';
 import 'package:my_team/views/home/home.dart';
 import 'package:my_team/views/results/results.dart';
 import 'package:my_team/views/statistics/statistics.dart';
-import 'package:my_team/views/view.dart';
 
 import 'nav_bar_icon.dart';
 
@@ -47,11 +46,7 @@ class _NavBarState extends State<NavBar> {
 
   Route _createRoute(Widget route) {
     return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) =>
-          View(
-              body: route,
-              bottomBar: NavBar()
-          ),
+      pageBuilder: (context, animation, secondaryAnimation) => route,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         //No Animation between transition route
         return child;
