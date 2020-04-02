@@ -10,6 +10,8 @@ class PlayerPositionEngine {
   final double cardHeight;
   final double cardWidth;
 
+  final double factorLine = 1.1;
+
   const PlayerPositionEngine({
     @required this.mapHeight,
     @required this.mapWidth,
@@ -22,58 +24,84 @@ class PlayerPositionEngine {
   }) {
     switch(position) {
       case PlayerPosition.GOAL_KEEPER : return PlayerPhysicPosition(
-
+          bottom: 0,
+          left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.RIGHT_BACK : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 1.5,
+          right: cardWidth/6
       );
       case PlayerPosition.LEFT_BACK : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 1.5,
+          left: cardWidth/6
+      );
+      case PlayerPosition.RIGHT_DEFENDER : return PlayerPhysicPosition(
+          bottom: cardHeight,
+          right: mapWidth/2 - cardWidth
+      );
+      case PlayerPosition.LEFT_DEFENDER : return PlayerPhysicPosition(
+          bottom: cardHeight,
+          left: mapWidth/2 - cardWidth
       );
       case PlayerPosition.CENTER_BACK : return PlayerPhysicPosition(
-
+          bottom: cardHeight,
+          left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.CENTER_BACK_LEFT : return PlayerPhysicPosition(
-
+          bottom: cardHeight,
+          left: mapWidth/4 - cardWidth
       );
       case PlayerPosition.CENTER_BACK_RIGHT : return PlayerPhysicPosition(
-
+          bottom: cardHeight,
+          right: mapWidth/4 - cardWidth
       );
       case PlayerPosition.DEFENSIVE_MIDFIELDER : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 2 * factorLine,
+          left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.DEFENSIVE_MIDFIELDER_LEFT : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 2 * factorLine,
+          left: mapWidth/2 - cardWidth
       );
       case PlayerPosition.DEFENSIVE_MIDFIELDER_RIGHT : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 2 * factorLine,
+          right: mapWidth/2 - cardWidth
       );
       case PlayerPosition.OFFENSIVE_MIDFIELDER : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 3 * factorLine,
+          left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.PLAY_MAKER : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 3 * factorLine,
+          left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.SIDE_MIDFIELDER_LEFT : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 2.5 * factorLine,
+          left: cardWidth/6
       );
       case PlayerPosition.SIDE_MIDFIELDER_RIGHT : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 2.5 * factorLine,
+          right: cardWidth/6
       );
       case PlayerPosition.WINGER_LEFT : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 3 * factorLine,
+          left: cardWidth/6
       );
       case PlayerPosition.WINGER_RIGHT : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 3 * factorLine,
+          right: cardWidth/6
       );
       case PlayerPosition.FORWARD : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 3.2 * factorLine,
+          left: mapWidth/2 - cardWidth
       );
       case PlayerPosition.SECOND_TOP : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 3.2 * factorLine,
+          right: mapWidth/2 - cardWidth
       );
       case PlayerPosition.CENTER_FORWARD : return PlayerPhysicPosition(
-
+          bottom: cardHeight * 3.2 * factorLine,
+          right: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.SUBSTITUTE : return PlayerPhysicPosition(
 
@@ -94,9 +122,9 @@ class PlayerPhysicPosition {
   final double right;
 
   PlayerPhysicPosition({
-    this.top = 0,
-    this.bottom = 0,
-    this.left = 0,
-    this.right = 0
+    this.top,
+    this.bottom,
+    this.left,
+    this.right
   });
 }

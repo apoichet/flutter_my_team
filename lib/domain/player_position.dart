@@ -2,6 +2,8 @@ enum PlayerPosition {
   GOAL_KEEPER,
   RIGHT_BACK,
   LEFT_BACK,
+  RIGHT_DEFENDER,
+  LEFT_DEFENDER,
   CENTER_BACK,
   CENTER_BACK_RIGHT,
   CENTER_BACK_LEFT,
@@ -26,6 +28,8 @@ PlayerPosition from(String position) {
     case "Gardien" : return PlayerPosition.GOAL_KEEPER;
     case "Latéral Droit" : return PlayerPosition.RIGHT_BACK;
     case "Latéral Gauche" : return PlayerPosition.LEFT_BACK;
+    case "Défenseur Gauche" : return PlayerPosition.LEFT_DEFENDER;
+    case "Défenseur Droit" : return PlayerPosition.RIGHT_DEFENDER;
     case "Défenseur Central" : return PlayerPosition.CENTER_BACK;
     case "Défenseur Central Gauche" : return PlayerPosition.CENTER_BACK_LEFT;
     case "Défenseur Central Droit" : return PlayerPosition.CENTER_BACK_RIGHT;
@@ -51,6 +55,8 @@ String to(PlayerPosition position) {
     case PlayerPosition.GOAL_KEEPER : return "Gardien";
     case PlayerPosition.RIGHT_BACK : return "Latéral Droit";
     case PlayerPosition.LEFT_BACK : return "Latéral Gauche";
+    case PlayerPosition.RIGHT_DEFENDER : return "Défenseur Droit";
+    case PlayerPosition.LEFT_DEFENDER : return "Défenseur Gauche";
     case PlayerPosition.CENTER_BACK : return "Défenseur Central";
     case PlayerPosition.CENTER_BACK_LEFT : return "Défenseur Central Gauche";
     case PlayerPosition.CENTER_BACK_RIGHT : return "Défenseur Central Droit";

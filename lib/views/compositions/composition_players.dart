@@ -17,7 +17,7 @@ class CompositionPlayers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-        children: gamePlayers.map((gp) => _buildPositionedPlayer(gp))
+        children: gamePlayers.map((gp) => _buildPositionedPlayer(gp)).toList()
     );
   }
 

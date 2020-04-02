@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/player_position.dart';
 
 class GamePlayer {
@@ -8,6 +9,11 @@ class GamePlayer {
   final int nbYellowCard;
   final PlayerPosition position;
 
-  GamePlayer.name(
-      this.id, this.firstName, this.nbGoal, this.nbYellowCard, this.position);
+  GamePlayer({
+    @required this.id,
+    @required this.firstName,
+    this.nbGoal = 0,
+    this.nbYellowCard = 0,
+    @required this.position
+  });
 }
