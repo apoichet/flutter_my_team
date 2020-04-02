@@ -1,3 +1,4 @@
+import 'package:my_team/domain/game_player.dart';
 import 'package:my_team/domain/game_state.dart';
 
 class Game {
@@ -8,8 +9,9 @@ class Game {
   final String place;
   final DateTime date;
   final GameState state;
+  final List<GamePlayer> gamePlayers;
 
-  Game({this.opponent, this.address, this.stadium, this.state, this.place, this.date});
+  Game({this.opponent, this.address, this.stadium, this.state, this.place, this.date, this.gamePlayers});
 
   factory Game.fromJson(Map<String, dynamic> json) {
     return Game(
