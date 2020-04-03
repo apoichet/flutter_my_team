@@ -1,15 +1,18 @@
 import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/game_composition_player.dart';
+import 'package:my_team/domain/game_composition_strategy.dart';
 import 'package:my_team/services/composition_engine.dart';
 
 import 'composition_player.dart';
 
 class CompositionPlayers extends StatelessWidget {
 
+  final GameCompositionStrategy strategy;
   final List<GameCompositionPlayer> gameCompositionPlayers;
   final PlayerPositionEngine playerPositionEngine;
 
   CompositionPlayers({
+    @required this.strategy,
     @required this.gameCompositionPlayers,
     @required this.playerPositionEngine
   });

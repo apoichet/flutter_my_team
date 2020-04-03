@@ -270,6 +270,7 @@
   "compositions":[
     {
       "date":"2019-09-08T22:00:00.000Z",
+      "strategy":"3 - 5 - 2",
       "opponent":"FC Cailloux",
       "gamePlayers":[
         {
@@ -388,6 +389,7 @@
     },
     {
       "date":"2019-09-15T22:00:00.000Z",
+      "strategy":"4 - 4 - 2",
       "opponent":"FC Cailloux",
       "gamePlayers":[
         {
@@ -471,6 +473,7 @@
     },
     {
       "date":"2019-09-29T22:00:00.000Z",
+      "strategy":"4 - 4 - 2",
       "opponent":"Café Aveyronnais ",
       "gamePlayers":[
         {
@@ -561,6 +564,7 @@
     },
     {
       "date":"2019-10-06T22:00:00.000Z",
+      "strategy":"4 - 4 - 2",
       "opponent":"Panthéon",
       "gamePlayers":[
         {
@@ -665,6 +669,7 @@
     },
     {
       "date":"2019-10-13T22:00:00.000Z",
+      "strategy":"4 - 4 - 2",
       "opponent":"ES Nanterre",
       "gamePlayers":[
         {
@@ -762,6 +767,7 @@
     },
     {
       "date":"2019-10-20T22:00:00.000Z",
+      "strategy":"4 - 2 - 3 - 1",
       "opponent":"ES Nanterre",
       "gamePlayers":[
         {
@@ -852,6 +858,7 @@
     },
     {
       "date":"2019-10-27T23:00:00.000Z",
+      "strategy":"4 - 2 - 3 - 1",
       "opponent":"AS KRO",
       "gamePlayers":[
         {
@@ -949,6 +956,7 @@
     },
     {
       "date":"2019-11-03T23:00:00.000Z",
+      "strategy":"4 - 2 - 3 - 1",
       "opponent":"Luxembourg FC",
       "gamePlayers":[
         {
@@ -1060,6 +1068,7 @@
     },
     {
       "date":"2019-11-17T23:00:00.000Z",
+      "strategy":"4 - 2 - 3 - 1",
       "opponent":"Lions Menilmontant",
       "gamePlayers":[
         {
@@ -1171,6 +1180,7 @@
     },
     {
       "date":"2019-11-24T23:00:00.000Z",
+      "strategy":"",
       "opponent":"Maarifienne",
       "gamePlayers":[
 
@@ -1178,6 +1188,7 @@
     },
     {
       "date":"2019-12-01T23:00:00.000Z",
+      "strategy":"4 - 2 - 3 - 1",
       "opponent":"C.Mars Cler",
       "gamePlayers":[
         {
@@ -1282,6 +1293,7 @@
     },
     {
       "date":"2020-01-12T23:00:00.000Z",
+      "strategy":"4 - 2 - 3 - 1",
       "opponent":"Bourg la Reine",
       "gamePlayers":[
         {
@@ -1379,6 +1391,7 @@
     },
     {
       "date":"2020-01-19T23:00:00.000Z",
+      "strategy":"4 - 4 - 2",
       "opponent":"Sevres F.C. 92",
       "gamePlayers":[
         {
@@ -1483,6 +1496,7 @@
     },
     {
       "date":"2020-02-02T23:00:00.000Z",
+      "strategy":"4 - 2 - 3 - 1",
       "opponent":"Café Aveyronnais",
       "gamePlayers":[
         {
@@ -1594,6 +1608,7 @@
     },
     {
       "date":"2020-02-09T23:00:00.000Z",
+      "strategy":"4 - 2 - 3 - 1",
       "opponent":"Jeux en Herbe",
       "gamePlayers":[
         {
@@ -1698,6 +1713,7 @@
     },
     {
       "date":"2020-02-16T23:00:00.000Z",
+      "strategy":"4 - 2 - 3 - 1",
       "opponent":"ES Nanterre",
       "gamePlayers":[
         {
@@ -1795,6 +1811,7 @@
     },
     {
       "date":"2020-02-23T23:00:00.000Z",
+      "strategy":"4 - 2 - 3 - 1",
       "opponent":"Pantheon FC",
       "gamePlayers":[
         {
@@ -1892,6 +1909,7 @@
     },
     {
       "date":"2020-03-01T23:00:00.000Z",
+      "strategy":"4 - 3 - 3",
       "opponent":"ES Nanterre",
       "gamePlayers":[
         {
@@ -1996,6 +2014,7 @@
     },
     {
       "date":"2020-03-08T23:00:00.000Z",
+      "strategy":"4 - 4 - 2",
       "opponent":"Luxembourg FC",
       "gamePlayers":[
         {

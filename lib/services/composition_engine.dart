@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:my_team/const/composition_player_card_size.dart';
+import 'package:my_team/domain/game_composition_strategy.dart';
 import 'package:my_team/domain/player_position.dart';
 
 
@@ -9,12 +10,14 @@ class PlayerPositionEngine {
   final double mapWidth;
   final double cardHeight;
   final double cardWidth;
+  final GameCompositionStrategy strategy;
 
   final double factorLine = 1.05;
 
   const PlayerPositionEngine({
     @required this.mapHeight,
     @required this.mapWidth,
+    @required this.strategy,
     this.cardHeight = CompositionPlayerCardSize.heightPlayer,
     this.cardWidth = CompositionPlayerCardSize.widthPlayer,
   });
@@ -56,7 +59,7 @@ class PlayerPositionEngine {
           right: mapWidth/4
       );
       case PlayerPosition.DEFENSIVE_MIDFIELDER : return PlayerPhysicPosition(
-          bottom: cardHeight * 2 * factorLine,
+          bottom: cardHeight * 2.1 * factorLine,
           left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.DEFENSIVE_MIDFIELDER_LEFT : return PlayerPhysicPosition(
@@ -91,12 +94,24 @@ class PlayerPositionEngine {
           bottom: cardHeight * 3.2 * factorLine,
           right: cardWidth/6
       );
-      case PlayerPosition.FORWARD : return PlayerPhysicPosition(
+      case PlayerPosition.FORWARD :
+        if(strategy == GameCompositionStrategy.FOUR_FOUR_TWO) {
+          return PlayerPhysicPosition(
+              bottom: cardHeight * 3.5 * factorLine,
+              left: mapWidth/2 - cardWidth);
+        }
+        return PlayerPhysicPosition(
           bottom: cardHeight * 4 * factorLine,
           left: mapWidth/2 - cardWidth
       );
-      case PlayerPosition.SECOND_TOP : return PlayerPhysicPosition(
-          bottom: cardHeight * 3.9 * factorLine,
+      case PlayerPosition.SECOND_TOP :
+        if(strategy == GameCompositionStrategy.FOUR_FOUR_TWO) {
+          return PlayerPhysicPosition(
+              bottom: cardHeight * 3.5 * factorLine,
+              right: mapWidth/2 - cardWidth);
+        }
+        return PlayerPhysicPosition(
+          bottom: cardHeight * 4 * factorLine,
           right: mapWidth/2 - cardWidth
       );
       case PlayerPosition.CENTER_FORWARD : return PlayerPhysicPosition(

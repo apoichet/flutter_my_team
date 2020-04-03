@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/header.dart';
 import 'package:my_team/domain/game_composition.dart';
-import 'package:my_team/domain/player_game_state.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
@@ -84,7 +83,7 @@ class _CompositionsState extends State<Compositions> {
                             child: Arrow(
                                 onTap: () => _nextCompo(),
                                 svg: "forward_icon.svg",
-                                colorCondition: indexGame < widget.gameCompositions.length
+                                colorCondition: indexGame < widget.gameCompositions.length - 1
                             )
                         ),
                       ],
@@ -111,8 +110,7 @@ class _CompositionsState extends State<Compositions> {
     return PageView(
       controller: _controller,
       children: widget.gameCompositions.map((gc) => Composition(
-        starters: gc.gameCompositionPlayers.where((gcp) => gcp.state == PlayerGameState.STARTERS).toList(),
-        subs: gc.gameCompositionPlayers.where((gcp) => gcp.state == PlayerGameState.SUBSTITUTE).toList(),
+        gameComposition: gc,
       )).toList(),
       onPageChanged: (index) {
         _compoChanged(index);
@@ -121,8 +119,9 @@ class _CompositionsState extends State<Compositions> {
   }
 
   _nextCompo() {
-    if(indexGame < widget.gameCompositions.length) {
-      _controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.linear);
+    if(indexGame < widget.gameCompositions.length - 1) {
+      _controller.nextPage(
+          duration: Duration(milliseconds: 300), curve: Curves.linear);
     }
   }
 

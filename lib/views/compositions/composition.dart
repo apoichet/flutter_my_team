@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/domain/game_composition_player.dart';
+import 'package:my_team/domain/game_composition.dart';
+import 'package:my_team/domain/player_game_state.dart';
 import 'package:my_team/services/composition_engine.dart';
-import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/views/compositions/composition_player.dart';
 import 'package:my_team/views/compositions/composition_players.dart';
 
 class Composition extends StatelessWidget {
 
-  final List<GameCompositionPlayer> starters;
-  final List<GameCompositionPlayer> subs;
+  final GameComposition gameComposition;
 
-
-  Composition({this.starters, this.subs});
+  Composition({this.gameComposition});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,8 @@ class Composition extends StatelessWidget {
     double compositionHeight = size.height;
     PlayerPositionEngine engine = new PlayerPositionEngine(
         mapHeight: compositionHeight,
-        mapWidth: compositionWidth
+        mapWidth: compositionWidth,
+        strategy: gameComposition.strategy
     );
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15.0),
@@ -31,7 +30,8 @@ class Composition extends StatelessWidget {
         children: <Widget>[
           Container(
             child: CompositionPlayers(
-              gameCompositionPlayers: starters,
+              gameCompositionPlayers: gameComposition.gameCompositionPlayers
+                  .where((gcp) => gcp.state == PlayerGameState.STARTERS).toList(),
               playerPositionEngine: engine,
             ),
             width: compositionWidth,
@@ -49,9 +49,10 @@ class Composition extends StatelessWidget {
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: subs.map((s) => CompositionPlayer(
-              gameCompositionPlayer: s,
-            )).toList(),
+            children: gameComposition.gameCompositionPlayers
+                .where((gcp) => gcp.state == PlayerGameState.SUBSTITUTE)
+                .map((gcp) => CompositionPlayer(gameCompositionPlayer: gcp))
+                .toList(),
           )
         ],
       ),
