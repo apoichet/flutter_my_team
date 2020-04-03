@@ -283,7 +283,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Arnaud Poichet 12",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Remplaçant"
         },
         {
@@ -304,7 +304,7 @@
           "yellowCard":0,
           "goal":1,
           "id":"Paul Lefeuvre 99",
-          "position":"Meneur de Jeu",
+          "position":"Second Attaquant",
           "state":"Titulaire"
         },
         {
@@ -318,7 +318,7 @@
           "yellowCard":0,
           "goal":1,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Gauche",
           "state":"Titulaire"
         },
         {
@@ -339,14 +339,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Olivier Dayot 44",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
@@ -367,7 +367,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Central",
+          "position":"Défenseur Droit",
           "state":"Titulaire"
         },
         {
@@ -429,42 +429,42 @@
           "yellowCard":0,
           "goal":0,
           "id":"Jeremy Thill 10",
-          "position":"Attaquant",
+          "position":"Second Attaquant",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Nicolas Barret 8",
-          "position":"Attaquant",
+          "position":"Milieu Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Michele Gentile 39",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":1,
           "id":"Maël Herbert 5",
-          "position":"Milieu Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         }
       ]
@@ -477,7 +477,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexandre Poichet 25",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
@@ -491,14 +491,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Clément Harout 75",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":1,
           "id":"Paul Lefeuvre 99",
-          "position":"Milieu Droit",
+          "position":"Milieu Offensif",
           "state":"Titulaire"
         },
         {
@@ -512,14 +512,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Olivier Dayot 44",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
@@ -540,7 +540,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
@@ -554,7 +554,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Maël Herbert 5",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         }
       ]
@@ -574,21 +574,21 @@
           "yellowCard":0,
           "goal":1,
           "id":"Arnaud Poichet 12",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Remplaçant"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Alexis Vaysse 11",
-          "position":"Meneur de Jeu",
+          "position":"Second Attaquant",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Clément Harout 75",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
@@ -602,7 +602,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Geoffrey Guilbert 14",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
@@ -623,42 +623,42 @@
           "yellowCard":0,
           "goal":0,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":5,
           "id":"Jeremy Thill 10",
-          "position":"Avant Centre",
+          "position":"Attaquant",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Benjamin Morguen 13",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Maël Herbert 5",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ola Abokunwa 22",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Remplaçant"
         }
       ]
@@ -671,21 +671,21 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexandre Poichet 25",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Arnaud Poichet 12",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Alexis Vaysse 11",
-          "position":"Meneur de Jeu",
+          "position":"Second Attaquant",
           "state":"Titulaire"
         },
         {
@@ -706,7 +706,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Geoffrey Guilbert 14",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
@@ -727,7 +727,7 @@
           "yellowCard":0,
           "goal":1,
           "id":"Olivier Dayot 44",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
@@ -741,14 +741,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Nicolas Barret 8",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
@@ -796,14 +796,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Geoffrey Guilbert 14",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
@@ -824,28 +824,28 @@
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Christopher Burk 15",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Maël Herbert 5",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ola Abokunwa 22",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         }
       ]
@@ -865,7 +865,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexis Vaysse 11",
-          "position":"Attaquant",
+          "position":"Avant Centre",
           "state":"Titulaire"
         },
         {
@@ -886,21 +886,21 @@
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Makila Assouan T. 9",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Remplaçant"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
@@ -914,14 +914,14 @@
           "yellowCard":0,
           "goal":1,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Michele Gentile 39",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
@@ -935,14 +935,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Maël Herbert 5",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ola Abokunwa 22",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         }
       ]
@@ -955,14 +955,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexandre Poichet 25",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Arnaud Poichet 12",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
@@ -976,7 +976,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Clément Harout 75",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
@@ -990,7 +990,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
@@ -1011,7 +1011,7 @@
           "yellowCard":1,
           "goal":0,
           "id":"Olivier Dayot 44",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
@@ -1032,7 +1032,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
@@ -1046,14 +1046,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Maël Herbert 5",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Remplaçant"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ola Abokunwa 22",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Remplaçant"
         }
       ]
@@ -1066,7 +1066,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexandre Poichet 25",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
@@ -1087,7 +1087,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Clément Harout 75",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
@@ -1101,7 +1101,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
@@ -1122,14 +1122,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Olivier Dayot 44",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
@@ -1150,21 +1150,21 @@
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Remplaçant"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Michele Gentile 39",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Benjamin Morguen 13",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Remplaçant"
         }
       ]
@@ -1184,7 +1184,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexandre Poichet 25",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
@@ -1198,28 +1198,28 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexis Vaysse 11",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Remplaçant"
         },
         {
           "yellowCard":1,
           "goal":0,
           "id":"Clément Harout 75",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":2,
           "id":"Paul Lefeuvre 99",
-          "position":"Attaquant",
+          "position":"Avant Centre",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
@@ -1240,14 +1240,14 @@
           "yellowCard":0,
           "goal":2,
           "id":"Olivier Dayot 44",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
@@ -1268,14 +1268,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Benjamin Morguen 13",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Remplaçant"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Maël Herbert 5",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         }
       ]
@@ -1288,7 +1288,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexandre Poichet 25",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
@@ -1309,35 +1309,35 @@
           "yellowCard":0,
           "goal":0,
           "id":"Paul Lefeuvre 99",
-          "position":"Attaquant",
+          "position":"Avant Centre",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Geoffrey Guilbert 14",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Makila Assouan T. 9",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":1,
           "id":"Olivier Dayot 44",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
@@ -1358,21 +1358,21 @@
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Maël Herbert 5",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Remplaçant"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ola Abokunwa 22",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Remplaçant"
         }
       ]
@@ -1385,7 +1385,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexandre Poichet 25",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Remplaçant"
         },
         {
@@ -1399,7 +1399,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexis Vaysse 11",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
@@ -1413,70 +1413,70 @@
           "yellowCard":0,
           "goal":1,
           "id":"Paul Lefeuvre 99",
-          "position":"Attaquant",
+          "position":"Avant Centre",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Geoffrey Guilbert 14",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Makila Assouan T. 9",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Remplaçant"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":1,
           "id":"Jeremy Thill 10",
-          "position":"Ailier Gauche",
+          "position":"Milieu Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Amadou Diawara 7",
-          "position":"Ailier Droit",
+          "position":"Milieu Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Benjamin Morguen 13",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ola Abokunwa 22",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Remplaçant"
         }
       ]
@@ -1503,14 +1503,14 @@
           "yellowCard":1,
           "goal":3,
           "id":"Alexis Vaysse 11",
-          "position":"Attaquant",
+          "position":"Avant Centre",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Clément Harout 75",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Remplaçant"
         },
         {
@@ -1524,14 +1524,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Geoffrey Guilbert 14",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
@@ -1545,14 +1545,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Olivier Dayot 44",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
@@ -1566,14 +1566,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Nicolas Barret 8",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
@@ -1587,7 +1587,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Ola Abokunwa 22",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Remplaçant"
         }
       ]
@@ -1600,7 +1600,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexandre Poichet 25",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
@@ -1614,14 +1614,14 @@
           "yellowCard":0,
           "goal":2,
           "id":"Alexis Vaysse 11",
-          "position":"Attaquant",
+          "position":"Avant Centre",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Clément Harout 75",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
@@ -1635,21 +1635,21 @@
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Makila Assouan T. 9",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Remplaçant"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
@@ -1670,7 +1670,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Remplaçant"
         },
         {
@@ -1684,14 +1684,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Benjamin Morguen 13",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ola Abokunwa 22",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         }
       ]
@@ -1704,7 +1704,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexandre Poichet 25",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
@@ -1718,7 +1718,7 @@
           "yellowCard":0,
           "goal":3,
           "id":"Alexis Vaysse 11",
-          "position":"Attaquant",
+          "position":"Avant Centre",
           "state":"Titulaire"
         },
         {
@@ -1732,7 +1732,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
@@ -1746,14 +1746,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Makila Assouan T. 9",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Remplaçant"
         },
         {
           "yellowCard":0,
           "goal":1,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
@@ -1767,7 +1767,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
@@ -1781,14 +1781,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Benjamin Morguen 13",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Maël Herbert 5",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         }
       ]
@@ -1801,7 +1801,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexandre Poichet 25",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
@@ -1815,7 +1815,7 @@
           "yellowCard":0,
           "goal":3,
           "id":"Alexis Vaysse 11",
-          "position":"Attaquant",
+          "position":"Avant Centre",
           "state":"Titulaire"
         },
         {
@@ -1829,7 +1829,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
@@ -1850,42 +1850,42 @@
           "yellowCard":0,
           "goal":0,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Michele Gentile 39",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Remplaçant"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Benjamin Morguen 13",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Remplaçant"
         },
         {
           "yellowCard":0,
           "goal":1,
           "id":"Maël Herbert 5",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ola Abokunwa 22",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         }
       ]
@@ -1898,21 +1898,21 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexandre Poichet 25",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":1,
           "id":"Arnaud Poichet 12",
-          "position":"Milieu Défensif",
+          "position":"Milieu Offensif",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":2,
           "id":"Alexis Vaysse 11",
-          "position":"Attaquant",
+          "position":"Avant Centre",
           "state":"Remplaçant"
         },
         {
@@ -1926,7 +1926,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
@@ -1940,14 +1940,14 @@
           "yellowCard":0,
           "goal":0,
           "id":"Olivier Dayot 44",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Ludovic Vannier 6",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
@@ -1968,21 +1968,21 @@
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Amadou Diawara 7",
-          "position":"Ailier Gauche",
+          "position":"Avant Centre",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Maël Herbert 5",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
@@ -2002,7 +2002,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexandre Poichet 25",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Titulaire"
         },
         {
@@ -2016,7 +2016,7 @@
           "yellowCard":0,
           "goal":0,
           "id":"Alexis Vaysse 11",
-          "position":"Attaquant",
+          "position":"Avant Centre",
           "state":"Titulaire"
         },
         {
@@ -2030,21 +2030,21 @@
           "yellowCard":0,
           "goal":0,
           "id":"Romain Leparoux 21",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Makila Assouan T. 9",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Remplaçant"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Olivier Dayot 44",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Gauche",
           "state":"Titulaire"
         },
         {
@@ -2058,28 +2058,28 @@
           "yellowCard":0,
           "goal":0,
           "id":"Thomas Lemaire 24",
-          "position":"Défenseur Droit",
+          "position":"Latéral Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Christopher Burk 15",
-          "position":"Défenseur Central",
+          "position":"Défenseur Central Droit",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":0,
           "id":"Maël Herbert 5",
-          "position":"Défenseur Gauche",
+          "position":"Latéral Gauche",
           "state":"Titulaire"
         },
         {
           "yellowCard":0,
           "goal":1,
           "id":"Ola Abokunwa 22",
-          "position":"Milieu Défensif",
+          "position":"Milieu Défensif Droit",
           "state":"Remplaçant"
         }
       ]

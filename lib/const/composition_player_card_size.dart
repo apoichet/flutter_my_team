@@ -1,6 +1,6 @@
 class CompositionPlayerCardSize {
 
-  static const double widthPlayer = 55.0;
+  static const double widthPlayer = 62.0;
   static const double heightPlayer = 65.0;
   static const double heightArtifacts = 15.0;
 

@@ -28,32 +28,32 @@ class PlayerPositionEngine {
           left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.RIGHT_BACK : return PlayerPhysicPosition(
-          bottom: cardHeight * 1.5,
+          bottom: cardHeight * 1.5 * factorLine,
           right: cardWidth/6
       );
       case PlayerPosition.LEFT_BACK : return PlayerPhysicPosition(
-          bottom: cardHeight * 1.5,
+          bottom: cardHeight * 1.5 * factorLine,
           left: cardWidth/6
       );
       case PlayerPosition.RIGHT_DEFENDER : return PlayerPhysicPosition(
-          bottom: cardHeight,
-          right: mapWidth/2 - cardWidth
+          bottom: cardHeight * factorLine,
+          right: mapWidth/6
       );
       case PlayerPosition.LEFT_DEFENDER : return PlayerPhysicPosition(
-          bottom: cardHeight,
-          left: mapWidth/2 - cardWidth
+          bottom: cardHeight * factorLine,
+          left: mapWidth/6
       );
       case PlayerPosition.CENTER_BACK : return PlayerPhysicPosition(
-          bottom: cardHeight,
+          bottom: cardHeight * factorLine,
           left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.CENTER_BACK_LEFT : return PlayerPhysicPosition(
-          bottom: cardHeight,
-          left: mapWidth/4 - cardWidth
+          bottom: cardHeight * factorLine,
+          left: mapWidth/4
       );
       case PlayerPosition.CENTER_BACK_RIGHT : return PlayerPhysicPosition(
-          bottom: cardHeight,
-          right: mapWidth/4 - cardWidth
+          bottom: cardHeight * factorLine,
+          right: mapWidth/4
       );
       case PlayerPosition.DEFENSIVE_MIDFIELDER : return PlayerPhysicPosition(
           bottom: cardHeight * 2 * factorLine,
@@ -68,11 +68,11 @@ class PlayerPositionEngine {
           right: mapWidth/2 - cardWidth
       );
       case PlayerPosition.OFFENSIVE_MIDFIELDER : return PlayerPhysicPosition(
-          bottom: cardHeight * 3 * factorLine,
+          bottom: cardHeight * 2.9 * factorLine,
           left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.PLAY_MAKER : return PlayerPhysicPosition(
-          bottom: cardHeight * 3 * factorLine,
+          bottom: cardHeight * 2.9 * factorLine,
           left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.SIDE_MIDFIELDER_LEFT : return PlayerPhysicPosition(
@@ -100,7 +100,7 @@ class PlayerPositionEngine {
           right: mapWidth/2 - cardWidth
       );
       case PlayerPosition.CENTER_FORWARD : return PlayerPhysicPosition(
-          bottom: cardHeight * 3.2 * factorLine,
+          bottom: cardHeight * 3.8 * factorLine,
           right: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.UNKNOWN :throw new Exception("UNKNOWN Player position detected");
