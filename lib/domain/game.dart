@@ -17,7 +17,7 @@ class Game {
         stadium: json['stadium'],
         state: evaluate(json['result']),
         place: json['place'],
-        date: DateTime.parse(json['date']),
+        date: DateTime.parse(json['date']).toLocal(),
     );
   }
 }

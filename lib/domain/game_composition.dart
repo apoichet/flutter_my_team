@@ -16,7 +16,7 @@ class GameComposition {
     List<GameCompositionPlayer> compositionPlayers = (json['gamePlayers'] as List)
         .map((gp) => GameCompositionPlayer.fromJson(gp)).toList();
     return GameComposition(
-      date: DateTime.parse(json['date']),
+      date: DateTime.parse(json['date']).toLocal(),
       opponent: json['opponent'],
       gameCompositionPlayers: compositionPlayers
     );

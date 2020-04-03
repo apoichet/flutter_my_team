@@ -49,7 +49,6 @@ class CompositionPlayer extends StatelessWidget {
     Player player = getTeam().players
         .singleWhere((p) => p.avatar == avatar, orElse: () => null);
     if (player == null) {
-      print("player");
       return "avatar";
     }
     return player.avatar;
