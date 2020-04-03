@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/const/composition_player_card_size.dart';
+import 'package:my_team/domain/game_composition_player.dart';
+import 'package:my_team/domain/player.dart';
+import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 
 class CompositionPlayer extends StatelessWidget {
 
-  final String firstName;
-  final int nbGoal;
-  final int nbYellowCard;
-  final String avatar;
+  final GameCompositionPlayer gameCompositionPlayer;
 
   CompositionPlayer({
-    @required this.firstName,
-    this.nbGoal = 0,
-    this.nbYellowCard = 0,
-    this.avatar = "avatar"
+    @required this.gameCompositionPlayer
   });
 
   @override
@@ -27,12 +24,12 @@ class CompositionPlayer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image.asset(
-            "assets/img/player/AlexisVaysse11.png",
+            "assets/img/player/" + _getAvatar() + ".png",
             width: CompositionPlayerCardSize.widthAvatar,
             height: CompositionPlayerCardSize.heightAvatar,
           ),
           buildWidgetText(
-              text: firstName,
+              text: gameCompositionPlayer.id.split(" ")[0],
               size: CompositionPlayerCardSize.nameSize,
               family: FontFamily.ARIAL,
               weight: FontWeight.bold
@@ -47,11 +44,22 @@ class CompositionPlayer extends StatelessWidget {
     );
   }
 
+  String _getAvatar() {
+    String avatar = gameCompositionPlayer.id.replaceAll(" ", "");
+    Player player = getTeam().players
+        .singleWhere((p) => p.avatar == avatar, orElse: () => null);
+    if (player == null) {
+      print("player");
+      return "avatar";
+    }
+    return player.avatar;
+  }
+
   Widget _buildPlayerArtifacts() {
     return Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: nbGoal > 2 ? _buildArtifactsWithTooManyGoals()
+        children: gameCompositionPlayer.nbGoal > 2 ? _buildArtifactsWithTooManyGoals()
             : _buildArtifacts()
     );
   }
@@ -62,7 +70,7 @@ class CompositionPlayer extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.only(right: 1.0),
         child: buildWidgetText(
-            text: " x" + nbGoal.toString(),
+            text: " x" + gameCompositionPlayer.nbGoal.toString(),
             family: FontFamily.ARIAL,
             weight: FontWeight.bold,
             size: CompositionPlayerCardSize.goalTextSize
@@ -80,22 +88,22 @@ class CompositionPlayer extends StatelessWidget {
   }
 
   Widget _buildGoals() {
-    return nbGoal > 0 ? Padding(
+    return gameCompositionPlayer.nbGoal > 0 ? Padding(
       padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 1.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(nbGoal, (int i) =>
+        children: List.generate(gameCompositionPlayer.nbGoal, (int i) =>
             _buildGoal()).toList(),
       ),
     ) : SizedBox.shrink();
   }
 
   Widget _buildYellowCards() {
-    return nbYellowCard > 0 ? Padding(
+    return gameCompositionPlayer.nbYellowCard > 0 ? Padding(
       padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 1.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(nbYellowCard, (int i) =>
+        children: List.generate(gameCompositionPlayer.nbYellowCard, (int i) =>
             _buildYellowCard()).toList(),
       ),
     ) : SizedBox.shrink();

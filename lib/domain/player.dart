@@ -19,7 +19,8 @@ class Player {
   String avatar;
 
   getId() {
-    return this.firstName + this.lastName + this.number.toString();
+    return (this.firstName + this.lastName + this.number.toString())
+        .replaceAll(" ", "");
   }
 
   getName() {

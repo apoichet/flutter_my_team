@@ -10,7 +10,7 @@ class PlayerPositionEngine {
   final double cardHeight;
   final double cardWidth;
 
-  final double factorLine = 1.1;
+  final double factorLine = 1.08;
 
   const PlayerPositionEngine({
     @required this.mapHeight,
@@ -68,11 +68,11 @@ class PlayerPositionEngine {
           right: mapWidth/2 - cardWidth
       );
       case PlayerPosition.OFFENSIVE_MIDFIELDER : return PlayerPhysicPosition(
-          bottom: cardHeight * 2.9 * factorLine,
+          bottom: cardHeight * 2.85 * factorLine,
           left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.PLAY_MAKER : return PlayerPhysicPosition(
-          bottom: cardHeight * 2.9 * factorLine,
+          bottom: cardHeight * 2.85 * factorLine,
           left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.SIDE_MIDFIELDER_LEFT : return PlayerPhysicPosition(

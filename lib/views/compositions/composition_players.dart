@@ -21,19 +21,16 @@ class CompositionPlayers extends StatelessWidget {
     );
   }
 
-  Widget _buildPositionedPlayer(GameCompositionPlayer gamePlayer) {
+  Widget _buildPositionedPlayer(GameCompositionPlayer gameCompositionPlayer) {
     PlayerPhysicPosition physicPosition = playerPositionEngine
-        .buildCompositionPlayerFrom(position: gamePlayer.position);
+        .buildCompositionPlayerFrom(position: gameCompositionPlayer.position);
     return Positioned(
         top: physicPosition.top,
         bottom: physicPosition.bottom,
         left: physicPosition.left,
         right: physicPosition.right,
         child: CompositionPlayer(
-          firstName: gamePlayer.id.split(" ")[0],
-          nbYellowCard: gamePlayer.nbYellowCard,
-          nbGoal: gamePlayer.nbGoal,
-          avatar: "avatar.png",
+          gameCompositionPlayer: gameCompositionPlayer,
         )
     );
   }
