@@ -291,7 +291,7 @@
           "goal":0,
           "id":"Alexis Vaysse 11",
           "position":"Meneur de Jeu",
-          "state":"Remplaçant"
+          "state":"Titulaire"
         },
         {
           "yellowCard":0,
@@ -382,7 +382,7 @@
           "goal":0,
           "id":"Maël Herbert 5",
           "position":"Milieu Gauche",
-          "state":"Remplaçant"
+          "state":"Titulaire"
         }
       ]
     },
@@ -2154,8 +2154,8 @@
       "refereeMinute":70,
       "position":"Attaquant",
       "present":16,
-      "starting":13,
-      "substitued":3,
+      "starting":14,
+      "substitued":2,
       "hurt":0
     },
     {
@@ -2466,8 +2466,8 @@
       "refereeMinute":120,
       "position":"Latéral Gauche",
       "present":14,
-      "starting":11,
-      "substitued":3,
+      "starting":12,
+      "substitued":2,
       "hurt":2
     },
     {

@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/game_composition_player.dart';
 import 'package:my_team/services/composition_engine.dart';
 import 'package:my_team/services/widget_service.dart';
+import 'package:my_team/views/compositions/composition_player.dart';
 import 'package:my_team/views/compositions/composition_players.dart';
 
 class Composition extends StatelessWidget {
@@ -23,7 +24,7 @@ class Composition extends StatelessWidget {
         mapWidth: compositionWidth
     );
     return Padding(
-      padding: const EdgeInsets.only(right: 20, bottom: 15, top: 15),
+      padding: const EdgeInsets.symmetric(vertical: 15.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -46,11 +47,11 @@ class Composition extends StatelessWidget {
                     fit: BoxFit.fill)
             ),
           ),
-          RotatedBox(
-              quarterTurns: 1,
-              child: buildWidgetText(
-                  text: ""
-              )
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: subs.map((s) => CompositionPlayer(
+              gameCompositionPlayer: s,
+            )).toList(),
           )
         ],
       ),
