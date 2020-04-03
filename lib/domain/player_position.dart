@@ -19,11 +19,10 @@ enum PlayerPosition {
   FORWARD,
   SECOND_TOP,
   CENTER_FORWARD,
-  SUBSTITUTE,
   UNKNOWN
 }
 
-PlayerPosition from(String position) {
+PlayerPosition playerPositionFrom(String position) {
   switch(position) {
     case "Gardien" : return PlayerPosition.GOAL_KEEPER;
     case "Latéral Droit" : return PlayerPosition.RIGHT_BACK;
@@ -45,7 +44,6 @@ PlayerPosition from(String position) {
     case "Attaquant" : return PlayerPosition.FORWARD;
     case "Second Attaquant" : return PlayerPosition.SECOND_TOP;
     case "Avant Centre" : return PlayerPosition.CENTER_FORWARD;
-    case "Remplaçant" : return PlayerPosition.SUBSTITUTE;
   }
   return PlayerPosition.UNKNOWN;
 }
@@ -72,7 +70,6 @@ String to(PlayerPosition position) {
     case PlayerPosition.FORWARD : return "Attaquant";
     case PlayerPosition.SECOND_TOP : return "Second Attaquant";
     case PlayerPosition.CENTER_FORWARD : return "Avant Centre";
-    case PlayerPosition.SUBSTITUTE : return "Remplaçant";
     case PlayerPosition.UNKNOWN : return "Autres";
   }
   return "";

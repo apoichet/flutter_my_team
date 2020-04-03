@@ -103,12 +103,7 @@ class PlayerPositionEngine {
           bottom: cardHeight * 3.2 * factorLine,
           right: mapWidth/2 - cardWidth/2
       );
-      case PlayerPosition.SUBSTITUTE : return PlayerPhysicPosition(
-
-      );
-      case PlayerPosition.UNKNOWN : return PlayerPhysicPosition(
-
-      );
+      case PlayerPosition.UNKNOWN :throw new Exception("UNKNOWN Player position detected");
     }
     return PlayerPhysicPosition();
   }

@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/header.dart';
-import 'package:my_team/domain/game.dart';
+import 'package:my_team/domain/game_composition.dart';
+import 'package:my_team/domain/player_game_state.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/compositions/arrow.dart';
+import 'package:my_team/views/compositions/composition.dart';
 
 import '../../components/view_scaffold.dart';
-import 'composition.dart';
 
 class Compositions extends StatefulWidget {
 
-  final List<Game> games = getTeam().games.reversed.toList();
+  final List<GameComposition> gameCompositions = getTeam().gameCompositions.reversed.toList();
 
   @override
   _CompositionsState createState() => _CompositionsState();
@@ -73,7 +74,7 @@ class _CompositionsState extends State<Compositions> {
                         Expanded(
                           flex: 8,
                           child: buildWidgetText(
-                              text: _buildCompoFooter(widget.games[indexGame]),
+                              text: _buildCompoFooter(widget.gameCompositions[indexGame]),
                               family: FontFamily.ARIAL,
                               size: 17,
                               weight: FontWeight.bold
@@ -83,7 +84,7 @@ class _CompositionsState extends State<Compositions> {
                             child: Arrow(
                                 onTap: () => _nextCompo(),
                                 svg: "forward_icon.svg",
-                                colorCondition: indexGame < widget.games.length
+                                colorCondition: indexGame < widget.gameCompositions.length
                             )
                         ),
                       ],
@@ -97,19 +98,22 @@ class _CompositionsState extends State<Compositions> {
     );
   }
 
-  _buildCompoFooter(Game game) {
-    String opponent = game.opponent;
-    String day = game.date.day.toString().length == 1 ?
-    "0" + game.date.day.toString() : game.date.day.toString();
-    String month = game.date.month.toString().length == 1 ?
-    "0" + game.date.month.toString() : game.date.month.toString();
-    return opponent + " " + day + "/" + month + "/" + game.date.year.toString();
+  _buildCompoFooter(GameComposition gameComposition) {
+    String opponent = gameComposition.opponent;
+    String day = gameComposition.date.day.toString().length == 1 ?
+    "0" + gameComposition.date.day.toString() : gameComposition.date.day.toString();
+    String month = gameComposition.date.month.toString().length == 1 ?
+    "0" + gameComposition.date.month.toString() : gameComposition.date.month.toString();
+    return opponent + " " + day + "/" + month + "/" + gameComposition.date.year.toString();
   }
 
   _buildPageView(Size size) {
     return PageView(
       controller: _controller,
-      children: widget.games.map((g) => Composition(g)).toList(),
+      children: widget.gameCompositions.map((gc) => Composition(
+        starters: gc.gameCompositionPlayers.where((gcp) => gcp.state == PlayerGameState.STARTERS).toList(),
+        subs: gc.gameCompositionPlayers.where((gcp) => gcp.state == PlayerGameState.SUBSTITUTE).toList(),
+      )).toList(),
       onPageChanged: (index) {
         _compoChanged(index);
       },
@@ -117,7 +121,7 @@ class _CompositionsState extends State<Compositions> {
   }
 
   _nextCompo() {
-    if(indexGame < widget.games.length) {
+    if(indexGame < widget.gameCompositions.length) {
       _controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.linear);
     }
   }

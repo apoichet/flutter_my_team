@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/domain/game.dart';
+import 'package:my_team/domain/game_composition_player.dart';
 import 'package:my_team/services/composition_engine.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/views/compositions/composition_players.dart';
 
 class Composition extends StatelessWidget {
 
-  final Game game;
+  final List<GameCompositionPlayer> starters;
+  final List<GameCompositionPlayer> subs;
 
-  Composition(this.game);
+
+  Composition({this.starters, this.subs});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class Composition extends StatelessWidget {
         children: <Widget>[
           Container(
             child: CompositionPlayers(
-              gamePlayers: game.gamePlayers,
+              gameCompositionPlayers: starters,
               playerPositionEngine: engine,
             ),
             width: compositionWidth,

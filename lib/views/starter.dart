@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/domain/team.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/user_service.dart';
 import 'package:my_team/views/home/home.dart';
-import 'package:my_team/components/view_scaffold.dart';
+
 import 'intro/ready/ready.dart';
 import 'loader.dart';
 
