@@ -30,7 +30,6 @@ class CompositionPlayer extends StatelessWidget {
           ),
           buildWidgetText(
               text: gameCompositionPlayer.id.split(" ")[0],
-              size: CompositionPlayerCardSize.nameSize,
               family: FontFamily.ARIAL,
               weight: FontWeight.bold
           ),
@@ -72,7 +71,6 @@ class CompositionPlayer extends StatelessWidget {
             text: " x" + gameCompositionPlayer.nbGoal.toString(),
             family: FontFamily.ARIAL,
             weight: FontWeight.bold,
-            size: CompositionPlayerCardSize.goalTextSize
         ),
       ),
       _buildYellowCards()

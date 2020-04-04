@@ -1,18 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/text_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
-
-getHeightButton(BuildContext context) {
-  return MediaQuery.of(context).size.height * 0.08;
-}
-
-getWidthButton(BuildContext context) {
-  return MediaQuery.of(context).size.width * 0.6;
-}
 
 class Button extends StatelessWidget {
   final VoidCallback onPressed;
@@ -35,14 +28,14 @@ class Button extends StatelessWidget {
           )
       ),
       child: Container(
-          width: getWidthButton(context),
-          height: getHeightButton(context),
+          width: getResponsiveWidth(315.0),
+          height: getResponsiveHeight(60.0),
           alignment: Alignment.center,
           child: buildWidgetText(
+              fontSize: getResponsiveSize(30.0),
               text: text,
               family: FontFamily.MONTSERRAT,
-              weight: FontWeight.w600,
-              size: 25)
+              weight: FontWeight.w600)
       ),
     );
   }

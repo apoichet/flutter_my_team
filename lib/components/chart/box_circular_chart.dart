@@ -40,7 +40,7 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
   }
 
   _buildHeader() {
-    List<Text> texts = widget.circularCharts.map((chart) =>
+    List<Widget> texts = widget.circularCharts.map((chart) =>
         _buildTextHeader(chart)).toList();
     return Row(
         mainAxisSize: MainAxisSize.max,
@@ -48,7 +48,7 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
     );
   }
 
-  Text _buildTextHeader(CircularChart chart) {
+  Widget _buildTextHeader(CircularChart chart) {
     var text = roundDouble(chart.value, 1).toString();
     if (chart.rounded) {
       text = chart.value.round().toString();
@@ -57,12 +57,11 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
         text: text,
         family: FontFamily.ARIAL,
         weight: FontWeight.bold,
-        size: 24,
         color: chart.valueColor
     );
   }
 
-  _joinTextWidgets(List<Text> texts) {
+  _joinTextWidgets(List<Widget> texts) {
     var textsJoined = <Widget>[];
     for (var text in texts) {
       textsJoined.add(text);
@@ -70,7 +69,6 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
         textsJoined.add(buildWidgetText(
             text: '/',
             family: FontFamily.ARIAL,
-            size: 15
         ));
       }
     }

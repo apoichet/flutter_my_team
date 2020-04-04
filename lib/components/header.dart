@@ -37,7 +37,6 @@ class Header extends StatelessWidget {
               child: buildWidgetText(
                   text: textHeader,
                   family: FontFamily.MONTSERRAT_ALTERNATES,
-                  size: 25,
                   weight: FontWeight.w600
               )
           ),

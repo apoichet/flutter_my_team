@@ -16,7 +16,7 @@ List<Boarding> buildBoardings() {
         imagePath: 'boarding_3',
         backgroundPath: 'background_4',
         title: 'Compositions d’équipe',
-        description: 'Chaque semaine découvre en avant première la composition du soir !  Tu peux également consulter les compositions des semaines passées.'),
+        description: 'Chaque semaine découvre en avant première la composition du soir ! Tu peux également consulter les compositions des semaines passées.'),
     Boarding(
         imagePath: 'boarding_4',
         backgroundPath: 'background_5',

@@ -21,7 +21,6 @@ class Ready extends StatelessWidget {
                     child: Image.asset("assets/img/logo.png")
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 10),
                   alignment: Alignment.bottomCenter,
                   child: Button(
                     text: buttonReadyText,

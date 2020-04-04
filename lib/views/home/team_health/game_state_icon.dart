@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 
@@ -15,8 +16,8 @@ class GameStateIconState extends StatelessWidget {
     return Container(
         alignment: Alignment.center,
         margin: const EdgeInsets.only(left: 7, right: 7),
-        width: 30,
-        height: 30,
+        width: getResponsiveHeight(30.0),
+        height: getResponsiveHeight(30.0),
         decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(8),
@@ -32,10 +33,10 @@ class GameStateIconState extends StatelessWidget {
             ]
         ),
         child: buildWidgetText(
-            text: letter,
-            family: FontFamily.ARIAL,
-            weight: FontWeight.bold,
-            size: 19
+          fontSize: getResponsiveSize(19.0),
+          text: letter,
+          family: FontFamily.ARIAL,
+          weight: FontWeight.bold,
         )
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/services/responsive_size.dart';
 
 class Circle extends StatelessWidget {
 
@@ -11,8 +12,8 @@ class Circle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         margin: const EdgeInsets.all(5),
-        width: 13,
-        height: 13,
+        width: getResponsiveWidth(14.0),
+        height: getResponsiveHeight(14.0),
         decoration: BoxDecoration(
             color: full ? Colors.green : Colors.white,
             shape: BoxShape.circle,

@@ -6,6 +6,7 @@ import 'package:my_team/components/player_list.dart';
 import 'package:my_team/components/view_padding.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/home/home.dart';
@@ -36,11 +37,12 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
           child: Column(
             children: <Widget>[
               Expanded(
+                flex: 2,
                 child: Center(
                     child: buildWidgetText(
+                        fontSize: getResponsiveSize(28.0),
                         text: widget.readyTitleText,
                         family: FontFamily.ARIAL,
-                        size: 25,
                         weight: FontWeight.bold
                     )),
               ),
@@ -49,9 +51,9 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
                   child: PlayerList(onTapPlayerParent: _onTapPlayer)
               ),
               Expanded(
+                flex: 2,
                 child: Container(
-                    padding: EdgeInsets.all(10),
-                    width: size.width * 0.8,
+                    alignment: Alignment.center,
                     child: Button(
                       onPressed: idPlayerSelected == null ? null : () {
                         setPlayerFromId(idPlayerSelected);

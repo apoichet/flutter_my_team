@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/intro/circle.dart';
@@ -38,22 +39,21 @@ class _IntroState extends State<Intro> {
         ),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Container(
-            height: size.height * 0.9,
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: PageView(
-              children: widget.boardings,
-              controller: _controller,
-              onPageChanged: (index) {
-                _pageChanged(index);
-              },
+          Expanded(
+            flex: 9,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15.0),
+              child: PageView(
+                children: widget.boardings,
+                controller: _controller,
+                onPageChanged: (index) {
+                  _pageChanged(index);
+                },
+              ),
             ),
           ),
-          Container(
-            height: size.height * 0.1,
+          Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
@@ -63,8 +63,8 @@ class _IntroState extends State<Intro> {
                         child: buildWidgetText(
                             text: indexBoarding == 0 ? '' : widget.previous,
                             family: FontFamily.ARIAL,
-                            size: 17,
-                            weight: FontWeight.bold
+                            weight: FontWeight.bold,
+                            fontSize: getResponsiveSize(18.0)
                         )
                     )
                 ),
@@ -81,8 +81,8 @@ class _IntroState extends State<Intro> {
                         child: buildWidgetText(
                             text: widget.next,
                             family: FontFamily.ARIAL,
-                            size: 17,
-                            weight: FontWeight.bold
+                            weight: FontWeight.bold,
+                            fontSize: getResponsiveSize(18.0)
                         )
                     )
                 ),

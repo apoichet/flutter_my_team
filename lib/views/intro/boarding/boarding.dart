@@ -1,5 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
@@ -27,36 +29,52 @@ class Boarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Column(
       children: <Widget>[
-        Container(
-            height: size.height * 0.65,
-            child: Image.asset('assets/img/boarding/' + imagePath + '.png')
-        ),
-        Container(
-          decoration: BoxDecoration(
-              color: CustomColors.BlackBackgroundChart,
-              borderRadius: BorderRadius.circular(30)
+        Expanded(
+          flex: 7,
+          child: SafeArea(
+            child: Image.asset(
+              'assets/img/boarding/' + imagePath + '.png',
+              fit: BoxFit.cover,
+              filterQuality: FilterQuality.high,
+            ),
           ),
-          margin: EdgeInsets.symmetric(horizontal: 7),
-          padding: EdgeInsets.all(10),
-          child: Column(
-            children: <Widget>[
-              Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
+        ),
+        Expanded(
+          flex: 3,
+          child: Container(
+            alignment: Alignment.topCenter,
+            margin: EdgeInsets.all(getResponsiveSize(10.0)),
+            padding: EdgeInsets.all(getResponsiveSize(12.0)),
+            decoration: BoxDecoration(
+                color: CustomColors.BlackBackgroundChart,
+                borderRadius: BorderRadius.circular(30)
+            ),
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  flex: 3,
                   child: buildWidgetText(
+                      fontSize: getResponsiveSize(25.0),
                       text: title,
-                      size: 23,
                       family: FontFamily.MONTSERRAT_ALTERNATES,
-                      weight: FontWeight.w700)
-              ),
-              buildWidgetText(
-                  text: description,
-                  size: 12,
-                  family: FontFamily.MONTSERRAT_ALTERNATES,
-                  weight: FontWeight.w600),
-            ],
+                      weight: FontWeight.w700),
+                ),
+                Expanded(
+                  flex: 7,
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    padding: EdgeInsets.all(getResponsiveSize(4.0)),
+                    child: buildWidgetText(
+                        fontSize: getResponsiveSize(14.0),
+                        text: description,
+                        family: FontFamily.MONTSERRAT_ALTERNATES,
+                        weight: FontWeight.w600),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],

@@ -75,7 +75,6 @@ class _CompositionsState extends State<Compositions> {
                           child: buildWidgetText(
                               text: _buildCompoFooter(widget.gameCompositions[indexGame]),
                               family: FontFamily.ARIAL,
-                              size: 17,
                               weight: FontWeight.bold
                           ),
                         ),

@@ -38,6 +38,6 @@ class CustomColors {
   static const DisabledRaisedButton = Colors.transparent;
 
   static const BackgroundLoader = Color.fromRGBO(255, 255, 255, 0.21);
-  static const Loader = Color.fromRGBO(255, 255, 255, 0.7);
+  static const Loader = Color.fromRGBO(255, 255, 255, 0.9);
 
 }

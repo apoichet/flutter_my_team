@@ -59,7 +59,6 @@ class _StatisticsState extends State<Statistics> {
       child: buildWidgetText(
           text: text,
           family: FontFamily.ARIAL,
-          size: 23,
           weight: FontWeight.bold
       ),
     );

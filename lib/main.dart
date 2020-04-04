@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_team/services/responsive_size.dart';
 
-import 'views/starter.dart';
+import 'starter.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,11 +15,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.transparent,
             accentColor: Colors.white
         ),
-        home: SafeArea(
-            bottom: true,
-            top: true,
-            child: Starter()
-        )
+        home: Starter()
     );
   }
 }

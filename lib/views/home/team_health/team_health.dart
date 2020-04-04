@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/game.dart';
 import 'package:my_team/domain/game_state.dart';
 import 'package:my_team/services/data_service.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
@@ -15,27 +16,31 @@ class TeamHealth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(bottom: 1.0),
-            child: buildWidgetText(
-                text: "Forme du moment",
-                family: FontFamily.ARIAL,
-                size: 19,
-                weight: FontWeight.bold
+          Expanded(
+            child: Center(
+              child: buildWidgetText(
+                  fontSize: getResponsiveSize(18.0),
+                  text: "Forme du moment",
+                  family: FontFamily.ARIAL,
+              ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: lastGames.map((game) =>
-                _buildGameStateIcon(game.state)).toList(),
+          Expanded(
+            flex: 2,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: lastGames.map((game) =>
+                  _buildGameStateIcon(game.state)).toList(),
+            ),
           )
         ]
     );
   }
 
-   Widget _buildGameStateIcon(GameState state) {
+  Widget _buildGameStateIcon(GameState state) {
     switch(state) {
       case GameState.DEFEAT :
         return GameStateIconState(

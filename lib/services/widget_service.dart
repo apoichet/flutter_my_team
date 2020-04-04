@@ -1,24 +1,31 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/theme/font_family.dart';
 
-Text buildWidgetText({
+AutoSizeText buildWidgetText({
   @required String text,
-  double size = 12.0,
   FontFamily family = FontFamily.MONTSERRAT,
   FontWeight weight =  FontWeight.normal,
   TextAlign align = TextAlign.center,
-  Color color = Colors.white
+  Color color = Colors.white,
+  maxFontSize = 40.0,
+  minFontSize = 10.0,
+  fontSize = 12.0,
 }) {
-  return Text(
+  return AutoSizeText(
       text,
       textAlign: align,
+      maxFontSize: maxFontSize,
+      minFontSize: minFontSize,
+      overflow: TextOverflow.fade,
       style: TextStyle(
           decoration: TextDecoration.none,
           color: color,
-          fontSize: size,
           fontFamily: getFontFamily(family),
-          fontWeight: weight
+          fontWeight: weight,
+          fontSize: fontSize
       )
   );
 }

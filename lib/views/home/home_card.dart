@@ -66,10 +66,8 @@ class _IndividualCardState extends State<IndividualCard> {
             child: _buildHeader(context)
         ),
         Expanded(
-            flex: 5,
-            child: FittedBox(
-              child: _buildBody(),
-            )
+            flex: 7,
+            child: _buildBody()
         ),
         Expanded(
           child: buildFooter(),
@@ -80,8 +78,6 @@ class _IndividualCardState extends State<IndividualCard> {
 
   Widget _buildHeader(BuildContext context) {
     return Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Container(
             height: 105,
@@ -104,13 +100,18 @@ class _IndividualCardState extends State<IndividualCard> {
               fit: BoxFit.fill,
             ),
           ),
-          Container(
-            transform: Matrix4.translationValues(20, 10, 0),
-            child: buildWidgetText(
-                text: _buildTextHeader(),
-                family: FontFamily.ARIAL,
-                weight: FontWeight.bold,
-                size: 23
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              height: 105,
+              padding: const EdgeInsets.all(10.0),
+              transform: Matrix4.translationValues(0, 15, 0),
+              child: buildWidgetText(
+                  text: _buildTextHeader(),
+                  family: FontFamily.ARIAL,
+                  weight: FontWeight.bold,
+                minFontSize: 20.0
+              ),
             ),
           ),
         ]);
@@ -119,10 +120,7 @@ class _IndividualCardState extends State<IndividualCard> {
   _buildTextHeader() {
     String position = widget.player.position;
     String number = widget.player.number.toString();
-    if(position.length > 10) {
-      return position + "\nn° " + number;
-    }
-    return position + " n° " + number;
+    return position + " n°" + number;
   }
 
   Widget _buildBody() {
@@ -144,7 +142,7 @@ class _IndividualCardState extends State<IndividualCard> {
           _buildChart(
             BoxLinearChart([chartMissing, chartLate, chartYellowCard]),
             _buildFooter(ChartsTitle.MISSING_LINEAR_TITLE + ' /\n' +
-                ChartsTitle.LATE_LINEAR_TITLE + ' / ' +
+                ChartsTitle.LATE_LINEAR_TITLE + ' /\n' +
                 ChartsTitle.YELLOW_CARD_LINEAR_TITLE),
           ),
         ],
@@ -169,14 +167,12 @@ class _IndividualCardState extends State<IndividualCard> {
             child: Row(
               children: <Widget>[
                 buildWidgetText(
-                    text: player.firstName + " ",
-                    family: FontFamily.ARIAL,
-                    size: 21
+                  text: player.firstName + " ",
+                  family: FontFamily.ARIAL,
                 ),
                 buildWidgetText(
                     text: player.lastName,
                     family: FontFamily.ARIAL,
-                    size: 21,
                     weight: FontWeight.bold
                 )
               ],
@@ -311,9 +307,8 @@ class _IndividualCardState extends State<IndividualCard> {
     return Padding(
       padding: const EdgeInsets.all(3.0),
       child: buildWidgetText(
-          text: footer,
-          family: FontFamily.ARIAL,
-          size: 11
+        text: footer,
+        family: FontFamily.ARIAL,
       ),
     );
   }

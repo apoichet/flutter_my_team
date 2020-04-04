@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/player.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 
@@ -28,37 +29,38 @@ class ListItem extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Container(
-            height: 40,
+            alignment: Alignment.centerLeft,
+            height: getResponsiveHeight(40.0),
             child: Image.asset(
               "assets/img/player/" + player.avatar + ".png",
-              fit: BoxFit.fill,
               filterQuality: FilterQuality.high,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+          Container(
+            alignment: Alignment.centerLeft,
+            padding: EdgeInsets.only(left: getResponsiveWidth(10.0)),
             child: Row(
                 children: <Widget>[
                   buildWidgetText(
-                      text: player.firstName + " ",
+                      text: player.firstName,
                       family: FontFamily.ARIAL,
-                      size: 20
+                      fontSize: getResponsiveWidth(20.0)
                   ),
                   buildWidgetText(
                       text: player.lastName,
                       family: FontFamily.ARIAL,
-                      size: 21,
+                      fontSize: getResponsiveWidth(21.0),
                       weight: FontWeight.bold
                   ),
                   buildWidgetText(
                       text: " - n°",
                       family: FontFamily.ARIAL,
-                      size: 20
+                      fontSize: getResponsiveWidth(20.0)
                   ),
                   buildWidgetText(
                       text: player.number.toString(),
                       family: FontFamily.ARIAL,
-                      size: 22,
+                      fontSize: getResponsiveWidth(21.0),
                       weight: FontWeight.bold
                   )
                 ]

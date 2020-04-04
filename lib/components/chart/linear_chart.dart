@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/services/number_service.dart';
@@ -79,7 +80,7 @@ class _LinearChartState extends State<LinearChart> {
     );
   }
 
-  Text _buildTextHeader() {
+  AutoSizeText _buildTextHeader() {
     var text = roundDouble(widget.value, 1).toString();
     if (widget.rounded) {
       text = widget.value.round().toString();
@@ -88,7 +89,6 @@ class _LinearChartState extends State<LinearChart> {
         text: text,
         color: widget.valueColor,
         family: FontFamily.ARIAL,
-        size: 24,
         weight: FontWeight.bold
     );
   }
@@ -100,7 +100,6 @@ class _LinearChartState extends State<LinearChart> {
     return buildWidgetText(
         text: '/',
         family: FontFamily.ARIAL,
-        size: 15
     );
   }
 

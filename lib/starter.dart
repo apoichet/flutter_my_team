@@ -5,8 +5,9 @@ import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/user_service.dart';
 import 'package:my_team/views/home/home.dart';
 
-import 'intro/ready/ready.dart';
-import 'loader.dart';
+import 'services/responsive_size.dart';
+import 'views/intro/ready/ready.dart';
+import 'views/loader.dart';
 
 class Starter extends StatefulWidget {
   @override
@@ -29,6 +30,9 @@ class _StarterState extends State<Starter> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    setResponsiveSize(width, height);
     return FutureBuilder(
         future: _future,
         builder: (BuildContext context, AsyncSnapshot<StarterResponse> snapshot) {
