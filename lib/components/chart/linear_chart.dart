@@ -4,6 +4,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/services/number_service.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 
@@ -51,22 +52,24 @@ class _LinearChartState extends State<LinearChart> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(1.0),
-      child: Column(
-        children: <Widget>[
-          Row(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        Expanded(
+          child: Row(
             children: <Widget>[
               _buildTextHeader(),
               _joinTextHeader()
             ],
           ),
-          RotatedBox(
+        ),
+        Expanded(
+          flex: 4,
+          child: RotatedBox(
             quarterTurns: 3,
             child: new LinearPercentIndicator(
               animationDuration: 1000,
-              lineHeight: 12.0,
-              width: widget.width,
+              lineHeight: getResponsiveWidth(15.0),
               animation: true,
               percent: percent,
               progressColor: widget.color,
@@ -74,9 +77,9 @@ class _LinearChartState extends State<LinearChart> {
               backgroundColor: widget.backgroundColor,
             ),
           ),
-        ],
+        ),
+      ],
 
-      ),
     );
   }
 
@@ -86,6 +89,7 @@ class _LinearChartState extends State<LinearChart> {
       text = widget.value.round().toString();
     }
     return buildWidgetText(
+        fontSize: getResponsiveWidth(16.0),
         text: text,
         color: widget.valueColor,
         family: FontFamily.ARIAL,
@@ -98,8 +102,9 @@ class _LinearChartState extends State<LinearChart> {
       return SizedBox.shrink();
     }
     return buildWidgetText(
-        text: '/',
-        family: FontFamily.ARIAL,
+      fontSize: getResponsiveWidth(14.0),
+      text: '/',
+      family: FontFamily.ARIAL,
     );
   }
 

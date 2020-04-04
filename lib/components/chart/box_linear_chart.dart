@@ -20,7 +20,6 @@ class _BoxLinearChartState extends State<BoxLinearChart> {
 
   _buildCharts() {
     return Row(
-      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: widget.linearCharts,
     );

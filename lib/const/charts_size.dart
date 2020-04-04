@@ -9,10 +9,10 @@ class ChartsSize {
   static const PASS_CIRCULAR_WIDTH = 43.0;
   static const PASS_CIRCULAR_STROKE_WIDTH = GOAL_CIRCULAR_STROKE_WIDTH;
 
-  static const GAME_PLAYED_WIDTH = 80.0;
-  static const GAME_PLAYED_STROKE_WIDTH = 10.0;
+  static const GAME_PLAYED_WIDTH = 100.0;
+  static const GAME_PLAYED_STROKE_WIDTH = 12.0;
 
-  static const GAME_TIME_WIDTH = 53.0;
+  static const GAME_TIME_WIDTH = 70.0;
   static const GAME_TIME_STROKE_WIDTH = GAME_PLAYED_STROKE_WIDTH;
 
   //Line

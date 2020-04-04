@@ -12,6 +12,7 @@ import 'package:my_team/const/charts_title.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/domain/team.dart';
 import 'package:my_team/services/data_service.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
@@ -66,55 +67,64 @@ class _IndividualCardState extends State<IndividualCard> {
             child: _buildHeader(context)
         ),
         Expanded(
-            flex: 7,
-            child: _buildBody()
+            flex: 4,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(8.0)),
+              child: _buildCharts(),
+            )
         ),
         Expanded(
-          child: buildFooter(),
+            flex: 1,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(8.0)),
+              child: _buildFooterCharts(),
+            )
+        ),
+        Expanded(
+          flex: 1,
+          child: _buildTapNameFooter(),
         ),
       ],
     );
   }
 
   Widget _buildHeader(BuildContext context) {
-    return Row(
-        children: <Widget>[
-          Container(
-            height: 105,
-            transform: Matrix4.translationValues(10, 15, 0),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color.fromRGBO(0, 0, 0, 0.7),
-                    blurRadius: 6,
-                    offset: Offset(
-                      0.0, // horizontal, move right 10
-                      3.0, // vertical, move down 10
-                    ),
-                  )]
-            ),
-            child: Image.asset(
-              "assets/img/player/" + player.avatar + ".png",
-              filterQuality: FilterQuality.high,
-              fit: BoxFit.fill,
-            ),
-          ),
-          Expanded(
-            child: Container(
-              alignment: Alignment.center,
-              height: 105,
-              padding: const EdgeInsets.all(10.0),
-              transform: Matrix4.translationValues(0, 15, 0),
-              child: buildWidgetText(
-                  text: _buildTextHeader(),
-                  family: FontFamily.ARIAL,
-                  weight: FontWeight.bold,
-                minFontSize: 20.0
+    return Padding(
+      padding: EdgeInsets.all(getResponsiveSize(8.0)),
+      child: Row(
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.7),
+                      blurRadius: 6,
+                      offset: Offset(
+                        0.0, // horizontal, move right 10
+                        3.0, // vertical, move down 10
+                      ),
+                    )]
+              ),
+              child: Image.asset(
+                "assets/img/player/" + player.avatar + ".png",
+                filterQuality: FilterQuality.high,
               ),
             ),
-          ),
-        ]);
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(5.0)),
+                child: buildWidgetText(
+                    text: _buildTextHeader(),
+                    family: FontFamily.ARIAL,
+                    weight: FontWeight.bold,
+                    fontSize: getResponsiveSize(24.0)
+                ),
+              ),
+            ),
+          ]),
+    );
   }
 
   _buildTextHeader() {
@@ -123,38 +133,63 @@ class _IndividualCardState extends State<IndividualCard> {
     return position + " n°" + number;
   }
 
-  Widget _buildBody() {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: <Widget>[
-          _buildChart(
-              BoxCircularChart([chartGoal, chartPass]),
-              _buildFooter(ChartsTitle.GOAL_CIRCULAR_TITLE + ' /\n' +
-                  ChartsTitle.PASS_CIRCULAR_TITLE)
-          ),
-          _buildChart(
-              BoxCircularChart([chartGame, chartGameTime]),
-              _buildFooter(ChartsTitle.GAME_PLAYED_TITLE + ' /\n' +
-                  ChartsTitle.GAME_TIME_TITLE)
-          ),
-          _buildChart(
-            BoxLinearChart([chartMissing, chartLate, chartYellowCard]),
-            _buildFooter(ChartsTitle.MISSING_LINEAR_TITLE + ' /\n' +
-                ChartsTitle.LATE_LINEAR_TITLE + ' /\n' +
-                ChartsTitle.YELLOW_CARD_LINEAR_TITLE),
-          ),
-        ],
-      ),
+  Widget _buildCharts() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: <Widget>[
+        Expanded(
+            child: BoxCircularChart([chartGoal, chartPass])
+        ),
+        Expanded(
+            flex: 2,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(12.0)),
+              child: BoxCircularChart([chartGame, chartGameTime]),
+            )
+        ),
+        Expanded(
+            child: BoxLinearChart([chartMissing, chartLate, chartYellowCard])
+        ),
+      ],
     );
   }
 
-  Widget buildFooter() {
+  Widget _buildFooterCharts() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        Expanded(
+          child: buildWidgetText(
+              text: ChartsTitle.GOAL_CIRCULAR_TITLE + " /\n" + ChartsTitle.PASS_CIRCULAR_TITLE,
+              family: FontFamily.ARIAL,
+              fontSize: getResponsiveSize(12.0)
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child: buildWidgetText(
+              text: ChartsTitle.GAME_PLAYED_TITLE + " /\n" + ChartsTitle.GAME_PLAYED_TITLE,
+              family: FontFamily.ARIAL,
+              fontSize: getResponsiveSize(12.0)
+          ),
+        ),
+        Expanded(
+          child: buildWidgetText(
+              text: ChartsTitle.MISSING_LINEAR_TITLE + " /\n" + ChartsTitle.LATE_LINEAR_TITLE + " / " + ChartsTitle.YELLOW_CARD_LINEAR_TITLE,
+              family: FontFamily.ARIAL,
+              fontSize: getResponsiveSize(12.0)
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildTapNameFooter() {
     return GestureDetector(
       onDoubleTap: _doubleTap,
       child: Container(
-          alignment: Alignment.center,
+          alignment: Alignment.centerRight,
           decoration: BoxDecoration(
               border: Border.all(
                   width: 1.2,
@@ -162,21 +197,21 @@ class _IndividualCardState extends State<IndividualCard> {
               ),
               borderRadius: BorderRadius.circular(50)
           ),
-          child: FittedBox(
-            fit: BoxFit.fitHeight,
-            child: Row(
-              children: <Widget>[
-                buildWidgetText(
-                  text: player.firstName + " ",
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              buildWidgetText(
+                fontSize: getResponsiveSize(21.0),
+                text: player.firstName + " ",
+                family: FontFamily.ARIAL,
+              ),
+              buildWidgetText(
+                  fontSize: getResponsiveSize(21.0),
+                  text: player.lastName,
                   family: FontFamily.ARIAL,
-                ),
-                buildWidgetText(
-                    text: player.lastName,
-                    family: FontFamily.ARIAL,
-                    weight: FontWeight.bold
-                )
-              ],
-            ),
+                  weight: FontWeight.bold
+              )
+            ],
           )
       ),
     );
@@ -194,23 +229,10 @@ class _IndividualCardState extends State<IndividualCard> {
     });
   }
 
-  Widget _buildChart(Widget chart, Widget footer) {
-    return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          chart,
-          footer,
-        ],
-      ),
-    );
-  }
-
   CircularChart _buildChartPass() {
     return CircularChart(
-      width: ChartsSize.PASS_CIRCULAR_WIDTH,
-      strokeWidth: ChartsSize.PASS_CIRCULAR_STROKE_WIDTH,
+      width: getResponsiveHeight(ChartsSize.PASS_CIRCULAR_WIDTH),
+      strokeWidth: getResponsiveHeight(ChartsSize.PASS_CIRCULAR_STROKE_WIDTH),
       value: widget.player.nbrPass.toDouble(),
       valueMax: widget.maxPass.toDouble(),
       rounded: true,
@@ -224,8 +246,8 @@ class _IndividualCardState extends State<IndividualCard> {
 
   CircularChart _buildChartGoal() {
     return CircularChart(
-      width: ChartsSize.GOAL_CIRCULAR_WIDTH,
-      strokeWidth: ChartsSize.GOAL_CIRCULAR_STROKE_WIDTH,
+      width: getResponsiveHeight(ChartsSize.GOAL_CIRCULAR_WIDTH),
+      strokeWidth: getResponsiveHeight(ChartsSize.GOAL_CIRCULAR_STROKE_WIDTH),
       value: widget.player.nbrGoal.toDouble(),
       valueMax: widget.maxGoal.toDouble(),
       rounded: true,
@@ -239,8 +261,8 @@ class _IndividualCardState extends State<IndividualCard> {
 
   CircularChart _buildChartGameTime() {
     return CircularChart(
-      width: ChartsSize.GAME_TIME_WIDTH,
-      strokeWidth: ChartsSize.GAME_TIME_STROKE_WIDTH,
+      width: getResponsiveHeight(ChartsSize.GAME_TIME_WIDTH),
+      strokeWidth: getResponsiveHeight(ChartsSize.GAME_TIME_STROKE_WIDTH),
       value: widget.player.gameTime.toDouble(),
       valueMax: widget.maxGameTime.toDouble(),
       rounded: true,
@@ -254,8 +276,8 @@ class _IndividualCardState extends State<IndividualCard> {
 
   CircularChart _buildChartGame() {
     return CircularChart(
-      width: ChartsSize.GAME_PLAYED_WIDTH,
-      strokeWidth: ChartsSize.GAME_PLAYED_STROKE_WIDTH,
+      width: getResponsiveHeight(ChartsSize.GAME_PLAYED_WIDTH),
+      strokeWidth: getResponsiveHeight(ChartsSize.GAME_PLAYED_STROKE_WIDTH),
       value: widget.player.nbrGame.toDouble(),
       valueMax: widget.maxGame.toDouble(),
       rounded: true,
@@ -273,7 +295,7 @@ class _IndividualCardState extends State<IndividualCard> {
       backgroundColor: CustomColors.OrangeTransparent,
       value: widget.player.nbrYellowCard.toDouble(),
       valueMax: widget.maxYellowCard.toDouble(),
-      width: ChartsSize.YELLOW_CARD_LINEAR_WIDTH,
+      width: getResponsiveHeight(ChartsSize.YELLOW_CARD_LINEAR_WIDTH),
       last: true,
       linearGradient: LinearGradient(
           colors: [CustomColors.OrangeGradientStart, CustomColors.OrangeGradientEnd]
@@ -287,7 +309,7 @@ class _IndividualCardState extends State<IndividualCard> {
         backgroundColor: CustomColors.RedTransparent,
         value: widget.player.nbrLateGame.toDouble(),
         valueMax: widget.maxLate.toDouble(),
-        width: ChartsSize.LATE_LINEAR_WIDTH,
+        width: getResponsiveHeight(ChartsSize.LATE_LINEAR_WIDTH),
         linearGradient: LinearGradient(
             colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
         ));
@@ -300,17 +322,7 @@ class _IndividualCardState extends State<IndividualCard> {
         backgroundColor: CustomColors.GreenAppleTransparent,
         value: widget.player.nbrMissingGame.toDouble(),
         valueMax: widget.maxMissing.toDouble(),
-        width: ChartsSize.MISSING_LINEAR_WIDTH);
-  }
-
-  _buildFooter(String footer) {
-    return Padding(
-      padding: const EdgeInsets.all(3.0),
-      child: buildWidgetText(
-        text: footer,
-        family: FontFamily.ARIAL,
-      ),
-    );
+        width: getResponsiveHeight(ChartsSize.MISSING_LINEAR_WIDTH));
   }
 }
 

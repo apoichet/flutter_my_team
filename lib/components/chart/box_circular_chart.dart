@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/services/number_service.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
@@ -24,7 +25,6 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 3.0),
       decoration: BoxDecoration(
           color: CustomColors.BlackBackgroundChart,
           borderRadius: BorderRadius.circular(5)
@@ -43,7 +43,7 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
     List<Widget> texts = widget.circularCharts.map((chart) =>
         _buildTextHeader(chart)).toList();
     return Row(
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         children: _joinTextWidgets(texts)
     );
   }
@@ -54,6 +54,7 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
       text = chart.value.round().toString();
     }
     return buildWidgetText(
+        fontSize: getResponsiveWidth(25.0),
         text: text,
         family: FontFamily.ARIAL,
         weight: FontWeight.bold,
@@ -67,8 +68,9 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
       textsJoined.add(text);
       if (text != texts.last) {
         textsJoined.add(buildWidgetText(
-            text: '/',
-            family: FontFamily.ARIAL,
+          fontSize: getResponsiveWidth(20.0),
+          text: '/',
+          family: FontFamily.ARIAL,
         ));
       }
     }
