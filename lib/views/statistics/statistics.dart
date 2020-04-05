@@ -4,6 +4,7 @@ import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/header.dart';
 import 'package:my_team/components/player_list.dart';
 import 'package:my_team/domain/player.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 
@@ -24,12 +25,14 @@ class _StatisticsState extends State<Statistics> {
                 )
             ),
             Expanded(
-                flex: 2,
                 child: _buildTopics()
             ),
             Expanded(
-                flex: 7,
-                child: PlayerList()
+                flex: 8,
+                child: Padding(
+                  padding: EdgeInsets.only(top: getResponsiveHeight(10.0)),
+                  child: PlayerList(),
+                )
             ),
           ],
         ),
@@ -49,7 +52,7 @@ class _StatisticsState extends State<Statistics> {
 
   _buildUnderlineText({String text, Color underlineColor}) {
     return Container(
-      padding: EdgeInsets.only(bottom: 5.0),
+      padding: EdgeInsets.only(bottom: 3.0),
       decoration: BoxDecoration(
           border: Border(bottom: BorderSide(
             color: underlineColor,  // Text colour here
@@ -57,6 +60,7 @@ class _StatisticsState extends State<Statistics> {
           ))
       ),
       child: buildWidgetText(
+          fontSize: getResponsiveSize(23.0),
           text: text,
           family: FontFamily.ARIAL,
           weight: FontWeight.bold

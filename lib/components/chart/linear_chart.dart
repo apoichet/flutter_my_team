@@ -83,13 +83,13 @@ class _LinearChartState extends State<LinearChart> {
     );
   }
 
-  AutoSizeText _buildTextHeader() {
+  Widget _buildTextHeader() {
     var text = roundDouble(widget.value, 1).toString();
     if (widget.rounded) {
       text = widget.value.round().toString();
     }
     return buildWidgetText(
-        fontSize: getResponsiveWidth(16.0),
+        fontSize: getResponsiveWidth(18.0),
         text: text,
         color: widget.valueColor,
         family: FontFamily.ARIAL,
@@ -102,7 +102,7 @@ class _LinearChartState extends State<LinearChart> {
       return SizedBox.shrink();
     }
     return buildWidgetText(
-      fontSize: getResponsiveWidth(14.0),
+      fontSize: getResponsiveWidth(12.0),
       text: '/',
       family: FontFamily.ARIAL,
     );

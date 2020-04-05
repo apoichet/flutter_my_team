@@ -25,6 +25,7 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(5.0)),
       decoration: BoxDecoration(
           color: CustomColors.BlackBackgroundChart,
           borderRadius: BorderRadius.circular(5)

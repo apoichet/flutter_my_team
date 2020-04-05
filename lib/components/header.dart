@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
@@ -29,12 +30,13 @@ class Header extends StatelessWidget {
         ),
         Center(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
+              padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
               decoration: BoxDecoration(
                   color: backgroundColor,
                   borderRadius: BorderRadius.circular(50)
               ),
               child: buildWidgetText(
+                  fontSize: getResponsiveSize(15.0),
                   text: textHeader,
                   family: FontFamily.MONTSERRAT_ALTERNATES,
                   weight: FontWeight.w600

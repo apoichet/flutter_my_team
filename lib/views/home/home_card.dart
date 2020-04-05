@@ -75,7 +75,7 @@ class _IndividualCardState extends State<IndividualCard> {
         ),
         Expanded(
             flex: 1,
-            child: Padding(
+            child: Container(
               padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(8.0)),
               child: _buildFooterCharts(),
             )
@@ -93,28 +93,35 @@ class _IndividualCardState extends State<IndividualCard> {
       padding: EdgeInsets.all(getResponsiveSize(8.0)),
       child: Row(
           children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.7),
-                      blurRadius: 6,
-                      offset: Offset(
-                        0.0, // horizontal, move right 10
-                        3.0, // vertical, move down 10
-                      ),
-                    )]
-              ),
-              child: Image.asset(
-                "assets/img/player/" + player.avatar + ".png",
-                filterQuality: FilterQuality.high,
+            Transform.scale(
+              scale: 1.1,
+              child: Container(
+                transform: Matrix4.translationValues(5, 5, 0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.7),
+                        blurRadius: 6,
+                        offset: Offset(
+                          0.0, // horizontal, move right 10
+                          3.0, // vertical, move down 10
+                        ),
+                      )]
+                ),
+                child: Image.asset(
+                  "assets/img/player/" + player.avatar + ".png",
+                  filterQuality: FilterQuality.high,
+                ),
               ),
             ),
             Expanded(
               child: Container(
                 alignment: Alignment.center,
-                padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(5.0)),
+                padding: EdgeInsets.only(
+                    left: getResponsiveWidth(20.0),
+                  right: getResponsiveWidth(5.0)
+                ),
                 child: buildWidgetText(
                     text: _buildTextHeader(),
                     family: FontFamily.ARIAL,
@@ -138,17 +145,26 @@ class _IndividualCardState extends State<IndividualCard> {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
         Expanded(
-            child: BoxCircularChart([chartGoal, chartPass])
-        ),
-        Expanded(
-            flex: 2,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(12.0)),
-              child: BoxCircularChart([chartGame, chartGameTime]),
+            child: Align(
+              alignment: Alignment.bottomRight,
+                child: BoxCircularChart([chartGoal, chartPass])
             )
         ),
         Expanded(
-            child: BoxLinearChart([chartMissing, chartLate, chartYellowCard])
+            flex: 2,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(12.0)),
+                child: BoxCircularChart([chartGame, chartGameTime]),
+              ),
+            )
+        ),
+        Expanded(
+            child: Align(
+              alignment: Alignment.bottomLeft,
+                child: BoxLinearChart([chartMissing, chartLate, chartYellowCard])
+            )
         ),
       ],
     );
@@ -163,22 +179,22 @@ class _IndividualCardState extends State<IndividualCard> {
           child: buildWidgetText(
               text: ChartsTitle.GOAL_CIRCULAR_TITLE + " /\n" + ChartsTitle.PASS_CIRCULAR_TITLE,
               family: FontFamily.ARIAL,
-              fontSize: getResponsiveSize(12.0)
+              fontSize: getResponsiveWidth(12.0)
           ),
         ),
         Expanded(
           flex: 2,
           child: buildWidgetText(
-              text: ChartsTitle.GAME_PLAYED_TITLE + " /\n" + ChartsTitle.GAME_PLAYED_TITLE,
+              text: ChartsTitle.GAME_PLAYED_TITLE + " /\n" + ChartsTitle.GAME_TIME_TITLE,
               family: FontFamily.ARIAL,
-              fontSize: getResponsiveSize(12.0)
+              fontSize: getResponsiveWidth(12.0)
           ),
         ),
         Expanded(
           child: buildWidgetText(
               text: ChartsTitle.MISSING_LINEAR_TITLE + " /\n" + ChartsTitle.LATE_LINEAR_TITLE + " / " + ChartsTitle.YELLOW_CARD_LINEAR_TITLE,
               family: FontFamily.ARIAL,
-              fontSize: getResponsiveSize(12.0)
+              fontSize: getResponsiveWidth(12.0)
           ),
         ),
       ],

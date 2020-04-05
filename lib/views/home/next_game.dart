@@ -51,8 +51,8 @@ class NextGame extends StatelessWidget {
             child: SvgPicture.asset(
                 'assets/icon/detail_icon.svg',
                 fit: BoxFit.fill,
-                width: 30,
-                height: 30,
+                width: getResponsiveWidth(30.0),
+                height: getResponsiveHeight(30.0),
                 semanticsLabel: 'Nav Bar Icon'),
           ),
         )

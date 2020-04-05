@@ -9,7 +9,6 @@ class _BoxLinearChartState extends State<BoxLinearChart> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 3.0),
       decoration: BoxDecoration(
           color: CustomColors.BlackBackgroundChart,
           borderRadius: BorderRadius.circular(5)
