@@ -67,7 +67,7 @@ class Boarding extends StatelessWidget {
                     alignment: Alignment.topCenter,
                     padding: EdgeInsets.all(getResponsiveSize(4.0)),
                     child: buildWidgetText(
-                        fontSize: getResponsiveSize(14.0),
+                        fontSize: getResponsiveSize(16.0),
                         text: description,
                         family: FontFamily.MONTSERRAT_ALTERNATES,
                         weight: FontWeight.w600),

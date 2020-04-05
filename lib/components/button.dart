@@ -28,8 +28,8 @@ class Button extends StatelessWidget {
           )
       ),
       child: Container(
-          width: getResponsiveWidth(315.0),
-          height: getResponsiveHeight(60.0),
+          width: getResponsiveWidth(315.0) * 0.8,
+          height: getResponsiveHeight(60.0) * 0.9,
           alignment: Alignment.center,
           child: buildWidgetText(
               fontSize: getResponsiveSize(30.0),

@@ -74,7 +74,7 @@ class _LoaderState extends State<Loader> {
       alignment: MainAxisAlignment.center,
       animationDuration: 1000,
       lineHeight: getResponsiveHeight(38.0),
-      width: getResponsiveWidth(332.0),
+      width: getResponsiveWidth(332.0) * 0.8,
       backgroundColor: CustomColors.BackgroundLoader,
       progressColor: CustomColors.Loader,
       animation: true,
