@@ -16,7 +16,7 @@ class Composition extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double compositionWidth = size.width * 0.7;
-    double compositionHeight = size.height;
+    double compositionHeight = compositionWidth * 445 / 293;
     PlayerPositionEngine engine = new PlayerPositionEngine(
         mapHeight: compositionHeight,
         mapWidth: compositionWidth,
@@ -35,8 +35,7 @@ class Composition extends StatelessWidget {
               playerPositionEngine: engine,
             ),
             width: compositionWidth,
-            //TODO fix height
-            height: double.infinity,
+            height: compositionHeight,
             decoration: new BoxDecoration(
                 image: new DecorationImage(
                     colorFilter: ColorFilter.mode(Colors.black12.withOpacity(0.7),

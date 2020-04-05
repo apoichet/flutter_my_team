@@ -4,6 +4,7 @@ import 'package:my_team/const/composition_player_card_size.dart';
 import 'package:my_team/domain/game_composition_player.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 
@@ -18,23 +19,24 @@ class CompositionPlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: CompositionPlayerCardSize.widthPlayer,
-      height: CompositionPlayerCardSize.heightPlayer,
+      width: getResponsiveWidth(CompositionPlayerCardSize.widthPlayer),
+      height: getResponsiveHeight(CompositionPlayerCardSize.heightPlayer),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image.asset(
             "assets/img/player/" + _getAvatar() + ".png",
-            width: CompositionPlayerCardSize.widthAvatar,
-            height: CompositionPlayerCardSize.heightAvatar,
+            width: getResponsiveWidth(CompositionPlayerCardSize.widthAvatar),
+            height: getResponsiveHeight(CompositionPlayerCardSize.heightAvatar),
           ),
           buildWidgetText(
               text: gameCompositionPlayer.id.split(" ")[0],
               family: FontFamily.ARIAL,
-              weight: FontWeight.bold
+              weight: FontWeight.bold,
+            fontSize: getResponsiveWidth(10.0)
           ),
           Container(
-              height: CompositionPlayerCardSize.heightArtifacts,
+              height: getResponsiveHeight(CompositionPlayerCardSize.heightArtifacts),
               padding: EdgeInsets.only(top: 1.0),
               child: _buildPlayerArtifacts()
           )
@@ -71,6 +73,7 @@ class CompositionPlayer extends StatelessWidget {
             text: " x" + gameCompositionPlayer.nbGoal.toString(),
             family: FontFamily.ARIAL,
             weight: FontWeight.bold,
+          fontSize: getResponsiveSize(9.0)
         ),
       ),
       _buildYellowCards()
@@ -109,8 +112,8 @@ class CompositionPlayer extends StatelessWidget {
   Widget _buildGoal() {
     return Image.asset(
       "assets/img/ball.png",
-      width: CompositionPlayerCardSize.sizeGoal,
-      height: CompositionPlayerCardSize.sizeGoal,
+      width: getResponsiveWidth(CompositionPlayerCardSize.sizeGoal),
+      height: getResponsiveHeight(CompositionPlayerCardSize.sizeGoal),
     );
   }
 
@@ -119,8 +122,8 @@ class CompositionPlayer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 1.0),
       child: Image.asset(
         "assets/img/yellow_card.png",
-        width: CompositionPlayerCardSize.widthYellowCard,
-        height: CompositionPlayerCardSize.heightYellowCard,
+        width: getResponsiveWidth(CompositionPlayerCardSize.widthYellowCard),
+        height: getResponsiveHeight(CompositionPlayerCardSize.heightYellowCard),
       ),
     );
   }

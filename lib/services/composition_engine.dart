@@ -2,24 +2,23 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/const/composition_player_card_size.dart';
 import 'package:my_team/domain/game_composition_strategy.dart';
 import 'package:my_team/domain/player_position.dart';
+import 'package:my_team/services/responsive_size.dart';
 
 
 class PlayerPositionEngine {
 
   final double mapHeight;
   final double mapWidth;
-  final double cardHeight;
-  final double cardWidth;
+  final double cardHeight = getResponsiveWidth(CompositionPlayerCardSize.heightPlayer);
+  final double cardWidth  = getResponsiveWidth(CompositionPlayerCardSize.widthPlayer);
   final GameCompositionStrategy strategy;
 
-  final double factorLine = 1.05;
+  final double factorLine = 1.07;
 
-  const PlayerPositionEngine({
+  PlayerPositionEngine({
     @required this.mapHeight,
     @required this.mapWidth,
     @required this.strategy,
-    this.cardHeight = CompositionPlayerCardSize.heightPlayer,
-    this.cardWidth = CompositionPlayerCardSize.widthPlayer,
   });
 
   PlayerPhysicPosition buildCompositionPlayerFrom({

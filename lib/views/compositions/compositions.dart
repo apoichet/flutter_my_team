@@ -4,6 +4,7 @@ import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/header.dart';
 import 'package:my_team/domain/game_composition.dart';
 import 'package:my_team/services/data_service.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/compositions/arrow.dart';
@@ -52,7 +53,7 @@ class _CompositionsState extends State<Compositions> {
             Expanded(
               child: Center(
                 child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                    padding: EdgeInsets.symmetric(vertical: getResponsiveHeight(8.0)),
                     decoration: BoxDecoration(
                         border: Border.all(
                             width: 1.0,
@@ -68,14 +69,15 @@ class _CompositionsState extends State<Compositions> {
                                 onTap: () => _previousCompo(),
                                 svg: "backward_icon.svg",
                                 colorCondition: indexGame > 0
-                            )
+                            ),
                         ),
                         Expanded(
                           flex: 8,
                           child: buildWidgetText(
                               text: _buildCompoFooter(widget.gameCompositions[indexGame]),
                               family: FontFamily.ARIAL,
-                              weight: FontWeight.bold
+                              weight: FontWeight.bold,
+                            fontSize: getResponsiveWidth(18.0)
                           ),
                         ),
                         Expanded(
@@ -102,7 +104,7 @@ class _CompositionsState extends State<Compositions> {
     "0" + gameComposition.date.day.toString() : gameComposition.date.day.toString();
     String month = gameComposition.date.month.toString().length == 1 ?
     "0" + gameComposition.date.month.toString() : gameComposition.date.month.toString();
-    return opponent + " " + day + "/" + month + "/" + gameComposition.date.year.toString();
+    return opponent + " " + day + "/" + month;
   }
 
   _buildPageView(Size size) {
