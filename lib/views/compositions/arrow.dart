@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:my_team/services/responsive_size.dart';
 
 class Arrow extends StatelessWidget {
 
@@ -20,8 +21,9 @@ class Arrow extends StatelessWidget {
       onTap: onTap,
       child: SvgPicture.asset(
         "assets/icon/" + svg,
-        width: 15,
+        width: getResponsiveSize(18.0),
         color: colorCondition ? Colors.white : Colors.transparent,
+        alignment: Alignment.center,
       ),
     );
   }

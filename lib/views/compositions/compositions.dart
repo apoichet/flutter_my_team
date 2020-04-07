@@ -53,7 +53,9 @@ class _CompositionsState extends State<Compositions> {
             Expanded(
               child: Center(
                 child: Container(
-                    padding: EdgeInsets.symmetric(vertical: getResponsiveHeight(8.0)),
+                  padding: EdgeInsets.symmetric(
+                      vertical: getResponsiveHeight(12.0),
+                      horizontal: getResponsiveWidth(5.0)),
                     decoration: BoxDecoration(
                         border: Border.all(
                             width: 1.0,
@@ -65,11 +67,11 @@ class _CompositionsState extends State<Compositions> {
                     child: Row(
                       children: <Widget>[
                         Expanded(
-                            child: Arrow(
-                                onTap: () => _previousCompo(),
-                                svg: "backward_icon.svg",
-                                colorCondition: indexGame > 0
-                            ),
+                          child: Arrow(
+                              onTap: () => _previousCompo(),
+                              svg: "backward_icon.svg",
+                              colorCondition: indexGame > 0
+                          ),
                         ),
                         Expanded(
                           flex: 8,
@@ -77,7 +79,7 @@ class _CompositionsState extends State<Compositions> {
                               text: _buildCompoFooter(widget.gameCompositions[indexGame]),
                               family: FontFamily.ARIAL,
                               weight: FontWeight.bold,
-                            fontSize: getResponsiveWidth(18.0)
+                              fontSize: getResponsiveWidth(18.0)
                           ),
                         ),
                         Expanded(
