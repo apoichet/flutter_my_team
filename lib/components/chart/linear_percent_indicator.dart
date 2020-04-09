@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_team/services/responsive_size.dart';
 
 enum LinearStrokeCap { butt, round, roundAll }
 
@@ -15,6 +16,9 @@ class LinearPercentIndicator extends StatefulWidget {
 
   ///First color applied to the complete line
   final Color backgroundColor;
+
+  ///Border color applied to the complete line
+  final Color borderColor;
 
   Color get progressColor => _progressColor;
 
@@ -72,6 +76,7 @@ class LinearPercentIndicator extends StatefulWidget {
     this.lineHeight = 5.0,
     this.width,
     this.backgroundColor = const Color(0xFFB8C7CB),
+    this.borderColor,
     this.linearGradient,
     Color progressColor,
     this.animation = false,
@@ -186,6 +191,7 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
           progressColor: widget.progressColor,
           linearGradient: widget.linearGradient,
           backgroundColor: widget.backgroundColor,
+          borderColor: widget.borderColor,
           linearStrokeCap: widget.linearStrokeCap,
           lineWidth: widget.lineHeight,
           maskFilter: widget.maskFilter,
@@ -233,6 +239,7 @@ class LinearPainter extends CustomPainter {
   final isRTL;
   final Color progressColor;
   final Color backgroundColor;
+  final Color borderColor;
   final LinearStrokeCap linearStrokeCap;
   final LinearGradient linearGradient;
   final MaskFilter maskFilter;
@@ -245,6 +252,7 @@ class LinearPainter extends CustomPainter {
     this.isRTL,
     this.progressColor,
     this.backgroundColor,
+    this.borderColor,
     this.linearStrokeCap = LinearStrokeCap.butt,
     this.linearGradient,
     this.maskFilter,
@@ -280,12 +288,23 @@ class LinearPainter extends CustomPainter {
       _paintLine.maskFilter = maskFilter;
     }
 
+    if(borderColor != null) {
+      Paint paint = new Paint()
+        ..color = Colors.white
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2.0;
+      canvas.drawRRect(RRect.fromRectAndRadius(
+          Rect.fromLTWH(- size.height / 2, 0, size.width + size.height, getResponsiveHeight(38)),
+          Radius.circular(50)
+      ), paint);
+    }
+
     if (isRTL) {
       final xProgress = size.width - size.width * progress;
       if (linearGradient != null) {
         _paintLine.shader = _createGradientShaderRightToLeft(size, xProgress);
       }
-      canvas.drawLine(end, Offset(xProgress, size.height / 2), _paintLine);
+      //canvas.drawLine(end, Offset(xProgress, size.height / 2), _paintLine);
     } else {
       final xProgress = size.width * progress;
       if (linearGradient != null) {

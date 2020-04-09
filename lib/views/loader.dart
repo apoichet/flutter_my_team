@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_image.dart';
-import 'package:my_team/components/button.dart';
 import 'package:my_team/components/chart/linear_percent_indicator.dart';
 import 'package:my_team/components/view_padding.dart';
 import 'package:my_team/services/responsive_size.dart';
@@ -70,33 +69,16 @@ class _LoaderState extends State<Loader> {
   }
 
   Widget _getLinearLoading() {
-    return Stack(
-      alignment: Alignment.center,
-      children: <Widget>[
-        Container(
-          width: getResponsiveWidth(332.0) * 0.8,
-          height: getResponsiveHeight(38.0),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            border: Border.all(
-              color: Colors.white,
-              width: 2.0
-            )
-          ),
-
-        ),
-        LinearPercentIndicator(
-          alignment: MainAxisAlignment.center,
-          padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(21.0)),
-          animationDuration: 1000,
-          width: getResponsiveWidth(332.0) * 0.8,
-          lineHeight: getResponsiveHeight(38.0),
-          backgroundColor: CustomColors.BackgroundLoader,
-          progressColor: CustomColors.Loader,
-          animation: true,
-          percent: 1,
-        )
-      ],
+    return LinearPercentIndicator(
+      alignment: MainAxisAlignment.center,
+      animationDuration: 1000,
+      width: getResponsiveWidth(332.0) * 0.8,
+      lineHeight: getResponsiveHeight(38.0),
+      backgroundColor: CustomColors.BackgroundLoader,
+      progressColor: CustomColors.Loader,
+      borderColor: Colors.white,
+      animation: true,
+      percent: 1,
     );
   }
 
