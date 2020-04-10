@@ -10,9 +10,9 @@ class BackgroundGradient extends StatelessWidget {
 
   BackgroundGradient({
     @required this.child,
-    @required this.width,
-    @required this.height,
     @required this.colors,
+    this.width,
+    this.height,
   });
 
   @override

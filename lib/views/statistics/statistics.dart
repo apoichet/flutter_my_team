@@ -4,9 +4,11 @@ import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/header.dart';
 import 'package:my_team/components/player_list.dart';
 import 'package:my_team/domain/player.dart';
+import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
+import 'package:my_team/views/statistics/individual/individual_statistics.dart';
 
 import '../../components/view_scaffold.dart';
 
@@ -31,7 +33,9 @@ class _StatisticsState extends State<Statistics> {
                 flex: 8,
                 child: Padding(
                   padding: EdgeInsets.only(top: getResponsiveHeight(10.0)),
-                  child: PlayerList(),
+                  child: PlayerList(
+                    onTapPlayerParent: _goToIndividualPlayerStatistics,
+                  ),
                 )
             ),
           ],
@@ -66,6 +70,13 @@ class _StatisticsState extends State<Statistics> {
           weight: FontWeight.bold
       ),
     );
+  }
+
+  _goToIndividualPlayerStatistics(Player playerTap) {
+    int indexPlayerSelected = getTeam().players.indexOf(playerTap);
+    Navigator.push(context, MaterialPageRoute(builder: (context) => IndividualStatistics(
+      indexPlayer: indexPlayerSelected,
+    )));
   }
 
 }

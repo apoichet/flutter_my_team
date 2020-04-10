@@ -4,6 +4,7 @@ import 'package:my_team/domain/team.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/user_service.dart';
 import 'package:my_team/views/home/home.dart';
+import 'package:my_team/views/statistics/individual/individual_statistics.dart';
 
 import 'services/responsive_size.dart';
 import 'views/intro/ready/ready.dart';
@@ -51,6 +52,8 @@ class _StarterState extends State<Starter> {
       setPlayerFromId(user);
       return Home();
     }
+    //return IndividualStatistics(indexPlayer: 2);
+    //return Home();
     return Ready();
   }
 }
