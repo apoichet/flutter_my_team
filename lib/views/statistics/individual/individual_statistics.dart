@@ -6,6 +6,7 @@ import 'package:my_team/components/header.dart';
 import 'package:my_team/components/view_scaffold.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/views/statistics/individual/individual_statistics_card.dart';
 
 class IndividualStatistics extends StatefulWidget {
@@ -48,36 +49,40 @@ class _IndividualStatisticsState extends State<IndividualStatistics> {
             ),
             Expanded(
                 flex: 9,
-                child: BackgroundGradient(
-                  colors: [
-                    Color.fromRGBO(134, 134, 134, 0.9),
-                    Color.fromRGBO(255, 255, 255, 0)
-                  ],
-                  child: Column(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 9,
-                        child: PageView(
-                          controller: _controller,
-                          children: getTeam().players
-                              .map((p) => IndividualStatisticsCard(
-                            playerSelected: p,
-                          )).toList(),
-                          onPageChanged: (index) {
-                            _playerChanged(index);
-                          },
-                        ),
-                      ),
-                      Expanded(
-                          child: FooterCard(
-                            text: _buildPlayerNameFooter(),
-                            previousFunction: _previousPlayer,
-                            nextFunction: _nextPlayer,
-                            previousCondition: _indexPlayer > 0,
-                            nextCondition: _indexPlayer < getTeam().players.length - 1,
-                          )
-                      )
+                child: Padding(
+                  padding: EdgeInsets.only(top: getResponsiveHeight(25.0)),
+                  child: BackgroundGradient(
+                    colors: [
+                      Color.fromRGBO(134, 134, 134, 0.9),
+                      Color.fromRGBO(255, 255, 255, 0)
                     ],
+                    child: Column(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 9,
+                          child: PageView(
+                            controller: _controller,
+                            children: getTeam().players
+                                .map((p) => IndividualStatisticsCard(
+                              playerSelected: p,
+                            )).toList(),
+                            onPageChanged: (index) {
+                              _playerChanged(index);
+                            },
+                          ),
+                        ),
+                        Expanded(
+                            child: FooterCard(
+                              text: _buildPlayerNameFooter(),
+                              textSize: 22.0,
+                              previousFunction: _previousPlayer,
+                              nextFunction: _nextPlayer,
+                              previousCondition: _indexPlayer > 0,
+                              nextCondition: _indexPlayer < getTeam().players.length - 1,
+                            )
+                        )
+                      ],
+                    ),
                   ),
                 )
             ),

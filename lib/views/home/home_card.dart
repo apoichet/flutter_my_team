@@ -7,6 +7,7 @@ import 'package:my_team/components/chart/box_circular_chart.dart';
 import 'package:my_team/components/chart/box_linear_chart.dart';
 import 'package:my_team/components/chart/circular_chart.dart';
 import 'package:my_team/components/chart/linear_chart.dart';
+import 'package:my_team/components/player_avatar.dart';
 import 'package:my_team/const/charts_size.dart';
 import 'package:my_team/const/charts_title.dart';
 import 'package:my_team/domain/player.dart';
@@ -93,27 +94,13 @@ class _IndividualCardState extends State<IndividualCard> {
       padding: EdgeInsets.all(getResponsiveSize(8.0)),
       child: Row(
           children: <Widget>[
-            Transform.scale(
+            PlayerAvatar(
+              player: player,
               scale: 1.1,
-              child: Container(
-                transform: Matrix4.translationValues(5, 5, 0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.7),
-                        blurRadius: 6,
-                        offset: Offset(
-                          0.0, // horizontal, move right 10
-                          3.0, // vertical, move down 10
-                        ),
-                      )]
-                ),
-                child: Image.asset(
-                  "assets/img/player/" + player.avatar + ".png",
-                  filterQuality: FilterQuality.high,
-                ),
-              ),
+              transform: Matrix4.translationValues(5, 5, 0),
+              blurRadius: 6.0,
+              yBlur: 3.0,
+              shadowColor: Color.fromRGBO(0, 0, 0, 0.7)
             ),
             Expanded(
               child: Container(

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/components/player_avatar.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 
-class ListItem extends StatelessWidget {
+class PlayerListItem extends StatelessWidget {
   final Player player;
   final Color color;
   final pathImage = 'assets/img/';
   final definitionImage = 'png';
 
-  ListItem({this.player, this.color});
+  PlayerListItem({this.player, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +32,9 @@ class ListItem extends StatelessWidget {
           Container(
             alignment: Alignment.centerLeft,
             height: getResponsiveHeight(40.0),
-            child: Image.asset(
-              "assets/img/player/" + player.avatar + ".png",
-              filterQuality: FilterQuality.high,
-            ),
+            child: PlayerAvatar(
+              player: player,
+            )
           ),
           Container(
             alignment: Alignment.centerLeft,

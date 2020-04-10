@@ -13,24 +13,26 @@ class FooterCard extends StatelessWidget{
   final GestureTapCallback nextFunction;
   final GestureTapCallback previousFunction;
   final String text;
+  final double textSize;
 
   FooterCard({
     this.nextCondition,
     this.previousCondition,
     this.nextFunction,
     this.previousFunction,
-    this.text
+    this.text,
+    this.textSize
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
+        height: getResponsiveHeight(50),
         padding: EdgeInsets.symmetric(
-            vertical: getResponsiveHeight(12.0),
             horizontal: getResponsiveWidth(5.0)),
         decoration: BoxDecoration(
             border: Border.all(
-                width: 1.0,
+                width: 2.0,
                 color: Colors.white
             ),
             color: Colors.transparent,
@@ -47,11 +49,13 @@ class FooterCard extends StatelessWidget{
             ),
             Expanded(
               flex: 8,
-              child: buildWidgetText(
-                  text: text,
-                  family: FontFamily.ARIAL,
-                  weight: FontWeight.bold,
-                  fontSize: getResponsiveWidth(18.0)
+              child: Center(
+                child: buildWidgetText(
+                    text: text,
+                    family: FontFamily.ARIAL,
+                    weight: FontWeight.bold,
+                    fontSize: getResponsiveWidth(textSize)
+                ),
               ),
             ),
             Expanded(
