@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_team/services/responsive_size.dart';
 
 import 'starter.dart';
 
