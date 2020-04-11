@@ -33,7 +33,7 @@ class TopicGoalPass extends StatelessWidget {
                   circularCharts: [_buildChartGoal(), _buildChartPass()],
                   withFooter: true,
                   fontHeaderSize: 45.0,
-                  fontFooterSize: 20.0,
+                  fontFooterSize: 18.0,
                   verticalPadding: 5.0,
                   horizontalPadding: 8.0,
                   flex: true,
@@ -63,7 +63,7 @@ class TopicGoalPass extends StatelessWidget {
   Widget _buildChartGoal() {
     return CircularChart(
       footer: "Buts",
-      width: getResponsiveHeight(125.0),
+      width: getResponsiveHeight(120.0),
       strokeWidth: getResponsiveHeight(15.0),
       value: player.nbrGoal.toDouble(),
       valueMax: getTeam().maxPlayerGoal.toDouble(),
@@ -79,7 +79,7 @@ class TopicGoalPass extends StatelessWidget {
   Widget _buildChartPass() {
     return CircularChart(
       footer: "Passes",
-      width: getResponsiveHeight(85.0),
+      width: getResponsiveHeight(80.0),
       strokeWidth: getResponsiveHeight(15.0),
       value: player.nbrPass.toDouble(),
       valueMax: getTeam().maxPlayerPass.toDouble(),
@@ -102,7 +102,7 @@ class TopicGoalPass extends StatelessWidget {
         backgroundColor: CustomColors.GreenAppleTransparent,
         value: player.nbrGoal / player.nbrGame,
         valueMax: getTeam().maxPlayerGoalPerMatch,
-        width: getResponsiveHeight(getResponsiveWidth(110.0)));
+        width: 15.0);
   }
 
   Widget _buildChartPassPerMatch() {
@@ -114,7 +114,7 @@ class TopicGoalPass extends StatelessWidget {
         backgroundColor: CustomColors.RedTransparent,
         value: player.nbrPass / player.nbrGame,
         valueMax: getTeam().maxPlayerPassPerMatch,
-        width: getResponsiveHeight(getResponsiveWidth(110.0)),
+        width: 15.0,
         linearGradient: LinearGradient(
             colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
         ));
@@ -129,7 +129,7 @@ class TopicGoalPass extends StatelessWidget {
       backgroundColor: CustomColors.OrangeTransparent,
       value: player.nbrGoal / player.nbrGame + player.nbrPass / player.nbrGame,
       valueMax: getTeam().maxPlayerDecisivePerMatch,
-      width: getResponsiveHeight(getResponsiveWidth(110.0)),
+      width: 15.0,
       last: true,
       linearGradient: LinearGradient(
           colors: [CustomColors.OrangeGradientStart, CustomColors.OrangeGradientEnd]

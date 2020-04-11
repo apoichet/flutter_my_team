@@ -70,7 +70,7 @@ class _LinearChartState extends State<LinearChart> {
             quarterTurns: 3,
             child: new LinearPercentIndicator(
               animationDuration: 1000,
-              lineHeight: getResponsiveWidth(15.0),
+              lineHeight: getResponsiveHeight(widget.width),
               animation: true,
               percent: percent,
               progressColor: widget.color,

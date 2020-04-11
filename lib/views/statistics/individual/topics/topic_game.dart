@@ -9,11 +9,11 @@ import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/theme/colors.dart';
 
-class TopicTime extends StatelessWidget {
+class TopicGame extends StatelessWidget {
 
   final Player player;
 
-  TopicTime(this.player);
+  TopicGame(this.player);
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class TopicTime extends StatelessWidget {
   Widget _buildChartGame() {
     return CircularChart(
       footer: "Match Joués",
-      width: getResponsiveHeight(125.0),
+      width: getResponsiveHeight(120.0),
       strokeWidth: getResponsiveHeight(15.0),
       value: player.nbrGame.toDouble(),
       valueMax: getTeam().maxPlayerGame.toDouble(),
@@ -79,7 +79,7 @@ class TopicTime extends StatelessWidget {
   Widget _buildChartGameTime() {
     return CircularChart(
       footer: "Minutes Jouées",
-      width: getResponsiveHeight(85.0),
+      width: getResponsiveHeight(80.0),
       strokeWidth: getResponsiveHeight(15.0),
       value: player.gameTime.toDouble(),
       valueMax: getTeam().maxPlayerGameTime.toDouble(),
@@ -102,7 +102,7 @@ class TopicTime extends StatelessWidget {
         backgroundColor: CustomColors.GreenAppleTransparent,
         value: player.nbrStarter.toDouble(),
         valueMax: getTeam().maxPlayerStarter.toDouble(),
-        width: getResponsiveHeight(getResponsiveWidth(110.0)));
+        width: 15.0);
   }
 
   LinearChart _buildChartSubs() {
@@ -114,7 +114,7 @@ class TopicTime extends StatelessWidget {
       backgroundColor: CustomColors.OrangeTransparent,
       value: player.nbrSubstitute.toDouble(),
       valueMax: getTeam().maxPlayerSubstitute.toDouble(),
-      width: getResponsiveHeight(getResponsiveWidth(110.0)),
+      width: 15.0,
       linearGradient: LinearGradient(
           colors: [CustomColors.OrangeGradientStart, CustomColors.OrangeGradientEnd]
       ),
@@ -131,7 +131,7 @@ class TopicTime extends StatelessWidget {
         backgroundColor: CustomColors.RedTransparent,
         value: (player.gameTime / player.nbrGame),
         valueMax: getTeam().maxPlayerMinutePerMatch,
-        width: getResponsiveHeight(getResponsiveWidth(110.0)),
+        width: 15.0,
         linearGradient: LinearGradient(
             colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
         ));

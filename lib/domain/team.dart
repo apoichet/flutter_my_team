@@ -24,6 +24,10 @@ class Team {
   final int maxPlayerYellowCard;
   final int maxPlayerSubstitute;
   final int maxPlayerStarter;
+  final int maxPlayerLateTime;
+  final int maxPlayerHurt;
+  final int maxPlayerAbsent;
+  final int maxPlayerRest;
   final double maxPlayerGoalPerMatch;
   final double maxPlayerPassPerMatch;
   final double maxPlayerDecisivePerMatch;
@@ -49,8 +53,12 @@ class Team {
     this.maxPlayerPassPerMatch = 0,
     this.maxPlayerDecisivePerMatch = 0,
     this.maxPlayerMinutePerMatch = 0,
-    this.maxPlayerStarter,
-    this.maxPlayerSubstitute = 0
+    this.maxPlayerStarter = 0,
+    this.maxPlayerSubstitute = 0,
+    this.maxPlayerLateTime = 0,
+    this.maxPlayerHurt = 0,
+    this.maxPlayerAbsent = 0,
+    this.maxPlayerRest = 0
   });
 
   factory Team.fromJson(Map<String, dynamic> json) {
@@ -75,6 +83,10 @@ class Team {
     var maxPlayerMinutePerMatch = players.map((p) => (p.gameTime / p.nbrGame)).reduce(max);
     var maxPlayerSubstitute = players.map((p) => p.nbrSubstitute).reduce(max);
     var maxPlayerStarter = players.map((p) => p.nbrStarter).reduce(max);
+    var maxPlayerLateTime = players.map((p) => p.lateTime).reduce(max);
+    var maxPlayerHurt = players.map((p) => p.nbrHurt).reduce(max);
+    var maxPlayerAbsent = players.map((p) => p.nbrAbsent).reduce(max);
+    var maxPlayerRest = players.map((p) => p.nbrRest).reduce(max);
     List<GameComposition> gameCompositions = (json['compositions'] as List)
         .map((g) => GameComposition.fromJson(g)).toList();
     return Team(
@@ -98,7 +110,11 @@ class Team {
         maxPlayerDecisivePerMatch: maxDecisivePerMatch,
         maxPlayerMinutePerMatch: maxPlayerMinutePerMatch,
         maxPlayerSubstitute: maxPlayerSubstitute,
-        maxPlayerStarter: maxPlayerStarter
+        maxPlayerStarter: maxPlayerStarter,
+        maxPlayerLateTime: maxPlayerLateTime,
+        maxPlayerHurt: maxPlayerHurt,
+        maxPlayerAbsent: maxPlayerAbsent,
+        maxPlayerRest: maxPlayerRest
     );
   }
 }

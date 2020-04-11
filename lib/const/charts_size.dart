@@ -18,7 +18,7 @@ class ChartsSize {
   //Line
 
   //Individual
-  static const MISSING_LINEAR_WIDTH = 110.0;
+  static const MISSING_LINEAR_WIDTH = 15.0;
   static const LATE_LINEAR_WIDTH = MISSING_LINEAR_WIDTH;
   static const YELLOW_CARD_LINEAR_WIDTH = MISSING_LINEAR_WIDTH;
 

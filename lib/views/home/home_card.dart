@@ -304,7 +304,7 @@ class _IndividualCardState extends State<IndividualCard> {
       backgroundColor: CustomColors.OrangeTransparent,
       value: widget.player.nbrYellowCard.toDouble(),
       valueMax: widget.maxYellowCard.toDouble(),
-      width: getResponsiveHeight(ChartsSize.YELLOW_CARD_LINEAR_WIDTH),
+      width: ChartsSize.YELLOW_CARD_LINEAR_WIDTH,
       last: true,
       linearGradient: LinearGradient(
           colors: [CustomColors.OrangeGradientStart, CustomColors.OrangeGradientEnd]
@@ -318,7 +318,7 @@ class _IndividualCardState extends State<IndividualCard> {
         backgroundColor: CustomColors.RedTransparent,
         value: widget.player.nbrLateGame.toDouble(),
         valueMax: widget.maxLate.toDouble(),
-        width: getResponsiveHeight(ChartsSize.LATE_LINEAR_WIDTH),
+        width: ChartsSize.LATE_LINEAR_WIDTH,
         linearGradient: LinearGradient(
             colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
         ));
@@ -331,7 +331,7 @@ class _IndividualCardState extends State<IndividualCard> {
         backgroundColor: CustomColors.GreenAppleTransparent,
         value: widget.player.nbrMissingGame.toDouble(),
         valueMax: widget.maxMissing.toDouble(),
-        width: getResponsiveHeight(ChartsSize.MISSING_LINEAR_WIDTH));
+        width: ChartsSize.MISSING_LINEAR_WIDTH);
   }
 }
 
