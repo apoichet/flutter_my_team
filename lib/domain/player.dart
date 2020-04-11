@@ -15,6 +15,8 @@ class Player {
   final int nbrMissingGame;
   final int nbrLateGame;
   final int nbrYellowCard;
+  final int nbrStarter;
+  final int nbrSubstitute;
 
   String avatar;
 
@@ -47,6 +49,8 @@ class Player {
     this.nbrMissingGame = 0,
     this.nbrLateGame = 0,
     this.nbrYellowCard = 0,
+    this.nbrStarter = 0,
+    this.nbrSubstitute = 0,
     this.avatar = "avatar"});
 
   factory Player.fromJson(Map<String, dynamic> json) {
@@ -61,7 +65,9 @@ class Player {
         nbrMissingGame: json['absent'],
         nbrYellowCard: json['yellowCard'],
         nbrLateGame: json['late'],
-        position: json['position']
+        position: json['position'],
+        nbrStarter: json['starting'],
+        nbrSubstitute: json['substitued']
     );
   }
 }

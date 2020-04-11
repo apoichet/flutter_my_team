@@ -23,9 +23,9 @@ class LinearChart extends StatefulWidget {
   const LinearChart(
       {Key key,
         @required this.width,
-        @required this.color,
         @required this.backgroundColor,
         @required this.valueColor,
+        this.color,
         this.value = 0.0,
         this.linearGradient,
         @required this.valueMax,

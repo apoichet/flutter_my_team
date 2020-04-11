@@ -22,9 +22,12 @@ class Team {
   final int maxPlayerMissingGame;
   final int maxPlayerLateGame;
   final int maxPlayerYellowCard;
-  final double maxGoalPerMatch;
-  final double maxPassPerMatch;
-  final double maxDecisivePerMatch;
+  final int maxPlayerSubstitute;
+  final int maxPlayerStarter;
+  final double maxPlayerGoalPerMatch;
+  final double maxPlayerPassPerMatch;
+  final double maxPlayerDecisivePerMatch;
+  final double maxPlayerMinutePerMatch;
 
   Team({
     this.games,
@@ -42,9 +45,12 @@ class Team {
     this.maxPlayerMissingGame = 0,
     this.maxPlayerLateGame = 0,
     this.maxPlayerYellowCard = 0,
-    this.maxGoalPerMatch = 0,
-    this.maxPassPerMatch = 0,
-    this.maxDecisivePerMatch = 0
+    this.maxPlayerGoalPerMatch = 0,
+    this.maxPlayerPassPerMatch = 0,
+    this.maxPlayerDecisivePerMatch = 0,
+    this.maxPlayerMinutePerMatch = 0,
+    this.maxPlayerStarter,
+    this.maxPlayerSubstitute = 0
   });
 
   factory Team.fromJson(Map<String, dynamic> json) {
@@ -66,6 +72,9 @@ class Team {
     var maxGoalPerMatch = players.map((p) => (p.nbrGoal / p.nbrGame)).reduce(max);
     var maxPassPerMatch = players.map((p) => (p.nbrPass / p.nbrGame)).reduce(max);
     var maxDecisivePerMatch = players.map((p) => (p.nbrGoal / p.nbrGame) + (p.nbrPass / p.nbrGame)).reduce(max);
+    var maxPlayerMinutePerMatch = players.map((p) => (p.gameTime / p.nbrGame)).reduce(max);
+    var maxPlayerSubstitute = players.map((p) => p.nbrSubstitute).reduce(max);
+    var maxPlayerStarter = players.map((p) => p.nbrStarter).reduce(max);
     List<GameComposition> gameCompositions = (json['compositions'] as List)
         .map((g) => GameComposition.fromJson(g)).toList();
     return Team(
@@ -84,9 +93,12 @@ class Team {
         maxPlayerMissingGame : maxPlayerMissingGame,
         maxPlayerYellowCard : maxPlayerYellowCard,
         maxPlayerLateGame: maxPlayerLaterGame,
-        maxGoalPerMatch: maxGoalPerMatch,
-        maxPassPerMatch: maxPassPerMatch,
-        maxDecisivePerMatch: maxDecisivePerMatch
+        maxPlayerGoalPerMatch: maxGoalPerMatch,
+        maxPlayerPassPerMatch: maxPassPerMatch,
+        maxPlayerDecisivePerMatch: maxDecisivePerMatch,
+        maxPlayerMinutePerMatch: maxPlayerMinutePerMatch,
+        maxPlayerSubstitute: maxPlayerSubstitute,
+        maxPlayerStarter: maxPlayerStarter
     );
   }
 }

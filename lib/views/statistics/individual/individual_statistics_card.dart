@@ -8,6 +8,7 @@ import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_goal_pass.dart';
+import 'package:my_team/views/statistics/individual/topics/topic_time.dart';
 
 class IndividualStatisticsCard extends StatefulWidget {
   final Player playerSelected;
@@ -34,7 +35,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
       new Topic("Buts / Passes", TopicGoalPass(widget.playerSelected)),
       new Topic("Encaissés", Text("")),
       new Topic("Position",  Text("")),
-      new Topic("Temps",  Text("")),
+      new Topic("Temps",  TopicTime(widget.playerSelected)),
       new Topic("Flop",  Text(""))
     ];
     _controller = PageController(

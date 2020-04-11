@@ -9,11 +9,11 @@ import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/theme/colors.dart';
 
-class TopicGoalPass extends StatelessWidget {
+class TopicTime extends StatelessWidget {
 
   final Player player;
 
-  TopicGoalPass(this.player);
+  TopicTime(this.player);
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +28,12 @@ class TopicGoalPass extends StatelessWidget {
           Expanded(
               flex: 6,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(15.0)),
+                padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(10.0)),
                 child: BoxCircularChart(
-                  circularCharts: [_buildChartGoal(), _buildChartPass()],
+                  circularCharts: [_buildChartGame(), _buildChartGameTime()],
                   withFooter: true,
-                  fontHeaderSize: 45.0,
-                  fontFooterSize: 20.0,
+                  fontHeaderSize: 35.0,
+                  fontFooterSize: 16.0,
                   verticalPadding: 5.0,
                   horizontalPadding: 8.0,
                   flex: true,
@@ -46,9 +46,9 @@ class TopicGoalPass extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(5.0)),
                 child: BoxLinearChart(
                   linearCharts: [
-                    _buildChartGoalPerMatch(),
-                    _buildChartPassPerMatch(),
-                    _buildChartDecisivePerMatch(),
+                    _buildChartStarted(),
+                    _buildChartSubs(),
+                    _buildChartMinutePerMatch(),
                   ],
                   withFooter: true,
                   footerFontSize: 13.0,
@@ -60,13 +60,13 @@ class TopicGoalPass extends StatelessWidget {
     );
   }
 
-  Widget _buildChartGoal() {
+  Widget _buildChartGame() {
     return CircularChart(
-      footer: "Buts",
+      footer: "Match Joués",
       width: getResponsiveHeight(125.0),
       strokeWidth: getResponsiveHeight(15.0),
-      value: player.nbrGoal.toDouble(),
-      valueMax: getTeam().maxPlayerGoal.toDouble(),
+      value: player.nbrGame.toDouble(),
+      valueMax: getTeam().maxPlayerGame.toDouble(),
       rounded: true,
       backgroundColor: CustomColors.OrangeTransparent,
       valueColor: CustomColors.OrangeGradientStart,
@@ -76,13 +76,13 @@ class TopicGoalPass extends StatelessWidget {
     );
   }
 
-  Widget _buildChartPass() {
+  Widget _buildChartGameTime() {
     return CircularChart(
-      footer: "Passes",
+      footer: "Minutes Jouées",
       width: getResponsiveHeight(85.0),
       strokeWidth: getResponsiveHeight(15.0),
-      value: player.nbrPass.toDouble(),
-      valueMax: getTeam().maxPlayerPass.toDouble(),
+      value: player.gameTime.toDouble(),
+      valueMax: getTeam().maxPlayerGameTime.toDouble(),
       rounded: true,
       backgroundColor: CustomColors.RedTransparent,
       valueColor: CustomColors.RedGradientEnd,
@@ -92,49 +92,48 @@ class TopicGoalPass extends StatelessWidget {
     );
   }
 
-  Widget _buildChartGoalPerMatch() {
+  Widget _buildChartStarted() {
     return LinearChart(
-        rounded: false,
-        headerFontSize: 18.0,
-        footer: "Buts / Match",
+        rounded: true,
+        headerFontSize: 24.0,
+        footer: "Titulaires",
         color: CustomColors.GreenApple,
         valueColor: CustomColors.GreenApple,
         backgroundColor: CustomColors.GreenAppleTransparent,
-        value: player.nbrGoal / player.nbrGame,
-        valueMax: getTeam().maxPlayerGoalPerMatch,
+        value: player.nbrStarter.toDouble(),
+        valueMax: getTeam().maxPlayerStarter.toDouble(),
         width: getResponsiveHeight(getResponsiveWidth(110.0)));
   }
 
-  Widget _buildChartPassPerMatch() {
+  LinearChart _buildChartSubs() {
     return LinearChart(
-        rounded: false,
-        headerFontSize: 18.0,
-        footer: "Passes / Match",
-        valueColor: CustomColors.RedGradientEnd,
-        backgroundColor: CustomColors.RedTransparent,
-        value: player.nbrPass / player.nbrGame,
-        valueMax: getTeam().maxPlayerPassPerMatch,
-        width: getResponsiveHeight(getResponsiveWidth(110.0)),
-        linearGradient: LinearGradient(
-            colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
-        ));
-  }
-
-  LinearChart _buildChartDecisivePerMatch() {
-    return LinearChart(
-      rounded: false,
-      headerFontSize: 18.0,
-      footer: "Décisif / Match",
+      rounded: true,
+      headerFontSize: 24.0,
+      footer: "Remplaçants",
       valueColor: CustomColors.OrangeGradientStart,
       backgroundColor: CustomColors.OrangeTransparent,
-      value: player.nbrGoal / player.nbrGame + player.nbrPass / player.nbrGame,
-      valueMax: getTeam().maxPlayerDecisivePerMatch,
+      value: player.nbrSubstitute.toDouble(),
+      valueMax: getTeam().maxPlayerSubstitute.toDouble(),
       width: getResponsiveHeight(getResponsiveWidth(110.0)),
-      last: true,
       linearGradient: LinearGradient(
           colors: [CustomColors.OrangeGradientStart, CustomColors.OrangeGradientEnd]
       ),
     );
   }
 
+  Widget _buildChartMinutePerMatch() {
+    return LinearChart(
+        rounded: true,
+        last: true,
+        headerFontSize: 24.0,
+        footer: "Minutes / Match",
+        valueColor: CustomColors.RedGradientEnd,
+        backgroundColor: CustomColors.RedTransparent,
+        value: (player.gameTime / player.nbrGame),
+        valueMax: getTeam().maxPlayerMinutePerMatch,
+        width: getResponsiveHeight(getResponsiveWidth(110.0)),
+        linearGradient: LinearGradient(
+            colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
+        ));
+  }
 }
