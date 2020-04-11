@@ -7,6 +7,7 @@ import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
+import 'package:my_team/views/statistics/individual/topics/topic_goal_pass.dart';
 
 class IndividualStatisticsCard extends StatefulWidget {
   final Player playerSelected;
@@ -22,19 +23,19 @@ class IndividualStatisticsCard extends StatefulWidget {
 
 class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
   PageController _controller;
-  List<Test> tests;
+  List<Topic> topics;
   int _indexChart;
   int _indexPreviousChart;
   int _indexNextChart;
 
   @override
   void initState() {
-    tests = [
-      new Test("Buts/passes", "Buts/passes Body"),
-      new Test("Encaissés", "Encaissés Body"),
-      new Test("Position", "Position Body"),
-      new Test("Temps", "Temps Body"),
-      new Test("Flop", "Flop Body")
+    topics = [
+      new Topic("Buts/passes", TopicGoalPass(widget.playerSelected)),
+      new Topic("Encaissés", Text("")),
+      new Topic("Position",  Text("")),
+      new Topic("Temps",  Text("")),
+      new Topic("Flop",  Text(""))
     ];
     _controller = PageController(
         initialPage: widget.indexChart,
@@ -90,7 +91,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                       child: GestureDetector(
                         onTap: () => _onChartChanged(_indexChart - 1),
                         child: buildWidgetText(
-                          text: tests[_indexPreviousChart].title,
+                          text: topics[_indexPreviousChart].title,
                           fontSize: getResponsiveSize(14.0),
                         ),
                       ),
@@ -98,7 +99,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                     Expanded(
                       flex: 3,
                       child: buildWidgetText(
-                          text: tests[_indexChart].title,
+                          text: topics[_indexChart].title,
                           fontSize: getResponsiveSize(18.0),
                           weight: FontWeight.bold
                       ),
@@ -108,7 +109,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                       child: GestureDetector(
                         onTap: () => _onChartChanged(_indexChart + 1),
                         child: buildWidgetText(
-                            text: tests[_indexNextChart].title,
+                            text: topics[_indexNextChart].title,
                             fontSize: getResponsiveSize(14.0)
                         ),
                       ),
@@ -121,10 +122,10 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
             flex: 7,
             child: PageView.builder(
               controller: _controller,
-              itemBuilder: (_, int index) => tests.map((t) =>
+              itemBuilder: (_, int index) => topics.map((t) =>
                   Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: Text(t.body)
+                      child: t.body
                   )
               ).toList()[_indexChart],
               onPageChanged: (index) {
@@ -139,14 +140,14 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
   _getIndexPrevious() {
     var indexPrevious = _indexChart - 1;
     if(indexPrevious < 0) {
-      return tests.length - 1;
+      return topics.length - 1;
     }
     return indexPrevious;
   }
 
   _getIndexNext() {
     var indexNext = _indexChart + 1;
-    if(indexNext >= tests.length) {
+    if(indexNext >= topics.length) {
       return 0;
     }
     return indexNext;
@@ -154,16 +155,17 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
 
   _onChartChanged(index) {
     setState(() {
-      _indexChart = index%tests.length;
+      _indexChart = index%topics.length;
       _indexPreviousChart = _getIndexPrevious();
       _indexNextChart = _getIndexNext();
     });
   }
+
 }
 
-class Test {
+class Topic {
   final String title;
-  final String body;
+  final Widget body;
 
-  Test(this.title, this.body);
+  Topic(this.title, this.body);
 }

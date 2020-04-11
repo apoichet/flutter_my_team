@@ -10,17 +10,23 @@ import 'package:my_team/theme/font_family.dart';
 
 import 'circular_chart.dart';
 
+class BoxCircularChart extends StatelessWidget {
 
-class BoxCircularChart extends StatefulWidget {
   final List<CircularChart> circularCharts;
+  final double fontHeaderSize;
+  final double fontFooterSize;
+  final bool withFooter;
+  final double horizontalPadding;
+  final double verticalPadding;
 
-  const BoxCircularChart(this.circularCharts, {Key key}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _BoxCircularChartState();
-}
-
-class _BoxCircularChartState extends State<BoxCircularChart> {
+  const BoxCircularChart({
+    this.circularCharts,
+    this.fontHeaderSize = 25.0,
+    this.fontFooterSize = 25.0,
+    this.withFooter = false,
+    this.horizontalPadding = 0.0,
+    this.verticalPadding = 0.0
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,18 +36,25 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
           color: CustomColors.BlackBackgroundChart,
           borderRadius: BorderRadius.circular(5)
       ),
+      child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: getResponsiveWidth(horizontalPadding),
+              vertical: getResponsiveHeight(verticalPadding)
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           _buildHeader(),
-          _buildCharts()
+          _buildCharts(),
+          _buildFooter()
         ],
       ),
+    ),
     );
   }
 
-  _buildHeader() {
-    List<Widget> texts = widget.circularCharts.map((chart) =>
+  Widget _buildHeader() {
+    List<Widget> texts = circularCharts.map((chart) =>
         _buildTextHeader(chart)).toList();
     return Row(
         mainAxisSize: MainAxisSize.min,
@@ -55,7 +68,7 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
       text = chart.value.round().toString();
     }
     return buildWidgetText(
-        fontSize: getResponsiveWidth(25.0),
+        fontSize: getResponsiveWidth(fontHeaderSize),
         text: text,
         family: FontFamily.ARIAL,
         weight: FontWeight.bold,
@@ -63,13 +76,13 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
     );
   }
 
-  _joinTextWidgets(List<Widget> texts) {
+  List<Widget> _joinTextWidgets(List<Widget> texts) {
     var textsJoined = <Widget>[];
     for (var text in texts) {
       textsJoined.add(text);
       if (text != texts.last) {
         textsJoined.add(buildWidgetText(
-          fontSize: getResponsiveWidth(20.0),
+          fontSize: getResponsiveWidth(fontHeaderSize - 5.0),
           text: '/',
           family: FontFamily.ARIAL,
         ));
@@ -78,10 +91,10 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
     return textsJoined;
   }
 
-  _buildCharts() {
+  Widget _buildCharts() {
     var charts = <Widget>[];
-    for (var chart in widget.circularCharts) {
-      if (chart == widget.circularCharts.first) {
+    for (var chart in circularCharts) {
+      if (chart == circularCharts.first) {
         charts.add(
             chart
         );
@@ -94,6 +107,25 @@ class _BoxCircularChartState extends State<BoxCircularChart> {
     return Stack(
       children: charts,
     );
+  }
+
+  Widget _buildFooter() {
+    if (withFooter) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: circularCharts
+            .map((chart) => buildWidgetText(
+            text: chart.title,
+            fontSize: fontFooterSize,
+            family: FontFamily.ARIAL,
+            align: TextAlign.left,
+            color: chart.valueColor,
+            weight: FontWeight.bold
+        )).toList(),
+      );
+    }
+    return SizedBox.shrink();
   }
 
 }

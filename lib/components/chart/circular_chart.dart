@@ -41,6 +41,7 @@ class CircularChart extends StatefulWidget {
   final double valueMax;
   final bool rounded;
   final LinearGradient linearGradient;
+  final String title;
 
   @override
   State<StatefulWidget> createState() => _CircularChartState();
@@ -55,7 +56,8 @@ class CircularChart extends StatefulWidget {
         this.linearGradient,
         this.value = 0.0,
         @required this.valueMax,
-        this.rounded = true
+        this.rounded = true,
+        this.title = ""
       }
       ) : super(key: key);
 }

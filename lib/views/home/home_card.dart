@@ -134,7 +134,9 @@ class _IndividualCardState extends State<IndividualCard> {
         Expanded(
             child: Align(
               alignment: Alignment.bottomRight,
-                child: BoxCircularChart([chartGoal, chartPass])
+                child: BoxCircularChart(
+                    circularCharts: [chartGoal, chartPass]
+                )
             )
         ),
         Expanded(
@@ -143,7 +145,9 @@ class _IndividualCardState extends State<IndividualCard> {
               alignment: Alignment.bottomCenter,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(12.0)),
-                child: BoxCircularChart([chartGame, chartGameTime]),
+                child: BoxCircularChart(
+                    circularCharts: [chartGame, chartGameTime]
+                ),
               ),
             )
         ),
