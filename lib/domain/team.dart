@@ -22,6 +22,9 @@ class Team {
   final int maxPlayerMissingGame;
   final int maxPlayerLateGame;
   final int maxPlayerYellowCard;
+  final double maxGoalPerMatch;
+  final double maxPassPerMatch;
+  final double maxDecisivePerMatch;
 
   Team({
     this.games,
@@ -38,7 +41,11 @@ class Team {
     this.maxPlayerGameTime = 0,
     this.maxPlayerMissingGame = 0,
     this.maxPlayerLateGame = 0,
-    this.maxPlayerYellowCard = 0});
+    this.maxPlayerYellowCard = 0,
+    this.maxGoalPerMatch = 0,
+    this.maxPassPerMatch = 0,
+    this.maxDecisivePerMatch = 0
+  });
 
   factory Team.fromJson(Map<String, dynamic> json) {
     List<Player> players = (json['players'] as List).map((p) => Player.fromJson(p)).toList();
@@ -56,24 +63,30 @@ class Team {
     var maxPlayerMissingGame = players.map((p) => p.nbrMissingGame).reduce(max);
     var maxPlayerYellowCard = players.map((p) => p.nbrYellowCard).reduce(max);
     var maxPlayerLaterGame = players.map((p) => p.nbrLateGame).reduce(max);
+    var maxGoalPerMatch = players.map((p) => (p.nbrGoal / p.nbrGame)).reduce(max);
+    var maxPassPerMatch = players.map((p) => (p.nbrPass / p.nbrGame)).reduce(max);
+    var maxDecisivePerMatch = players.map((p) => (p.nbrGoal / p.nbrGame) + (p.nbrPass / p.nbrGame)).reduce(max);
     List<GameComposition> gameCompositions = (json['compositions'] as List)
         .map((g) => GameComposition.fromJson(g)).toList();
     return Team(
-      games: games,
-      players: players,
-      gameCompositions: gameCompositions,
-      nbrTeamGoal : nbrTeamGoal,
-      nbrTeamPass : nbrTeamPass,
-      nbrTeamGame : nbrTeamGame,
-      teamGameTime : teamGameTime,
-      nbrTeamYellowCard : nbrTeamYellowCard,
-      maxPlayerGoal : maxPlayerGoal,
-      maxPlayerPass : maxPlayerPass,
-      maxPlayerGame : maxPlayerGame,
-      maxPlayerGameTime : maxPlayerGameTime,
-      maxPlayerMissingGame : maxPlayerMissingGame,
-      maxPlayerYellowCard : maxPlayerYellowCard,
-      maxPlayerLateGame: maxPlayerLaterGame
+        games: games,
+        players: players,
+        gameCompositions: gameCompositions,
+        nbrTeamGoal : nbrTeamGoal,
+        nbrTeamPass : nbrTeamPass,
+        nbrTeamGame : nbrTeamGame,
+        teamGameTime : teamGameTime,
+        nbrTeamYellowCard : nbrTeamYellowCard,
+        maxPlayerGoal : maxPlayerGoal,
+        maxPlayerPass : maxPlayerPass,
+        maxPlayerGame : maxPlayerGame,
+        maxPlayerGameTime : maxPlayerGameTime,
+        maxPlayerMissingGame : maxPlayerMissingGame,
+        maxPlayerYellowCard : maxPlayerYellowCard,
+        maxPlayerLateGame: maxPlayerLaterGame,
+        maxGoalPerMatch: maxGoalPerMatch,
+        maxPassPerMatch: maxPassPerMatch,
+        maxDecisivePerMatch: maxDecisivePerMatch
     );
   }
 }

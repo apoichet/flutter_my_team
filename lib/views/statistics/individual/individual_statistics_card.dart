@@ -31,7 +31,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
   @override
   void initState() {
     topics = [
-      new Topic("Buts/passes", TopicGoalPass(widget.playerSelected)),
+      new Topic("Buts / Passes", TopicGoalPass(widget.playerSelected)),
       new Topic("Encaissés", Text("")),
       new Topic("Position",  Text("")),
       new Topic("Temps",  Text("")),

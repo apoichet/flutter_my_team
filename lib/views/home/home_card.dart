@@ -154,7 +154,9 @@ class _IndividualCardState extends State<IndividualCard> {
         Expanded(
             child: Align(
               alignment: Alignment.bottomLeft,
-                child: BoxLinearChart([chartMissing, chartLate, chartYellowCard])
+                child: BoxLinearChart(
+                    linearCharts: [chartMissing, chartLate, chartYellowCard]
+                )
             )
         ),
       ],

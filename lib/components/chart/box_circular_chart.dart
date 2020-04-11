@@ -18,6 +18,7 @@ class BoxCircularChart extends StatelessWidget {
   final bool withFooter;
   final double horizontalPadding;
   final double verticalPadding;
+  final bool flex;
 
   const BoxCircularChart({
     this.circularCharts,
@@ -25,7 +26,8 @@ class BoxCircularChart extends StatelessWidget {
     this.fontFooterSize = 25.0,
     this.withFooter = false,
     this.horizontalPadding = 0.0,
-    this.verticalPadding = 0.0
+    this.verticalPadding = 0.0,
+    this.flex = false
   });
 
   @override
@@ -34,22 +36,46 @@ class BoxCircularChart extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(5.0)),
       decoration: BoxDecoration(
           color: CustomColors.BlackBackgroundChart,
-          borderRadius: BorderRadius.circular(5)
+          borderRadius: BorderRadius.circular(10)
       ),
       child: Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: getResponsiveWidth(horizontalPadding),
-              vertical: getResponsiveHeight(verticalPadding)
+        padding: EdgeInsets.symmetric(
+            horizontal: getResponsiveWidth(horizontalPadding),
+            vertical: getResponsiveHeight(verticalPadding)
+        ),
+        child: flex ? _buildFlex() : _buildNodFlex()
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          _buildHeader(),
-          _buildCharts(),
-          _buildFooter()
-        ],
-      ),
-    ),
+    );
+  }
+
+  Widget _buildNodFlex() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        _buildHeader(),
+        _buildCharts(),
+        _buildFooter(),
+      ],
+    );
+  }
+
+  Widget _buildFlex() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Expanded(
+            flex: 2,
+            child: _buildHeader()
+        ),
+        Expanded(
+            flex: 6,
+            child: Center(child: _buildCharts())
+        ),
+        Expanded(
+            flex: withFooter ? 2 : 0,
+            child: _buildFooter()
+        ),
+      ],
     );
   }
 
@@ -116,7 +142,7 @@ class BoxCircularChart extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: circularCharts
             .map((chart) => buildWidgetText(
-            text: chart.title,
+            text: chart.footer,
             fontSize: fontFooterSize,
             family: FontFamily.ARIAL,
             align: TextAlign.left,

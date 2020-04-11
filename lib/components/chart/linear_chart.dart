@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/services/number_service.dart';
@@ -11,6 +8,7 @@ import 'package:my_team/theme/font_family.dart';
 import 'linear_percent_indicator.dart';
 
 class LinearChart extends StatefulWidget {
+  final String footer;
   final double width;
   final Color color;
   final Color backgroundColor;
@@ -20,6 +18,7 @@ class LinearChart extends StatefulWidget {
   final double valueMax;
   final bool rounded;
   final bool last;
+  final double headerFontSize;
 
   const LinearChart(
       {Key key,
@@ -32,6 +31,8 @@ class LinearChart extends StatefulWidget {
         @required this.valueMax,
         this.rounded = true,
         this.last = false,
+        this.footer = "",
+        this.headerFontSize = 18.0
       }
       ) : super(key: key);
 
@@ -89,7 +90,7 @@ class _LinearChartState extends State<LinearChart> {
       text = widget.value.round().toString();
     }
     return buildWidgetText(
-        fontSize: getResponsiveWidth(18.0),
+        fontSize: getResponsiveWidth(widget.headerFontSize),
         text: text,
         color: widget.valueColor,
         family: FontFamily.ARIAL,
@@ -102,7 +103,7 @@ class _LinearChartState extends State<LinearChart> {
       return SizedBox.shrink();
     }
     return buildWidgetText(
-      fontSize: getResponsiveWidth(12.0),
+      fontSize: getResponsiveWidth(widget.headerFontSize - 5),
       text: '/',
       family: FontFamily.ARIAL,
     );
