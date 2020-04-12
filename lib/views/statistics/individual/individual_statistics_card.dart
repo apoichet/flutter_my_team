@@ -5,14 +5,12 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/components/header_card.dart';
 import 'package:my_team/components/player_avatar.dart';
 import 'package:my_team/domain/player.dart';
-import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
-import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_flop.dart';
+import 'package:my_team/views/statistics/individual/topics/topic_game.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_goal_opponent.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_goal_pass.dart';
-import 'package:my_team/views/statistics/individual/topics/topic_game.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_position.dart';
 
 class IndividualStatisticsCard extends StatefulWidget {
@@ -91,13 +89,13 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                   children: <Widget>[
                     Expanded(
                       flex: 2,
-                      child: GestureDetector(
+                      child: _indexChart != 0 ?GestureDetector(
                         onTap: () => _onChartChanged(_indexChart - 1),
                         child: buildWidgetText(
                           text: topics[_indexPreviousChart].title,
                           fontSize: getResponsiveWidth(14.0),
                         ),
-                      ),
+                      ) : SizedBox.shrink(),
                     ),
                     Expanded(
                       flex: 3,
@@ -109,13 +107,13 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                     ),
                     Expanded(
                       flex: 2,
-                      child: GestureDetector(
+                      child: _indexChart != topics.length - 1 ? GestureDetector(
                         onTap: () => _onChartChanged(_indexChart + 1),
                         child: buildWidgetText(
                             text: topics[_indexNextChart].title,
                             fontSize: getResponsiveWidth(14.0)
                         ),
-                      ),
+                      ) : SizedBox.shrink(),
                     )
                   ],
                 )
@@ -159,6 +157,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
   _onChartChanged(index) {
     setState(() {
       _indexChart = index%topics.length;
+      _controller.jumpToPage(index);
       _indexPreviousChart = _getIndexPrevious();
       _indexNextChart = _getIndexNext();
     });
