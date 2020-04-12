@@ -32,7 +32,7 @@ class TopicGoalOpponent extends StatelessWidget {
                   circularCharts: [_buildChartOpponentGoal(), _buildChartCleanSheet()],
                   withFooter: true,
                   fontHeaderSize: 45.0,
-                  fontFooterSize: 16.0,
+                  fontFooterSize: 15.0,
                   verticalPadding: 5.0,
                   horizontalPadding: 8.0,
                   flex: true,

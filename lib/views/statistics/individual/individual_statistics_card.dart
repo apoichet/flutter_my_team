@@ -13,6 +13,7 @@ import 'package:my_team/views/statistics/individual/topics/topic_flop.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_goal_opponent.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_goal_pass.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_game.dart';
+import 'package:my_team/views/statistics/individual/topics/topic_position.dart';
 
 class IndividualStatisticsCard extends StatefulWidget {
   final Player playerSelected;
@@ -38,7 +39,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
     topics = [
       new Topic("Buts/Passes", TopicGoalPass(widget.playerSelected)),
       new Topic("Encaissés", TopicGoalOpponent(widget.playerSelected)),
-      new Topic("Positions",  Text("")),
+      new Topic("Positions",  TopicPosition(widget.playerSelected.gamePositions)),
       new Topic("Matchs",  TopicGame(widget.playerSelected)),
       new Topic("Flops",  TopicFlop(widget.playerSelected))
     ];

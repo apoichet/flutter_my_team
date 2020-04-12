@@ -75,7 +75,11 @@ class Player {
     this.avatar = "avatar"});
 
   factory Player.fromJson(Map<String, dynamic> json) {
-    List<PlayerGamePosition> gamePositions = (json['gamePositions'] as List).map((p) => PlayerGamePosition.fromJson(p)).toList();
+    List<PlayerGamePosition> gamePositions = (json['gamePositions'] as List).map((p) => PlayerGamePosition.fromJson(p))
+        .toList();
+    gamePositions.sort(
+            (gp1, gp2) => gp2.count.compareTo(gp1.count)
+    );
     return Player(
         firstName: json['firstName'],
         lastName: json['lastName'],
