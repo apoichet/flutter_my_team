@@ -10,6 +10,7 @@ import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_flop.dart';
+import 'package:my_team/views/statistics/individual/topics/topic_goal_opponent.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_goal_pass.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_game.dart';
 
@@ -36,7 +37,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
   void initState() {
     topics = [
       new Topic("Buts/Passes", TopicGoalPass(widget.playerSelected)),
-      new Topic("Encaissés", Text("")),
+      new Topic("Encaissés", TopicGoalOpponent(widget.playerSelected)),
       new Topic("Positions",  Text("")),
       new Topic("Matchs",  TopicGame(widget.playerSelected)),
       new Topic("Flops",  TopicFlop(widget.playerSelected))

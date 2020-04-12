@@ -22,6 +22,12 @@ class Player {
   final int nbrHurt;
   final int nbrAbsent;
   final int nbrRest;
+  final int nbrGoalOpponent;
+  final int nbrOpponentGoalPenaltyCollected;
+  final int nbrOpponentGoalCornerFreeKickCollected;
+  final int nbrCleanSheet;
+
+  final List<PlayerGamePosition> gamePositions;
 
   String avatar;
 
@@ -61,9 +67,15 @@ class Player {
     this.nbrHurt = 0,
     this.nbrAbsent = 0,
     this.nbrRest = 0,
+    this.nbrGoalOpponent = 0,
+    this.nbrOpponentGoalPenaltyCollected = 0,
+    this.nbrOpponentGoalCornerFreeKickCollected = 0,
+    this.nbrCleanSheet = 0,
+    this.gamePositions = const [],
     this.avatar = "avatar"});
 
   factory Player.fromJson(Map<String, dynamic> json) {
+    List<PlayerGamePosition> gamePositions = (json['gamePositions'] as List).map((p) => PlayerGamePosition.fromJson(p)).toList();
     return Player(
         firstName: json['firstName'],
         lastName: json['lastName'],
@@ -82,7 +94,28 @@ class Player {
         nbrSubstitute: json['substitued'],
         nbrHurt: json['hurt'],
         nbrAbsent: json['absent'],
-        nbrRest: json['notTaken']
+        nbrRest: json['notTaken'],
+        nbrGoalOpponent: json['goalOpponent'],
+        nbrCleanSheet: json['cleanSheet'],
+        //nbrOpponentGoalPenaltyCollected: json['nbrOpponentGoalPenaltyCollected'],
+        //nbrOpponentGoalCornerFreeKickCollected: json['nbrOpponentGoalCornerFreeKickCollected'],
+        //nbrCleanSheet: json['nbrCleanSheet'],
+        gamePositions: gamePositions
+    );
+  }
+}
+
+class PlayerGamePosition {
+  final String position;
+  final int count;
+  PlayerGamePosition({
+    this.position,
+    this.count
+  });
+  factory PlayerGamePosition.fromJson(Map<String, dynamic> json) {
+    return PlayerGamePosition(
+        position: json['position'],
+        count: json['count']
     );
   }
 }

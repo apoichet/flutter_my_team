@@ -32,6 +32,11 @@ class Team {
   final double maxPlayerPassPerMatch;
   final double maxPlayerDecisivePerMatch;
   final double maxPlayerMinutePerMatch;
+  final int maxPlayerGoalOpponent;
+  final double maxPlayerGoalOpponentPerMatch;
+  final int maxPlayerOpponentGoalPenaltyCollected;
+  final int maxPlayerOpponentGoalCornerFreeKickCollected;
+  final int maxPlayerCleanSheet;
 
   Team({
     this.games,
@@ -58,18 +63,29 @@ class Team {
     this.maxPlayerLateTime = 0,
     this.maxPlayerHurt = 0,
     this.maxPlayerAbsent = 0,
-    this.maxPlayerRest = 0
+    this.maxPlayerRest = 0,
+    this.maxPlayerGoalOpponent = 0,
+    this.maxPlayerGoalOpponentPerMatch = 0,
+    this.maxPlayerOpponentGoalPenaltyCollected = 0,
+    this.maxPlayerOpponentGoalCornerFreeKickCollected = 0,
+    this.maxPlayerCleanSheet = 0
   });
 
   factory Team.fromJson(Map<String, dynamic> json) {
-    List<Player> players = (json['players'] as List).map((p) => Player.fromJson(p)).toList();
+    List<Player> players = (json['players'] as List).map((p) =>
+        Player.fromJson(p)).toList();
     players.forEach((p) => p.buildAvatar());
-    List<Game> games = (json['games'] as List).map((g) => Game.fromJson(g)).toList();
-    var nbrTeamGoal = players.map((p) => p.nbrGoal).reduce((goal1, goal2) => goal1 + goal2);
-    var nbrTeamPass = players.map((p) => p.nbrPass).reduce((pass1, pass2) => pass1 + pass2);
+    List<Game> games = (json['games'] as List)
+        .map((g) => Game.fromJson(g))
+        .toList();
+    var nbrTeamGoal = players.map((p) => p.nbrGoal).reduce((goal1,
+        goal2) => goal1 + goal2);
+    var nbrTeamPass = players.map((p) => p.nbrPass).reduce((pass1,
+        pass2) => pass1 + pass2);
     var nbrTeamGame = games.length;
     var teamGameTime = games.length * 90;
-    var nbrTeamYellowCard = players.map((p) => p.nbrYellowCard).reduce((card1, card2) => card1 + card2);
+    var nbrTeamYellowCard = players.map((p) => p.nbrYellowCard).reduce((card1,
+        card2) => card1 + card2);
     var maxPlayerGoal = players.map((p) => p.nbrGoal).reduce(max);
     var maxPlayerPass = players.map((p) => p.nbrPass).reduce(max);
     var maxPlayerGame = players.map((p) => p.nbrGame).reduce(max);
@@ -77,33 +93,47 @@ class Team {
     var maxPlayerMissingGame = players.map((p) => p.nbrMissingGame).reduce(max);
     var maxPlayerYellowCard = players.map((p) => p.nbrYellowCard).reduce(max);
     var maxPlayerLaterGame = players.map((p) => p.nbrLateGame).reduce(max);
-    var maxGoalPerMatch = players.map((p) => (p.nbrGoal / p.nbrGame)).reduce(max);
-    var maxPassPerMatch = players.map((p) => (p.nbrPass / p.nbrGame)).reduce(max);
-    var maxDecisivePerMatch = players.map((p) => (p.nbrGoal / p.nbrGame) + (p.nbrPass / p.nbrGame)).reduce(max);
-    var maxPlayerMinutePerMatch = players.map((p) => (p.gameTime / p.nbrGame)).reduce(max);
+    var maxGoalPerMatch = players.map((p) => (p.nbrGoal / p.nbrGame)).reduce(
+        max);
+    var maxPassPerMatch = players.map((p) => (p.nbrPass / p.nbrGame)).reduce(
+        max);
+    var maxDecisivePerMatch = players.map((p) =>
+    (p.nbrGoal / p.nbrGame) + (p.nbrPass / p.nbrGame)).reduce(max);
+    var maxPlayerMinutePerMatch = players.map((p) => (p.gameTime / p.nbrGame))
+        .reduce(max);
     var maxPlayerSubstitute = players.map((p) => p.nbrSubstitute).reduce(max);
     var maxPlayerStarter = players.map((p) => p.nbrStarter).reduce(max);
     var maxPlayerLateTime = players.map((p) => p.lateTime).reduce(max);
     var maxPlayerHurt = players.map((p) => p.nbrHurt).reduce(max);
     var maxPlayerAbsent = players.map((p) => p.nbrAbsent).reduce(max);
     var maxPlayerRest = players.map((p) => p.nbrRest).reduce(max);
+    var maxPlayerGoalOpponent = players.map((p) => p.nbrGoalOpponent).reduce(
+        max);
+    var maxPlayerGoalOpponentPerMatch = players.map((p) =>
+    (p.nbrGoalOpponent / p.nbrGame)).reduce(max);
+
+    var maxPlayerOpponentGoalPenaltyCollected = players.map((p) =>
+    p.nbrOpponentGoalPenaltyCollected).reduce(max);
+    var maxPlayerOpponentGoalCornerFreeKickCollected = players.map((p) =>
+    p.nbrOpponentGoalCornerFreeKickCollected).reduce(max);
+    var maxPlayerCleanSheet = players.map((p) => p.nbrCleanSheet).reduce(max);
     List<GameComposition> gameCompositions = (json['compositions'] as List)
         .map((g) => GameComposition.fromJson(g)).toList();
     return Team(
         games: games,
         players: players,
         gameCompositions: gameCompositions,
-        nbrTeamGoal : nbrTeamGoal,
-        nbrTeamPass : nbrTeamPass,
-        nbrTeamGame : nbrTeamGame,
-        teamGameTime : teamGameTime,
-        nbrTeamYellowCard : nbrTeamYellowCard,
-        maxPlayerGoal : maxPlayerGoal,
-        maxPlayerPass : maxPlayerPass,
-        maxPlayerGame : maxPlayerGame,
-        maxPlayerGameTime : maxPlayerGameTime,
-        maxPlayerMissingGame : maxPlayerMissingGame,
-        maxPlayerYellowCard : maxPlayerYellowCard,
+        nbrTeamGoal: nbrTeamGoal,
+        nbrTeamPass: nbrTeamPass,
+        nbrTeamGame: nbrTeamGame,
+        teamGameTime: teamGameTime,
+        nbrTeamYellowCard: nbrTeamYellowCard,
+        maxPlayerGoal: maxPlayerGoal,
+        maxPlayerPass: maxPlayerPass,
+        maxPlayerGame: maxPlayerGame,
+        maxPlayerGameTime: maxPlayerGameTime,
+        maxPlayerMissingGame: maxPlayerMissingGame,
+        maxPlayerYellowCard: maxPlayerYellowCard,
         maxPlayerLateGame: maxPlayerLaterGame,
         maxPlayerGoalPerMatch: maxGoalPerMatch,
         maxPlayerPassPerMatch: maxPassPerMatch,
@@ -114,7 +144,13 @@ class Team {
         maxPlayerLateTime: maxPlayerLateTime,
         maxPlayerHurt: maxPlayerHurt,
         maxPlayerAbsent: maxPlayerAbsent,
-        maxPlayerRest: maxPlayerRest
+        maxPlayerRest: maxPlayerRest,
+        maxPlayerGoalOpponent: maxPlayerGoalOpponent,
+        maxPlayerGoalOpponentPerMatch: maxPlayerGoalOpponentPerMatch,
+        maxPlayerOpponentGoalPenaltyCollected: maxPlayerOpponentGoalPenaltyCollected,
+        maxPlayerOpponentGoalCornerFreeKickCollected: maxPlayerOpponentGoalCornerFreeKickCollected,
+        maxPlayerCleanSheet: maxPlayerCleanSheet
     );
   }
 }
+

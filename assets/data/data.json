@@ -54,7 +54,7 @@
       "stadium":"Stae de la Muette",
       "addressStadium":"60 Boulevard Lannes, 75016 Paris",
       "timeRdvMatch":"18h30",
-      "place":"Domicile",
+      "place":"Extérieur",
       "type":"Championnat",
       "fieldType":"Synthétique"
     },
@@ -80,7 +80,7 @@
       "stadium":"Gabriel Perri",
       "addressStadium":"136 av Frédéric et Irène Joliot Curie 92000 NANTERRE",
       "timeRdvMatch":"19h30",
-      "place":"Exterieur",
+      "place":"Extérieur",
       "type":"Championnat",
       "fieldType":"Synthétique"
     },
@@ -93,7 +93,7 @@
       "stadium":"Gabriel Perri",
       "addressStadium":"136 av Frédéric et Irène Joliot Curie 92000 NANTERRE",
       "timeRdvMatch":"19h30",
-      "place":"Exterieur",
+      "place":"Extérieur",
       "type":"Amical",
       "fieldType":"Synthétique"
     },
@@ -2107,6 +2107,7 @@
   "players":[
     {
       "lastName":"Poichet",
+      "cleanSheet":7,
       "yellowCard":0,
       "minutePerDecisive":217,
       "gamePositions":[
@@ -2154,7 +2155,7 @@
       "goal":3,
       "nickName":"DOUBZ",
       "minutePerMatch":64,
-      "goalOpponent":34,
+      "goalOpponent":16,
       "minutePerPassDecisive":543,
       "firstName":"Alexandre",
       "lateMinute":0,
@@ -2167,6 +2168,7 @@
     },
     {
       "lastName":"Poichet",
+      "cleanSheet":6,
       "yellowCard":1,
       "minutePerDecisive":378,
       "gamePositions":[
@@ -2194,7 +2196,7 @@
       "goal":2,
       "nickName":"NANDO",
       "minutePerMatch":67,
-      "goalOpponent":36,
+      "goalOpponent":17,
       "minutePerPassDecisive":1135,
       "firstName":"Arnaud",
       "lateMinute":55,
@@ -2207,6 +2209,7 @@
     },
     {
       "lastName":"Vaysse",
+      "cleanSheet":6,
       "yellowCard":2,
       "minutePerDecisive":43,
       "gamePositions":[
@@ -2242,7 +2245,7 @@
       "goal":17,
       "nickName":"ALEXIS",
       "minutePerMatch":65,
-      "goalOpponent":32,
+      "goalOpponent":15,
       "minutePerPassDecisive":148,
       "firstName":"Alexis",
       "lateMinute":0,
@@ -2255,6 +2258,7 @@
     },
     {
       "lastName":"Harout",
+      "cleanSheet":3,
       "yellowCard":1,
       "minutePerDecisive":268,
       "gamePositions":[
@@ -2282,7 +2286,7 @@
       "goal":1,
       "nickName":"OZARIO",
       "minutePerMatch":67,
-      "goalOpponent":25,
+      "goalOpponent":15,
       "minutePerPassDecisive":403,
       "firstName":"Clément",
       "lateMinute":0,
@@ -2295,6 +2299,7 @@
     },
     {
       "lastName":"Lefeuvre",
+      "cleanSheet":7,
       "yellowCard":0,
       "minutePerDecisive":54,
       "gamePositions":[
@@ -2338,7 +2343,7 @@
       "goal":14,
       "nickName":"PAUL",
       "minutePerMatch":72,
-      "goalOpponent":36,
+      "goalOpponent":17,
       "minutePerPassDecisive":130,
       "firstName":"Paul",
       "lateMinute":45,
@@ -2351,6 +2356,7 @@
     },
     {
       "lastName":"Guilbert",
+      "cleanSheet":4,
       "yellowCard":0,
       "minutePerDecisive":148,
       "gamePositions":[
@@ -2378,7 +2384,7 @@
       "goal":1,
       "nickName":"GEOFF",
       "minutePerMatch":64,
-      "goalOpponent":13,
+      "goalOpponent":6,
       "minutePerPassDecisive":223,
       "firstName":"Geoffrey",
       "lateMinute":0,
@@ -2391,6 +2397,7 @@
     },
     {
       "lastName":"Leparoux",
+      "cleanSheet":4,
       "yellowCard":0,
       "minutePerDecisive":550,
       "gamePositions":[
@@ -2414,7 +2421,7 @@
       "goal":1,
       "nickName":"LEPA",
       "minutePerMatch":79,
-      "goalOpponent":29,
+      "goalOpponent":15,
       "minutePerPassDecisive":1100,
       "firstName":"Romain",
       "lateMinute":0,
@@ -2427,6 +2434,7 @@
     },
     {
       "lastName":"Chauveau",
+      "cleanSheet":5,
       "yellowCard":0,
       "minutePerDecisive":0,
       "gamePositions":[
@@ -2446,7 +2454,7 @@
       "goal":0,
       "nickName":"ROM",
       "minutePerMatch":88,
-      "goalOpponent":26,
+      "goalOpponent":10,
       "minutePerPassDecisive":0,
       "firstName":"Romain",
       "lateMinute":0,
@@ -2459,6 +2467,7 @@
     },
     {
       "lastName":"Assouan T.",
+      "cleanSheet":6,
       "yellowCard":0,
       "minutePerDecisive":138,
       "gamePositions":[
@@ -2490,7 +2499,7 @@
       "goal":3,
       "nickName":"SIS",
       "minutePerMatch":52,
-      "goalOpponent":28,
+      "goalOpponent":15,
       "minutePerPassDecisive":277,
       "firstName":"Makila",
       "lateMinute":85,
@@ -2503,6 +2512,7 @@
     },
     {
       "lastName":"Dayot",
+      "cleanSheet":3,
       "yellowCard":1,
       "minutePerDecisive":79,
       "gamePositions":[
@@ -2522,7 +2532,7 @@
       "goal":4,
       "nickName":"DAYO",
       "minutePerMatch":72,
-      "goalOpponent":21,
+      "goalOpponent":12,
       "minutePerPassDecisive":143,
       "firstName":"Olivier",
       "lateMinute":0,
@@ -2535,6 +2545,7 @@
     },
     {
       "lastName":"Vannier",
+      "cleanSheet":4,
       "yellowCard":0,
       "minutePerDecisive":1005,
       "gamePositions":[
@@ -2558,7 +2569,7 @@
       "goal":1,
       "nickName":"LUDOVIC",
       "minutePerMatch":77,
-      "goalOpponent":25,
+      "goalOpponent":14,
       "minutePerPassDecisive":0,
       "firstName":"Ludovic",
       "lateMinute":0,
@@ -2571,6 +2582,7 @@
     },
     {
       "lastName":"Thill",
+      "cleanSheet":5,
       "yellowCard":0,
       "minutePerDecisive":45,
       "gamePositions":[
@@ -2614,7 +2626,7 @@
       "goal":14,
       "nickName":"TURFU",
       "minutePerMatch":70,
-      "goalOpponent":23,
+      "goalOpponent":13,
       "minutePerPassDecisive":151,
       "firstName":"Jeremy",
       "lateMinute":10,
@@ -2627,6 +2639,7 @@
     },
     {
       "lastName":"Barret",
+      "cleanSheet":6,
       "yellowCard":0,
       "minutePerDecisive":49,
       "gamePositions":[
@@ -2666,7 +2679,7 @@
       "goal":6,
       "nickName":"NICO",
       "minutePerMatch":63,
-      "goalOpponent":27,
+      "goalOpponent":13,
       "minutePerPassDecisive":73,
       "firstName":"Nicolas",
       "lateMinute":15,
@@ -2679,6 +2692,7 @@
     },
     {
       "lastName":"Lemaire",
+      "cleanSheet":7,
       "yellowCard":0,
       "minutePerDecisive":600,
       "gamePositions":[
@@ -2714,7 +2728,7 @@
       "goal":1,
       "nickName":"THOM",
       "minutePerMatch":71,
-      "goalOpponent":34,
+      "goalOpponent":15,
       "minutePerPassDecisive":1200,
       "firstName":"Thomas",
       "lateMinute":10,
@@ -2727,6 +2741,7 @@
     },
     {
       "lastName":"Morguen",
+      "cleanSheet":2,
       "yellowCard":0,
       "minutePerDecisive":365,
       "gamePositions":[
@@ -2762,7 +2777,7 @@
       "goal":0,
       "nickName":"MORGUEN",
       "minutePerMatch":46,
-      "goalOpponent":17,
+      "goalOpponent":9,
       "minutePerPassDecisive":365,
       "firstName":"Benjamin",
       "lateMinute":0,
@@ -2775,6 +2790,7 @@
     },
     {
       "lastName":"Herbert",
+      "cleanSheet":6,
       "yellowCard":0,
       "minutePerDecisive":483,
       "gamePositions":[
@@ -2806,7 +2822,7 @@
       "goal":2,
       "nickName":"MAËL",
       "minutePerMatch":69,
-      "goalOpponent":25,
+      "goalOpponent":13,
       "minutePerPassDecisive":0,
       "firstName":"Maël",
       "lateMinute":0,
@@ -2819,6 +2835,7 @@
     },
     {
       "lastName":"Gentile",
+      "cleanSheet":1,
       "yellowCard":0,
       "minutePerDecisive":0,
       "gamePositions":[
@@ -2838,7 +2855,7 @@
       "goal":0,
       "nickName":"TALRI",
       "minutePerMatch":56,
-      "goalOpponent":11,
+      "goalOpponent":3,
       "minutePerPassDecisive":0,
       "firstName":"Michele",
       "lateMinute":0,
@@ -2851,6 +2868,7 @@
     },
     {
       "lastName":"Burke",
+      "cleanSheet":1,
       "yellowCard":0,
       "minutePerDecisive":0,
       "gamePositions":[
@@ -2874,7 +2892,7 @@
       "goal":0,
       "nickName":"CHRIS",
       "minutePerMatch":75,
-      "goalOpponent":6,
+      "goalOpponent":1,
       "minutePerPassDecisive":0,
       "firstName":"Christopher",
       "lateMinute":0,
@@ -2887,6 +2905,7 @@
     },
     {
       "lastName":"Diawara",
+      "cleanSheet":3,
       "yellowCard":0,
       "minutePerDecisive":410,
       "gamePositions":[
@@ -2918,7 +2937,7 @@
       "goal":1,
       "nickName":"DIAWARA",
       "minutePerMatch":46,
-      "goalOpponent":17,
+      "goalOpponent":10,
       "minutePerPassDecisive":0,
       "firstName":"Amadou",
       "lateMinute":0,
@@ -2931,6 +2950,7 @@
     },
     {
       "lastName":"Abokunwa",
+      "cleanSheet":4,
       "yellowCard":0,
       "minutePerDecisive":545,
       "gamePositions":[
@@ -2958,7 +2978,7 @@
       "goal":1,
       "nickName":"OLA",
       "minutePerMatch":50,
-      "goalOpponent":21,
+      "goalOpponent":10,
       "minutePerPassDecisive":0,
       "firstName":"Ola",
       "lateMinute":70,
