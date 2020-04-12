@@ -42,7 +42,7 @@ class PlayerListItem extends StatelessWidget {
             child: Row(
                 children: <Widget>[
                   buildWidgetText(
-                      text: player.firstName,
+                      text: player.firstName + " ",
                       family: FontFamily.ARIAL,
                       fontSize: getResponsiveWidth(20.0)
                   ),

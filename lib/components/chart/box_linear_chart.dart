@@ -69,7 +69,7 @@ class BoxLinearChart extends StatelessWidget {
                   color: chart.valueColor,
                   family: FontFamily.ARIAL,
                   weight: FontWeight.bold,
-                  fontSize: footerFontSize
+                  fontSize: getResponsiveWidth(footerFontSize)
               )).toList(),
         ),
       );

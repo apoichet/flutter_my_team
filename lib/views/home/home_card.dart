@@ -112,7 +112,7 @@ class _IndividualCardState extends State<IndividualCard> {
                 ),
                 child: HeaderCard(
                   player: player,
-                  fontSize: 18.0,
+                  fontSize: 19.0,
                 ),
               ),
             ),

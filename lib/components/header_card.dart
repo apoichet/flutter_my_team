@@ -18,39 +18,43 @@ class HeaderCard extends StatelessWidget {
     return Column(
       children: <Widget>[
         Expanded(
-            child: Container(
-              alignment: Alignment.centerLeft,
-              padding: EdgeInsets.only(left: getResponsiveWidth(10.0)),
-              child: buildWidgetText(
-                  text: player.nickName,
-                  fontSize: getResponsiveSize(fontSize),
-                  family: FontFamily.ARIAL,
-                  weight: FontWeight.bold
-              ),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                      alignment: Alignment.center,
+                      child: buildWidgetText(
+                          text: player.nickName,
+                          fontSize: getResponsiveWidth(fontSize),
+                          family: FontFamily.ARIAL,
+                          weight: FontWeight.bold
+                      )
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                      alignment: Alignment.center,
+                      child: buildWidgetText(
+                          text: "Numéro " + player.number.toString(),
+                          fontSize: getResponsiveWidth(fontSize - 3),
+                          family: FontFamily.ARIAL,
+                          weight: FontWeight.bold
+                      )
+                  ),
+                ),
+              ],
             )
         ),
         Expanded(
             child: Container(
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(left: getResponsiveWidth(25.0)),
+                alignment: Alignment.center,
                 child: buildWidgetText(
                     text: player.position,
-                    fontSize: getResponsiveSize(fontSize),
+                    fontSize: getResponsiveWidth(fontSize + 3),
                     family: FontFamily.ARIAL,
                     weight: FontWeight.bold
                 ))
-        ),
-        Expanded(
-            child: Container(
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(left: getResponsiveWidth(35.0)),
-                child: buildWidgetText(
-                    text: "Numéro " + player.number.toString(),
-                    fontSize: getResponsiveSize(fontSize),
-                    family: FontFamily.ARIAL,
-                    weight: FontWeight.bold
-                ))
-        ),
+        )
       ],
     );
   }

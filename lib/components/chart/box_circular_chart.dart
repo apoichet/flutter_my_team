@@ -143,7 +143,7 @@ class BoxCircularChart extends StatelessWidget {
         children: circularCharts
             .map((chart) => buildWidgetText(
             text: chart.footer,
-            fontSize: fontFooterSize,
+            fontSize: getResponsiveWidth(fontFooterSize),
             family: FontFamily.ARIAL,
             align: TextAlign.left,
             color: chart.valueColor,

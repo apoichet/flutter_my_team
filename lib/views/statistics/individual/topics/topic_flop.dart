@@ -88,7 +88,7 @@ class TopicFlop extends StatelessWidget {
           child: Align(
             alignment: Alignment.bottomLeft,
             child: buildWidgetText(
-                fontSize: getResponsiveSize(30.0),
+                fontSize: getResponsiveWidth(30.0),
                 family: FontFamily.ARIAL,
                 weight: FontWeight.bold,
                 color: color,

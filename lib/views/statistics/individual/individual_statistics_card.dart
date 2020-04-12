@@ -95,7 +95,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                         onTap: () => _onChartChanged(_indexChart - 1),
                         child: buildWidgetText(
                           text: topics[_indexPreviousChart].title,
-                          fontSize: getResponsiveSize(14.0),
+                          fontSize: getResponsiveWidth(14.0),
                         ),
                       ),
                     ),
@@ -103,7 +103,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                       flex: 3,
                       child: buildWidgetText(
                           text: topics[_indexChart].title,
-                          fontSize: getResponsiveSize(18.0),
+                          fontSize: getResponsiveWidth(18.0),
                           weight: FontWeight.bold
                       ),
                     ),
@@ -113,7 +113,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                         onTap: () => _onChartChanged(_indexChart + 1),
                         child: buildWidgetText(
                             text: topics[_indexNextChart].title,
-                            fontSize: getResponsiveSize(14.0)
+                            fontSize: getResponsiveWidth(14.0)
                         ),
                       ),
                     )
@@ -127,7 +127,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
               controller: _controller,
               itemBuilder: (_, int index) => topics.map((t) =>
                   Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(getResponsiveSize(8.0)),
                       child: t.body
                   )
               ).toList()[_indexChart],

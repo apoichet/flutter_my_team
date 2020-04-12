@@ -40,7 +40,7 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
                 flex: 2,
                 child: Center(
                     child: buildWidgetText(
-                        fontSize: getResponsiveSize(28.0),
+                        fontSize: getResponsiveWidth(28.0),
                         text: widget.readyTitleText,
                         family: FontFamily.ARIAL,
                         weight: FontWeight.bold

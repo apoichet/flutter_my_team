@@ -73,7 +73,7 @@ class CompositionPlayer extends StatelessWidget {
             text: " x" + gameCompositionPlayer.nbGoal.toString(),
             family: FontFamily.ARIAL,
             weight: FontWeight.bold,
-            fontSize: getResponsiveSize(12.0)
+            fontSize: getResponsiveWidth(11.0)
         ),
       ),
       _buildYellowCards()

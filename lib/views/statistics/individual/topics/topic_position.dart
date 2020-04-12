@@ -16,13 +16,15 @@ class TopicPosition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-          horizontal: getResponsiveWidth(10.0),
-          vertical: getResponsiveHeight(5.0)
+          horizontal: getResponsiveWidth(15.0)
       ),
       decoration: BoxDecoration(
           color: CustomColors.BlackBackgroundChart,
           borderRadius: BorderRadius.circular(10)),
       child: ListView.separated(
+        padding: EdgeInsets.symmetric(
+          vertical: getResponsiveHeight(10.0)
+        ),
         itemCount: gamePositions.length,
         separatorBuilder: (BuildContext context, int index) => Divider(
           thickness: 1.0,
@@ -39,7 +41,7 @@ class TopicPosition extends StatelessWidget {
                       text: gamePositions[index].position,
                       family: FontFamily.ARIAL,
                       weight: FontWeight.bold,
-                      fontSize: 16.0
+                      fontSize: getResponsiveWidth(16.0)
                   ),
                 ),
               ),
