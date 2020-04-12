@@ -51,7 +51,7 @@ class TopicGame extends StatelessWidget {
                     _buildChartMinutePerMatch(),
                   ],
                   withFooter: true,
-                  footerFontSize: 13.0,
+                  footerFontSize: 11.0,
                 ),
               )
           )

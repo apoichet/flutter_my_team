@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
@@ -54,17 +55,23 @@ class BoxLinearChart extends StatelessWidget {
 
   _buildFooter() {
     if (withFooter) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: linearCharts.map((chart) =>
-            buildWidgetText(
-                text: chart.footer,
-                color: chart.valueColor,
-                family: FontFamily.ARIAL,
-                weight: FontWeight.bold,
-                fontSize: footerFontSize
-            )).toList(),
+      return Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: getResponsiveWidth(2.0),
+          vertical: getResponsiveHeight(2.0)
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: linearCharts.map((chart) =>
+              buildWidgetText(
+                  text: chart.footer,
+                  color: chart.valueColor,
+                  family: FontFamily.ARIAL,
+                  weight: FontWeight.bold,
+                  fontSize: footerFontSize
+              )).toList(),
+        ),
       );
     }
     return SizedBox.shrink();

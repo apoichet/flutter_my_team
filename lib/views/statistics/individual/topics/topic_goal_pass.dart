@@ -51,7 +51,7 @@ class TopicGoalPass extends StatelessWidget {
                     _buildChartDecisivePerMatch(),
                   ],
                   withFooter: true,
-                  footerFontSize: 13.0,
+                  footerFontSize: 11.0,
                 ),
               )
           )
