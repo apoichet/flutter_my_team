@@ -5,6 +5,7 @@ class Player {
   final String firstName;
   final String lastName;
 
+  final String nickName;
   final int number;
   final String position;
 
@@ -46,6 +47,7 @@ class Player {
     this.lastName,
     this.number = 0,
     this.position = "Joueur",
+    this.nickName = "",
     this.nbrGoal = 0,
     this.nbrPass = 0,
     this.nbrGame = 0,
@@ -75,6 +77,7 @@ class Player {
         nbrYellowCard: json['yellowCard'],
         nbrLateGame: json['late'],
         position: json['position'],
+        nickName: json['nickName'],
         nbrStarter: json['starting'],
         nbrSubstitute: json['substitued'],
         nbrHurt: json['hurt'],

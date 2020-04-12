@@ -7,6 +7,7 @@ import 'package:my_team/components/chart/box_circular_chart.dart';
 import 'package:my_team/components/chart/box_linear_chart.dart';
 import 'package:my_team/components/chart/circular_chart.dart';
 import 'package:my_team/components/chart/linear_chart.dart';
+import 'package:my_team/components/header_card.dart';
 import 'package:my_team/components/player_avatar.dart';
 import 'package:my_team/const/charts_size.dart';
 import 'package:my_team/const/charts_title.dart';
@@ -95,36 +96,28 @@ class _IndividualCardState extends State<IndividualCard> {
       child: Row(
           children: <Widget>[
             PlayerAvatar(
-              player: player,
-              scale: 1.1,
-              transform: Matrix4.translationValues(5, 5, 0),
-              blurRadius: 6.0,
-              yBlur: 3.0,
-              shadowColor: Color.fromRGBO(0, 0, 0, 0.7)
+                player: player,
+                scale: 1.1,
+                transform: Matrix4.translationValues(5, 5, 0),
+                blurRadius: 6.0,
+                yBlur: 3.0,
+                shadowColor: Color.fromRGBO(0, 0, 0, 0.7)
             ),
             Expanded(
               child: Container(
                 alignment: Alignment.center,
                 padding: EdgeInsets.only(
                     left: getResponsiveWidth(20.0),
-                  right: getResponsiveWidth(5.0)
+                    right: getResponsiveWidth(5.0)
                 ),
-                child: buildWidgetText(
-                    text: _buildTextHeader(),
-                    family: FontFamily.ARIAL,
-                    weight: FontWeight.bold,
-                    fontSize: getResponsiveSize(24.0)
+                child: HeaderCard(
+                  player: player,
+                  fontSize: 18.0,
                 ),
               ),
             ),
           ]),
     );
-  }
-
-  _buildTextHeader() {
-    String position = widget.player.position;
-    String number = widget.player.number.toString();
-    return position + " n°" + number;
   }
 
   Widget _buildCharts() {
@@ -133,7 +126,7 @@ class _IndividualCardState extends State<IndividualCard> {
       children: <Widget>[
         Expanded(
             child: Align(
-              alignment: Alignment.bottomRight,
+                alignment: Alignment.bottomRight,
                 child: BoxCircularChart(
                     circularCharts: [chartGoal, chartPass]
                 )
@@ -153,7 +146,7 @@ class _IndividualCardState extends State<IndividualCard> {
         ),
         Expanded(
             child: Align(
-              alignment: Alignment.bottomLeft,
+                alignment: Alignment.bottomLeft,
                 child: BoxLinearChart(
                     linearCharts: [chartMissing, chartLate, chartYellowCard]
                 )

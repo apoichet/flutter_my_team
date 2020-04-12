@@ -2,8 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/components/header_card.dart';
 import 'package:my_team/components/player_avatar.dart';
 import 'package:my_team/domain/player.dart';
+import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
@@ -71,13 +73,10 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                   ),
                   Expanded(
                     flex: 2,
-                    child: buildWidgetText(
-                        text: widget.playerSelected.position + "\n" +
-                            "Numéro " + widget.playerSelected.number.toString(),
-                        fontSize: getResponsiveSize(25.0),
-                        family: FontFamily.ARIAL,
-                        weight: FontWeight.bold
-                    ),
+                    child: HeaderCard(
+                      player: widget.playerSelected,
+                      fontSize: 20.0,
+                    )
                   )
                 ],
               ),
