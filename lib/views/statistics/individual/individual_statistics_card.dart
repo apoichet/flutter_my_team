@@ -72,11 +72,11 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                     ),
                   ),
                   Expanded(
-                    flex: 2,
-                    child: HeaderCard(
-                      player: widget.playerSelected,
-                      fontSize: 20.0,
-                    )
+                      flex: 2,
+                      child: HeaderCard(
+                        player: widget.playerSelected,
+                        fontSize: 20.0,
+                      )
                   )
                 ],
               ),
@@ -121,17 +121,17 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
         ),
         Expanded(
             flex: 7,
-            child: PageView.builder(
-              controller: _controller,
-              itemBuilder: (_, int index) => topics.map((t) =>
-                  Padding(
-                      padding: EdgeInsets.all(getResponsiveSize(8.0)),
-                      child: t.body
-                  )
-              ).toList()[_indexChart],
-              onPageChanged: (index) {
-                _onChartChanged(index);
-              },
+            child: PageView(
+                controller: _controller,
+                children: topics.map((t) =>
+                    Padding(
+                        padding: EdgeInsets.all(getResponsiveSize(8.0)),
+                        child: t.body
+                    )
+                ).toList(),
+                onPageChanged: (index) {
+                  _onChartChanged(index);
+                }
             )
         )
       ],
@@ -156,8 +156,8 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
 
   _onChartChanged(index) {
     setState(() {
-      _indexChart = index%topics.length;
-      _controller.jumpToPage(index);
+      _indexChart = index;
+      _controller.jumpToPage(_indexChart);
       _indexPreviousChart = _getIndexPrevious();
       _indexNextChart = _getIndexNext();
     });
