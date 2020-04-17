@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
-import 'package:my_team/views/intro/circle.dart';
+import 'package:my_team/components/circle.dart';
 
 import 'boarding/boardings_builder.dart';
 import 'ready/ready_player.dart';

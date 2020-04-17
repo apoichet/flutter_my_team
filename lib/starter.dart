@@ -4,6 +4,7 @@ import 'package:my_team/domain/team.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/user_service.dart';
 import 'package:my_team/views/home/home.dart';
+import 'package:my_team/views/statistics/collective/collective_statistics.dart';
 import 'package:my_team/views/statistics/individual/individual_statistics.dart';
 
 import 'services/responsive_size.dart';
@@ -50,10 +51,9 @@ class _StarterState extends State<Starter> {
     String user = starterResponse.user;
     if (user != null) {
       setPlayerFromId(user);
+      return CollectiveStatistics(topics: ["Buts/Passes", "Encaissés", "Matchs", "Flops"], indexStat: 1,);
       return Home();
     }
-    //return IndividualStatistics(indexPlayer: 2);
-    //return Home();
     return Ready();
   }
 }

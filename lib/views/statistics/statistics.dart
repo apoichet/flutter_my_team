@@ -17,12 +17,12 @@ import '../../components/view_scaffold.dart';
 class _StatisticsState extends State<Statistics> {
 
   bool individual;
-  List<String> collectiveStatMenus;
+  List<String> statMenus;
 
   @override
   void initState() {
     individual = true;
-    collectiveStatMenus = ["Buts/Passes", "Encaissés", "Matchs", "Flops"];
+    statMenus = ["Buts/Passes", "Encaissés", "Matchs", "Flops"];
     super.initState();
   }
 
@@ -109,6 +109,7 @@ class _StatisticsState extends State<Statistics> {
     int indexPlayerSelected = getTeam().players.indexOf(playerTap);
     Navigator.push(context, MaterialPageRoute(builder: (context) => IndividualStatistics(
       indexPlayer: indexPlayerSelected,
+      statMenus: statMenus,
     )));
   }
 
@@ -125,7 +126,7 @@ class _StatisticsState extends State<Statistics> {
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: collectiveStatMenus.map((menu) =>
+            children: statMenus.map((menu) =>
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.symmetric(

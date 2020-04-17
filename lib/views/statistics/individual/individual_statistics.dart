@@ -11,8 +11,10 @@ import 'package:my_team/views/statistics/individual/individual_statistics_card.d
 
 class IndividualStatistics extends StatefulWidget {
   final int indexPlayer;
+  final List<String> statMenus;
 
   IndividualStatistics({
+    this.statMenus,
     this.indexPlayer = 0
   });
 
@@ -64,6 +66,7 @@ class _IndividualStatisticsState extends State<IndividualStatistics> {
                             controller: _controller,
                             children: getTeam().players
                                 .map((p) => IndividualStatisticsCard(
+                              titleTopics: widget.statMenus,
                               playerSelected: p,
                             )).toList(),
                             onPageChanged: (index) {
