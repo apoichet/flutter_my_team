@@ -11,7 +11,7 @@ AutoSizeText buildWidgetText({
   TextAlign align = TextAlign.center,
   Color color = Colors.white,
   maxFontSize = 40.0,
-  minFontSize = 10.0,
+  minFontSize = 7.0,
   fontSize = 12.0,
 }) {
   return AutoSizeText(

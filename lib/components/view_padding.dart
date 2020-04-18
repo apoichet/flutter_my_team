@@ -4,15 +4,28 @@ import 'package:my_team/services/responsive_size.dart';
 class ViewPadding extends StatelessWidget {
 
   final Widget child;
+  final double topPadding;
+  final double bottomPadding;
+  final double leftPadding;
+  final double rightPadding;
 
-  ViewPadding({@required this.child});
+  ViewPadding({
+    @required this.child,
+    this.topPadding = 30.0,
+    this.bottomPadding = 30.0,
+    this.leftPadding = 15.0,
+    this.rightPadding = 15.0
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: getResponsiveWidth(15.0),
-          vertical: getResponsiveHeight(30.0)),
+      padding: EdgeInsets.only(
+          top: getResponsiveHeight(topPadding),
+          bottom: getResponsiveHeight(bottomPadding),
+          left: getResponsiveWidth(leftPadding),
+          right: getResponsiveWidth(rightPadding)
+      ),
       child: child,
     );
   }

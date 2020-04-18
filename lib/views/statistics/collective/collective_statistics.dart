@@ -7,15 +7,17 @@ import 'package:my_team/components/view_scaffold.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
+import 'package:my_team/views/statistics/collective/collective_statistics_card.dart';
+import 'package:my_team/views/statistics/collective/collective_statistics_result_factory.dart';
 
 class CollectiveStatistics extends StatefulWidget {
 
   final List<String> topics;
-  final int indexStat;
+  final int indexTopic;
 
   CollectiveStatistics({
     @required this.topics,
-    this.indexStat = 0
+    this.indexTopic = 0
   });
 
   @override
@@ -31,9 +33,9 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
   @override
   void initState() {
     _controller = new PageController(
-      initialPage: widget.indexStat,
+      initialPage: widget.indexTopic,
     );
-    _index = widget.indexStat;
+    _index = widget.indexTopic;
     _indexPrevious = _index - 1;
     _indexNext = _index + 1;
     super.initState();
@@ -44,6 +46,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
     return BackgroundImage(
       image: "background_15.png",
       child: ViewScaffold(
+        bottomPadding: 3.0,
         child: Column(
           children: <Widget>[
             Expanded(
@@ -132,7 +135,14 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
     return PageView(
       controller: _controller,
       onPageChanged: (index) {_onPageChanged(index);},
-      children: widget.topics.map((topic) => Text(topic)).toList(),
+      children: widget.topics
+          .map((_) => CollectiveStatisticsCard(
+          [CollectiveStatisticsEnum.GOAL,
+            CollectiveStatisticsEnum.PASS,
+            CollectiveStatisticsEnum.GOAL_PER_MATCH,
+            CollectiveStatisticsEnum.PASS_PER_MATCH,
+            CollectiveStatisticsEnum.DECISIVE_PER_MATCH
+          ])).toList(),
     );
   }
 
