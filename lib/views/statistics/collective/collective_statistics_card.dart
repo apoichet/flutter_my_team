@@ -40,8 +40,8 @@ class _CollectiveStatisticsCardState extends State<CollectiveStatisticsCard> {
       ),
       child: BackgroundGradient(
         colors: [
-          Color.fromRGBO(232, 190, 130, 0.2),
-          Color.fromRGBO(0, 0, 0, 0.62)
+          Color.fromRGBO(232, 190, 130, 0.5),
+          Color.fromRGBO(0, 0, 0, 0.7)
         ],
         child: Column(
           children: <Widget>[

@@ -10,6 +10,7 @@ import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
+import 'package:my_team/views/statistics/collective/collective_statistics.dart';
 import 'package:my_team/views/statistics/individual/individual_statistics.dart';
 
 import '../../components/view_scaffold.dart';
@@ -128,25 +129,28 @@ class _StatisticsState extends State<Statistics> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: statMenus.map((menu) =>
                 Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: getResponsiveHeight(5.0),
-                    ),
-                    child: Container(
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 2.0,
-                              color: Colors.white
-                          ),
-                          color: Color.fromRGBO(242, 242, 242, 0.49),
-                          borderRadius: BorderRadius.circular(20)
+                  child: GestureDetector(
+                    onTap: () => _goToCollectiveStats(statMenus.indexOf(menu)),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: getResponsiveHeight(5.0),
                       ),
-                      child: buildWidgetText(
-                          text: menu,
-                          family: FontFamily.ARIAL,
-                          weight: FontWeight.bold,
-                          fontSize: getResponsiveHeight(25.0)
+                      child: Container(
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 2.0,
+                                color: Colors.white
+                            ),
+                            color: Color.fromRGBO(242, 242, 242, 0.49),
+                            borderRadius: BorderRadius.circular(20)
+                        ),
+                        child: buildWidgetText(
+                            text: menu,
+                            family: FontFamily.ARIAL,
+                            weight: FontWeight.bold,
+                            fontSize: getResponsiveHeight(25.0)
+                        ),
                       ),
                     ),
                   ),
@@ -154,6 +158,13 @@ class _StatisticsState extends State<Statistics> {
             ).toList(),
           ),
         ));
+  }
+
+  _goToCollectiveStats(int index) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => CollectiveStatistics(
+      indexTopic: index,
+      topics: statMenus,
+    )));
   }
 
 }

@@ -51,7 +51,6 @@ class _StarterState extends State<Starter> {
     String user = starterResponse.user;
     if (user != null) {
       setPlayerFromId(user);
-      return CollectiveStatistics(topics: ["Buts/Passes", "Encaissés", "Matchs", "Flops"], indexTopic: 1,);
       return Home();
     }
     return Ready();
