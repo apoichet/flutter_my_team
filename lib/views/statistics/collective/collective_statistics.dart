@@ -29,6 +29,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
   int _indexNext;
   int _index;
   PageController _controller;
+  List<List<CollectiveStatisticsEnum>> _cards;
 
   @override
   void initState() {
@@ -38,6 +39,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
     _index = widget.indexTopic;
     _indexPrevious = _index - 1;
     _indexNext = _index + 1;
+    _cards = _buildCards();
     super.initState();
   }
 
@@ -136,13 +138,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
       controller: _controller,
       onPageChanged: (index) {_onPageChanged(index);},
       children: widget.topics
-          .map((_) => CollectiveStatisticsCard(
-          [CollectiveStatisticsEnum.GOAL,
-            CollectiveStatisticsEnum.PASS,
-            CollectiveStatisticsEnum.GOAL_PER_MATCH,
-            CollectiveStatisticsEnum.PASS_PER_MATCH,
-            CollectiveStatisticsEnum.DECISIVE_PER_MATCH
-          ])).toList(),
+          .map((_) => CollectiveStatisticsCard(_cards[_index])).toList(),
     );
   }
 
@@ -166,6 +162,39 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
       _indexNext = _index + 1;
       _indexPrevious = _index - 1;
     });
+  }
+
+  List<List<CollectiveStatisticsEnum>> _buildCards() {
+    return [
+      [
+        CollectiveStatisticsEnum.GOAL,
+        CollectiveStatisticsEnum.PASS,
+        CollectiveStatisticsEnum.GOAL_PER_MATCH,
+        CollectiveStatisticsEnum.PASS_PER_MATCH,
+        CollectiveStatisticsEnum.DECISIVE_PER_MATCH
+      ],
+      [
+        CollectiveStatisticsEnum.GOAL_OPPONENT_COLLECTED,
+        CollectiveStatisticsEnum.GOAL_OPPONENT_COLLECTED_PER_MATCH,
+        CollectiveStatisticsEnum.CLEAN_SHEET,
+          CollectiveStatisticsEnum.PENALTY_OPPONENT_COLLECTED,
+        CollectiveStatisticsEnum.FREE_KICK_OPPONENT_COLLECTED
+      ],
+      [
+        CollectiveStatisticsEnum.GAME,
+        CollectiveStatisticsEnum.GAME_TIME,
+        CollectiveStatisticsEnum.TIME_PER_GAME,
+        CollectiveStatisticsEnum.STARTER,
+        CollectiveStatisticsEnum.SUBSTITUTE
+      ],
+      [
+        CollectiveStatisticsEnum.YELLOW_CARD,
+        CollectiveStatisticsEnum.LATE_TIME,
+        CollectiveStatisticsEnum.ABSENT,
+        CollectiveStatisticsEnum.REST,
+        CollectiveStatisticsEnum.HURT
+      ],
+    ];
   }
 
 }

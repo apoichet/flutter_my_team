@@ -130,6 +130,13 @@ Widget buildCardResult(CollectiveStatisticsEnum collectiveStatisticsEnum) {
       unit = "Minutes de retard";
       break;
     }
+    case CollectiveStatisticsEnum.ABSENT : {
+      playerToResult = (Player player) => _buildResult(player,
+          value: player.nbrAbsent.toDouble(),
+          nbrRoundDecimal: 0);
+      unit = "Absent";
+      break;
+    }
     case CollectiveStatisticsEnum.REST : {
       playerToResult = (Player player) => _buildResult(player,
           value: player.nbrRest.toDouble(),
@@ -146,7 +153,10 @@ Widget buildCardResult(CollectiveStatisticsEnum collectiveStatisticsEnum) {
     }
   }
 
-  List<CollectiveStatisticsResult> results = getTeam().players.map(playerToResult).toList();
+  List<CollectiveStatisticsResult> results = getTeam().players
+      .map(playerToResult)
+      .where((result) => result.value != 0)
+      .toList();
   results.sort((r1, r2) => r2.value.compareTo(r1.value));
 
   return CollectiveStatisticsCardResult(
@@ -184,6 +194,7 @@ enum CollectiveStatisticsEnum {
   FREE_KICK_OPPONENT_COLLECTED,
   YELLOW_CARD,
   LATE_TIME,
+  ABSENT,
   REST,
   HURT
 }
