@@ -72,7 +72,7 @@ class _CollectiveStatisticsCardState extends State<CollectiveStatisticsCard> {
   }
 
   _next() {
-    if(_indexCard <= widget.cards.length) {
+    if(_indexCard < widget.cards.length - 1) {
       _controller.nextPage(
           duration: Duration(milliseconds: 300), curve: Curves.linear);
     }
