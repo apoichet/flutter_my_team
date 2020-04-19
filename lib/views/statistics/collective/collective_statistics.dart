@@ -8,6 +8,7 @@ import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/statistics/collective/collective_statistics_card.dart';
+import 'package:my_team/views/statistics/collective/collective_statistics_card_result.dart';
 import 'package:my_team/views/statistics/collective/collective_statistics_result_factory.dart';
 
 class CollectiveStatistics extends StatefulWidget {
@@ -29,7 +30,8 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
   int _indexNext;
   int _index;
   PageController _controller;
-  List<List<CollectiveStatisticsEnum>> _cards;
+  List<CollectiveStatisticsCard> _cards;
+  CollectiveStatisticsCard _card;
 
   @override
   void initState() {
@@ -137,8 +139,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
     return PageView(
       controller: _controller,
       onPageChanged: (index) {_onPageChanged(index);},
-      children: widget.topics
-          .map((_) => CollectiveStatisticsCard(_cards[_index])).toList(),
+      children: _cards
     );
   }
 
@@ -164,36 +165,36 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
     });
   }
 
-  List<List<CollectiveStatisticsEnum>> _buildCards() {
+  List<CollectiveStatisticsCard> _buildCards() {
     return [
-      [
+      CollectiveStatisticsCard([
         CollectiveStatisticsEnum.GOAL,
         CollectiveStatisticsEnum.PASS,
         CollectiveStatisticsEnum.GOAL_PER_MATCH,
         CollectiveStatisticsEnum.PASS_PER_MATCH,
         CollectiveStatisticsEnum.DECISIVE_PER_MATCH
-      ],
-      [
+      ]),
+      CollectiveStatisticsCard([
         CollectiveStatisticsEnum.GOAL_OPPONENT_COLLECTED,
         CollectiveStatisticsEnum.GOAL_OPPONENT_COLLECTED_PER_MATCH,
         CollectiveStatisticsEnum.CLEAN_SHEET,
-          CollectiveStatisticsEnum.PENALTY_OPPONENT_COLLECTED,
+        CollectiveStatisticsEnum.PENALTY_OPPONENT_COLLECTED,
         CollectiveStatisticsEnum.FREE_KICK_OPPONENT_COLLECTED
-      ],
-      [
+      ]),
+      CollectiveStatisticsCard([
         CollectiveStatisticsEnum.GAME,
         CollectiveStatisticsEnum.GAME_TIME,
         CollectiveStatisticsEnum.TIME_PER_GAME,
         CollectiveStatisticsEnum.STARTER,
         CollectiveStatisticsEnum.SUBSTITUTE
-      ],
-      [
+      ]),
+      CollectiveStatisticsCard([
         CollectiveStatisticsEnum.YELLOW_CARD,
         CollectiveStatisticsEnum.LATE_TIME,
         CollectiveStatisticsEnum.ABSENT,
         CollectiveStatisticsEnum.REST,
         CollectiveStatisticsEnum.HURT
-      ],
+      ])
     ];
   }
 
