@@ -89,7 +89,6 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
       child: Container(
         decoration: BoxDecoration(
             color: Colors.transparent
-          //color: Color.fromRGBO(196, 196, 196, 0.5)
         ),
         child: Row(
           children: <Widget>[
@@ -101,7 +100,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
                     text: widget.topics[_indexPrevious],
                     family: FontFamily.ARIAL,
                     weight: FontWeight.bold,
-                    fontSize: getResponsiveHeight(16.0),
+                    fontSize: getResponsiveWidth(16.0),
                     color: Color.fromRGBO(90, 90, 90, 1)
                 ),
               ) : SizedBox.shrink(),
@@ -112,7 +111,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
                     text: widget.topics[_index],
                     family: FontFamily.ARIAL,
                     weight: FontWeight.bold,
-                    fontSize: getResponsiveHeight(22.0)
+                    fontSize: getResponsiveWidth(22.0)
                 )
             ),
             Expanded(
@@ -123,7 +122,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
                     text: widget.topics[_indexNext],
                     family: FontFamily.ARIAL,
                     weight: FontWeight.bold,
-                    fontSize: getResponsiveHeight(16.0),
+                    fontSize: getResponsiveWidth(16.0),
                     color: Color.fromRGBO(90, 90, 90, 1)
                 ),
               ) : SizedBox.shrink(),

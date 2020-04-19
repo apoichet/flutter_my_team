@@ -43,7 +43,8 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
           flex: 4,
           child: Padding(
             padding: EdgeInsets.symmetric(
-                horizontal: getResponsiveWidth(5.0)
+              horizontal: getResponsiveWidth(5.0),
+              vertical: getResponsiveHeight(5.0),
             ),
             child: _buildPodium(widget.podiumResults),
           ),
@@ -53,17 +54,17 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
           child: Column(
             children: <Widget>[
               Expanded(
-                flex: 8,
-                child: ListView(
-                  controller: _controller,
-                  padding: EdgeInsets.symmetric(
-                      vertical: getResponsiveHeight(5.0),
-                      horizontal: getResponsiveWidth(8.0)
-                  ),
-                  children: widget.restResults.map((player) =>
-                      _buildResultLine(player)
-                  ).toList(),
-                )
+                  flex: 8,
+                  child: ListView(
+                    controller: _controller,
+                    padding: EdgeInsets.symmetric(
+                        vertical: getResponsiveHeight(5.0),
+                        horizontal: getResponsiveWidth(8.0)
+                    ),
+                    children: widget.restResults.map((player) =>
+                        _buildResultLine(player)
+                    ).toList(),
+                  )
               ),
               Expanded(
                 flex: 2,
@@ -84,7 +85,7 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
     return Column(
       children: <Widget>[
         Expanded(
-          flex: 6,
+          flex: 5,
           child: _buildPodiumImageResults(podiumResults),
         ),
         Expanded(
@@ -112,8 +113,6 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
 
   Widget _buildPodiumImageResults(List<CollectiveStatisticsResult> podiumResults) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
         Expanded(
           flex: 2,
@@ -154,24 +153,24 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
             flex: 2,
             child: _buildPodiumResult(
                 result: podiumResults[1],
-                nameFontSize: 12.0,
-                valueFontSize: 12.0
+                nameFontSize: getResponsiveHeight(13.0),
+                valueFontSize: getResponsiveHeight(16.0)
             )
         ),
         Expanded(
             flex: 3,
             child: _buildPodiumResult(
                 result: podiumResults[0],
-                nameFontSize: 14.0,
-                valueFontSize: 14.0
+                nameFontSize: getResponsiveHeight(14.0),
+                valueFontSize: getResponsiveHeight(18.0)
             )
         ),
         Expanded(
             flex: 2,
             child: _buildPodiumResult(
                 result: podiumResults[2],
-                nameFontSize: 12.0,
-                valueFontSize: 12.0
+                nameFontSize: getResponsiveHeight(13.0),
+                valueFontSize: getResponsiveHeight(16.0)
             )
         )
       ],
@@ -183,7 +182,9 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
     return Column(
       children: <Widget>[
         Expanded(
-          child: _buildPodiumResultText(result.name, nameFontSize),
+          child: _buildPodiumResultText(
+              result.firstName + " " + result.lastName.substring(0,1) + ".",
+              nameFontSize),
         ),
         Expanded(
           child: _buildPodiumResultText(result.valueStr, valueFontSize),
@@ -220,7 +221,7 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: buildWidgetText(
-                    text: result.name,
+                    text: result.firstName + " " + result.lastName,
                     family: FontFamily.ARIAL,
                     weight: FontWeight.bold,
                     fontSize: 14.0
