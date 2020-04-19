@@ -120,7 +120,7 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
           child: Transform.scale(
             scale: 0.75,
             child: Image.asset(
-              "assets/img/player/avatar" + ".png",
+              "assets/img/player/" + podiumResults[1].avatar + ".png",
             ),
           ),
         ),
@@ -129,7 +129,7 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
           child: Transform.scale(
             scale: 0.9,
             child: Image.asset(
-              "assets/img/player/avatar" + ".png",
+              "assets/img/player/" + podiumResults[0].avatar + ".png",
             ),
           ),
         ),
@@ -138,7 +138,7 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
           child: Transform.scale(
             scale: 0.75,
             child: Image.asset(
-              "assets/img/player/avatar" + ".png",
+              "assets/img/player/" + podiumResults[2].avatar + ".png",
             ),
           ),
         )
@@ -211,7 +211,7 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
           Expanded(
             flex: 2,
             child: Image.asset(
-              "assets/img/player/avatar" + ".png",
+              "assets/img/player/" + result.avatar + ".png",
               height: 30,
             ),
           ),

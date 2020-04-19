@@ -155,7 +155,6 @@ Widget buildCardResult(CollectiveStatisticsEnum collectiveStatisticsEnum) {
 
   List<CollectiveStatisticsResult> results = getTeam().players
       .map(playerToResult)
-      .where((result) => result.value != 0)
       .toList();
   results.sort((r1, r2) => r2.value.compareTo(r1.value));
 
