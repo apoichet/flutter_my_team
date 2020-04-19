@@ -41,9 +41,8 @@ class Player {
   }
 
   buildAvatar() async {
-    rootBundle.load("assets/img/player/" + this.getId() + ".png").then((value) {
-      //this.avatar = this.getId();
-      this.avatar = "avatar";
+    rootBundle.load("assets/img/player/" + this.number.toString() + ".png").then((value) {
+      this.avatar = this.number.toString();
     }).catchError((_) {
       this.avatar = "avatar";
     });

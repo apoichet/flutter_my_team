@@ -46,7 +46,7 @@ class CompositionPlayer extends StatelessWidget {
   }
 
   String _getAvatar() {
-    String avatar = gameCompositionPlayer.id.replaceAll(" ", "");
+    String avatar = gameCompositionPlayer.id.split(" ").last;
     Player player = getTeam().players
         .singleWhere((p) => p.avatar == avatar, orElse: () => null);
     if (player == null) {
