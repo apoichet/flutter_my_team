@@ -19,6 +19,7 @@ class CollectiveStatisticsCard extends StatefulWidget {
 class _CollectiveStatisticsCardState extends State<CollectiveStatisticsCard> {
 
   PageController _controller;
+  List<Widget> _results;
   CollectiveStatisticsCardResult _result;
   int _indexCard;
 
@@ -28,7 +29,8 @@ class _CollectiveStatisticsCardState extends State<CollectiveStatisticsCard> {
     _controller = PageController(
         initialPage: _indexCard
     );
-    _result = buildCardResult(widget.cards[_indexCard]);
+    _results = widget.cards.map((card) => buildCardResult(card)).toList();
+    _result = _results[_indexCard];
     super.initState();
   }
 
@@ -47,15 +49,10 @@ class _CollectiveStatisticsCardState extends State<CollectiveStatisticsCard> {
           children: <Widget>[
             Expanded(
                 flex: 9,
-                child: PageView.builder(
+                child: PageView(
                   onPageChanged: _cardChanged,
                   controller: _controller,
-                  itemCount: widget.cards.length,
-                  itemBuilder: (context, index) {
-                    _indexCard = index;
-                    _result = buildCardResult(widget.cards[index]);
-                    return _result;
-                  },
+                  children: _results,
                 )
             ),
             Expanded(
@@ -75,7 +72,7 @@ class _CollectiveStatisticsCardState extends State<CollectiveStatisticsCard> {
   }
 
   _next() {
-    if(_indexCard < widget.cards.length - 1) {
+    if(_indexCard <= widget.cards.length) {
       _controller.nextPage(
           duration: Duration(milliseconds: 300), curve: Curves.linear);
     }
@@ -91,6 +88,7 @@ class _CollectiveStatisticsCardState extends State<CollectiveStatisticsCard> {
   _cardChanged(index) {
     setState(() {
       _indexCard = index;
+      _result = buildCardResult(widget.cards[index]);
     });
   }
 

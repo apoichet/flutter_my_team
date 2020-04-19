@@ -5,10 +5,6 @@ import 'package:my_team/components/footer_card.dart';
 import 'package:my_team/components/header.dart';
 import 'package:my_team/domain/game_composition.dart';
 import 'package:my_team/services/data_service.dart';
-import 'package:my_team/services/responsive_size.dart';
-import 'package:my_team/services/widget_service.dart';
-import 'package:my_team/theme/font_family.dart';
-import 'package:my_team/components/arrow.dart';
 import 'package:my_team/views/compositions/composition.dart';
 
 import '../../components/view_scaffold.dart';
