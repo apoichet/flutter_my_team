@@ -8,7 +8,6 @@ import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/statistics/collective/collective_statistics_card.dart';
-import 'package:my_team/views/statistics/collective/collective_statistics_card_result.dart';
 import 'package:my_team/views/statistics/collective/collective_statistics_result_factory.dart';
 
 class CollectiveStatistics extends StatefulWidget {
@@ -138,7 +137,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
   Widget _buildPageView() {
     return PageView(
       controller: _controller,
-      onPageChanged: (index) {_onPageChanged(index);},
+      onPageChanged: _onPageChanged,
       children: _cards
     );
   }

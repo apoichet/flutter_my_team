@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/services/route_service.dart';
 import 'package:my_team/theme/colors.dart';
 import 'package:my_team/views/compositions/compositions.dart';
 import 'package:my_team/views/home/home.dart';
@@ -41,17 +42,7 @@ class _NavBarState extends State<NavBar> {
   }
 
   void _goTo(Widget page) {
-    Navigator.of(context).push(_createRoute(page));
-  }
-
-  Route _createRoute(Widget route) {
-    return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => route,
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        //No Animation between transition route
-        return child;
-      },
-    );
+    Navigator.of(context).push(buildNoAnimationRoute(page));
   }
 
 }
