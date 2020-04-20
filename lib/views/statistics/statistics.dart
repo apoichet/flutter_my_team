@@ -71,7 +71,7 @@ class _StatisticsState extends State<Statistics> {
           ),
           _buildUnderlineText(
               text: "Collective",
-              textColor: individual ? Colors.white.withOpacity(0.5) : Colors.white,
+              textColor: individual ? Color.fromRGBO(111, 111, 111, 0.5) : Colors.white,
               underlineColor: individual ? Colors.transparent : Colors.white,
               individualState: false
           ),
