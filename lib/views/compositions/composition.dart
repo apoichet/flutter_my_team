@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/domain/game_composition.dart';
+import 'package:my_team/domain/game.dart';
 import 'package:my_team/domain/player_game_state.dart';
 import 'package:my_team/services/composition_engine.dart';
 import 'package:my_team/views/compositions/composition_player.dart';
@@ -8,7 +8,7 @@ import 'package:my_team/views/compositions/composition_players.dart';
 
 class Composition extends StatelessWidget {
 
-  final GameComposition gameComposition;
+  final Game gameComposition;
 
   Composition({this.gameComposition});
 

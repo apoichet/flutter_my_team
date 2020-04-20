@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:my_team/domain/game_composition.dart';
 import 'package:my_team/domain/player.dart';
 
 import 'game.dart';
@@ -8,7 +7,6 @@ import 'game.dart';
 class Team {
   final List<Game> games;
   final List<Player> players;
-  final List<GameComposition> gameCompositions;
 
   final int nbrTeamGoal;
   final int nbrTeamPass;
@@ -41,7 +39,6 @@ class Team {
   Team({
     this.games,
     this.players,
-    this.gameCompositions,
     this.nbrTeamGoal = 0,
     this.nbrTeamPass = 0,
     this.nbrTeamGame = 0,
@@ -117,12 +114,9 @@ class Team {
     var maxPlayerOpponentGoalCornerFreeKickCollected = players.map((p) =>
     p.nbrOpponentGoalCornerFreeKickCollected).reduce(max);
     var maxPlayerCleanSheet = players.map((p) => p.nbrCleanSheet).reduce(max);
-    List<GameComposition> gameCompositions = (json['compositions'] as List)
-        .map((g) => GameComposition.fromJson(g)).toList();
     return Team(
         games: games,
         players: players,
-        gameCompositions: gameCompositions,
         nbrTeamGoal: nbrTeamGoal,
         nbrTeamPass: nbrTeamPass,
         nbrTeamGame: nbrTeamGame,

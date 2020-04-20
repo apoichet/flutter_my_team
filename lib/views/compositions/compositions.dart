@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/footer_card.dart';
 import 'package:my_team/components/header.dart';
-import 'package:my_team/domain/game_composition.dart';
+import 'package:my_team/domain/game.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/views/compositions/composition.dart';
 
@@ -11,7 +11,7 @@ import '../../components/view_scaffold.dart';
 
 class Compositions extends StatefulWidget {
 
-  final List<GameComposition> gameCompositions = getTeam().gameCompositions.reversed.toList();
+  final List<Game> gameCompositions = getTeam().games.reversed.toList();
 
   @override
   _CompositionsState createState() => _CompositionsState();
@@ -65,7 +65,7 @@ class _CompositionsState extends State<Compositions> {
     );
   }
 
-  _buildCompoFooter(GameComposition gameComposition) {
+  _buildCompoFooter(Game gameComposition) {
     String opponent = gameComposition.opponent;
     String day = gameComposition.date.day.toString().length == 1 ?
     "0" + gameComposition.date.day.toString() : gameComposition.date.day.toString();
@@ -77,9 +77,8 @@ class _CompositionsState extends State<Compositions> {
   _buildPageView(Size size) {
     return PageView(
       controller: _controller,
-      children: widget.gameCompositions.map((gc) => Composition(
-        gameComposition: gc,
-      )).toList(),
+      children: widget.gameCompositions.map((gc) => Composition(gameComposition: gc))
+          .toList(),
       onPageChanged: (index) {
         _compoChanged(index);
       },
