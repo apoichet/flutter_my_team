@@ -20,9 +20,9 @@ class Game {
     this.stadium,
     this.state,
     this.strategy,
-    this.gameCompositionPlayers,
     this.place,
-    this.date
+    this.date,
+    this.gameCompositionPlayers
   });
 
   factory Game.fromJson(Map<String, dynamic> json) {
@@ -33,7 +33,7 @@ class Game {
         address: json['address'],
         stadium: json['stadium'],
         state: evaluate(json['result']),
-        strategy: json['strategy'],
+        strategy: strategyFrom(json['strategy']),
         place: json['place'],
         date: DateTime.parse(json['date']).toLocal(),
         gameCompositionPlayers: compositionPlayers
