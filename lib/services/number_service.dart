@@ -9,7 +9,7 @@ String roundDoubleToString(double value, int places) {
   if(places == 0) {
     return roundDouble(value, places).toInt().toString();
   }
-  return roundDouble(value, places).toString();
+  return roundDouble(value, places).toStringAsFixed(places);
 }
 
 double calcPercent(double value, double valueMax) {
