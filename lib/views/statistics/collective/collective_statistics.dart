@@ -30,7 +30,6 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
   int _index;
   PageController _controller;
   List<CollectiveStatisticsCard> _cards;
-  CollectiveStatisticsCard _card;
 
   @override
   void initState() {
@@ -95,7 +94,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
             Expanded(
               flex: 2,
               child: _indexPrevious >= 0 ? GestureDetector(
-                onTap: () => _onPageChanged(_index - 1),
+                onTap: () => _pageChanged(_index - 1),
                 child: buildWidgetText(
                     text: widget.topics[_indexPrevious],
                     family: FontFamily.ARIAL,
@@ -117,7 +116,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
             Expanded(
               flex: 2,
               child: _indexNext < widget.topics.length ? GestureDetector(
-                onTap: () => _onPageChanged(_index + 1),
+                onTap: () => _pageChanged(_index + 1),
                 child: buildWidgetText(
                     text: widget.topics[_indexNext],
                     family: FontFamily.ARIAL,
@@ -154,10 +153,18 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
     );
   }
 
-  _onPageChanged(int index) {
+  _pageChanged(int index) {
     setState(() {
       _index = index;
       _controller.jumpToPage(_index);
+      _indexNext = _index + 1;
+      _indexPrevious = _index - 1;
+    });
+  }
+
+  _onPageChanged(int index) {
+    setState(() {
+      _index = index;
       _indexNext = _index + 1;
       _indexPrevious = _index - 1;
     });

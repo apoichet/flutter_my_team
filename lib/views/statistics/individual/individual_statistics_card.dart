@@ -93,7 +93,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                       flex: 2,
                       child: _indexChart != 0 ?
                       GestureDetector(
-                        onTap: () => _onChartChanged(_indexChart - 1),
+                        onTap: () => _chartChanged(_indexChart - 1),
                         child: buildWidgetText(
                           text: topics[_indexPreviousChart].title,
                           fontSize: getResponsiveWidth(14.0),
@@ -112,7 +112,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                       flex: 2,
                       child: _indexChart != topics.length - 1 ?
                       GestureDetector(
-                        onTap: () => _onChartChanged(_indexChart + 1),
+                        onTap: () => _chartChanged(_indexChart + 1),
                         child: buildWidgetText(
                             text: topics[_indexNextChart].title,
                             fontSize: getResponsiveWidth(14.0)
@@ -133,9 +133,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                         child: t.body
                     )
                 ).toList(),
-                onPageChanged: (index) {
-                  _onChartChanged(index);
-                }
+                onPageChanged: _onChartChanged
             )
         )
       ],
@@ -158,10 +156,18 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
     return indexNext;
   }
 
-  _onChartChanged(index) {
+  _chartChanged(index) {
     setState(() {
       _indexChart = index;
       _controller.jumpToPage(_indexChart);
+      _indexPreviousChart = _getIndexPrevious();
+      _indexNextChart = _getIndexNext();
+    });
+  }
+
+  _onChartChanged(index) {
+    setState(() {
+      _indexChart = index;
       _indexPreviousChart = _getIndexPrevious();
       _indexNextChart = _getIndexNext();
     });
