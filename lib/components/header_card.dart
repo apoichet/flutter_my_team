@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/responsive_size.dart';
@@ -22,7 +23,7 @@ class HeaderCard extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: Container(
-                      alignment: Alignment.center,
+                      alignment: Alignment.bottomCenter,
                       child: buildWidgetText(
                           text: player.nickName,
                           fontSize: getResponsiveWidth(fontSize),
@@ -33,15 +34,15 @@ class HeaderCard extends StatelessWidget {
                 ),
                 Expanded(
                   child: Container(
-                      alignment: Alignment.center,
+                      alignment: Alignment.bottomLeft,
                       child: buildWidgetText(
                           text: "Numéro " + player.number.toString(),
-                          fontSize: getResponsiveWidth(fontSize - 3),
+                          fontSize: getResponsiveWidth(fontSize),
                           family: FontFamily.ARIAL,
                           weight: FontWeight.bold
                       )
                   ),
-                ),
+                )
               ],
             )
         ),
@@ -50,7 +51,7 @@ class HeaderCard extends StatelessWidget {
                 alignment: Alignment.center,
                 child: buildWidgetText(
                     text: player.position,
-                    fontSize: getResponsiveWidth(fontSize + 3),
+                    fontSize: getResponsiveWidth(fontSize),
                     family: FontFamily.ARIAL,
                     weight: FontWeight.bold
                 ))

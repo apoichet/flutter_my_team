@@ -104,7 +104,7 @@ class _LinearChartState extends State<LinearChart> {
     }
     return buildWidgetText(
       fontSize: getResponsiveWidth(widget.headerFontSize - 5),
-      text: '/',
+      text: '',
       family: FontFamily.ARIAL,
     );
   }

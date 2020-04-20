@@ -49,6 +49,7 @@ class _PlayerListState extends State<PlayerList> {
           child: Container(
             padding: EdgeInsets.only(bottom: 40 ,right: 10, left: 10),
             child: ListView.builder(
+                padding: EdgeInsets.only(top: 5.0),
                 controller: _controller,
                 itemCount: _players.length,
                 itemBuilder: (BuildContext context, int index) {

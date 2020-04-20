@@ -72,6 +72,13 @@ class Team {
     List<Player> players = (json['players'] as List).map((p) =>
         Player.fromJson(p)).toList();
     players.forEach((p) => p.buildAvatar());
+    players..sort((p1, p2) {
+      int lastNameCompare = p1.lastName.compareTo(p2.lastName);
+      if(lastNameCompare == 0) {
+        return p1.firstName.compareTo(p2.firstName);
+      }
+      return lastNameCompare;
+    });
     List<Game> games = (json['games'] as List)
         .map((g) => Game.fromJson(g))
         .toList();

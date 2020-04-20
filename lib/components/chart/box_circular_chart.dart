@@ -109,7 +109,7 @@ class BoxCircularChart extends StatelessWidget {
       if (text != texts.last) {
         textsJoined.add(buildWidgetText(
           fontSize: getResponsiveWidth(fontHeaderSize - 5.0),
-          text: '/',
+          text: ' ',
           family: FontFamily.ARIAL,
         ));
       }
