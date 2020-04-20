@@ -134,9 +134,9 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
 
   Widget _buildPageView() {
     return PageView(
-      controller: _controller,
-      onPageChanged: _onPageChanged,
-      children: _cards
+        controller: _controller,
+        onPageChanged: _onPageChanged,
+        children: _cards
     );
   }
 
@@ -146,8 +146,10 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
       children: widget.topics
           .map((topic) =>
           Circle(
-            full: _index == widget.topics.indexOf(topic) ? true : false,
-            size: 10.0,
+              full: _index == widget.topics.indexOf(topic) ? true : false,
+              size: 10.0,
+              colorFull: Color.fromRGBO(116, 116, 116, 1.0),
+              colorEmpty: Colors.white
           )
       ).toList(),
     );

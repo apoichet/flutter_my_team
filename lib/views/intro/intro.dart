@@ -113,7 +113,7 @@ class _IntroState extends State<Intro> {
   List<Circle> _buildCircles({int indexFull = 0}) {
     var circles = <Circle>[];
     for (int i = 0; i < widget.boardings.length; i++) {
-      circles.add(Circle(full: i == indexFull));
+      circles.add(Circle(full: i == indexFull, colorFull: Colors.green, colorEmpty: Colors.white));
     }
     return circles;
   }

@@ -6,11 +6,15 @@ class Circle extends StatelessWidget {
 
   final bool full;
   final double size;
+  final Color colorFull;
+  final Color colorEmpty;
 
   const Circle(
       {Key key,
         this.full = false,
-        this.size = 14.0
+        this.size = 14.0,
+        this.colorFull,
+        this.colorEmpty
       }
       ) : super(key: key);
 
@@ -21,9 +25,9 @@ class Circle extends StatelessWidget {
       width: getResponsiveWidth(size),
       height: getResponsiveHeight(size),
       decoration: BoxDecoration(
-          color: full ? Colors.green : Colors.white,
+          color: full ? colorFull : colorEmpty,
           shape: BoxShape.circle,
-          border: Border.all(color: full ? Colors.green : Colors.white)
+          border: Border.all(color: full ? colorFull : colorEmpty)
       ),
     );
   }
