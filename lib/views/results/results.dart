@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/menu_toggle.dart';
+import 'package:my_team/views/results/matchs/result_match.dart';
 
 class Results extends StatefulWidget {
   @override
@@ -11,6 +12,8 @@ class _ResultsState extends State<Results> {
   @override
   Widget build(BuildContext context) {
     return MenuToggle(
+      rightPadding: 0.0,
+      leftPadding: 0.0,
       image1: "background_14.png",
       image2: "background_13.png",
       header: "Résultats",
@@ -18,7 +21,7 @@ class _ResultsState extends State<Results> {
       backgroundHeader2: Color.fromRGBO(255, 255, 255, 0.45),
       menuUnderlineColor: Colors.white,
       menuTitle1: "Matchs",
-      widgetMenu1: Container(),
+      widgetMenu1: ResultMatch(),
       colorDisabledMenuTitle1: Colors.white.withOpacity(0.5),
       colorEnabledMenuTitle1: Colors.white,
       menuTitle2: "Classement",

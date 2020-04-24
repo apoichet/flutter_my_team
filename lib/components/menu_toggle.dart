@@ -24,6 +24,8 @@ class MenuToggle extends StatefulWidget {
   final Color colorEnabledMenuTitle2;
   final Widget widgetMenu1;
   final Widget widgetMenu2;
+  final double leftPadding;
+  final double rightPadding;
 
   MenuToggle({
     this.header,
@@ -39,7 +41,9 @@ class MenuToggle extends StatefulWidget {
     this.colorDisabledMenuTitle2,
     this.colorEnabledMenuTitle2,
     this.widgetMenu1,
-    this.widgetMenu2
+    this.widgetMenu2,
+    this.leftPadding = 15.0,
+    this.rightPadding = 15.0
   });
 
   @override
@@ -52,6 +56,7 @@ class _MenuToggleState extends State<MenuToggle> {
 
   @override
   void initState() {
+    print(widget.leftPadding);
     this.toggle = true;
     super.initState();
   }
@@ -61,27 +66,35 @@ class _MenuToggleState extends State<MenuToggle> {
     return BackgroundImage(
         image: toggle ? widget.image1 : widget.image2,
         child: ViewScaffold(
-        child: Column(
-        children: <Widget>[
-          Expanded(
-              child: Header(
-                textHeader: widget.header,
-                backgroundColor: toggle ? widget.backgroundHeader1 : widget.backgroundHeader2,
+          leftPadding: 0.0,
+          rightPadding: 0.0,
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                  child: Header(
+                    leftPadding: getResponsiveWidth(15.0),
+                    rightPadding: getResponsiveWidth(15.0),
+                    textHeader: widget.header,
+                    backgroundColor: toggle ? widget.backgroundHeader1 : widget.backgroundHeader2,
+                  )
+              ),
+              Expanded(
+                child: _buildTitleMenus(),
+              ),
+              Expanded(
+                flex: 8,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      left: getResponsiveWidth(widget.leftPadding),
+                      right: getResponsiveWidth(widget.rightPadding),
+                      top: getResponsiveHeight(10.0)
+                  ),
+                  child: toggle ? widget.widgetMenu1 : widget.widgetMenu2,
+                ),
               )
+            ],
           ),
-          Expanded(
-            child: _buildTitleMenus(),
-          ),
-          Expanded(
-            flex: 8,
-            child: Padding(
-              padding: EdgeInsets.only(top: getResponsiveHeight(10.0)),
-              child: toggle ? widget.widgetMenu1 : widget.widgetMenu2,
-            ),
-          )
-        ],
-      ),
-    ));
+        ));
   }
 
   _buildTitleMenus() {

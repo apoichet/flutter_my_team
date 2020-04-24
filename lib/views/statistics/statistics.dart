@@ -22,7 +22,6 @@ class Statistics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MenuToggle(
       image1: "background_8.png",
       image2: "background_3.png",

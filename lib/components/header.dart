@@ -9,16 +9,31 @@ class Header extends StatelessWidget {
 
   final String textHeader;
   final Color backgroundColor;
+  final double topPadding;
+  final double bottomPadding;
+  final double leftPadding;
+  final double rightPadding;
 
   Header({
     @required this.textHeader,
-    this.backgroundColor = CustomColors.BlackBackgroundChart});
+    this.backgroundColor = CustomColors.BlackBackgroundChart,
+    this.topPadding = 0.0,
+    this.bottomPadding = 0.0,
+    this.leftPadding = 0.0,
+    this.rightPadding = 0.0
+  });
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
         Container(
+          padding: EdgeInsets.only(
+            bottom: bottomPadding,
+            left: leftPadding,
+            right: rightPadding,
+            top: topPadding,
+          ),
           alignment: Alignment.centerLeft,
           child: GestureDetector(
             onTap: () => Navigator.of(context).maybePop(),
