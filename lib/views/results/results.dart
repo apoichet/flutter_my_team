@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/background_image.dart';
-import 'package:my_team/components/header.dart';
-import 'package:my_team/components/view_scaffold.dart';
+import 'package:my_team/components/menu_toggle.dart';
 
 class Results extends StatefulWidget {
   @override
@@ -11,28 +10,21 @@ class Results extends StatefulWidget {
 class _ResultsState extends State<Results> {
   @override
   Widget build(BuildContext context) {
-    return BackgroundImage(
-      image: "background_14.png",
-      child: ViewScaffold(
-        child: Column(
-          children: <Widget>[
-            Expanded(
-                child: Header(
-                    backgroundColor: Color.fromRGBO(255, 255, 255, 0.45),
-                    textHeader: "Résultats"
-                )
-            ),
-            Expanded(
-                flex: 2,
-                child: Text("")
-            ),
-            Expanded(
-                flex: 7,
-                child: Text("")
-            ),
-          ],
-        ),
-      ),
+    return MenuToggle(
+      image1: "background_14.png",
+      image2: "background_13.png",
+      header: "Résultats",
+      backgroundHeader1: Color.fromRGBO(255, 255, 255, 0.45),
+      backgroundHeader2: Color.fromRGBO(255, 255, 255, 0.45),
+      menuUnderlineColor: Colors.white,
+      menuTitle1: "Matchs",
+      widgetMenu1: Container(),
+      colorDisabledMenuTitle1: Colors.white.withOpacity(0.5),
+      colorEnabledMenuTitle1: Colors.white,
+      menuTitle2: "Classement",
+      widgetMenu2: Container(),
+      colorDisabledMenuTitle2: Colors.white.withOpacity(0.5),
+      colorEnabledMenuTitle2: Color.fromRGBO(111, 111, 111, 0.5),
     );
   }
 }
