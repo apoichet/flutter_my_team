@@ -58,7 +58,6 @@ class _MenuToggleState extends State<MenuToggle> {
 
   @override
   void initState() {
-    print(widget.leftPadding);
     this.toggle = true;
     super.initState();
   }

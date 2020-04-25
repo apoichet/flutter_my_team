@@ -102,9 +102,9 @@ class ResultMatchItem extends StatelessWidget {
     }
     return reverseEvaluate(game.state) +
         " " +
-        game.score +
+        _getPlaceMatch(game) +
         " " +
-        _getPlaceMatch(game);
+        game.score;
   }
 
   _getDateMatch(Game game) {

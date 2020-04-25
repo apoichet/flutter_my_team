@@ -19,8 +19,8 @@ class _ResultMatchState extends State<ResultMatch> {
   bool _toggleLeft;
   ScrollController _controller;
   Widget _scrollIndicator;
-  List<Game> pastGames;
-  List<Game> futureGames;
+  List<Game> _pastGames;
+  List<Game> _futureGames;
 
   @override
   void initState() {
@@ -28,9 +28,12 @@ class _ResultMatchState extends State<ResultMatch> {
     _controller =  ScrollController();
     _controller.addListener(_endScroll);
     _scrollIndicator = Image.asset("assets/img/arrow_down.png");
-    futureGames = getTeam().games.where((game) =>
-        game.date.isAfter(DateTime.now().toLocal())).toList();
-    pastGames = getTeam().games.toSet().difference(futureGames.toSet()).toList();
+    _futureGames = getTeam().games.where((game) =>
+        game.date.isAfter(DateTime.now().toLocal()))
+        .toList();
+    _pastGames = getTeam().games.toSet()
+        .difference(_futureGames.toSet())
+        .toList();
     super.initState();
   }
 
@@ -63,8 +66,8 @@ class _ResultMatchState extends State<ResultMatch> {
                     padding: EdgeInsets.all(0.0),
                     controller: _controller,
                     children: _toggleLeft ?
-                    _buildResultMatchList(pastGames) :
-                    _buildResultMatchList(futureGames)
+                    _buildResultMatchList(_pastGames) :
+                    _buildResultMatchList(_futureGames)
                 ),
               ),
               Expanded(

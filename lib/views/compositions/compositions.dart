@@ -11,7 +11,7 @@ import '../../components/view_scaffold.dart';
 
 class Compositions extends StatefulWidget {
 
-  final List<Game> gameCompositions = getTeam().games.reversed.toList();
+  final List<Game> gameCompositions = getTeam().games;
 
   @override
   _CompositionsState createState() => _CompositionsState();
