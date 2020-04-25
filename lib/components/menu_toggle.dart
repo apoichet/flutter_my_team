@@ -112,7 +112,7 @@ class _MenuToggleState extends State<MenuToggle> {
           ),
           _buildUnderlineText(
               text: widget.menuTitle2,
-              textColor: toggle ? widget.colorEnabledMenuTitle2 : widget.colorDisabledMenuTitle2,
+              textColor: toggle ? widget.colorDisabledMenuTitle2 : widget.colorEnabledMenuTitle2,
               underlineColor: toggle ? Colors.transparent : widget.menuUnderlineColor,
               toggle: false
           ),

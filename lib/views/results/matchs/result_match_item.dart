@@ -84,7 +84,7 @@ class ResultMatchItem extends StatelessWidget {
                                   fit: BoxFit.fill,
                                   width: getResponsiveWidth(30.0),
                                   height: getResponsiveHeight(30.0),
-                                  semanticsLabel: 'Mtach details'),
+                                  semanticsLabel: 'Match details'),
                             ),
                           ),
                         ]),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/menu_toggle.dart';
 import 'package:my_team/views/results/matchs/result_match.dart';
+import 'package:my_team/views/results/ranking/result_ranking.dart';
 
 class Results extends StatefulWidget {
   @override
@@ -26,9 +27,9 @@ class _ResultsState extends State<Results> {
       colorDisabledMenuTitle1: Colors.white.withOpacity(0.5),
       colorEnabledMenuTitle1: Colors.white,
       menuTitle2: "Classement",
-      widgetMenu2: Container(),
+      widgetMenu2: ResultRanking(),
       colorDisabledMenuTitle2: Colors.white.withOpacity(0.5),
-      colorEnabledMenuTitle2: Color.fromRGBO(111, 111, 111, 0.5),
+      colorEnabledMenuTitle2: Colors.white,
     );
   }
 }
