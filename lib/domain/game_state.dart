@@ -14,3 +14,13 @@ GameState evaluate(String state) {
   }
   throw new Exception("No game state found !");
 }
+
+String reverseEvaluate(GameState state) {
+  switch (state) {
+    case GameState.VICTORY : return "Victoire";
+    case GameState.DEFEAT : return "Défaite";
+    case GameState.DRAW : return "Egalité";
+  }
+
+
+}

@@ -14,6 +14,7 @@ class _ResultsState extends State<Results> {
     return MenuToggle(
       rightPadding: 0.0,
       leftPadding: 0.0,
+      bottomPadding: 5.0,
       image1: "background_14.png",
       image2: "background_13.png",
       header: "Résultats",

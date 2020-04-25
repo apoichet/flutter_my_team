@@ -26,6 +26,7 @@ class MenuToggle extends StatefulWidget {
   final Widget widgetMenu2;
   final double leftPadding;
   final double rightPadding;
+  final double bottomPadding;
 
   MenuToggle({
     this.header,
@@ -43,7 +44,8 @@ class MenuToggle extends StatefulWidget {
     this.widgetMenu1,
     this.widgetMenu2,
     this.leftPadding = 15.0,
-    this.rightPadding = 15.0
+    this.rightPadding = 15.0,
+    this.bottomPadding = 30.0,
   });
 
   @override
@@ -68,6 +70,7 @@ class _MenuToggleState extends State<MenuToggle> {
         child: ViewScaffold(
           leftPadding: 0.0,
           rightPadding: 0.0,
+          bottomPadding: widget.bottomPadding,
           child: Column(
             children: <Widget>[
               Expanded(

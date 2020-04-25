@@ -1,9 +1,13 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/domain/player_position.dart';
+import 'package:my_team/domain/game.dart';
+import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
+import 'package:my_team/views/results/matchs/result_match_item.dart';
 
 class ResultMatch extends StatefulWidget {
   @override
@@ -13,10 +17,20 @@ class ResultMatch extends StatefulWidget {
 class _ResultMatchState extends State<ResultMatch> {
 
   bool _toggleLeft;
+  ScrollController _controller;
+  Widget _scrollIndicator;
+  List<Game> pastGames;
+  List<Game> futureGames;
 
   @override
   void initState() {
     _toggleLeft = true;
+    _controller =  ScrollController();
+    _controller.addListener(_endScroll);
+    _scrollIndicator = Image.asset("assets/img/arrow_down.png");
+    futureGames = getTeam().games.where((game) =>
+        game.date.isAfter(DateTime.now().toLocal())).toList();
+    pastGames = getTeam().games.toSet().difference(futureGames.toSet()).toList();
     super.initState();
   }
 
@@ -27,8 +41,7 @@ class _ResultMatchState extends State<ResultMatch> {
         Expanded(
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.5)
-
+                color: Colors.white.withOpacity(0.55)
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,17 +52,33 @@ class _ResultMatchState extends State<ResultMatch> {
               ],
             ),
           ),
-
         ),
         Expanded(
           flex: 9,
-          child: Container(),
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                flex: 9,
+                child: ListView(
+                    padding: EdgeInsets.all(0.0),
+                    controller: _controller,
+                    children: _toggleLeft ?
+                    _buildResultMatchList(pastGames) :
+                    _buildResultMatchList(futureGames)
+                ),
+              ),
+              Expanded(
+                child: _scrollIndicator,
+              )
+            ],
+          ),
         )
-
       ],
-
-
     );
+  }
+
+  _buildResultMatchList(List<Game> games) {
+    return games.map((game) => ResultMatchItem(game: game)).toList();
   }
 
   _buildToggleTopic(String topic, bool conditionToggle) {
@@ -63,11 +92,12 @@ class _ResultMatchState extends State<ResultMatch> {
       },
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: getResponsiveWidth(12.0),
-          vertical: getResponsiveHeight(5.0)
+            horizontal: getResponsiveWidth(12.0),
+            vertical: getResponsiveHeight(5.0)
         ),
         decoration: BoxDecoration(
-            color: conditionToggle ? Color.fromRGBO(10, 39, 76, 1.0) : Colors.transparent,
+            color: conditionToggle ? Color.fromRGBO(10, 39, 76, 1.0) :
+            Colors.transparent,
             borderRadius: BorderRadius.circular(50.0)
         ),
         child: buildWidgetText(
@@ -78,6 +108,17 @@ class _ResultMatchState extends State<ResultMatch> {
         ),
       ),
     );
+  }
+
+  _endScroll() {
+    setState(() {
+      if(_controller.offset >= _controller.position.maxScrollExtent) {
+        _scrollIndicator = SizedBox.shrink();
+      }
+      else {
+        _scrollIndicator = Image.asset("assets/img/arrow_down.png");
+      }
+    });
   }
 
 }

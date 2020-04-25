@@ -9,6 +9,11 @@ class Game {
   final String address;
   final String stadium;
   final String place;
+  final String type;
+  final String result;
+  final String score;
+  final String timeMatch;
+  final String timeRdvMatch;
   final DateTime date;
   final GameState state;
   final GameCompositionStrategy strategy;
@@ -21,7 +26,12 @@ class Game {
     this.state,
     this.strategy,
     this.place,
+    this.result,
+    this.score,
+    this.type,
     this.date,
+    this.timeMatch,
+    this.timeRdvMatch,
     this.gameCompositionPlayers
   });
 
@@ -30,11 +40,16 @@ class Game {
         .map((gp) => GameCompositionPlayer.fromJson(gp)).toList();
     return Game(
         opponent: json['opponent'],
+        type: json['type'],
         address: json['address'],
         stadium: json['stadium'],
         state: evaluate(json['result']),
         strategy: strategyFrom(json['strategy']),
         place: json['place'],
+        result: json['result'],
+        score: json['score'],
+        timeMatch: json['timeMatch'],
+        timeRdvMatch: json['timeRdvMatch'],
         date: DateTime.parse(json['date']).toLocal(),
         gameCompositionPlayers: compositionPlayers
     );
