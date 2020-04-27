@@ -20,6 +20,21 @@
   },
   "games": [
     {
+      "date": "2020-09-08T22:00:00.000Z",
+      "timeRdvMatch": "18h30",
+      "type": "Amical",
+      "result": "Gagné",
+      "score": "",
+      "timeMatch": "19h30",
+      "opponent": "FC Cailloux",
+      "stadium": "Balard",
+      "addressStadium": "2 Rue Louis Armand, 75015 Paris",
+      "place": "Domicile",
+      "strategy": "",
+      "fieldType": "Synthétique",
+      "gamePlayers": []
+    },
+    {
       "date": "2019-09-08T22:00:00.000Z",
       "timeRdvMatch": "18h30",
       "type": "Amical",
@@ -519,7 +534,7 @@
         },
         {
           "yellowCard": 0,
-          "goal": 0,
+          "goal": 1,
           "id": "Makila Assouan T. 9",
           "position": "Milieu Droit",
           "state": "Remplaçant"

@@ -5,9 +5,12 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_team/domain/game.dart';
 import 'package:my_team/domain/game_state.dart';
+import 'package:my_team/domain/game_type.dart';
 import 'package:my_team/services/responsive_size.dart';
+import 'package:my_team/services/route_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
+import 'package:my_team/views/results/matchs/result_match_card.dart';
 
 class ResultMatchItem extends StatelessWidget {
 
@@ -40,7 +43,7 @@ class ResultMatchItem extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: buildWidgetText(
-                                text: game.type,
+                                text: toGameType(game.type),
                                 family: FontFamily.ARIAL,
                                 weight: FontWeight.bold,
                                 color: Colors.white,
@@ -79,12 +82,17 @@ class ResultMatchItem extends StatelessWidget {
                           Expanded(
                             child: Align(
                               alignment: Alignment.topRight,
-                              child: SvgPicture.asset(
-                                  'assets/icon/detail_icon.svg',
-                                  fit: BoxFit.fill,
-                                  width: getResponsiveWidth(30.0),
-                                  height: getResponsiveHeight(30.0),
-                                  semanticsLabel: 'Match details'),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context, buildNoAnimationRoute(ResultMatchCard(game)));
+                                },
+                                child: SvgPicture.asset(
+                                    'assets/icon/detail_icon.svg',
+                                    fit: BoxFit.fill,
+                                    width: getResponsiveWidth(30.0),
+                                    height: getResponsiveHeight(30.0),
+                                    semanticsLabel: 'Match details'),
+                              ),
                             ),
                           ),
                         ]),

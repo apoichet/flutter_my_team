@@ -1,4 +1,5 @@
 import 'package:my_team/domain/game_state.dart';
+import 'package:my_team/domain/game_type.dart';
 
 import 'game_composition_player.dart';
 import 'game_composition_strategy.dart';
@@ -9,7 +10,7 @@ class Game {
   final String address;
   final String stadium;
   final String place;
-  final String type;
+  final GameType type;
   final String result;
   final String score;
   final String timeMatch;
@@ -18,6 +19,13 @@ class Game {
   final GameState state;
   final GameCompositionStrategy strategy;
   final List<GameCompositionPlayer> gameCompositionPlayers;
+
+  reverseScore() {
+    List<String> scoreSplit = this.score.split("");
+    var scoreLeft = scoreSplit.first;
+    var scoreRight = scoreSplit.last;
+    return scoreRight + " - " + scoreLeft;
+  }
 
   Game({
     this.opponent,
@@ -40,8 +48,8 @@ class Game {
         .map((gp) => GameCompositionPlayer.fromJson(gp)).toList();
     return Game(
         opponent: json['opponent'],
-        type: json['type'],
-        address: json['address'],
+        type: fromGameType(json['type']),
+        address: json['addressStadium'],
         stadium: json['stadium'],
         state: evaluate(json['result']),
         strategy: strategyFrom(json['strategy']),
