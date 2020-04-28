@@ -37,7 +37,7 @@ class CustomColors {
   static const RaisedButtonBorder = Color.fromRGBO(255, 255, 255, 1);
   static const DisabledRaisedButton = Colors.transparent;
 
-  static const BackgroundLoader = Color.fromRGBO(70, 70, 70, 0.9);
+  static const BackgroundLoader = Color.fromRGBO(30, 30, 30, 0.9);
   static const Loader = Color.fromRGBO(255, 255, 255, 0.9);
 
 }

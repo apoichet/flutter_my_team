@@ -304,7 +304,7 @@ class LinearPainter extends CustomPainter {
       if (linearGradient != null) {
         _paintLine.shader = _createGradientShaderRightToLeft(size, xProgress);
       }
-      //canvas.drawLine(end, Offset(xProgress, size.height / 2), _paintLine);
+      canvas.drawLine(end, Offset(xProgress, size.height / 2), _paintLine);
     } else {
       final xProgress = size.width * progress;
       if (linearGradient != null) {

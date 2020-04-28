@@ -9,8 +9,8 @@ import 'package:my_team/theme/colors.dart';
 import 'package:my_team/theme/font_family.dart';
 
 class Loader extends StatefulWidget {
-  final String waitingText = "Un petit instant...";
-  final FontFamily waitingTextFamily = FontFamily.MONTSERRAT;
+  final String waitingText = "Un petit instant ...";
+  final FontFamily waitingTextFamily = FontFamily.ARIAL;
 
   @override
   _LoaderState createState() => _LoaderState();

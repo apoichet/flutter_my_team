@@ -4,7 +4,6 @@ import 'package:my_team/domain/team.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/user_service.dart';
 import 'package:my_team/views/home/home.dart';
-import 'package:my_team/views/results/matchs/result_match_card.dart';
 
 import 'services/responsive_size.dart';
 import 'views/intro/ready/ready.dart';
