@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/components/menu_toggle.dart';
 import 'package:my_team/components/player_list.dart';
 import 'package:my_team/domain/player.dart';
-import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/route_service.dart';
 import 'package:my_team/theme/colors.dart';
 import 'package:my_team/views/statistics/collective/collective_statistics_menu.dart';

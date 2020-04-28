@@ -30,10 +30,10 @@ class _ResultMatchState extends State<ResultMatch> {
     _scrollIndicator = Image.asset("assets/img/arrow_down.png");
     _futureGames = getTeam().games.where((game) =>
         game.date.isAfter(DateTime.now().toLocal()))
-        .toList();
+        .toList().reversed.toList();
     _pastGames = getTeam().games.toSet()
         .difference(_futureGames.toSet())
-        .toList();
+        .toList().reversed.toList();
     super.initState();
   }
 

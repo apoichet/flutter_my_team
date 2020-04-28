@@ -35,7 +35,9 @@ class _CompositionsState extends State<Compositions> {
         .where((g) => g.gameCompositionPlayers.isNotEmpty)
         .toList()
     ;
-    Game game = widget.initialGameToShow == null ? _gameCompositionList[0] : widget.initialGameToShow;
+    Game game = widget.initialGameToShow == null ?
+    _gameCompositionList.last :
+    widget.initialGameToShow;
     _indexGame = _gameCompositionList.indexOf(game);
     _gameCompositionWidgetList = _gameCompositionList
         .map((g) => Composition(gameComposition: g))

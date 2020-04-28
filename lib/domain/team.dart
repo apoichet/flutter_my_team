@@ -82,7 +82,7 @@ class Team {
     List<Game> games = (json['games'] as List)
         .map((g) => Game.fromJson(g))
         .toList();
-    games.sort((g1, g2) => g2.date.compareTo(g1.date));
+    games.sort((g1, g2) => g1.date.compareTo(g2.date));
     var nbrTeamGoal = players.map((p) => p.nbrGoal).reduce((goal1,
         goal2) => goal1 + goal2);
     var nbrTeamPass = players.map((p) => p.nbrPass).reduce((pass1,
