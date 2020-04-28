@@ -30,10 +30,10 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return BackgroundImage(
         image: "background_6.png",
         child : ViewPadding(
+          bottomPadding: 15.0,
           child: Column(
             children: <Widget>[
               Expanded(

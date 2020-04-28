@@ -22,7 +22,7 @@ class PlayerListItem extends StatelessWidget {
       decoration: new BoxDecoration(
           color: color,
           border: Border.all(
-              width: 1.2,
+              width: 2,
               color: Colors.white
           ),
           borderRadius: BorderRadius.circular(50)
