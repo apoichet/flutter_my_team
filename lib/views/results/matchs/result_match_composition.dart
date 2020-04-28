@@ -2,8 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_team/domain/game.dart';
 import 'package:my_team/services/responsive_size.dart';
+import 'package:my_team/services/widget_service.dart';
+import 'package:my_team/theme/font_family.dart';
 
 class ResultMatchComposition extends StatelessWidget {
 
@@ -15,27 +18,89 @@ class ResultMatchComposition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: getResponsiveWidth(5.0),
+          horizontal: getResponsiveWidth(50.0),
           vertical: getResponsiveHeight(15.0)
       ),
-      child: RotatedBox(
-        quarterTurns: 1,
-        child: Container(
-          decoration: new BoxDecoration(
-            color: Colors.white.withOpacity(0.0),
-            image: new DecorationImage(
-              image: new ExactAssetImage("assets/img/composition.png"),
-              fit: BoxFit.contain,
-            ),
-          ),
-          child: ClipRect(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 10.0),
-              child: Container()
-            ),
-          ),
-        ),
-      ),
+      child: _buildCompositionBlock()
     );
   }
+
+  _buildCompositionBlock() {
+    return Stack(
+        alignment: Alignment.center,
+        children: <Widget> [
+          RotatedBox(
+            quarterTurns: 1,
+            child: ClipRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                child: Image.asset(
+                  "assets/img/composition.png",
+                ),
+              ),
+            ),
+          ),
+          _buildCompositionTextContainer(
+              core: game.gameCompositionPlayers.isEmpty ?
+              _buildWithoutCompositionLink() :
+              _buildWithCompositionLink()
+          )
+        ]
+    );
+  }
+
+  _buildCompositionTextContainer({Widget core}) {
+    return Container(
+      padding: EdgeInsets.symmetric(
+          horizontal: getResponsiveWidth(15.0),
+          vertical: getResponsiveHeight(5.0)
+      ),
+      decoration: BoxDecoration(
+          color: Color.fromRGBO(119, 135, 155, 1),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+              color: Colors.white,
+              width: 2.0
+          )
+      ),
+      child: core,
+    );
+  }
+
+  _buildWithCompositionLink() {
+    return GestureDetector(
+        onTap: () => {},
+        child: Row(
+          children: <Widget>[
+            Expanded(
+                flex: 9,
+                child: _buildText("Voir la composition")
+            ),
+            Expanded(
+                flex: 1,
+                child: SvgPicture.asset(
+                  "assets/icon/detail_icon.svg",
+                  height: getResponsiveHeight(30.0),
+                  width: getResponsiveWidth(30.0),
+                )
+            ),
+          ],
+        ));
+  }
+
+  _buildWithoutCompositionLink() {
+    return _buildText("Composition à venir");
+  }
+
+  _buildText(String text) {
+    return buildWidgetText(
+        text: text,
+        color: Colors.white,
+        family: FontFamily.ARIAL,
+        fontSize: getResponsiveSize(20.0)
+    );
+  }
+
+
+
 }
