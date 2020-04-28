@@ -5,8 +5,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_team/domain/game.dart';
 import 'package:my_team/services/responsive_size.dart';
+import 'package:my_team/services/route_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
+import 'package:my_team/views/compositions/compositions.dart';
 
 class ResultMatchComposition extends StatelessWidget {
 
@@ -21,11 +23,11 @@ class ResultMatchComposition extends StatelessWidget {
           horizontal: getResponsiveWidth(50.0),
           vertical: getResponsiveHeight(15.0)
       ),
-      child: _buildCompositionBlock()
+      child: _buildCompositionBlock(context)
     );
   }
 
-  _buildCompositionBlock() {
+  _buildCompositionBlock(BuildContext ctx) {
     return Stack(
         alignment: Alignment.center,
         children: <Widget> [
@@ -43,7 +45,7 @@ class ResultMatchComposition extends StatelessWidget {
           _buildCompositionTextContainer(
               core: game.gameCompositionPlayers.isEmpty ?
               _buildWithoutCompositionLink() :
-              _buildWithCompositionLink()
+              _buildWithCompositionLink(ctx),
           )
         ]
     );
@@ -67,9 +69,13 @@ class ResultMatchComposition extends StatelessWidget {
     );
   }
 
-  _buildWithCompositionLink() {
+  _buildWithCompositionLink(BuildContext ctx) {
     return GestureDetector(
-        onTap: () => {},
+        onTap: () {
+          Navigator.push(ctx,
+              buildNoAnimationRoute(Compositions(initialGameToShow: game))
+          );
+        },
         child: Row(
           children: <Widget>[
             Expanded(
@@ -100,7 +106,5 @@ class ResultMatchComposition extends StatelessWidget {
         fontSize: getResponsiveSize(20.0)
     );
   }
-
-
 
 }

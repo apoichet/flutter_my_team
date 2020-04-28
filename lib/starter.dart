@@ -50,7 +50,6 @@ class _StarterState extends State<Starter> {
     String user = starterResponse.user;
     if (user != null) {
       setPlayerFromId(user);
-      return ResultMatchCard(getTeam().games[2]);
       return Home();
     }
     return Ready();

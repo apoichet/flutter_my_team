@@ -11,23 +11,39 @@ import '../../components/view_scaffold.dart';
 
 class Compositions extends StatefulWidget {
 
-  final List<Game> gameCompositions = getTeam().games;
+  final Game initialGameToShow;
+
+  const Compositions({
+    Key key,
+    this.initialGameToShow
+  }) : super(key: key);
 
   @override
   _CompositionsState createState() => _CompositionsState();
 }
 
 class _CompositionsState extends State<Compositions> {
-  PageController _controller = PageController(
-      initialPage: 0,
-      keepPage: true
-  );
 
-  int indexGame;
+  List<Widget> _gameCompositionWidgetList;
+  List<Game> _gameCompositionList;
+  int _indexGame;
+  PageController _controller;
 
   @override
   void initState() {
-    indexGame = 0;
+    _gameCompositionList = getTeam().games
+        .where((g) => g.gameCompositionPlayers.isNotEmpty)
+        .toList()
+    ;
+    Game game = widget.initialGameToShow == null ? _gameCompositionList[0] : widget.initialGameToShow;
+    _indexGame = _gameCompositionList.indexOf(game);
+    _gameCompositionWidgetList = _gameCompositionList
+        .map((g) => Composition(gameComposition: g))
+        .toList();
+    _controller = PageController(
+        initialPage: _indexGame,
+        keepPage: true
+    );
     super.initState();
   }
 
@@ -50,10 +66,10 @@ class _CompositionsState extends State<Compositions> {
             Expanded(
               child: Center(
                 child: FooterCard(
-                  text: _buildCompoFooter(widget.gameCompositions[indexGame]),
+                  text: _buildCompoFooter(_gameCompositionList[_indexGame]),
                   textSize: 18.0,
-                  previousCondition: indexGame > 0,
-                  nextCondition: indexGame < widget.gameCompositions.length - 1,
+                  previousCondition: _indexGame > 0,
+                  nextCondition: _indexGame < _gameCompositionList.length - 1,
                   previousFunction: _previousCompo,
                   nextFunction: _nextCompo,
                 ),
@@ -77,8 +93,7 @@ class _CompositionsState extends State<Compositions> {
   _buildPageView(Size size) {
     return PageView(
       controller: _controller,
-      children: widget.gameCompositions.map((gc) => Composition(gameComposition: gc))
-          .toList(),
+      children: _gameCompositionWidgetList,
       onPageChanged: (index) {
         _compoChanged(index);
       },
@@ -86,14 +101,14 @@ class _CompositionsState extends State<Compositions> {
   }
 
   _nextCompo() {
-    if(indexGame < widget.gameCompositions.length - 1) {
+    if(_indexGame < _gameCompositionList.length - 1) {
       _controller.nextPage(
           duration: Duration(milliseconds: 300), curve: Curves.linear);
     }
   }
 
   _previousCompo() {
-    if(indexGame > 0) {
+    if(_indexGame > 0) {
       _controller.previousPage(
           duration: Duration(milliseconds: 300), curve: Curves.linear);
     }
@@ -101,7 +116,7 @@ class _CompositionsState extends State<Compositions> {
 
   void _compoChanged(index) {
     setState(() {
-      indexGame = index;
+      _indexGame = index;
     });
   }
 
