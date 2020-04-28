@@ -33,8 +33,9 @@ class CustomColors {
   static const IndividualCardContainerGradientMiddle = Color.fromRGBO(255, 255, 255, 0.2);
   static const IndividualCardContainerGradientEnd = Color.fromRGBO(255, 255, 255, 0);
 
-  static const RaisedButtonBackground = Color.fromRGBO(149, 138, 138, 0.42);
-  static const RaisedButtonBorder = Color.fromRGBO(255, 255, 255, 1);
+  static const ButtonSplashColor = Color.fromRGBO(0, 0, 0, 0.5);
+  static const ButtonBackgroundColor = Color.fromRGBO(149, 138, 138, 0.3);
+  static const ButtonBorderColor = Color.fromRGBO(255, 255, 255, 1);
   static const DisabledRaisedButton = Colors.transparent;
 
   static const BackgroundLoader = Color.fromRGBO(30, 30, 30, 0.9);
