@@ -80,84 +80,83 @@ class _ResultMatchDetailsCardState extends State<ResultMatchDetailsCard> {
   Widget _buildStadiumAddress() {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: getResponsiveWidth(25.0),
-        vertical: getResponsiveHeight(35.0)
+          horizontal: getResponsiveWidth(25.0),
+          vertical: getResponsiveHeight(50.0)
       ),
-      child: Align(
-        alignment: Alignment.center,
-        child: Container(
-          padding: EdgeInsets.symmetric(
-              horizontal: getResponsiveWidth(3.0),
-              vertical: getResponsiveHeight(5.0)
-          ),
-          decoration: BoxDecoration(
-              color: Color.fromRGBO(255, 255, 255, 0.2),
-              borderRadius: BorderRadius.circular(20.0)
-          ),
-          child: Row(
-            children: <Widget> [
-              Expanded(
-                flex: 8,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: getResponsiveWidth(15.0),
-                      vertical: getResponsiveHeight(5.0)
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: buildWidgetText(
-                              text: "Stade " + widget.game.stadium,
-                              family: FontFamily.ARIAL,
-                              color: Colors.white,
-                              weight: FontWeight.bold,
-                              fontSize: getResponsiveSize(25.0)
-                          ),
-                        ),
+      child: ClipRect(
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+          child: Container(
+            padding: EdgeInsets.symmetric(
+                horizontal: getResponsiveWidth(3.0),
+                vertical: getResponsiveHeight(5.0)
+            ),
+            decoration: BoxDecoration(
+                color: Color.fromRGBO(255, 255, 255, 0.2),
+                borderRadius: BorderRadius.circular(20.0)
+            ),
+            child: Row(
+                children: <Widget> [
+                  Expanded(
+                    flex: 8,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: getResponsiveWidth(15.0),
+                          vertical: getResponsiveHeight(5.0)
                       ),
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: buildWidgetText(
-                              text: widget.game.address,
-                              family: FontFamily.ARIAL,
-                              color: Colors.white,
-                              fontSize: getResponsiveSize(18.0)
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: buildWidgetText(
+                                  text: "Stade " + widget.game.stadium,
+                                  family: FontFamily.ARIAL,
+                                  color: Colors.white,
+                                  weight: FontWeight.bold,
+                                  fontSize: getResponsiveSize(25.0)
+                              ),
+                            ),
                           ),
-                        ),
+                          Expanded(
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: buildWidgetText(
+                                  text: widget.game.address,
+                                  family: FontFamily.ARIAL,
+                                  color: Colors.white,
+                                  fontSize: getResponsiveSize(15.0)
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Center(
-                  child: SvgPicture.asset(
-                      'assets/icon/detail_icon.svg',
-                      fit: BoxFit.fill,
-                      width: getResponsiveWidth(28.0),
-                      height: getResponsiveHeight(28.0),
-                      semanticsLabel: 'Nav Bar Icon'),
-                ),
-              )
-          ]),
+                  Expanded(
+                    flex: 2,
+                    child: Center(
+                      child: SvgPicture.asset(
+                          'assets/icon/detail_icon.svg',
+                          fit: BoxFit.fill,
+                          width: getResponsiveWidth(28.0),
+                          height: getResponsiveHeight(28.0),
+                          semanticsLabel: 'Nav Bar Icon'),
+                    ),
+                  )
+                ]),
+          ),
         ),
       ),
     );
   }
 
   _buildPlayerListView() {
-    return ListView.separated(
-      separatorBuilder: (BuildContext context, int index) => Divider(
-        thickness: 0.2,
-        color: Colors.white.withOpacity(0.2),
-      ),
-      padding: EdgeInsets.symmetric(
-          vertical: getResponsiveHeight(7.0),
-          horizontal: getResponsiveWidth(3.0)
+    return ListView.builder(
+      padding: EdgeInsets.only(
+        top: getResponsiveHeight(7.0),
+        left: getResponsiveWidth(3.0),
+        right: getResponsiveWidth(3.0),
       ),
       itemCount: _gamePlayers.length,
       itemBuilder: (BuildContext context, int index) => ResultMatchPlayerDetails(_gamePlayers[index]),

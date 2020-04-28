@@ -5,8 +5,10 @@ import 'package:my_team/domain/game_composition_player.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/responsive_size.dart';
+import 'package:my_team/services/route_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
+import 'package:my_team/views/statistics/individual/individual_statistics.dart';
 
 class ResultMatchPlayerDetails extends StatefulWidget {
 
@@ -32,62 +34,69 @@ class _ResultMatchPlayerDetailsState extends State<ResultMatchPlayerDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-          vertical: getResponsiveHeight(0.0)
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 2,
-            child: Container(
-              padding: EdgeInsets.symmetric(
-                  horizontal: getResponsiveWidth(8.0)
-              ),
-              alignment: Alignment.centerRight,
-              child: Image.asset(
-                "assets/img/player/" + _player.avatar + ".png",
-                width: getResponsiveWidth(28.0),
-                height: getResponsiveHeight(28.0),
-                filterQuality: FilterQuality.high,
+    return GestureDetector(
+      onTap: () => Navigator.of(context).push(buildNoAnimationRoute(
+          IndividualStatistics(
+            player: _player,
+          )
+      )),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+            vertical: getResponsiveHeight(5.0)
+        ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 2,
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: getResponsiveWidth(8.0)
+                ),
+                alignment: Alignment.centerRight,
+                child: Image.asset(
+                  "assets/img/player/" + _player.avatar + ".png",
+                  width: getResponsiveWidth(28.0),
+                  height: getResponsiveHeight(28.0),
+                  filterQuality: FilterQuality.high,
+                ),
               ),
             ),
-          ),
-          Expanded(
-              flex: 3,
+            Expanded(
+                flex: 3,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: buildWidgetText(
+                      text: _player.firstName,
+                      family: FontFamily.ARIAL,
+                      fontSize: getResponsiveSize(20.0)
+                  ),
+                )
+            ),
+            Expanded(
+                flex: 3,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    _getBalls(),
+                    _getYellowCard()
+                  ],
+                )
+            ),
+            Expanded(
+              flex: 2,
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: buildWidgetText(
-                    text: _player.firstName,
-                    family: FontFamily.ARIAL,
-                    fontSize: getResponsiveSize(20.0)
-                ),
-              )
-          ),
-          Expanded(
-              flex: 3,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  _getBalls(),
-                  _getYellowCard()
-                ],
-              )
-          ),
-          Expanded(
-            flex: 2,
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: SvgPicture.asset(
-                  'assets/icon/detail_icon.svg',
-                  fit: BoxFit.fill,
-                  width: getResponsiveWidth(23.0),
-                  height: getResponsiveHeight(23.0),
-                  semanticsLabel: 'Nav Bar Icon'),
-            ),
-          )
-        ],
+                child: SvgPicture.asset(
+                    'assets/icon/detail_icon.svg',
+                    fit: BoxFit.fill,
+                    width: getResponsiveWidth(23.0),
+                    height: getResponsiveHeight(23.0),
+                    semanticsLabel: 'Nav Bar Icon'),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

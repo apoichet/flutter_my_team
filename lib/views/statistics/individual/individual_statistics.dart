@@ -10,12 +10,12 @@ import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/views/statistics/individual/individual_statistics_card.dart';
 
 class IndividualStatistics extends StatefulWidget {
-  final int indexPlayer;
+  final Player player;
   final List<String> statMenus;
 
   IndividualStatistics({
-    this.statMenus,
-    this.indexPlayer = 0
+    this.statMenus = const ["Buts/Passes", "Encaissés", "Matchs", "Flops"],
+    this.player
   });
 
   @override
@@ -29,11 +29,11 @@ class _IndividualStatisticsState extends State<IndividualStatistics> {
 
   @override
   void initState() {
+    _indexPlayer = getTeam().players.indexOf(widget.player);
     _controller = PageController(
-        initialPage: widget.indexPlayer,
+        initialPage: _indexPlayer,
         keepPage: true
     );
-    _indexPlayer = widget.indexPlayer;
     super.initState();
   }
 

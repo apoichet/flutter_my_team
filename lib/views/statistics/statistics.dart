@@ -31,9 +31,8 @@ class Statistics extends StatelessWidget {
       menuUnderlineColor: Colors.white,
       menuTitle1: "Individuel",
       widgetMenu1: PlayerList(onTapPlayerParent: (Player playerTap) {
-        int indexPlayerSelected = getTeam().players.indexOf(playerTap);
         Navigator.push(context, buildNoAnimationRoute(IndividualStatistics(
-          indexPlayer: indexPlayerSelected,
+          player: playerTap,
           statMenus: statMenus,
         )));
       }),
