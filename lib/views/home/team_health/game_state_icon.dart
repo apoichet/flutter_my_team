@@ -15,9 +15,11 @@ class GameStateIconState extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         alignment: Alignment.center,
-        margin: const EdgeInsets.only(left: 7, right: 7),
-        width: getResponsiveHeight(30.0),
-        height: getResponsiveHeight(30.0),
+        margin: EdgeInsets.symmetric(
+          horizontal: getResponsiveWidth(7.0)
+        ),
+        width: getResponsiveHeight(27.0),
+        height: getResponsiveHeight(27.0),
         decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(8),
@@ -33,7 +35,7 @@ class GameStateIconState extends StatelessWidget {
             ]
         ),
         child: buildWidgetText(
-          fontSize: getResponsiveSize(19.0),
+          fontSize: getResponsiveHeight(18.0),
           text: letter,
           family: FontFamily.ARIAL,
           weight: FontWeight.bold,

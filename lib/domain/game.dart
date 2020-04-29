@@ -20,11 +20,24 @@ class Game {
   final GameCompositionStrategy strategy;
   final List<GameCompositionPlayer> gameCompositionPlayers;
 
-  reverseScore() {
+  String reverseScore() {
     List<String> scoreSplit = this.score.split("");
     var scoreLeft = scoreSplit.first;
     var scoreRight = scoreSplit.last;
     return scoreRight + " - " + scoreLeft;
+  }
+
+  bool isAfterNow() {
+    return this.date.toLocal().isAfter(DateTime.now().toLocal());
+  }
+
+  String getOpponentMatchDay() {
+    String opponent = this.opponent;
+    String day = this.date.day.toString().length == 1 ?
+    "0" + this.date.day.toString() : this.date.day.toString();
+    String month = this.date.month.toString().length == 1 ?
+    "0" + this.date.month.toString() : this.date.month.toString();
+    return opponent + " " + day + "/" + month;
   }
 
   Game({

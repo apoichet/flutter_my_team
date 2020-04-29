@@ -12,6 +12,10 @@ import 'game_state_icon.dart';
 
 class TeamHealth extends StatelessWidget {
   final List<Game> lastGames = getTeam().games.sublist(0, 5);
+  final String headerText = 'Forme du moment';
+  final letterLostGame = 'D';
+  final letterVictoryGame = 'V';
+  final letterEqualityGame = 'N';
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +26,8 @@ class TeamHealth extends StatelessWidget {
           Expanded(
             child: Center(
               child: buildWidgetText(
-                  fontSize: getResponsiveSize(18.0),
-                  text: "Forme du moment",
+                  fontSize: getResponsiveHeight(18.0),
+                  text: headerText,
                   family: FontFamily.ARIAL,
               ),
             ),
@@ -44,21 +48,20 @@ class TeamHealth extends StatelessWidget {
     switch(state) {
       case GameState.DEFEAT :
         return GameStateIconState(
-          letter: 'D',
+          letter: letterLostGame,
           color: CustomColors.RedDefeatGameState,
         );
       case GameState.DRAW :
         return GameStateIconState(
-          letter: 'N',
+          letter: letterEqualityGame,
           color: CustomColors.OrangeDrawGameState,
         );
       case GameState.VICTORY:
         return GameStateIconState(
-          letter: 'V',
+          letter: letterVictoryGame,
           color: CustomColors.GreenVictoryGameState,
         );
     }
     return SizedBox.shrink();
-
   }
 }
