@@ -106,7 +106,7 @@ class _ResultMatchState extends State<ResultMatch> {
         child: buildWidgetText(
           text: topic,
           color: Colors.white,
-          fontSize: getResponsiveSize(20.0),
+          fontSize: getResponsiveWidth(20.0),
           family: FontFamily.ARIAL,
         ),
       ),

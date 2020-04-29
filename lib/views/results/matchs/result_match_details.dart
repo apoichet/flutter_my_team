@@ -28,7 +28,7 @@ class ResultMatchDetails extends StatelessWidget {
                 text: _buildHeader(),
                 family: FontFamily.ARIAL,
                 color: Colors.white,
-                fontSize: getResponsiveSize(22.0)
+                fontSize: getResponsiveWidth(22.0)
             ),
           ),
         ),

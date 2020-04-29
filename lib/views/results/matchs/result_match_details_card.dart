@@ -114,7 +114,7 @@ class _ResultMatchDetailsCardState extends State<ResultMatchDetailsCard> {
                                   family: FontFamily.ARIAL,
                                   color: Colors.white,
                                   weight: FontWeight.bold,
-                                  fontSize: getResponsiveSize(25.0)
+                                  fontSize: getResponsiveWidth(25.0)
                               ),
                             ),
                           ),
@@ -125,7 +125,7 @@ class _ResultMatchDetailsCardState extends State<ResultMatchDetailsCard> {
                                   text: widget.game.address,
                                   family: FontFamily.ARIAL,
                                   color: Colors.white,
-                                  fontSize: getResponsiveSize(15.0)
+                                  fontSize: getResponsiveWidth(15.0)
                               ),
                             ),
                           ),
@@ -196,7 +196,7 @@ class _ResultMatchDetailsCardState extends State<ResultMatchDetailsCard> {
                           text: _getScoreMatch(),
                           family: FontFamily.ARIAL,
                           weight: FontWeight.bold,
-                          fontSize: getResponsiveSize(28.0)
+                          fontSize: getResponsiveWidth(28.0)
                       )) :
                   Column(
                       children: <Widget>[
@@ -207,7 +207,7 @@ class _ResultMatchDetailsCardState extends State<ResultMatchDetailsCard> {
                                   text: _getScoreMatch(),
                                   family: FontFamily.ARIAL,
                                   weight: FontWeight.bold,
-                                  fontSize: getResponsiveSize(25.0)
+                                  fontSize: getResponsiveWidth(25.0)
                               ),
                             )
                         ),
@@ -218,7 +218,7 @@ class _ResultMatchDetailsCardState extends State<ResultMatchDetailsCard> {
                                   text: _scoreFirstMatch,
                                   family: FontFamily.ARIAL,
                                   weight: FontWeight.bold,
-                                  fontSize: getResponsiveSize(25.0)
+                                  fontSize: getResponsiveWidth(25.0)
                               ),
                             )
                         ),
@@ -276,7 +276,7 @@ class _ResultMatchDetailsCardState extends State<ResultMatchDetailsCard> {
           left ? _teamName : widget.game.opponent :
           left ? widget.game.opponent : _teamName,
           family: FontFamily.ARIAL,
-          fontSize: getResponsiveSize(20.0)
+          fontSize: getResponsiveWidth(18.0)
       ),
     );
   }

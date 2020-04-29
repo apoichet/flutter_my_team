@@ -7,31 +7,32 @@ import 'package:my_team/components/view_padding.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/responsive_size.dart';
+import 'package:my_team/services/text_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/home/home.dart';
 
 class ReadyPlayer extends StatefulWidget {
-  final String readyTitleText = "Dis nous qui tu es...";
-  final String readyBottomText = "Je suis prêt";
+  final String imgBackgroundName = 'background_6.png';
+  final String readyTitleText = 'Dis nous qui tu es...';
+  final String readyBottomText = 'Je suis prêt';
   @override
   _ReadyPlayerState createState() => _ReadyPlayerState();
 }
 
 class _ReadyPlayerState extends State<ReadyPlayer> {
 
-  String idPlayerSelected;
+  String _idPlayerSelected;
 
   @override
   void initState() {
-    idPlayerSelected = null;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return BackgroundImage(
-        image: "background_6.png",
+        image: widget.imgBackgroundName,
         child : ViewPadding(
           bottomPadding: 15.0,
           child: Column(
@@ -55,13 +56,10 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
                 child: Container(
                     alignment: Alignment.center,
                     child: Button(
-                      onPressed: idPlayerSelected == null ? null : () {
-                        setPlayerFromId(idPlayerSelected);
-                        Navigator.push(
-                            context, MaterialPageRoute(builder: (context) => Home()
-                        ));
-                      },
-                      text: idPlayerSelected == null ? null : widget.readyBottomText,
+                      onPressed: isNullOrEmpty(_idPlayerSelected) ? null :
+                          () => _onPressedReadyButton(context),
+                      text: isNullOrEmpty(_idPlayerSelected) ? null :
+                      widget.readyBottomText,
                     )
                 ),
               )
@@ -70,9 +68,17 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
         )
     );
   }
-  _onTapPlayer(Player playerTap) {
+
+  void _onPressedReadyButton(BuildContext context) {
+    setPlayerFromId(_idPlayerSelected);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => Home()
+    ));
+  }
+
+  void _onTapPlayer(Player playerTap) {
     setState(() {
-      idPlayerSelected = playerTap.getId();
+      _idPlayerSelected = playerTap.getId();
     });
   }
 }

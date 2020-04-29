@@ -55,7 +55,6 @@ class _ResultMatchPlayerDetailsState extends State<ResultMatchPlayerDetails> {
                 alignment: Alignment.centerRight,
                 child: Image.asset(
                   "assets/img/player/" + _player.avatar + ".png",
-                  width: getResponsiveWidth(28.0),
                   height: getResponsiveHeight(28.0),
                   filterQuality: FilterQuality.high,
                 ),
@@ -68,7 +67,7 @@ class _ResultMatchPlayerDetailsState extends State<ResultMatchPlayerDetails> {
                   child: buildWidgetText(
                       text: _player.firstName,
                       family: FontFamily.ARIAL,
-                      fontSize: getResponsiveSize(20.0)
+                      fontSize: getResponsiveWidth(20.0)
                   ),
                 )
             ),
@@ -104,11 +103,17 @@ class _ResultMatchPlayerDetailsState extends State<ResultMatchPlayerDetails> {
   _getYellowCard() {
     return Row(
       children: Iterable<int>.generate(widget.gameCompositionPlayer.nbYellowCard)
-          .map((nbGoal) => Image.asset(
-        "assets/img/yellow_card.png",
-        width: getResponsiveWidth(20.0),
-        height: getResponsiveHeight(20.0),
-        filterQuality: FilterQuality.high,
+          .map((nbGoal) => Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: getResponsiveWidth(10.0),
+            vertical: getResponsiveHeight(2.0)
+        ),
+        child: Image.asset(
+          "assets/img/yellow_card.png",
+          height: getResponsiveHeight(18.0),
+          filterQuality: FilterQuality.high,
+          fit: BoxFit.fill,
+        ),
       )).toList(),
     );
   }
@@ -117,29 +122,34 @@ class _ResultMatchPlayerDetailsState extends State<ResultMatchPlayerDetails> {
     if(widget.gameCompositionPlayer.nbGoal > 2) {
       return  Row(
           children: <Widget>[
-            Image.asset(
-              "assets/img/ball.png",
-              width: getResponsiveWidth(20.0),
-              height: getResponsiveHeight(20.0),
-              filterQuality: FilterQuality.high,
-            ),
+            _buildBallImage(),
             buildWidgetText(
                 text: "x" + widget.gameCompositionPlayer.nbGoal.toString(),
                 family: FontFamily.ARIAL,
-                fontSize: 15.0,
+                fontSize: getResponsiveWidth(18.0),
                 weight: FontWeight.bold
             )
           ]
       );
     }
     return  Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: Iterable<int>.generate(widget.gameCompositionPlayer.nbGoal)
-          .map((nbGoal) => Image.asset(
-        "assets/img/ball.png",
-        width: getResponsiveWidth(20.0),
-        height: getResponsiveHeight(20.0),
-        filterQuality: FilterQuality.high,
-      )).toList(),
+          .map((nbGoal) => _buildBallImage()).toList(),
     );
+  }
+  Widget _buildBallImage() {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: getResponsiveWidth(2.0)
+      ),
+      child: Image.asset(
+          "assets/img/ball.png",
+          width: getResponsiveWidth(20.0),
+          filterQuality: FilterQuality.high,
+          fit: BoxFit.fill
+      ),
+    );
+
   }
 }

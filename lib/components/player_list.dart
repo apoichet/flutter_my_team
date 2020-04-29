@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_gradient.dart';
+import 'package:my_team/components/player_list_item.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/theme/colors.dart';
-import 'package:my_team/components/player_list_item.dart';
 
 class PlayerList extends StatefulWidget {
-  final onTapPlayerParent;
+  final Function onTapPlayerParent;
 
   const PlayerList({Key key, this.onTapPlayerParent}) : super(key: key);
 
@@ -20,6 +20,7 @@ class _PlayerListState extends State<PlayerList> {
   String _idPlayerSelected;
   ScrollController _controller;
   Widget _scrollIndicator;
+  Function _onTapPlayerParent;
 
   @override
   void initState() {
@@ -27,7 +28,14 @@ class _PlayerListState extends State<PlayerList> {
     _controller =  ScrollController();
     _controller.addListener(_endScroll);
     _scrollIndicator = Image.asset("assets/img/arrow_down.png");
+    _onTapPlayerParent = widget.onTapPlayerParent ?? (Player playerTaped) => {};
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -67,15 +75,13 @@ class _PlayerListState extends State<PlayerList> {
       ],
     );
   }
-  _onTapPlayer(Player playerTap) {
+  void _onTapPlayer(Player playerTap) {
     setState(() {
       _idPlayerSelected = playerTap.getId();
-      if(widget.onTapPlayerParent != null) {
-        widget.onTapPlayerParent(playerTap);
-      }
+      _onTapPlayerParent(playerTap);
     });
   }
-  _endScroll() {
+  void _endScroll() {
     setState(() {
       if(_controller.offset >= _controller.position.maxScrollExtent) {
         _scrollIndicator = SizedBox.shrink();

@@ -47,7 +47,7 @@ class ResultMatchItem extends StatelessWidget {
                                 family: FontFamily.ARIAL,
                                 weight: FontWeight.bold,
                                 color: Colors.white,
-                                fontSize: getResponsiveSize(20.0)
+                                fontSize: getResponsiveWidth(20.0)
                             ),
                           ),
                         ),
@@ -58,7 +58,7 @@ class ResultMatchItem extends StatelessWidget {
                                 text: game.opponent + " " + _getDateMatch(game),
                                 family: FontFamily.ARIAL,
                                 color: Colors.white,
-                                fontSize: getResponsiveSize(20.0)
+                                fontSize: getResponsiveWidth(20.0)
                             ),
                           ),
                         )
@@ -76,7 +76,7 @@ class ResultMatchItem extends StatelessWidget {
                                     text: _getStateMatch(game),
                                     family: FontFamily.ARIAL,
                                     color: Colors.white,
-                                    fontSize: getResponsiveSize(18.0)
+                                    fontSize: getResponsiveWidth(18.0)
                                 ),
                               )),
                           Expanded(
