@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/menu_toggle.dart';
+import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/views/results/matchs/result_match.dart';
 import 'package:my_team/views/results/ranking/result_ranking.dart';
 
@@ -13,6 +14,7 @@ class _ResultsState extends State<Results> {
   @override
   Widget build(BuildContext context) {
     return MenuToggle(
+      navBarSelected: NavBarEnum.CALENDAR,
       rightPadding: 0.0,
       leftPadding: 0.0,
       bottomPadding: 5.0,

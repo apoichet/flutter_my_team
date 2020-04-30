@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/header.dart';
+import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/components/view_scaffold.dart';
 import 'package:my_team/domain/game.dart';
 import 'package:my_team/views/results/matchs/result_match_composition.dart';
@@ -17,6 +18,7 @@ class ResultMatchCard extends StatelessWidget {
     return BackgroundImage(
         image: "background_16.png",
         child: ViewScaffold(
+          navBarSelected: NavBarEnum.CALENDAR,
           bottomPadding: 0.0,
           child: Column(
               children: <Widget>[

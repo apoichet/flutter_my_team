@@ -3,6 +3,7 @@ import 'package:my_team/components/background_gradient.dart';
 import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/footer_card.dart';
 import 'package:my_team/components/header.dart';
+import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/components/view_scaffold.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
@@ -42,6 +43,7 @@ class _IndividualStatisticsState extends State<IndividualStatistics> {
     return BackgroundImage(
       image: "background_9.png",
       child: ViewScaffold(
+        navBarSelected: NavBarEnum.STATISTICS,
         child: Column(
           children: <Widget>[
             Expanded(

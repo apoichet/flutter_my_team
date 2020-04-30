@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_gradient.dart';
 import 'package:my_team/components/background_image.dart';
+import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/views/home/home_header_card.dart';
@@ -19,6 +20,7 @@ class Home extends StatelessWidget {
     return BackgroundImage(
         image: _imgBackgroundName,
         child: ViewScaffold(
+          navBarSelected: NavBarEnum.HOME,
           child: Container(
             alignment: Alignment.center,
             child: Column(

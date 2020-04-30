@@ -10,9 +10,11 @@ class ViewScaffold extends StatelessWidget {
   final double bottomPadding;
   final double leftPadding;
   final double rightPadding;
+  final NavBarEnum navBarSelected;
 
   ViewScaffold({
     @required this.child,
+    @required this.navBarSelected,
     this.topPadding = 30.0,
     this.bottomPadding = 30.0,
     this.leftPadding = 15.0,
@@ -29,7 +31,7 @@ class ViewScaffold extends StatelessWidget {
           leftPadding: leftPadding,
           rightPadding: rightPadding
       ),
-      bottomNavigationBar: NavBar(),
+      bottomNavigationBar: NavBar(navBarSelected),
     );
   }
 }

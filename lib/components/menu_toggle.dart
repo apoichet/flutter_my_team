@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/components/view_scaffold.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
@@ -27,6 +28,7 @@ class MenuToggle extends StatefulWidget {
   final double leftPadding;
   final double rightPadding;
   final double bottomPadding;
+  final NavBarEnum navBarSelected;
 
   MenuToggle({
     this.header,
@@ -46,6 +48,7 @@ class MenuToggle extends StatefulWidget {
     this.leftPadding = 15.0,
     this.rightPadding = 15.0,
     this.bottomPadding = 30.0,
+    this.navBarSelected
   });
 
   @override
@@ -67,6 +70,7 @@ class _MenuToggleState extends State<MenuToggle> {
     return BackgroundImage(
         image: toggle ? widget.image1 : widget.image2,
         child: ViewScaffold(
+          navBarSelected: widget.navBarSelected,
           leftPadding: 0.0,
           rightPadding: 0.0,
           bottomPadding: widget.bottomPadding,

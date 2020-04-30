@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/menu_toggle.dart';
+import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/components/player_list.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/route_service.dart';
@@ -22,6 +23,7 @@ class Statistics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MenuToggle(
+      navBarSelected: NavBarEnum.STATISTICS,
       image1: "background_8.png",
       image2: "background_3.png",
       header: "Statistiques",

@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/circle.dart';
 import 'package:my_team/components/header.dart';
+import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/components/view_scaffold.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
@@ -48,6 +49,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
     return BackgroundImage(
       image: "background_15.png",
       child: ViewScaffold(
+        navBarSelected: NavBarEnum.STATISTICS,
         bottomPadding: 3.0,
         child: Column(
           children: <Widget>[

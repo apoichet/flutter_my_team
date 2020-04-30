@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_image.dart';
 import 'package:my_team/components/footer_card.dart';
 import 'package:my_team/components/header.dart';
+import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/domain/game.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/views/compositions/composition.dart';
@@ -55,6 +56,7 @@ class _CompositionsState extends State<Compositions> {
     return BackgroundImage(
       image: "background_12.png",
       child: ViewScaffold(
+        navBarSelected: NavBarEnum.COMPOSITIONS,
         child: Column(
           children: <Widget>[
             Expanded(
