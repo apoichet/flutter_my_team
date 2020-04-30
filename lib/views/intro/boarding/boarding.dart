@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/services/responsive_size.dart';
@@ -33,10 +32,12 @@ class Boarding extends StatelessWidget {
       children: <Widget>[
         Expanded(
           flex: 7,
-          child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.only(
+                top: getResponsiveHeight(35.0)
+            ),
             child: Image.asset(
               'assets/img/boarding/' + imagePath + '.png',
-              fit: BoxFit.cover,
               filterQuality: FilterQuality.high,
             ),
           ),
