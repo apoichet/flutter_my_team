@@ -72,6 +72,7 @@ class _IndividualStatisticsState extends State<IndividualStatistics> {
                         Expanded(
                           flex: 9,
                           child: PageView(
+                            physics: ClampingScrollPhysics(),
                             controller: _controller,
                             children: getTeam().players
                                 .map((p) => IndividualStatisticsCard(

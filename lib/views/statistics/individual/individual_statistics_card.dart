@@ -87,7 +87,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                       flex: 6,
                       child: Padding(
                         padding: EdgeInsets.only(
-                          left: getResponsiveWidth(5.0)
+                            left: getResponsiveWidth(5.0)
                         ),
                         child: IndividualStatisticsHeaderCard(widget.playerSelected),
                       )
@@ -139,6 +139,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
         Expanded(
             flex: 5,
             child: PageView(
+                physics: ClampingScrollPhysics(),
                 controller: _controller,
                 children: topics.map((t) =>
                     Padding(

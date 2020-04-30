@@ -71,7 +71,7 @@ class _CompositionsState extends State<Compositions> {
               child: Center(
                 child: FooterCard(
                   text: _buildCompoFooter(_gameCompositionList[_indexGame]),
-                  textSize: 18.0,
+                  textSize: 16.0,
                   previousCondition: _indexGame > 0,
                   nextCondition: _indexGame < _gameCompositionList.length - 1,
                   previousFunction: _previousCompo,
