@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/services/number_service.dart';
@@ -33,7 +31,6 @@ class BoxCircularChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: getResponsiveWidth(5.0)),
       decoration: BoxDecoration(
           color: CustomColors.BlackBackgroundChart,
           borderRadius: BorderRadius.circular(10)
@@ -82,9 +79,14 @@ class BoxCircularChart extends StatelessWidget {
   Widget _buildHeader() {
     List<Widget> texts = circularCharts.map((chart) =>
         _buildTextHeader(chart)).toList();
-    return Row(
-        mainAxisSize: MainAxisSize.min,
-        children: _joinTextWidgets(texts)
+    return Padding(
+      padding: EdgeInsets.only(
+        top: getResponsiveHeight(8.0)
+      ),
+      child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: _joinTextWidgets(texts)
+      ),
     );
   }
 
@@ -130,8 +132,16 @@ class BoxCircularChart extends StatelessWidget {
         );
       }
     }
-    return Stack(
-      children: charts,
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: getResponsiveWidth(8.0),
+        vertical: getResponsiveHeight(3.0)
+      ),
+      child: FittedBox(
+        child: Stack(
+          children: charts,
+        ),
+      ),
     );
   }
 

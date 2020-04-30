@@ -19,10 +19,10 @@ class HeaderCard extends StatelessWidget {
     return Column(
       children: <Widget>[
         Expanded(
-            child: _buildRow("Nom :", player.nickName, false)
+            child: _buildRow("Nom : ", player.nickName, false)
         ),
         Expanded(
-            child: _buildRow("Poste :", player.position, false),
+            child: _buildRow("Poste : ", player.position, false),
         ),
         Expanded(
             child: _buildRow("Numéro :", player.number.toString(), true)

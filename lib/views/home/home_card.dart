@@ -79,7 +79,7 @@ class _IndividualCardState extends State<IndividualCard> {
                 ),
                 child: HeaderCard(
                   player: player,
-                  fontSize: 19.0,
+                  fontSize: 20.0,
                 ),
               ),
             ),
@@ -94,7 +94,7 @@ class _IndividualCardState extends State<IndividualCard> {
           alignment: Alignment.centerRight,
           decoration: BoxDecoration(
               border: Border.all(
-                  width: 1.2,
+                  width: 2,
                   color: Colors.white
               ),
               borderRadius: BorderRadius.circular(50)
@@ -103,12 +103,12 @@ class _IndividualCardState extends State<IndividualCard> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               buildWidgetText(
-                fontSize: getResponsiveSize(21.0),
+                fontSize: getResponsiveHeight(21.0),
                 text: player.firstName + " ",
                 family: FontFamily.ARIAL,
               ),
               buildWidgetText(
-                  fontSize: getResponsiveSize(21.0),
+                  fontSize: getResponsiveHeight(21.0),
                   text: player.lastName,
                   family: FontFamily.ARIAL,
                   weight: FontWeight.bold

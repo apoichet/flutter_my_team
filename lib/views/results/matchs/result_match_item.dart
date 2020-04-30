@@ -108,7 +108,7 @@ class ResultMatchItem extends StatelessWidget {
     if(game.date.isAfter(DateTime.now().toLocal())) {
       return "Coup d'envoi " + game.timeMatch + " rdv " + game.timeRdvMatch;
     }
-    return reverseEvaluate(game.state) +
+    return toGameState(game.state) +
         " " +
         _getPlaceMatch(game) +
         " " +

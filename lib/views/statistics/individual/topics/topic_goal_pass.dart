@@ -34,8 +34,6 @@ class TopicGoalPass extends StatelessWidget {
                   withFooter: true,
                   fontHeaderSize: 45.0,
                   fontFooterSize: 18.0,
-                  verticalPadding: 5.0,
-                  horizontalPadding: 8.0,
                   flex: true,
                 ),
               )

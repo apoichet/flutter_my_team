@@ -34,8 +34,6 @@ class TopicGame extends StatelessWidget {
                   withFooter: true,
                   fontHeaderSize: 35.0,
                   fontFooterSize: 16.0,
-                  verticalPadding: 5.0,
-                  horizontalPadding: 8.0,
                   flex: true,
                 ),
               )

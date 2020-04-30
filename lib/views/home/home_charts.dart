@@ -25,7 +25,7 @@ class HomeCharts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        vertical: getResponsiveHeight(8.0)
+          vertical: getResponsiveHeight(8.0)
       ),
       child: Column(
         children: <Widget>[
@@ -125,27 +125,27 @@ class HomeCharts extends StatelessWidget {
     );
   }
 
-  CircularChart _buildChartPass() {
-    return CircularChart(
-      width: getResponsiveHeight(ChartsSize.PASS_CIRCULAR_WIDTH),
-      strokeWidth: getResponsiveHeight(ChartsSize.PASS_CIRCULAR_STROKE_WIDTH),
-      value: player.nbrPass.toDouble(),
-      valueMax: team.maxPlayerPass.toDouble(),
-      rounded: true,
-      backgroundColor: CustomColors.RedTransparent,
-      valueColor: CustomColors.RedGradientEnd,
-      linearGradient: LinearGradient(
-          colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
-      ),
-    );
-  }
-
   CircularChart _buildChartGoal() {
     return CircularChart(
       width: getResponsiveHeight(ChartsSize.GOAL_CIRCULAR_WIDTH),
       strokeWidth: getResponsiveHeight(ChartsSize.GOAL_CIRCULAR_STROKE_WIDTH),
       value: player.nbrGoal.toDouble(),
       valueMax: team.maxPlayerGoal.toDouble(),
+      rounded: true,
+      backgroundColor: CustomColors.RedTransparent,
+      valueColor: CustomColors.RedGradientStart,
+      linearGradient: LinearGradient(
+          colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
+      ),
+    );
+  }
+
+  CircularChart _buildChartPass() {
+    return CircularChart(
+      width: getResponsiveHeight(ChartsSize.PASS_CIRCULAR_WIDTH),
+      strokeWidth: getResponsiveHeight(ChartsSize.PASS_CIRCULAR_STROKE_WIDTH),
+      value: player.nbrPass.toDouble(),
+      valueMax: team.maxPlayerPass.toDouble(),
       rounded: true,
       backgroundColor: CustomColors.OrangeTransparent,
       valueColor: CustomColors.OrangeGradientStart,
@@ -154,6 +154,8 @@ class HomeCharts extends StatelessWidget {
       ),
     );
   }
+
+
 
   CircularChart _buildChartGameTime() {
     return CircularChart(
@@ -178,46 +180,49 @@ class HomeCharts extends StatelessWidget {
       valueMax: team.maxPlayerGame.toDouble(),
       rounded: true,
       backgroundColor: CustomColors.RedTransparent,
-      valueColor: CustomColors.RedGradientEnd,
+      valueColor: CustomColors.RedGradientStart,
       linearGradient: LinearGradient(
           colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
       ),
     );
   }
 
-  LinearChart _buildChartYellowCard() {
+  LinearChart _buildChartMissing() {
     return LinearChart(
-      valueColor: CustomColors.OrangeGradientStart,
-      backgroundColor: CustomColors.OrangeTransparent,
-      value: player.nbrYellowCard.toDouble(),
-      valueMax: team.maxPlayerYellowCard.toDouble(),
-      width: ChartsSize.YELLOW_CARD_LINEAR_WIDTH,
-      last: true,
-      linearGradient: LinearGradient(
-          colors: [CustomColors.OrangeGradientStart, CustomColors.OrangeGradientEnd]
-      ),
-    );
-  }
-
-  LinearChart _buildChartLate() {
-    return LinearChart(
-        valueColor: CustomColors.RedGradientEnd,
+        valueColor: CustomColors.RedGradientStart,
         backgroundColor: CustomColors.RedTransparent,
-        value: player.nbrLateGame.toDouble(),
-        valueMax: team.maxPlayerLateGame.toDouble(),
-        width: ChartsSize.LATE_LINEAR_WIDTH,
+        value: player.nbrMissingGame.toDouble(),
+        valueMax: team.maxPlayerMissingGame.toDouble(),
+        width: ChartsSize.MISSING_LINEAR_WIDTH,
         linearGradient: LinearGradient(
             colors: [CustomColors.RedGradientStart, CustomColors.RedGradientEnd]
         ));
   }
 
-  LinearChart _buildChartMissing() {
+  LinearChart _buildChartLate() {
     return LinearChart(
-        color: CustomColors.GreenApple,
-        valueColor: CustomColors.GreenApple,
-        backgroundColor: CustomColors.GreenAppleTransparent,
-        value: player.nbrMissingGame.toDouble(),
-        valueMax: team.maxPlayerMissingGame.toDouble(),
-        width: ChartsSize.MISSING_LINEAR_WIDTH);
+        valueColor: CustomColors.OrangeGradientStart,
+        backgroundColor: CustomColors.OrangeTransparent,
+        value: player.nbrLateGame.toDouble(),
+        valueMax: team.maxPlayerLateGame.toDouble(),
+        width: ChartsSize.LATE_LINEAR_WIDTH,
+        linearGradient: LinearGradient(
+            colors: [CustomColors.OrangeGradientStart, CustomColors.OrangeGradientEnd]
+        ));
   }
+
+  LinearChart _buildChartYellowCard() {
+    return LinearChart(
+      valueColor: CustomColors.YellowGradientStart,
+      backgroundColor: CustomColors.YellowTransparent,
+      value: player.nbrYellowCard.toDouble(),
+      valueMax: team.maxPlayerYellowCard.toDouble(),
+      width: ChartsSize.YELLOW_CARD_LINEAR_WIDTH,
+      last: true,
+      linearGradient: LinearGradient(
+          colors: [CustomColors.YellowGradientStart, CustomColors.YellowGradientEnd]
+      ),
+    );
+  }
+
 }

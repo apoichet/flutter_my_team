@@ -7,7 +7,8 @@ import 'package:my_team/theme/font_family.dart';
 
 import 'linear_percent_indicator.dart';
 
-class LinearChart extends StatefulWidget {
+class LinearChart extends StatelessWidget {
+
   final String footer;
   final double width;
   final Color color;
@@ -20,7 +21,7 @@ class LinearChart extends StatefulWidget {
   final bool last;
   final double headerFontSize;
 
-  const LinearChart(
+  LinearChart(
       {Key key,
         @required this.width,
         @required this.backgroundColor,
@@ -37,22 +38,8 @@ class LinearChart extends StatefulWidget {
       ) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _LinearChartState();
-}
-
-
-class _LinearChartState extends State<LinearChart> {
-
-  double percent;
-
-  @override
-  void initState() {
-    percent = calcPercent(widget.value, widget.valueMax);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    double percent = calcPercent(value, valueMax);
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
@@ -66,16 +53,21 @@ class _LinearChartState extends State<LinearChart> {
         ),
         Expanded(
           flex: 4,
-          child: RotatedBox(
-            quarterTurns: 3,
-            child: new LinearPercentIndicator(
-              animationDuration: 1000,
-              lineHeight: getResponsiveHeight(widget.width),
-              animation: true,
-              percent: percent,
-              progressColor: widget.color,
-              linearGradient: widget.linearGradient,
-              backgroundColor: widget.backgroundColor,
+          child: Padding(
+            padding: EdgeInsets.only(
+                bottom: getResponsiveHeight(8.0),
+            ),
+            child: RotatedBox(
+              quarterTurns: 3,
+              child: new LinearPercentIndicator(
+                animationDuration: 1000,
+                lineHeight: getResponsiveHeight(width),
+                animation: true,
+                percent: percent,
+                progressColor: color,
+                linearGradient: linearGradient,
+                backgroundColor: backgroundColor,
+              ),
             ),
           ),
         ),
@@ -85,25 +77,25 @@ class _LinearChartState extends State<LinearChart> {
   }
 
   Widget _buildTextHeader() {
-    var text = roundDouble(widget.value, 1).toString();
-    if (widget.rounded) {
-      text = widget.value.round().toString();
+    var text = roundDouble(value, 1).toString();
+    if (rounded) {
+      text = value.round().toString();
     }
     return buildWidgetText(
-        fontSize: getResponsiveWidth(widget.headerFontSize),
+        fontSize: getResponsiveWidth(headerFontSize),
         text: text,
-        color: widget.valueColor,
+        color: valueColor,
         family: FontFamily.ARIAL,
         weight: FontWeight.bold
     );
   }
 
   _joinTextHeader() {
-    if(widget.last) {
+    if(last) {
       return SizedBox.shrink();
     }
     return buildWidgetText(
-      fontSize: getResponsiveWidth(widget.headerFontSize - 5),
+      fontSize: getResponsiveWidth(headerFontSize - 5),
       text: '',
       family: FontFamily.ARIAL,
     );

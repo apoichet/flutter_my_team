@@ -64,7 +64,7 @@ class Game {
         type: fromGameType(json['type']),
         address: json['addressStadium'],
         stadium: json['stadium'],
-        state: evaluate(json['result']),
+        state: fromGameState(json['result']),
         strategy: strategyFrom(json['strategy']),
         place: json['place'],
         result: json['result'],

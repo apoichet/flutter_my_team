@@ -14,8 +14,12 @@ class CustomColors {
   static const RedTransparent = Color.fromRGBO(226, 3, 25, 0.2);
 
   static const OrangeGradientStart = Color.fromRGBO(254, 127, 0, 1);
-  static const OrangeGradientEnd = Color.fromRGBO(222, 196, 0, 1);
+  static const OrangeGradientEnd = Color.fromRGBO(222, 170, 0, 1);
   static const OrangeTransparent = Color.fromRGBO(254, 127, 0, 0.2);
+
+  static const YellowGradientStart = Color.fromRGBO(230, 230, 0, 1);
+  static const YellowGradientEnd = Color.fromRGBO(255, 255, 0, 1);
+  static const YellowTransparent = Color.fromRGBO(255, 255, 0, 0.2);
 
   static const GreenApple = Color.fromRGBO(151, 246, 0, 1);
   static const GreenAppleTransparent = Color.fromRGBO(151, 246, 0, 0.2);
