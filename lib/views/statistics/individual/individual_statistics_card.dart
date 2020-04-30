@@ -68,13 +68,13 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    flex: 1,
+                    flex: 4,
                     child: PlayerAvatar(
                       player: widget.playerSelected,
                     ),
                   ),
                   Expanded(
-                      flex: 2,
+                      flex: 6,
                       child: HeaderCard(
                         player: widget.playerSelected,
                         fontSize: 20.0,

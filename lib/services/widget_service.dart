@@ -13,6 +13,7 @@ AutoSizeText buildWidgetText({
   maxFontSize = 40.0,
   minFontSize = 7.0,
   fontSize = 12.0,
+  fontStyle = FontStyle.normal
 }) {
   return AutoSizeText(
       text,
@@ -25,7 +26,8 @@ AutoSizeText buildWidgetText({
           color: color,
           fontFamily: getFontFamily(family),
           fontWeight: weight,
-          fontSize: fontSize
+          fontSize: fontSize,
+          fontStyle: fontStyle
       )
   );
 }

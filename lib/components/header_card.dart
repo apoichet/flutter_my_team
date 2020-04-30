@@ -19,44 +19,46 @@ class HeaderCard extends StatelessWidget {
     return Column(
       children: <Widget>[
         Expanded(
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                      alignment: Alignment.bottomCenter,
-                      child: buildWidgetText(
-                          text: player.nickName,
-                          fontSize: getResponsiveWidth(fontSize),
-                          family: FontFamily.ARIAL,
-                          weight: FontWeight.bold
-                      )
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                      alignment: Alignment.bottomLeft,
-                      child: buildWidgetText(
-                          text: "Numéro " + player.number.toString(),
-                          fontSize: getResponsiveWidth(fontSize),
-                          family: FontFamily.ARIAL,
-                          weight: FontWeight.bold
-                      )
-                  ),
-                )
-              ],
-            )
+            child: _buildRow("Nom :", player.nickName, false)
         ),
         Expanded(
-            child: Container(
-                alignment: Alignment.center,
-                child: buildWidgetText(
-                    text: player.position,
-                    fontSize: getResponsiveWidth(fontSize),
-                    family: FontFamily.ARIAL,
-                    weight: FontWeight.bold
-                ))
-        )
+            child: _buildRow("Poste :", player.position, false),
+        ),
+        Expanded(
+            child: _buildRow("Numéro :", player.number.toString(), true)
+        ),
       ],
     );
   }
+
+  _buildRow(String first, String second, bool isNumber) {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          flex: 3,
+          child: buildWidgetText(
+              align: TextAlign.left,
+              text: first,
+              fontSize: getResponsiveWidth(fontSize - 4),
+              family: FontFamily.ARIAL,
+              fontStyle: FontStyle.italic,
+              color: Colors.white.withOpacity(0.8)
+          ),
+        ),
+        Expanded(
+          flex: 6,
+          child: buildWidgetText(
+              align: isNumber ? TextAlign.center : TextAlign.left,
+              text: second,
+              fontSize: getResponsiveWidth(isNumber ? fontSize + 4 : fontSize),
+              family: FontFamily.ARIAL,
+              weight: FontWeight.bold,
+              color: Colors.white
+          ),
+        ),
+
+      ],
+    );
+  }
+
 }

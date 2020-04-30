@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/background_gradient.dart';
 import 'package:my_team/components/background_image.dart';
+import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/views/home/home_header_card.dart';
 
@@ -55,7 +56,10 @@ class Home extends StatelessWidget {
                           Color.fromRGBO(76, 47, 35, 0.56),
                           Color.fromRGBO(255, 255, 255, 0.0),
                         ],
-                        child: IndividualCard()
+                        child: IndividualCard(
+                          team: getTeam(),
+                          player: getPlayer(),
+                        )
                     ),
                   ),
                 )
