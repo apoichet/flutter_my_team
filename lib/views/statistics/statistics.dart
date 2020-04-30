@@ -5,11 +5,18 @@ import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/components/player_list.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/route_service.dart';
-import 'package:my_team/theme/colors.dart';
 import 'package:my_team/views/statistics/collective/collective_statistics_menu.dart';
 import 'package:my_team/views/statistics/individual/individual_statistics.dart';
 
 class Statistics extends StatelessWidget {
+
+  final String title = 'Statistiques';
+  final String imgBackgroundName1 = 'background_8.png';
+  final String imgBackgroundName2 = 'background_3.png';
+
+  final String menuTitle1 = 'Individuelles';
+  final String menuTitle2 = 'Collectives';
+
 
   final List<String> statMenus;
   final List<Player> players;
@@ -24,13 +31,13 @@ class Statistics extends StatelessWidget {
   Widget build(BuildContext context) {
     return MenuToggle(
       navBarSelected: NavBarEnum.STATISTICS,
-      image1: "background_8.png",
-      image2: "background_3.png",
-      header: "Statistiques",
-      backgroundHeader1: CustomColors.BlackBackgroundChart,
-      backgroundHeader2: Color.fromRGBO(255, 255, 255, 0.45),
+      image1: imgBackgroundName1,
+      image2: imgBackgroundName2,
+      header: title,
+      backgroundHeader1: Color.fromRGBO(0, 0, 0, 0.5),
+      backgroundHeader2: Color.fromRGBO(255, 255, 255, 0.5),
       menuUnderlineColor: Colors.white,
-      menuTitle1: "Individuel",
+      menuTitle1: menuTitle1,
       widgetMenu1: PlayerList(onTapPlayerParent: (Player playerTap) {
         Navigator.push(context, buildNoAnimationRoute(IndividualStatistics(
           player: playerTap,
@@ -39,10 +46,10 @@ class Statistics extends StatelessWidget {
       }),
       colorDisabledMenuTitle1: Colors.white.withOpacity(0.5),
       colorEnabledMenuTitle1: Colors.white,
-      menuTitle2: "Collective",
+      menuTitle2: menuTitle2,
       widgetMenu2: CollectiveStatisticsMenu(statMenus: statMenus),
-      colorDisabledMenuTitle2: Colors.white.withOpacity(0.5),
-      colorEnabledMenuTitle2: Color.fromRGBO(111, 111, 111, 0.5),
+      colorDisabledMenuTitle2: Color.fromRGBO(0, 0, 0, 0.5),
+      colorEnabledMenuTitle2: Colors.white,
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/components/nav_bar/nav_bar.dart';
 import 'package:my_team/components/view_scaffold.dart';
+import 'package:my_team/domain/player_position.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
@@ -66,6 +67,11 @@ class _MenuToggleState extends State<MenuToggle> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BackgroundImage(
         image: toggle ? widget.image1 : widget.image2,
@@ -107,47 +113,39 @@ class _MenuToggleState extends State<MenuToggle> {
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          _buildUnderlineText(
+          _buildText(
               text: widget.menuTitle1,
               textColor: toggle ? widget.colorEnabledMenuTitle1 : widget.colorDisabledMenuTitle1,
-              underlineColor: toggle ? widget.menuUnderlineColor : Colors.transparent,
-              toggle: true
+              weight: toggle ? FontWeight.bold : FontWeight.normal
           ),
-          _buildUnderlineText(
+          _buildText(
               text: widget.menuTitle2,
               textColor: toggle ? widget.colorDisabledMenuTitle2 : widget.colorEnabledMenuTitle2,
-              underlineColor: toggle ? Colors.transparent : widget.menuUnderlineColor,
-              toggle: false
+              weight: toggle ? FontWeight.normal : FontWeight.bold
           ),
         ]
     );
   }
 
-  _buildUnderlineText({String text, Color underlineColor, Color textColor, bool toggle}) {
+  _buildText({String text, Color textColor, FontWeight weight}) {
     return GestureDetector(
-      onTap: () => _toggleMenu(toggle),
+      onTap: _toggleMenu,
       child: Container(
         padding: EdgeInsets.only(bottom: 3.0),
-        decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(
-              color: underlineColor,  // Text colour here
-              width: 3.0, // Underline width
-            ))
-        ),
         child: buildWidgetText(
             color: textColor,
-            fontSize: getResponsiveSize(23.0),
+            fontSize: getResponsiveHeight(23.0),
             text: text,
             family: FontFamily.ARIAL,
-            weight: FontWeight.bold
+            weight: weight
         ),
       ),
     );
   }
 
-  _toggleMenu(bool toggle) {
+  _toggleMenu() {
     setState(() {
-      this.toggle = toggle;
+      this.toggle = !toggle;
     });
   }
 

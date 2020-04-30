@@ -39,19 +39,23 @@ class Header extends StatelessWidget {
             onTap: () => Navigator.of(context).maybePop(),
             child: SvgPicture.asset(
                 'assets/icon/backward_arrow_icon.svg',
+                height: getResponsiveHeight(16.0),
                 fit: BoxFit.fill,
                 semanticsLabel: 'Nav Bar Icon'),
           ),
         ),
         Center(
           child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 5.0),
+              padding: EdgeInsets.symmetric(
+                  horizontal: getResponsiveWidth(15.0), 
+                  vertical: getResponsiveHeight(5.0)
+              ),
               decoration: BoxDecoration(
                   color: backgroundColor,
                   borderRadius: BorderRadius.circular(50)
               ),
               child: buildWidgetText(
-                  fontSize: getResponsiveSize(15.0),
+                  fontSize: getResponsiveHeight(15.0),
                   text: textHeader,
                   family: FontFamily.MONTSERRAT_ALTERNATES,
                   weight: FontWeight.w600
