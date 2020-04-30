@@ -54,7 +54,7 @@ class FooterCard extends StatelessWidget{
                     text: text,
                     family: FontFamily.ARIAL,
                     weight: FontWeight.bold,
-                    fontSize: getResponsiveWidth(textSize)
+                    fontSize: getResponsiveHeight(textSize)
                 ),
               ),
             ),

@@ -11,13 +11,14 @@ import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/views/statistics/individual/individual_statistics_card.dart';
 
 class IndividualStatistics extends StatefulWidget {
-  final Player player;
-  final List<String> statMenus;
 
-  IndividualStatistics({
-    this.statMenus = const ["Buts/Passes", "Encaissés", "Matchs", "Flops"],
-    this.player
-  });
+  final String imgBackgroundName = 'background_9.png';
+  final String title = 'Fiche détaillée';
+  final List<String> statMenus = ['Buts/Passes', 'Encaissés', 'Matchs', 'Flops'];
+
+  final Player player;
+
+  IndividualStatistics(this.player);
 
   @override
   _IndividualStatisticsState createState() => _IndividualStatisticsState();
@@ -39,16 +40,22 @@ class _IndividualStatisticsState extends State<IndividualStatistics> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BackgroundImage(
-      image: "background_9.png",
+      image: widget.imgBackgroundName,
       child: ViewScaffold(
         navBarSelected: NavBarEnum.STATISTICS,
         child: Column(
           children: <Widget>[
             Expanded(
                 child: Header(
-                    textHeader: "Fiche détaillée"
+                    textHeader: widget.title
                 )
             ),
             Expanded(
@@ -79,7 +86,7 @@ class _IndividualStatisticsState extends State<IndividualStatistics> {
                         Expanded(
                             child: FooterCard(
                               text: _buildPlayerNameFooter(),
-                              textSize: 22.0,
+                              textSize: 20.0,
                               previousFunction: _previousPlayer,
                               nextFunction: _nextPlayer,
                               previousCondition: _indexPlayer > 0,

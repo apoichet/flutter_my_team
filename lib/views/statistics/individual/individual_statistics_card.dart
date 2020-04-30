@@ -2,11 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/header_card.dart';
 import 'package:my_team/components/player_avatar.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
+import 'package:my_team/views/statistics/individual/individual_statistics_header_card.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_flop.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_game.dart';
 import 'package:my_team/views/statistics/individual/topics/topic_goal_opponent.dart';
@@ -55,6 +55,12 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
@@ -62,7 +68,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
             flex: 3,
             child: Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: getResponsiveWidth(5.0),
+                  horizontal: getResponsiveWidth(10.0),
                   vertical: getResponsiveHeight(10.0)
               ),
               child: Row(
@@ -70,14 +76,20 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                   Expanded(
                     flex: 4,
                     child: PlayerAvatar(
-                      player: widget.playerSelected,
+                        scale: 0.9,
+                        player: widget.playerSelected,
+                        blurRadius: 3.0,
+                        yBlur: 5.0,
+                        shadowColor: Color.fromRGBO(0, 0, 0, 0.7)
                     ),
                   ),
                   Expanded(
                       flex: 6,
-                      child: HeaderCard(
-                        player: widget.playerSelected,
-                        fontSize: 20.0,
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: getResponsiveWidth(5.0)
+                        ),
+                        child: IndividualStatisticsHeaderCard(widget.playerSelected),
                       )
                   )
                 ],
@@ -85,6 +97,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
             )
         ),
         Expanded(
+            flex: 1,
             child: Container(
                 color: Color.fromRGBO(175, 175, 175, 0.9),
                 child: Row(
@@ -124,7 +137,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
             )
         ),
         Expanded(
-            flex: 7,
+            flex: 5,
             child: PageView(
                 controller: _controller,
                 children: topics.map((t) =>
@@ -172,7 +185,6 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
       _indexNextChart = _getIndexNext();
     });
   }
-
 }
 
 class Topic {

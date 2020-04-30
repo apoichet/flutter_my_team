@@ -33,7 +33,7 @@ class TopicGoalPass extends StatelessWidget {
                   circularCharts: [_buildChartGoal(), _buildChartPass()],
                   withFooter: true,
                   fontHeaderSize: 45.0,
-                  fontFooterSize: 18.0,
+                  fontFooterSize: 16.0,
                   flex: true,
                 ),
               )
@@ -49,7 +49,7 @@ class TopicGoalPass extends StatelessWidget {
                     _buildChartDecisivePerMatch(),
                   ],
                   withFooter: true,
-                  footerFontSize: 11.0,
+                  footerFontSize: 10.0,
                 ),
               )
           )

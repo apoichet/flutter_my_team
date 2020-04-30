@@ -36,9 +36,7 @@ class _ResultMatchPlayerDetailsState extends State<ResultMatchPlayerDetails> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.of(context).push(buildNoAnimationRoute(
-          IndividualStatistics(
-            player: _player,
-          )
+          IndividualStatistics(_player)
       )),
       child: Padding(
         padding: EdgeInsets.symmetric(

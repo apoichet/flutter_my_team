@@ -39,10 +39,7 @@ class Statistics extends StatelessWidget {
       menuUnderlineColor: Colors.white,
       menuTitle1: menuTitle1,
       widgetMenu1: PlayerList(onTapPlayerParent: (Player playerTap) {
-        Navigator.push(context, buildNoAnimationRoute(IndividualStatistics(
-          player: playerTap,
-          statMenus: statMenus,
-        )));
+        Navigator.push(context, buildNoAnimationRoute(IndividualStatistics(playerTap)));
       }),
       colorDisabledMenuTitle1: Colors.white.withOpacity(0.5),
       colorEnabledMenuTitle1: Colors.white,

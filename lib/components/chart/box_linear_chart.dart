@@ -55,23 +55,17 @@ class BoxLinearChart extends StatelessWidget {
 
   _buildFooter() {
     if (withFooter) {
-      return Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: getResponsiveWidth(2.0),
-          vertical: getResponsiveHeight(2.0)
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: linearCharts.map((chart) =>
-              buildWidgetText(
-                  text: chart.footer,
-                  color: chart.valueColor,
-                  family: FontFamily.ARIAL,
-                  weight: FontWeight.bold,
-                  fontSize: getResponsiveWidth(footerFontSize)
-              )).toList(),
-        ),
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: linearCharts.map((chart) =>
+            buildWidgetText(
+                text: chart.footer,
+                color: chart.valueColor,
+                family: FontFamily.ARIAL,
+                weight: FontWeight.bold,
+                fontSize: getResponsiveHeight(footerFontSize)
+            )).toList(),
       );
     }
     return SizedBox.shrink();

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/header_card.dart';
 import 'package:my_team/components/player_avatar.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/domain/team.dart';
@@ -63,25 +62,20 @@ class _IndividualCardState extends State<IndividualCard> {
       ),
       child: Row(
           children: <Widget>[
-            PlayerAvatar(
-                player: player,
-                scale: 1,
-                transform: Matrix4.translationValues(0, 0, 0),
-                blurRadius: 6.0,
-                yBlur: 3.0,
-                shadowColor: Color.fromRGBO(0, 0, 0, 0.7)
+            Expanded(
+              flex: 3,
+              child: PlayerAvatar(
+                  player: player,
+                  scale: 1,
+                  transform: Matrix4.translationValues(0, 0, 0),
+                  blurRadius: 6.0,
+                  yBlur: 3.0,
+                  shadowColor: Color.fromRGBO(0, 0, 0, 0.7)
+              ),
             ),
             Expanded(
-              child: Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.only(
-                    left: getResponsiveWidth(15.0)
-                ),
-                child: HeaderCard(
-                  player: player,
-                  fontSize: 20.0,
-                ),
-              ),
+              flex: 7,
+              child: _buildHeaderTitleCard()
             ),
           ]),
     );
@@ -116,6 +110,54 @@ class _IndividualCardState extends State<IndividualCard> {
             ],
           )
       ),
+    );
+  }
+
+  _buildHeaderTitleCard() {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 6,
+                child: Center(
+                  child: buildWidgetText(
+                      text: player.nickName,
+                      fontSize: getResponsiveWidth(24.0),
+                      family: FontFamily.ARIAL,
+                      weight: FontWeight.bold,
+                      color: Colors.white
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 4,
+                child: Center(
+                  child: buildWidgetText(
+                      text: "N° " + player.number.toString(),
+                      fontSize: getResponsiveWidth(26.0),
+                      family: FontFamily.ARIAL,
+                      weight: FontWeight.bold,
+                      color: Colors.white
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: Center(
+            child: buildWidgetText(
+                text: player.position,
+                fontSize: getResponsiveWidth(20.0),
+                family: FontFamily.ARIAL,
+                weight: FontWeight.bold,
+                color: Colors.white
+            ),
+          ),
+        )
+      ],
     );
   }
 

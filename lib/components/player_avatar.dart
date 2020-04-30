@@ -28,7 +28,7 @@ class PlayerAvatar extends StatelessWidget {
       child: Container(
         transform: transform,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
+            shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
                 color: shadowColor!= null ? shadowColor : Colors.transparent,
