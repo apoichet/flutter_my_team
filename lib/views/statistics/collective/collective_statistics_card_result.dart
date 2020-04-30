@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_team/components/player_avatar.dart';
+import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/responsive_size.dart';
+import 'package:my_team/services/route_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/statistics/collective/collective_statistics_result.dart';
+import 'package:my_team/views/statistics/individual/individual_statistics.dart';
 
 class CollectiveStatisticsCardResult extends StatefulWidget {
 
@@ -32,6 +36,12 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
     _controller.addListener(_endScroll);
     _scrollIndicator = Image.asset("assets/img/arrow_down.png");
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
 
@@ -116,28 +126,40 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
       children: <Widget>[
         Expanded(
           flex: 2,
-          child: Transform.scale(
-            scale: 0.75,
-            child: Image.asset(
-              "assets/img/player/" + podiumResults[1].avatar + ".png",
+          child: GestureDetector(
+            onTap: () => _goToPlayerStats(podiumResults[1].player),
+            child: PlayerAvatar(
+                scale: 0.75,
+                player: podiumResults[1].player,
+                blurRadius: 6.0,
+                yBlur: 3.0,
+                shadowColor: Color.fromRGBO(0, 0, 0, 0.7)
             ),
           ),
         ),
         Expanded(
           flex: 3,
-          child: Transform.scale(
-            scale: 0.9,
-            child: Image.asset(
-              "assets/img/player/" + podiumResults[0].avatar + ".png",
+          child: GestureDetector(
+            onTap: () => _goToPlayerStats(podiumResults[0].player),
+            child: PlayerAvatar(
+                scale: 0.9,
+                player: podiumResults[0].player,
+                blurRadius: 6.0,
+                yBlur: 3.0,
+                shadowColor: Color.fromRGBO(0, 0, 0, 0.7)
             ),
           ),
         ),
         Expanded(
           flex: 2,
-          child: Transform.scale(
-            scale: 0.75,
-            child: Image.asset(
-              "assets/img/player/" + podiumResults[2].avatar + ".png",
+          child: GestureDetector(
+            onTap: () => _goToPlayerStats(podiumResults[2].player),
+            child: PlayerAvatar(
+                scale: 0.75,
+                player: podiumResults[2].player,
+                blurRadius: 6.0,
+                yBlur: 3.0,
+                shadowColor: Color.fromRGBO(0, 0, 0, 0.7)
             ),
           ),
         )
@@ -179,17 +201,20 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
 
   Widget _buildPodiumResult({CollectiveStatisticsResult result,
     double nameFontSize, double valueFontSize}) {
-    return Column(
-      children: <Widget>[
-        Expanded(
-          child: _buildPodiumResultText(
-              result.firstName + " " + result.lastName.substring(0,1) + ".",
-              nameFontSize),
-        ),
-        Expanded(
-          child: _buildPodiumResultText(result.valueStr, valueFontSize),
-        )
-      ],
+    return GestureDetector(
+      onTap: () => _goToPlayerStats(result.player),
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: _buildPodiumResultText(
+                result.player.firstName + " " + result.player.lastName.substring(0,1) + ".",
+                nameFontSize),
+          ),
+          Expanded(
+            child: _buildPodiumResultText(result.valueStr, valueFontSize),
+          )
+        ],
+      ),
     );
   }
 
@@ -203,47 +228,54 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
   }
 
   Widget _buildResultLine(CollectiveStatisticsResult result) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: getResponsiveHeight(3.0),
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 2,
-            child: Image.asset(
-              "assets/img/player/" + result.avatar + ".png",
-              height: 30,
+    return GestureDetector(
+      onTap: () => _goToPlayerStats(result.player),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: getResponsiveHeight(3.0),
+        ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 2,
+              child: Container(
+                height: getResponsiveHeight(30.0),
+                child: PlayerAvatar(
+                    player: result.player,
+                    blurRadius: 6.0,
+                    yBlur: 3.0,
+                    shadowColor: Color.fromRGBO(0, 0, 0, 0.7)
+                ),
+              ),
             ),
-          ),
-          Expanded(
-              flex: 5,
-              child: Align(
-                alignment: Alignment.centerLeft,
+            Expanded(
+                flex: 5,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: buildWidgetText(
+                      text: result.player.firstName + " " + result.player.lastName,
+                      family: FontFamily.ARIAL,
+                      weight: FontWeight.bold,
+                      fontSize: getResponsiveWidth(15.0)
+                  ),
+                )
+            ),
+            Expanded(
+                flex: 3,
                 child: buildWidgetText(
-                    text: result.firstName + " " + result.lastName,
+                    text: result.valueStr,
                     family: FontFamily.ARIAL,
                     weight: FontWeight.bold,
-                    fontSize: 14.0
-                ),
-              )
-          ),
-          Expanded(
-              flex: 3,
-              child: buildWidgetText(
-                  text: result.valueStr,
-                  family: FontFamily.ARIAL,
-                  weight: FontWeight.bold,
-                  fontSize: 15.0
-              )
-          )
-        ],
-
+                    fontSize: getResponsiveWidth(18.0)
+                )
+            )
+          ],
+        ),
       ),
     );
   }
 
-  _endScroll() {
+  void _endScroll() {
     setState(() {
       if(_controller.offset >= _controller.position.maxScrollExtent) {
         _scrollIndicator = SizedBox.shrink();
@@ -252,5 +284,9 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
         _scrollIndicator = Image.asset("assets/img/arrow_down.png");
       }
     });
+  }
+
+  void _goToPlayerStats(Player player) {
+    Navigator.of(context).push(buildNoAnimationRoute(IndividualStatistics(player)));
   }
 }

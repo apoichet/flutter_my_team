@@ -1,14 +1,12 @@
+import 'package:my_team/domain/player.dart';
+
 class CollectiveStatisticsResult {
-  final String avatar;
-  final String firstName;
-  final String lastName;
+  final Player player;
   final double value;
   final String valueStr;
   CollectiveStatisticsResult(
       {
-        this.avatar,
-        this.firstName,
-        this.lastName,
+        this.player,
         this.value,
         this.valueStr
       });

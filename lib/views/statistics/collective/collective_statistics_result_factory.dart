@@ -167,9 +167,7 @@ Widget buildCardResult(CollectiveStatisticsEnum collectiveStatisticsEnum) {
 
 CollectiveStatisticsResult _buildResult(Player player, {double value, int nbrRoundDecimal}) {
   return CollectiveStatisticsResult(
-      firstName: player.firstName,
-      lastName: player.lastName,
-      avatar: player.avatar,
+      player: player,
       value: value,
       valueStr: roundDoubleToString(value, nbrRoundDecimal)
   );

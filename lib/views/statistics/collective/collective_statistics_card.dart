@@ -38,7 +38,8 @@ class _CollectiveStatisticsCardState extends State<CollectiveStatisticsCard> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-          horizontal: getResponsiveWidth(8.0)
+          horizontal: getResponsiveWidth(8.0),
+          vertical: getResponsiveHeight(8.0)
       ),
       child: BackgroundGradient(
         colors: [
@@ -50,6 +51,7 @@ class _CollectiveStatisticsCardState extends State<CollectiveStatisticsCard> {
             Expanded(
                 flex: 9,
                 child: PageView(
+                  physics: ClampingScrollPhysics(),
                   onPageChanged: _cardChanged,
                   controller: _controller,
                   children: _results,
@@ -57,7 +59,7 @@ class _CollectiveStatisticsCardState extends State<CollectiveStatisticsCard> {
             ),
             Expanded(
               child: FooterCard(
-                textSize: 18.0,
+                textSize: 16.0,
                 text: _result.unit,
                 nextFunction: _next,
                 previousFunction: _previous,
@@ -91,8 +93,4 @@ class _CollectiveStatisticsCardState extends State<CollectiveStatisticsCard> {
       _result = buildCardResult(widget.cards[index]);
     });
   }
-
-
-
-
 }

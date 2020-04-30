@@ -13,6 +13,9 @@ import 'package:my_team/views/statistics/collective/collective_statistics_result
 
 class CollectiveStatistics extends StatefulWidget {
 
+  final String imgBackgroundName = 'background_15.png';
+  final String title = 'Fiches collectives';
+
   final List<String> topics;
   final int indexTopic;
 
@@ -45,9 +48,15 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BackgroundImage(
-      image: "background_15.png",
+      image: widget.imgBackgroundName,
       child: ViewScaffold(
         navBarSelected: NavBarEnum.STATISTICS,
         bottomPadding: 3.0,
@@ -55,7 +64,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
           children: <Widget>[
             Expanded(
                 child: Header(
-                    textHeader: "Statistiques collectives"
+                    textHeader: widget.title
                 )
             ),
             Expanded(
@@ -63,11 +72,11 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
                 child: Column(
                   children: <Widget>[
                     Expanded(
-                        flex: 2,
+                        flex: 1,
                         child: _buildTopics()
                     ),
                     Expanded(
-                        flex: 7,
+                        flex: 8,
                         child: _buildPageView()
                     ),
                     Expanded(
@@ -85,7 +94,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
   Widget _buildTopics() {
     return Padding(
       padding: EdgeInsets.symmetric(
-          vertical: getResponsiveHeight(20.0)
+          vertical: getResponsiveHeight(2.0)
       ),
       child: Container(
         decoration: BoxDecoration(
@@ -136,6 +145,7 @@ class _CollectiveStatisticsState extends State<CollectiveStatistics> {
 
   Widget _buildPageView() {
     return PageView(
+        physics: ClampingScrollPhysics(),
         controller: _controller,
         onPageChanged: _onPageChanged,
         children: _cards
