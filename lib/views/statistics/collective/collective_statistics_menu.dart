@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:my_team/components/background_gradient.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/route_service.dart';
@@ -53,11 +54,28 @@ class CollectiveStatisticsMenu extends StatelessWidget {
                             color: Color.fromRGBO(242, 242, 242, 0.49),
                             borderRadius: BorderRadius.circular(20)
                         ),
-                        child: buildWidgetText(
-                            text: menu,
-                            family: FontFamily.ARIAL,
-                            weight: FontWeight.bold,
-                            fontSize: getResponsiveHeight(25.0)
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              flex: 8,
+                              child: Center(
+                                child: buildWidgetText(
+                                    text: menu,
+                                    family: FontFamily.ARIAL,
+                                    weight: FontWeight.bold,
+                                    fontSize: getResponsiveHeight(25.0)
+                                ),
+                              )
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: Center(
+                                child: SvgPicture.asset(
+                                    "assets/icon/detail_icon.svg"
+                                ),
+                              ),
+                            )
+                          ],
                         ),
                       ),
                     ),
