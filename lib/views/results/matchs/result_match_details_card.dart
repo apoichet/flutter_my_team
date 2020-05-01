@@ -153,6 +153,7 @@ class _ResultMatchDetailsCardState extends State<ResultMatchDetailsCard> {
 
   _buildPlayerListView() {
     return ListView.builder(
+      physics: ClampingScrollPhysics(),
       padding: EdgeInsets.only(
         top: getResponsiveHeight(7.0),
         left: getResponsiveWidth(3.0),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:my_team/components/player_avatar.dart';
 import 'package:my_team/domain/game_composition_player.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
@@ -47,14 +48,16 @@ class _ResultMatchPlayerDetailsState extends State<ResultMatchPlayerDetails> {
             Expanded(
               flex: 2,
               child: Container(
+                height: getResponsiveHeight(30.0),
                 padding: EdgeInsets.symmetric(
                     horizontal: getResponsiveWidth(8.0)
                 ),
                 alignment: Alignment.centerRight,
-                child: Image.asset(
-                  "assets/img/player/" + _player.avatar + ".png",
-                  height: getResponsiveHeight(28.0),
-                  filterQuality: FilterQuality.high,
+                child: PlayerAvatar(
+                  player:  _player,
+                  blurRadius: 3.0,
+                  yBlur: 3.0,
+                  shadowColor: Color.fromRGBO(0, 0, 0, 0.7),
                 ),
               ),
             ),
@@ -65,7 +68,7 @@ class _ResultMatchPlayerDetailsState extends State<ResultMatchPlayerDetails> {
                   child: buildWidgetText(
                       text: _player.firstName,
                       family: FontFamily.ARIAL,
-                      fontSize: getResponsiveWidth(20.0)
+                      fontSize: getResponsiveWidth(18.0)
                   ),
                 )
             ),
@@ -143,7 +146,7 @@ class _ResultMatchPlayerDetailsState extends State<ResultMatchPlayerDetails> {
       ),
       child: Image.asset(
           "assets/img/ball.png",
-          width: getResponsiveWidth(20.0),
+          width: getResponsiveWidth(18.0),
           filterQuality: FilterQuality.high,
           fit: BoxFit.fill
       ),

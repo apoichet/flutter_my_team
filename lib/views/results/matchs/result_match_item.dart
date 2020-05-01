@@ -20,72 +20,72 @@ class ResultMatchItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRect(
-      child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-          child: Container(
-              padding: EdgeInsets.symmetric(
-                  horizontal: getResponsiveWidth(15.0),
-                  vertical: getResponsiveHeight(7.0)
-              ),
-              height: getResponsiveHeight(125.0),
-              decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2)
-              ),
-              child: Column(
-                //crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Expanded(
-                    child: Column(
-                      //crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Expanded(
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: buildWidgetText(
-                                text: toGameType(game.type),
-                                family: FontFamily.ARIAL,
-                                weight: FontWeight.bold,
-                                color: Colors.white,
-                                fontSize: getResponsiveWidth(20.0)
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: buildWidgetText(
-                                text: game.opponent + " " + _getDateMatch(game),
-                                family: FontFamily.ARIAL,
-                                color: Colors.white,
-                                fontSize: getResponsiveWidth(20.0)
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Row(
-                        children: [
-                          Expanded(
-                              flex: 3,
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: buildWidgetText(
-                                    text: _getStateMatch(game),
-                                    family: FontFamily.ARIAL,
-                                    color: Colors.white,
-                                    fontSize: getResponsiveWidth(18.0)
-                                ),
-                              )),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, buildNoAnimationRoute(ResultMatchCard(game)));
+      },
+      child: ClipRect(
+        child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+            child: Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: getResponsiveWidth(15.0),
+                    vertical: getResponsiveHeight(7.0)
+                ),
+                height: getResponsiveHeight(125.0),
+                decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.2)
+                ),
+                child: Column(
+                  //crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Expanded(
+                      child: Column(
+                        //crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
                           Expanded(
                             child: Align(
-                              alignment: Alignment.topRight,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.push(context, buildNoAnimationRoute(ResultMatchCard(game)));
-                                },
+                              alignment: Alignment.centerLeft,
+                              child: buildWidgetText(
+                                  text: toGameType(game.type),
+                                  family: FontFamily.ARIAL,
+                                  weight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: getResponsiveWidth(20.0)
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: buildWidgetText(
+                                  text: game.opponent + " " + _getDateMatch(game),
+                                  family: FontFamily.ARIAL,
+                                  color: Colors.white,
+                                  fontSize: getResponsiveWidth(20.0)
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Row(
+                          children: [
+                            Expanded(
+                                flex: 3,
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: buildWidgetText(
+                                      text: _getStateMatch(game),
+                                      family: FontFamily.ARIAL,
+                                      color: Colors.white,
+                                      fontSize: getResponsiveWidth(18.0)
+                                  ),
+                                )),
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.topRight,
                                 child: SvgPicture.asset(
                                     'assets/icon/detail_icon.svg',
                                     fit: BoxFit.fill,
@@ -94,12 +94,12 @@ class ResultMatchItem extends StatelessWidget {
                                     semanticsLabel: 'Match details'),
                               ),
                             ),
-                          ),
-                        ]),
-                  )
-                ],
-              )
-          )
+                          ]),
+                    )
+                  ],
+                )
+            )
+        ),
       ),
     );
   }

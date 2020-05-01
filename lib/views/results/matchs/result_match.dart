@@ -41,6 +41,12 @@ class _ResultMatchState extends State<ResultMatch> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
