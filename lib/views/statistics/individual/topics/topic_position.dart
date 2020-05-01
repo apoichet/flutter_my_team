@@ -22,6 +22,7 @@ class TopicPosition extends StatelessWidget {
           color: CustomColors.BlackBackgroundChart,
           borderRadius: BorderRadius.circular(10)),
       child: ListView.separated(
+        physics: ClampingScrollPhysics(),
         padding: EdgeInsets.symmetric(
           vertical: getResponsiveHeight(10.0)
         ),

@@ -66,6 +66,7 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
               Expanded(
                   flex: 8,
                   child: ListView(
+                    physics: ClampingScrollPhysics(),
                     controller: _controller,
                     padding: EdgeInsets.symmetric(
                         vertical: getResponsiveHeight(5.0),

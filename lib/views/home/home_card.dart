@@ -135,7 +135,7 @@ class _IndividualCardState extends State<IndividualCard> {
                 flex: 4,
                 child: Center(
                   child: buildWidgetText(
-                      text: "N° " + player.number.toString(),
+                      text: "n°" + player.number.toString(),
                       fontSize: getResponsiveWidth(26.0),
                       family: FontFamily.ARIAL,
                       weight: FontWeight.bold,
