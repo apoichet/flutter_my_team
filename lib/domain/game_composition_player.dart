@@ -19,7 +19,7 @@ class GameCompositionPlayer {
 
   factory GameCompositionPlayer.fromJson(Map<String, dynamic> json) {
     return GameCompositionPlayer(
-        id: json['id'],
+        id: json['id'].toString().replaceAll(" ", ""),
         position: playerPositionFrom(json['position']),
         state: playerGameStateFrom(json['state']),
         nbGoal: json['goal'],

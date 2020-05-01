@@ -13,7 +13,7 @@ class PlayerPositionEngine {
   final double cardWidth  = getResponsiveWidth(CompositionPlayerCardSize.widthPlayer);
   final GameCompositionStrategy strategy;
 
-  final double factorLine = 1.07;
+  final double factorLine = getResponsiveWidth(1.09);
 
   PlayerPositionEngine({
     @required this.mapHeight,
