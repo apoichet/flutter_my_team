@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_team/domain/game.dart';
@@ -28,22 +30,26 @@ class Composition extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Container(
-            child: CompositionPlayers(
-              gameCompositionPlayers: gameComposition.gameCompositionPlayers
-                  .where((gcp) => gcp.state == PlayerGameState.STARTERS).toList(),
-              playerPositionEngine: engine,
-            ),
-            width: compositionWidth,
-            height: compositionHeight,
-            decoration: new BoxDecoration(
-                image: new DecorationImage(
-                    colorFilter: ColorFilter.mode(Colors.black12.withOpacity(0.7),
-                        BlendMode.dstOver),
-                    image: new AssetImage(
-                        "assets/img/composition.png"
-                    ),
-                    fit: BoxFit.fill)
+          ClipRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0),
+              child: Container(
+                child: CompositionPlayers(
+                  gameCompositionPlayers: gameComposition.gameCompositionPlayers
+                      .where((gcp) => gcp.state == PlayerGameState.STARTERS).toList(),
+                  playerPositionEngine: engine,
+                ),
+                width: compositionWidth,
+                height: compositionHeight,
+                decoration: new BoxDecoration(
+                    color: Colors.white.withOpacity(0.1),
+                    image: new DecorationImage(
+                        image: new AssetImage(
+                            "assets/img/composition.png"
+                        ),
+                        fit: BoxFit.fill)
+                ),
+              ),
             ),
           ),
           Column(

@@ -10,6 +10,9 @@ import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/results/matchs/result_match_item.dart';
 
 class ResultMatch extends StatefulWidget {
+  final String menuTitle1 = 'Matchs passés';
+  final String menuTitle2 = 'Matchs à venir';
+
   @override
   _ResultMatchState createState() => _ResultMatchState();
 }
@@ -50,8 +53,8 @@ class _ResultMatchState extends State<ResultMatch> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                _buildToggleTopic("Matchs passés", _toggleLeft),
-                _buildToggleTopic("Match à venir", !_toggleLeft)
+                _buildToggleTopic(widget.menuTitle1, _toggleLeft),
+                _buildToggleTopic(widget.menuTitle2, !_toggleLeft)
               ],
             ),
           ),
