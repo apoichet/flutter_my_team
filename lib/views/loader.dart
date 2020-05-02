@@ -1,85 +1,26 @@
+import 'dart:io' show Platform;
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/background_image.dart';
-import 'package:my_team/components/chart/linear_percent_indicator.dart';
-import 'package:my_team/components/view_padding.dart';
-import 'package:my_team/services/responsive_size.dart';
-import 'package:my_team/services/widget_service.dart';
-import 'package:my_team/theme/colors.dart';
-import 'package:my_team/theme/font_family.dart';
 
-class Loader extends StatefulWidget {
-  final String waitingText = "Un petit instant ...";
-  final FontFamily waitingTextFamily = FontFamily.ARIAL;
-
-  @override
-  _LoaderState createState() => _LoaderState();
-}
-
-class _LoaderState extends State<Loader> {
-
-  var _delay;
-
-  @override
-  void initState() {
-    _delay = Future.delayed(Duration(milliseconds: 500));
-    super.initState();
-  }
+class Loader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundImage(
-        image: 'background_1.png',
-        child: ViewPadding(
-          child: Stack(
-              children: <Widget>[
-                Positioned.fill(
-                    child: Image.asset("assets/img/logo.png")
-                ),
-                Column(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        alignment: Alignment.bottomCenter,
-                        child: buildWidgetText(
-                            fontSize: getResponsiveSize(18.0),
-                            text: widget.waitingText,
-                            family: widget.waitingTextFamily),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: FutureBuilder(
-                          future: _delay,
-                          builder: (BuildContext context, AsyncSnapshot snapshot) {
-                            if (snapshot.connectionState == ConnectionState.done) {
-                              return _getLinearLoading();
-                            }
-                            // Empty Widget
-                            return SizedBox.shrink();
-                          }
-                      ),
-                    ),
-                  ],
-                )
-              ]
-          ),
-        ));
-  }
-
-  Widget _getLinearLoading() {
-    return LinearPercentIndicator(
-      alignment: MainAxisAlignment.center,
-      animationDuration: 1000,
-      width: getResponsiveWidth(332.0) * 0.8,
-      lineHeight: getResponsiveHeight(38.0),
-      backgroundColor: CustomColors.BackgroundLoader,
-      progressColor: CustomColors.Loader,
-      borderColor: Colors.white,
-      animation: true,
-      percent: 1,
+    return Center(
+        child: _buildCircularProgressIndicator()
     );
   }
 
+  Widget _buildCircularProgressIndicator() {
+    return Platform.isIOS ?
+    CupertinoActivityIndicator(
+      animating: true,
+      radius: 20.0,
+    ) :
+    CircularProgressIndicator(
+      backgroundColor: Colors.transparent,
+    );
+  }
 }
