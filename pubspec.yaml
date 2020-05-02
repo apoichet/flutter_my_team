@@ -33,6 +33,7 @@ dev_dependencies:
   flutter_launcher_icons: "^0.7.3"
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^0.1.9
 
 flutter_icons:
   android: true
@@ -127,3 +128,7 @@ flutter:
           weight: 600
         - asset: assets/fonts/Montserrat_Alternates/MontserratAlternates-Bold.ttf
           weight: 700
+
+flutter_native_splash:
+  image: assets/img/logo.png
+  color: "000000"
