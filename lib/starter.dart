@@ -4,6 +4,7 @@ import 'package:my_team/domain/team.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/user_service.dart';
 import 'package:my_team/views/home/home.dart';
+import 'package:my_team/views/show_error.dart';
 
 import 'services/responsive_size.dart';
 import 'views/intro/ready/ready.dart';
@@ -38,6 +39,9 @@ class _StarterState extends State<Starter> {
         builder: (BuildContext context, AsyncSnapshot<StarterResponse> snapshot) {
           if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
             return _evaluateResponse(snapshot.data);
+          }
+          if(snapshot.connectionState == ConnectionState.none || snapshot.hasError) {
+            return ShowError();
           }
           return Loader();
         });
