@@ -1,68 +1,62 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/nav_bar/nav_bar.dart';
-import 'package:my_team/components/view_scaffold.dart';
-import 'package:my_team/domain/player_position.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 
-import 'background_image.dart';
-import 'header.dart';
-
-class MenuToggle extends StatefulWidget {
+class WidgetToggle extends StatefulWidget {
 
   final String header;
-  final Color backgroundHeader1;
-  final Color backgroundHeader2;
   final String image1;
   final String image2;
   final Color menuUnderlineColor;
-  final String menuTitle1;
-  final Color colorDisabledMenuTitle1;
-  final Color colorEnabledMenuTitle1;
-  final String menuTitle2;
-  final Color colorDisabledMenuTitle2;
-  final Color colorEnabledMenuTitle2;
-  final Widget widgetMenu1;
-  final Widget widgetMenu2;
+  final String title1;
+  final Color colorDisabledTitle1;
+  final Color colorEnabledTitle1;
+  final String title2;
+  final Color colorDisabledTitle2;
+  final Color colorEnabledTitle2;
+  final Widget widget1;
+  final Widget widget2;
   final double leftPadding;
   final double rightPadding;
   final double bottomPadding;
-  final NavBarEnum navBarSelected;
+  final Function callBackParent;
+  final bool toggleLeft;
 
-  MenuToggle({
+  WidgetToggle({
     this.header,
-    this.backgroundHeader1,
-    this.backgroundHeader2,
     this.image1,
     this.image2,
     this.menuUnderlineColor,
-    this.menuTitle1,
-    this.colorDisabledMenuTitle1,
-    this.colorEnabledMenuTitle1,
-    this.menuTitle2,
-    this.colorDisabledMenuTitle2,
-    this.colorEnabledMenuTitle2,
-    this.widgetMenu1,
-    this.widgetMenu2,
+    this.title1,
+    this.colorDisabledTitle1,
+    this.colorEnabledTitle1,
+    this.title2,
+    this.colorDisabledTitle2,
+    this.colorEnabledTitle2,
+    this.widget1,
+    this.widget2,
     this.leftPadding = 15.0,
     this.rightPadding = 15.0,
     this.bottomPadding = 30.0,
-    this.navBarSelected
+    this.callBackParent,
+    this.toggleLeft
   });
 
   @override
-  _MenuToggleState createState() => _MenuToggleState();
+  _WidgetToggleState createState() => _WidgetToggleState();
 }
 
-class _MenuToggleState extends State<MenuToggle> {
+class _WidgetToggleState extends State<WidgetToggle> {
 
-  bool toggle;
+  bool _toggleLeft;
+  bool _toggleRight;
 
   @override
   void initState() {
-    this.toggle = true;
+    this._toggleLeft = widget.toggleLeft;
+    this._toggleRight = !this._toggleLeft;
     super.initState();
   }
 
@@ -73,40 +67,24 @@ class _MenuToggleState extends State<MenuToggle> {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundImage(
-        image: toggle ? widget.image1 : widget.image2,
-        child: ViewScaffold(
-          navBarSelected: widget.navBarSelected,
-          leftPadding: 0.0,
-          rightPadding: 0.0,
-          bottomPadding: widget.bottomPadding,
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                  child: Header(
-                    leftPadding: getResponsiveWidth(15.0),
-                    rightPadding: getResponsiveWidth(15.0),
-                    textHeader: widget.header,
-                    backgroundColor: toggle ? widget.backgroundHeader1 : widget.backgroundHeader2,
-                  )
-              ),
-              Expanded(
-                child: _buildTitleMenus(),
-              ),
-              Expanded(
-                flex: 8,
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      left: getResponsiveWidth(widget.leftPadding),
-                      right: getResponsiveWidth(widget.rightPadding),
-                      top: getResponsiveHeight(10.0)
-                  ),
-                  child: toggle ? widget.widgetMenu1 : widget.widgetMenu2,
-                ),
-              )
-            ],
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: _buildTitleMenus(),
+        ),
+        Expanded(
+          flex: 8,
+          child: Padding(
+            padding: EdgeInsets.only(
+                left: getResponsiveWidth(widget.leftPadding),
+                right: getResponsiveWidth(widget.rightPadding),
+                top: getResponsiveHeight(10.0)
+            ),
+            child: _toggleLeft ? widget.widget1 : widget.widget2,
           ),
-        ));
+        )
+      ],
+    );
   }
 
   _buildTitleMenus() {
@@ -114,22 +92,24 @@ class _MenuToggleState extends State<MenuToggle> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           _buildText(
-              text: widget.menuTitle1,
-              textColor: toggle ? widget.colorEnabledMenuTitle1 : widget.colorDisabledMenuTitle1,
-              weight: toggle ? FontWeight.bold : FontWeight.normal
+              text: widget.title1,
+              textColor: _toggleLeft ? widget.colorEnabledTitle1 : widget.colorDisabledTitle1,
+              weight: _toggleLeft ? FontWeight.bold : FontWeight.normal,
+              left: true
           ),
           _buildText(
-              text: widget.menuTitle2,
-              textColor: toggle ? widget.colorDisabledMenuTitle2 : widget.colorEnabledMenuTitle2,
-              weight: toggle ? FontWeight.normal : FontWeight.bold
+              text: widget.title2,
+              textColor: _toggleRight ? widget.colorEnabledTitle2 : widget.colorDisabledTitle2,
+              weight: _toggleRight ? FontWeight.bold : FontWeight.normal,
+              left: false
           ),
         ]
     );
   }
 
-  _buildText({String text, Color textColor, FontWeight weight}) {
+  _buildText({String text, Color textColor, FontWeight weight, bool left}) {
     return GestureDetector(
-      onTap: _toggleMenu,
+      onTap: () => _toggleMenu(left),
       child: Container(
         padding: EdgeInsets.only(bottom: 3.0),
         child: buildWidgetText(
@@ -143,9 +123,17 @@ class _MenuToggleState extends State<MenuToggle> {
     );
   }
 
-  _toggleMenu() {
+  _toggleMenu(bool left) {
     setState(() {
-      this.toggle = !toggle;
+      if(left && !_toggleLeft) {
+        _toggleLeft = true;
+        _toggleRight = false;
+      }
+      if(!left && !_toggleRight) {
+        _toggleLeft = false;
+        _toggleRight = true;
+      }
+      widget.callBackParent(_toggleLeft);
     });
   }
 

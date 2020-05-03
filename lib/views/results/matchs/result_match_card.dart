@@ -20,7 +20,7 @@ class ResultMatchCard extends StatelessWidget {
         child: ViewScaffold(
           navBarSelected: NavBarEnum.CALENDAR,
           bottomPadding: 0.0,
-          child: Column(
+          body: Column(
               children: <Widget>[
                 Expanded(
                     child: Header(

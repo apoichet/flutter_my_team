@@ -80,7 +80,7 @@ class _CollectiveStatisticsCardResultState extends State<CollectiveStatisticsCar
               Expanded(
                 flex: 2,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: getResponsiveHeight(10.0)),
+                  padding: EdgeInsets.symmetric(vertical: getResponsiveHeight(13.0)),
                   child: _scrollIndicator,
                 ),
               )

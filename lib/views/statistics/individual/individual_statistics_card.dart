@@ -29,14 +29,14 @@ class IndividualStatisticsCard extends StatefulWidget {
 
 class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
   PageController _controller;
-  List<Topic> topics;
+  List<Topic> _topics;
   int _indexChart;
   int _indexPreviousChart;
   int _indexNextChart;
 
   @override
   void initState() {
-    topics = [
+    _topics = [
       new Topic(widget.titleTopics[0], TopicGoalPass(widget.playerSelected)),
       new Topic(widget.titleTopics[1], TopicGoalOpponent(widget.playerSelected)),
       new Topic("Positions",  TopicPosition(widget.playerSelected.gamePositions)),
@@ -108,7 +108,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                       GestureDetector(
                         onTap: () => _chartChanged(_indexChart - 1),
                         child: buildWidgetText(
-                          text: topics[_indexPreviousChart].title,
+                          text: _topics[_indexPreviousChart].title,
                           fontSize: getResponsiveWidth(14.0),
                         ),
                       ) : SizedBox.shrink(),
@@ -116,18 +116,18 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
                     Expanded(
                       flex: 3,
                       child: buildWidgetText(
-                          text: topics[_indexChart].title,
+                          text: _topics[_indexChart].title,
                           fontSize: getResponsiveWidth(18.0),
                           weight: FontWeight.bold
                       ),
                     ),
                     Expanded(
                       flex: 2,
-                      child: _indexChart != topics.length - 1 ?
+                      child: _indexChart != _topics.length - 1 ?
                       GestureDetector(
                         onTap: () => _chartChanged(_indexChart + 1),
                         child: buildWidgetText(
-                            text: topics[_indexNextChart].title,
+                            text: _topics[_indexNextChart].title,
                             fontSize: getResponsiveWidth(14.0)
                         ),
                       ) : SizedBox.shrink(),
@@ -141,7 +141,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
             child: PageView(
                 physics: ClampingScrollPhysics(),
                 controller: _controller,
-                children: topics.map((t) =>
+                children: _topics.map((t) =>
                     Padding(
                         padding: EdgeInsets.all(getResponsiveSize(8.0)),
                         child: t.body
@@ -157,14 +157,14 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
   _getIndexPrevious() {
     var indexPrevious = _indexChart - 1;
     if(indexPrevious < 0) {
-      return topics.length - 1;
+      return _topics.length - 1;
     }
     return indexPrevious;
   }
 
   _getIndexNext() {
     var indexNext = _indexChart + 1;
-    if(indexNext >= topics.length) {
+    if(indexNext >= _topics.length) {
       return 0;
     }
     return indexNext;

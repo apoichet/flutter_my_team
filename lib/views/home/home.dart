@@ -20,8 +20,9 @@ class Home extends StatelessWidget {
     return BackgroundImage(
         image: _imgBackgroundName,
         child: ViewScaffold(
+          loader: false,
           navBarSelected: NavBarEnum.HOME,
-          child: Container(
+          body: Container(
             alignment: Alignment.center,
             child: Column(
               children: <Widget>[
