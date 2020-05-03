@@ -45,7 +45,7 @@ class _IndividualStatisticsCardState extends State<IndividualStatisticsCard> {
     ];
     _controller = PageController(
         initialPage: widget.indexChart,
-        keepPage: true
+        keepPage: false
     );
     _indexChart = widget.indexChart;
     _indexPreviousChart = _getIndexPrevious();

@@ -71,7 +71,7 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
 
   void _onPressedReadyButton(BuildContext context) {
     setPlayerFromId(_idPlayerSelected);
-    Navigator.push(
+    Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => Home()
     ));
   }

@@ -27,7 +27,7 @@ class Ready extends StatelessWidget {
                   child: Button(
                     text: buttonReadyText,
                     onPressed: () =>
-                        Navigator.push(context,
+                        Navigator.pushReplacement(context,
                             MaterialPageRoute(builder: (context) => Intro()))
                   ),
                 )
