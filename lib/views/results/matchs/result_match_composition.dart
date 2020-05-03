@@ -8,6 +8,7 @@ import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/route_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
+import 'package:my_team/views/compositions/compositions.dart';
 import 'package:my_team/views/compositions/compositions_page_view.dart';
 
 class ResultMatchComposition extends StatelessWidget {
@@ -73,7 +74,7 @@ class ResultMatchComposition extends StatelessWidget {
     return GestureDetector(
         onTap: () {
           Navigator.push(ctx,
-              buildNoAnimationRoute(CompositionPageView(initialGameToShow: game))
+              buildNoAnimationRoute(Compositions(initialGameToShow: game))
           );
         },
         child: Row(
