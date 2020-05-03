@@ -20,30 +20,21 @@ class ResultMatchCard extends StatelessWidget {
         child: ViewScaffold(
           navBarSelected: NavBarEnum.CALENDAR,
           bottomPadding: 0.0,
+          header: Header(
+              textHeader: "Résultats",
+              backgroundColor: Color.fromRGBO(0, 0, 0, 0.5)
+          ),
           body: Column(
-              children: <Widget>[
-                Expanded(
-                    child: Header(
-                        textHeader: "Résultats",
-                        backgroundColor: Color.fromRGBO(0, 0, 0, 0.5)
-                    )
-                ),
-                Expanded(
-                    flex: 9,
-                    child: Column(
-                      children: <Widget>[
-                        Expanded(
-                          flex: 6,
-                          child: ResultMatchDetails(game),
-                        ),
-                        Expanded(
-                          flex: 4,
-                          child: ResultMatchComposition(game),
-                        )
-                      ],
-                    )
-                )
-              ]
+            children: <Widget>[
+              Expanded(
+                flex: 6,
+                child: ResultMatchDetails(game),
+              ),
+              Expanded(
+                flex: 4,
+                child: ResultMatchComposition(game),
+              )
+            ],
           ),
         )
     );

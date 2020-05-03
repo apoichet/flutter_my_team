@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'FC Parisii',
+        showSemanticsDebugger: false,
         theme: ThemeData(
             scaffoldBackgroundColor: Colors.transparent,
             backgroundColor: Colors.transparent,

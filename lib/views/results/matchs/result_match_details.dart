@@ -45,8 +45,6 @@ class ResultMatchDetails extends StatelessWidget {
     int indexOfGame =  getTeam().games
         .where((g) => g.type == game.type)
         .toList()
-        .reversed
-        .toList()
         .indexOf(game) + 1;
 
     switch (game.type) {
