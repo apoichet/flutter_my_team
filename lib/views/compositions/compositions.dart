@@ -22,7 +22,6 @@ class Compositions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return BackgroundImage(
       image: imgBackgroundName,
       child: ViewScaffold(

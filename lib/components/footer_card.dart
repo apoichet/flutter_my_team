@@ -12,6 +12,7 @@ class FooterCard extends StatelessWidget{
   final bool previousCondition;
   final GestureTapCallback nextFunction;
   final GestureTapCallback previousFunction;
+  final GestureTapCallback mainCallBack;
   final String text;
   final double textSize;
 
@@ -20,6 +21,7 @@ class FooterCard extends StatelessWidget{
     this.previousCondition,
     this.nextFunction,
     this.previousFunction,
+    this.mainCallBack,
     this.text,
     this.textSize
   });
@@ -42,25 +44,28 @@ class FooterCard extends StatelessWidget{
           children: <Widget>[
             Expanded(
               child: Arrow(
-                  onTap: previousFunction,
+                  onTap: previousFunction??()=>{},
                   svg: "backward_icon.svg",
                   colorCondition: previousCondition
               ),
             ),
             Expanded(
               flex: 8,
-              child: Center(
-                child: buildWidgetText(
-                    text: text,
-                    family: FontFamily.ARIAL,
-                    weight: FontWeight.bold,
-                    fontSize: getResponsiveHeight(textSize)
+              child: GestureDetector(
+                onTap: mainCallBack??()=>{},
+                child: Center(
+                  child: buildWidgetText(
+                      text: text,
+                      family: FontFamily.ARIAL,
+                      weight: FontWeight.bold,
+                      fontSize: getResponsiveHeight(textSize)
+                  ),
                 ),
               ),
             ),
             Expanded(
                 child: Arrow(
-                    onTap: nextFunction,
+                    onTap: nextFunction??()=>{},
                     svg: "forward_icon.svg",
                     colorCondition: nextCondition
                 )

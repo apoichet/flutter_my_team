@@ -3,7 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/components/footer_card.dart';
 import 'package:my_team/domain/game.dart';
 import 'package:my_team/services/data_service.dart';
+import 'package:my_team/services/route_service.dart';
 import 'package:my_team/views/compositions/composition.dart';
+import 'package:my_team/views/results/matchs/result_match_card.dart';
 
 class CompositionPageView extends StatefulWidget {
 
@@ -24,6 +26,7 @@ class _CompositionPageViewState extends State<CompositionPageView> {
   List<Game> _gameCompositionList;
   int _indexGame;
   PageController _controller;
+  Game _game;
 
   @override
   void initState() {
@@ -31,10 +34,10 @@ class _CompositionPageViewState extends State<CompositionPageView> {
         .where((g) => g.gameCompositionPlayers.isNotEmpty)
         .toList()
     ;
-    Game game = widget.initialGameToShow == null ?
+    _game = widget.initialGameToShow == null ?
     _gameCompositionList.last :
     widget.initialGameToShow;
-    _indexGame = _gameCompositionList.indexOf(game);
+    _indexGame = _gameCompositionList.indexOf(_game);
     _gameCompositionWidgetList = _gameCompositionList
         .map((g) => Composition(gameComposition: g))
         .toList();
@@ -69,6 +72,10 @@ class _CompositionPageViewState extends State<CompositionPageView> {
               nextCondition: _indexGame < _gameCompositionList.length - 1,
               previousFunction: _previousCompo,
               nextFunction: _nextCompo,
+              mainCallBack: () {
+                Navigator.push(context,
+                    buildNoAnimationRoute(ResultMatchCard(_game)));
+              },
             ),
           ),
         )
