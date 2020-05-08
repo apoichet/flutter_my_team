@@ -8,6 +8,7 @@ import 'package:my_team/domain/player.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/responsive_size.dart';
 import 'package:my_team/services/text_service.dart';
+import 'package:my_team/services/user_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/home/home.dart';
@@ -69,7 +70,8 @@ class _ReadyPlayerState extends State<ReadyPlayer> {
     );
   }
 
-  void _onPressedReadyButton(BuildContext context) {
+  void _onPressedReadyButton(BuildContext context) async {
+    await setUser(_idPlayerSelected);
     setPlayerFromId(_idPlayerSelected);
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => Home()

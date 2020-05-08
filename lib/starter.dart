@@ -60,12 +60,12 @@ class _StarterState extends State<Starter> {
       logger().e(onError);
     });
     if(starterResponse != null) {
-      await Future.delayed(Duration(milliseconds: 500));
+      await Future.delayed(Duration(milliseconds: 200));
       yield starterResponse;
       if(!starterResponse.dataResponse.isFromApi) {
         starterResponse.preventingMessage = widget.noUpdateDataMsg;
         yield starterResponse;
-        await Future.delayed(Duration(milliseconds: 1500));
+        await Future.delayed(Duration(milliseconds: 1000));
       }
     }
   }
