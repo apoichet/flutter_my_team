@@ -9,7 +9,7 @@ import '../intro.dart';
 
 class Ready extends StatelessWidget {
 
-  final String buttonReadyText = "C'est parti !";
+  final String buttonReadyText = "Commencer";
 
   @override
   Widget build(BuildContext context) {

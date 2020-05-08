@@ -1,49 +1,71 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:connectivity/connectivity.dart';
-import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/domain/team.dart';
-import 'package:my_team/services/text_service.dart';
+import 'package:my_team/services/io_service.dart';
+
+import 'logger_service.dart';
 
 var team;
 var player;
 
-Future<Team> fetchData() async {
+final String dataFileName = 'data.json';
+final String appScriptUrl = 'https://script.googleusercontent.com/macros/echo?user_content_key=4Kf9UyTbX6kWvNk9ympZSnGBDi0eLxxRIGaJZMoooWGOowoArPlHcW8mXBNLUarotC5Yjq5mCuZDlUrtJqmuYY7_cmmy96Nkm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnM-ZhxYhH8JVX6ZA016_PjVZfB3Lqr-FAdNSgGLaeY7ypZIFofQDOXa8mzDTCqnGIg&lib=MyqGG5TeYaZyOzm4JsxBVf8nujT8rVGfZ';
+
+Future<DataResponse> fetchDataResponse() async {
   final Connectivity connectivity = Connectivity();
   connectivity.checkConnectivity();
   final ConnectivityResult connectivityResult = await connectivity.checkConnectivity();
 
-  String data;
-
-  if(ConnectivityResult.none == connectivityResult) {
-    data = await  _loadBundleData();
+  try {
+    if(ConnectivityResult.none == connectivityResult) {
+      return await _getLocalData();
+    }
+    else {
+      try {
+        return await _getApiData();
+      }
+      catch (errorApi) {
+        logger().i(errorApi.toString());
+        return await _getLocalData();
+      }
+    }
   }
-  else {
-    //Call Api
-    data = await  _loadBundleData();
+  catch (error) {
+    return Future.error(error);
   }
-  return _loadDataFrom(data);
 }
 
-Future<String> _loadBundleData() async {
-  String data;
-  try {
-    data = await rootBundle.loadString('assets/data/data.json');
-  }
-  catch (_) {
-    return null;
-  }
-  return Future.value(data);
+Future<DataResponse> _getApiData() async {
+  http.Response responseGet = await http.get(appScriptUrl)
+      .timeout(Duration(seconds: 3))
+      .catchError((error) => throw Exception(error));
+  Team team =  await _parseTeamFrom(responseGet.body);
+  await writeData(dataFileName, responseGet.body);
+  return DataResponse(team: team, fromApi: true);
 }
 
-Future<Team> _loadDataFrom(String data) async {
-  try {
-    return Team.fromJson(json.decode(data));
-  }
-  catch (_) {
-    return Future.error("Error occured");
-  }
+Future<DataResponse> _getLocalData() async {
+  String data = await readData(dataFileName);
+  Team team =  await _parseTeamFrom(data);
+  return DataResponse(team: team, fromApi: false);
+}
+
+class DataResponse {
+  Team _team;
+  bool _fromApi;
+
+  DataResponse({Team team, bool fromApi}) : _team = team, _fromApi = fromApi;
+
+  Team get team => _team;
+  bool get isFromApi => _fromApi;
+}
+
+Future<Team> _parseTeamFrom(String data) async {
+  return Team.fromJson(json.decode(data));
 }
 
 void setTeam(Team teamSet) {

@@ -6,7 +6,7 @@ List<Boarding> buildBoardings() {
         imagePath: 'boarding_1',
         backgroundPath: 'background_2',
         title: 'Fiche personnalisée',
-        description: 'Blessures, Cleansheet, Minutes jouées, Buts marqués … Que tu sois Gardien, Défenseur, Milieu ou Attaquant, découvre ta fiche personnalisée ! Elle sera mise à jour tout le long de la saison.'),
+        description: 'Blessures, Cleansheets, Minutes jouées, Buts marqués … Que tu sois Gardien, Défenseur, Milieu ou Attaquant, découvre ta fiche personnalisée ! Elle sera mise à jour tout le long de la saison.'),
     Boarding(
         imagePath: 'boarding_2',
         backgroundPath: 'background_3',
@@ -21,6 +21,6 @@ List<Boarding> buildBoardings() {
         imagePath: 'boarding_4',
         backgroundPath: 'background_5',
         title: 'Calendrier / Résultats',
-        description: 'Et bien sûr ,consulte l’ensemble de nos résultats, notre classement et les matchs à venir sur le site de la FFF !'),
+        description: 'Et bien sûr, consulte l’ensemble de nos résultats, notre classement et les matchs à venir sur le site de la FFF !'),
   ];
 }
