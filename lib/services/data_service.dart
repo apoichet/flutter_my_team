@@ -41,7 +41,7 @@ Future<DataResponse> fetchDataResponse() async {
 
 Future<DataResponse> _getApiData() async {
   http.Response responseGet = await http.get(appScriptUrl)
-      .timeout(Duration(seconds: 3))
+      .timeout(Duration(milliseconds: 3000))
       .catchError((error) => throw Exception(error));
   Team team =  await _parseTeamFrom(responseGet.body);
   await writeData(dataFileName, responseGet.body);
@@ -77,7 +77,7 @@ Team getTeam() {
 }
 
 void setPlayerFromId(String playerId) {
-  player = getTeam().players.singleWhere((p) => p.getId() == playerId);
+  player = getTeam().players.singleWhere((p) => p.getId() == playerId, orElse: () => null);
 }
 
 void setPlayer(Player playerSet) {

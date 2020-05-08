@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/preventing_widget.dart';
-import 'package:my_team/domain/team.dart';
 import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/logger_service.dart';
 import 'package:my_team/services/text_service.dart';
 import 'package:my_team/services/user_service.dart';
+import 'package:my_team/services/widget_service.dart';
+import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/home/home.dart';
 import 'package:my_team/views/show_error.dart';
 
@@ -15,21 +15,25 @@ import 'views/loader.dart';
 
 
 class Starter extends StatefulWidget {
+
+  final String noUpdateDataMsg = 'Mise à jour des données impossible';
+
   @override
   _StarterState createState() => _StarterState();
 }
 
 class _StarterState extends State<Starter> {
 
-  Future<StarterResponse> _future;
+  Future<StarterResponse> _dataFetched;
 
   @override
   void initState() {
-    _future = Future.wait([fetchDataResponse(), getUser()])
-        .then((futuresResponse) => StarterResponse(
-        dataResponse: futuresResponse[0],
-        userId: futuresResponse[1]
-    ));
+    _dataFetched = Future.wait([fetchDataResponse(), getUser()])
+        .then((futuresResponse) {
+          var starterResponse = StarterResponse(dataResponse: futuresResponse[0], userId: futuresResponse[1]);
+          setTeam(starterResponse.dataResponse.team);
+          setPlayerFromId(starterResponse.userId);
+          return starterResponse;});
     super.initState();
   }
 
@@ -38,34 +42,58 @@ class _StarterState extends State<Starter> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     setResponsiveSize(width, height);
-    return FutureBuilder(
-        future: _future,
+    return StreamBuilder(
+        stream: _streamDataResponse().timeout(Duration(milliseconds: 5000)),
         builder: (BuildContext context, AsyncSnapshot<StarterResponse> snapshot) {
           if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
             return _evaluateResponse(snapshot.data);
           }
           if(snapshot.connectionState == ConnectionState.none || snapshot.hasError) {
-            logger().e(snapshot.error);
             return ShowError();
           }
-          return Loader();
+          return _buildLoader(snapshot.data);
         });
   }
 
-  Widget _evaluateResponse(StarterResponse starterResponse) {
-    DataResponse dataResponse = starterResponse.dataResponse;
-    setTeam(dataResponse.team);
-    setPlayerFromId(starterResponse.userId);
-
-    if(starterResponse.hasUser && dataResponse.isFromApi) {
-      return Home();
+  Stream<StarterResponse> _streamDataResponse() async* {
+    StarterResponse starterResponse = await _dataFetched.catchError((onError) {
+      logger().e(onError);
+    });
+    if(starterResponse != null) {
+      await Future.delayed(Duration(milliseconds: 500));
+      yield starterResponse;
+      if(!starterResponse.dataResponse.isFromApi) {
+        starterResponse.preventingMessage = widget.noUpdateDataMsg;
+        yield starterResponse;
+        await Future.delayed(Duration(milliseconds: 1500));
+      }
     }
-    if(starterResponse.hasUser && !dataResponse.isFromApi) {
-      return PreventingWidget(
-        duration: Duration(milliseconds: 1200),
-        next: Home(),
-        preventingText: "Mise à jour des données impossible",
-      );
+  }
+
+  Widget _buildLoader(StarterResponse starterResponse) {
+    return Stack(
+      children: <Widget>[
+        Loader(),
+        Container(
+          padding: EdgeInsets.only(
+            bottom: getResponsiveHeight(100.0)
+          ),
+          alignment: Alignment.bottomCenter,
+          child: buildWidgetText(
+            text: starterResponse != null ? starterResponse.preventingMessage : '',
+            family: FontFamily.ARIAL,
+            fontSize: getResponsiveSize(20.0),
+            color: Colors.white,
+          ),
+        )
+      ],
+
+    );
+  }
+
+  Widget _evaluateResponse(StarterResponse starterResponse) {
+    if(starterResponse.hasUser) {
+      return Home();
     }
     return Ready();
   }
@@ -74,9 +102,13 @@ class _StarterState extends State<Starter> {
 class StarterResponse {
   final DataResponse _dataResponse;
   final String _userId;
-  StarterResponse({@required dataResponse, @required userId}) : _dataResponse = dataResponse, _userId = userId;
+  String _preventingMessage;
+  StarterResponse({@required dataResponse, @required userId, preventingMessage}) : _dataResponse = dataResponse, _userId = userId, _preventingMessage = preventingMessage;
 
   String get userId => _userId;
   bool get hasUser => isNotNullAndNotEmpty(_userId);
   DataResponse get dataResponse => _dataResponse;
+  String get preventingMessage => isNullOrEmpty(_preventingMessage) ? '' : _preventingMessage;
+  set preventingMessage(String preventingMessage) => _preventingMessage = preventingMessage;
+
 }
