@@ -74,7 +74,7 @@ class _CompositionPageViewState extends State<CompositionPageView> {
               nextFunction: _nextCompo,
               mainCallBack: () {
                 Navigator.push(context,
-                    buildNoAnimationRoute(ResultMatchCard(_game)));
+                    buildNoAnimationRoute(ResultMatchCard(_gameCompositionList[_indexGame])));
               },
             ),
           ),
