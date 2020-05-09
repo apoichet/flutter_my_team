@@ -58,6 +58,7 @@ class _StarterState extends State<Starter> {
   Stream<StarterResponse> _streamDataResponse() async* {
     StarterResponse starterResponse = await _dataFetched.catchError((onError) {
       logger().e(onError);
+      return Future.error(onError);
     });
     if(starterResponse != null) {
       await Future.delayed(Duration(milliseconds: 200));
