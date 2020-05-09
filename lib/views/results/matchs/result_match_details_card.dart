@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:maps_launcher/maps_launcher.dart';
 import 'package:my_team/domain/game.dart';
 import 'package:my_team/domain/game_composition_player.dart';
 import 'package:my_team/domain/game_type.dart';
@@ -83,68 +84,71 @@ class _ResultMatchDetailsCardState extends State<ResultMatchDetailsCard> {
           horizontal: getResponsiveWidth(25.0),
           vertical: getResponsiveHeight(50.0)
       ),
-      child: ClipRect(
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-          child: Container(
-            padding: EdgeInsets.symmetric(
-                horizontal: getResponsiveWidth(3.0),
-                vertical: getResponsiveHeight(5.0)
-            ),
-            decoration: BoxDecoration(
-                color: Color.fromRGBO(255, 255, 255, 0.2),
-                borderRadius: BorderRadius.circular(20.0)
-            ),
-            child: Row(
-                children: <Widget> [
-                  Expanded(
-                    flex: 8,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: getResponsiveWidth(15.0),
-                          vertical: getResponsiveHeight(5.0)
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          Expanded(
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: buildWidgetText(
-                                  text: "Stade " + widget.game.stadium,
-                                  family: FontFamily.ARIAL,
-                                  color: Colors.white,
-                                  weight: FontWeight.bold,
-                                  fontSize: getResponsiveWidth(25.0)
+      child: GestureDetector(
+        onTap: () => MapsLauncher.launchQuery(widget.game.address),
+        child: ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: getResponsiveWidth(3.0),
+                  vertical: getResponsiveHeight(5.0)
+              ),
+              decoration: BoxDecoration(
+                  color: Color.fromRGBO(255, 255, 255, 0.2),
+                  borderRadius: BorderRadius.circular(20.0)
+              ),
+              child: Row(
+                  children: <Widget> [
+                    Expanded(
+                      flex: 8,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: getResponsiveWidth(15.0),
+                            vertical: getResponsiveHeight(5.0)
+                        ),
+                        child: Column(
+                          children: <Widget>[
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: buildWidgetText(
+                                    text: "Stade " + widget.game.stadium,
+                                    family: FontFamily.ARIAL,
+                                    color: Colors.white,
+                                    weight: FontWeight.bold,
+                                    fontSize: getResponsiveWidth(25.0)
+                                ),
                               ),
                             ),
-                          ),
-                          Expanded(
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: buildWidgetText(
-                                  text: widget.game.address,
-                                  family: FontFamily.ARIAL,
-                                  color: Colors.white,
-                                  fontSize: getResponsiveWidth(15.0)
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: buildWidgetText(
+                                    text: widget.game.address,
+                                    family: FontFamily.ARIAL,
+                                    color: Colors.white,
+                                    fontSize: getResponsiveWidth(15.0)
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Center(
-                      child: SvgPicture.asset(
-                          'assets/icon/detail_icon.svg',
-                          fit: BoxFit.fill,
-                          width: getResponsiveWidth(28.0),
-                          height: getResponsiveHeight(28.0),
-                          semanticsLabel: 'Nav Bar Icon'),
-                    ),
-                  )
-                ]),
+                    Expanded(
+                      flex: 2,
+                      child: Center(
+                        child: SvgPicture.asset(
+                            'assets/icon/detail_icon.svg',
+                            fit: BoxFit.fill,
+                            width: getResponsiveWidth(28.0),
+                            height: getResponsiveHeight(28.0),
+                            semanticsLabel: 'Nav Bar Icon'),
+                      ),
+                    )
+                  ]),
+            ),
           ),
         ),
       ),
