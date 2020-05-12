@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "210575183244",
+    "firebase_url": "https://fc-parisii-f139f.firebaseio.com",
+    "project_id": "fc-parisii-f139f",
+    "storage_bucket": "fc-parisii-f139f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210575183244:android:2b0a1094b6bec43f87daa9",
+        "android_client_info": {
+          "package_name": "com.example.my_team"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "210575183244-f09t7ifudduinqo99e1d4m0369bm8rbk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.my_team",
+            "certificate_hash": "661a5eba0e5990b5a38d93e10ec79ed4cdc5b4e0"
+          }
+        },
+        {
+          "client_id": "210575183244-5t8q96qhohef33378d4itd7c9thbqail.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdlvycpcstqkaJTziJlQTbNExJ29eTTIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "210575183244-5t8q96qhohef33378d4itd7c9thbqail.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "210575183244-6ucasim9tb5e6smvfndrfpd4lvjtu4s0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "FC-Parisii-2020",
+                "app_store_id": "1512648067"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
