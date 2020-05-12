@@ -41,7 +41,7 @@ Future<DataResponse> fetchDataResponse() async {
 
 Future<DataResponse> _getApiData() async {
   http.Response responseGet = await http.get(appScriptUrl)
-      .timeout(Duration(milliseconds: 3000))
+      .timeout(Duration(milliseconds: 8000))
       .catchError((error) => throw Exception(error));
   Team team =  await _parseTeamFrom(responseGet.body);
   await writeData(dataFileName, responseGet.body);

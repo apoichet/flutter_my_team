@@ -43,7 +43,7 @@ class _StarterState extends State<Starter> {
     double height = MediaQuery.of(context).size.height;
     setResponsiveSize(width, height);
     return StreamBuilder(
-        stream: _streamDataResponse().timeout(Duration(milliseconds: 5000)),
+        stream: _streamDataResponse().timeout(Duration(milliseconds: 10000)),
         builder: (BuildContext context, AsyncSnapshot<StarterResponse> snapshot) {
           if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
             return _evaluateResponse(snapshot.data);
