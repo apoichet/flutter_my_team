@@ -60,7 +60,7 @@ class LinearChart extends StatelessWidget {
             child: RotatedBox(
               quarterTurns: 3,
               child: new LinearPercentIndicator(
-                animationDuration: 1000,
+                animationDuration: 1500,
                 lineHeight: getResponsiveHeight(width),
                 animation: true,
                 percent: percent,

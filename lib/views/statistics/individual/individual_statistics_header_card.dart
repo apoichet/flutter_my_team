@@ -15,6 +15,120 @@ class IndividualStatisticsHeaderCard extends StatelessWidget {
     return Column(
       children: <Widget>[
         Expanded(
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 3,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: buildWidgetText(
+                      text: "Nom : ",
+                      color: Colors.white,
+                      fontSize: 16.0,
+                      weight: FontWeight.w100,
+                      fontStyle: FontStyle.italic,
+                      family: FontFamily.ARIAL
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 7,
+                child: Center(
+                  child: buildWidgetText(
+                      text: player.nickName,
+                      color: Colors.white,
+                      fontSize: 22.0,
+                      weight: FontWeight.bold,
+                      family: FontFamily.ARIAL
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+        Expanded(
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 3,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: buildWidgetText(
+                      text: "Poste : ",
+                      color: Colors.white,
+                      fontSize: 16.0,
+                      weight: FontWeight.w300,
+                      fontStyle: FontStyle.italic,
+                      family: FontFamily.ARIAL
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 7,
+                child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: getResponsiveHeight(5.0)
+                    ),
+                    child: buildWidgetText(
+                        text: player.position,
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        weight: FontWeight.bold,
+                        family: FontFamily.ARIAL
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+        Expanded(
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 3,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: buildWidgetText(
+                      text: "Num : ",
+                      color: Colors.white,
+                      fontSize: 16.0,
+                      weight: FontWeight.w300,
+                      fontStyle: FontStyle.italic,
+                      family: FontFamily.ARIAL
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 7,
+                child: Center(
+                  child: buildWidgetText(
+                      text: player.number.toString(),
+                      color: Colors.white,
+                      fontSize: 25.0,
+                      weight: FontWeight.bold,
+                      family: FontFamily.ARIAL
+                  ),
+                ),
+              )
+            ],
+
+          ),
+        ),
+
+      ],
+
+
+    );
+
+
+
+
+
+    /*return Column(
+      children: <Widget>[
+        Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
@@ -43,7 +157,7 @@ class IndividualStatisticsHeaderCard extends StatelessWidget {
               align: Alignment.center
           ),
         )
-        /*Expanded(
+        *//*Expanded(
             child: _buildRow(
               first: "Nom :",
               sizeFirst: 14.0,
@@ -69,10 +183,10 @@ class IndividualStatisticsHeaderCard extends StatelessWidget {
                 sizeSecond: 28.0,
                 alignment: Alignment.center
             )
-        ),*/
+        ),*//*
 
       ],
-    );
+    );*/
   }
 
   Widget _buildText({String text, double textSize, Alignment align}) {

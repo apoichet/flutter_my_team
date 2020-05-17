@@ -6,31 +6,20 @@ import 'package:flutter/widgets.dart';
 import 'package:my_team/components/player_avatar.dart';
 import 'package:my_team/domain/player.dart';
 import 'package:my_team/domain/team.dart';
-import 'package:my_team/services/data_service.dart';
 import 'package:my_team/services/responsive_size.dart';
+import 'package:my_team/services/route_service.dart';
 import 'package:my_team/services/widget_service.dart';
 import 'package:my_team/theme/font_family.dart';
 import 'package:my_team/views/home/home_charts.dart';
+import 'package:my_team/views/statistics/individual/individual_statistics.dart';
 
-class IndividualCard extends StatefulWidget {
+
+class IndividualCard extends StatelessWidget {
+
   final Team team;
   final Player player;
 
-  const IndividualCard({Key key, this.team, this.player}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _IndividualCardState();
-}
-
-class _IndividualCardState extends State<IndividualCard> {
-
-  Widget _charts;
-
-  @override
-  void initState() {
-    _charts = _buildCharts();
-    super.initState();
-  }
+  IndividualCard({Key key, this.team, this.player}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +31,12 @@ class _IndividualCardState extends State<IndividualCard> {
             child: _buildHeader(context)
         ),
         Expanded(
-          flex: 5,
-          child: _charts
+            flex: 5,
+            child: _buildHomeCharts()
         ),
         Expanded(
           flex: 1,
-          child: _buildTapNameFooter(),
+          child: _buildTapNameFooter(context),
         ),
       ],
     );
@@ -56,9 +45,9 @@ class _IndividualCardState extends State<IndividualCard> {
   Widget _buildHeader(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        left: getResponsiveWidth(15.0),
-        right: getResponsiveWidth(10.0),
-        top: getResponsiveHeight(10.0)
+          left: getResponsiveWidth(15.0),
+          right: getResponsiveWidth(10.0),
+          top: getResponsiveHeight(10.0)
       ),
       child: Row(
           children: <Widget>[
@@ -74,16 +63,18 @@ class _IndividualCardState extends State<IndividualCard> {
               ),
             ),
             Expanded(
-              flex: 7,
-              child: _buildHeaderTitleCard()
+                flex: 7,
+                child: _buildHeaderTitleCard()
             ),
           ]),
     );
   }
 
-  Widget _buildTapNameFooter() {
+  Widget _buildTapNameFooter(BuildContext context) {
     return GestureDetector(
-      onDoubleTap: _doubleTap,
+      onTap: () {
+        Navigator.push(context, buildNoAnimationRoute(IndividualStatistics(player)));
+      },
       child: Container(
           alignment: Alignment.centerRight,
           decoration: BoxDecoration(
@@ -117,34 +108,15 @@ class _IndividualCardState extends State<IndividualCard> {
     return Column(
       children: <Widget>[
         Expanded(
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                flex: 6,
-                child: Center(
-                  child: buildWidgetText(
-                      text: player.nickName,
-                      fontSize: getResponsiveWidth(24.0),
-                      family: FontFamily.ARIAL,
-                      weight: FontWeight.bold,
-                      color: Colors.white
-                  ),
-                ),
+            child: Center(
+              child: buildWidgetText(
+                  text: player.nickName + " - N " + player.number.toString(),
+                  fontSize: getResponsiveWidth(26.0),
+                  family: FontFamily.ARIAL,
+                  weight: FontWeight.bold,
+                  color: Colors.white
               ),
-              Expanded(
-                flex: 4,
-                child: Center(
-                  child: buildWidgetText(
-                      text: "n°" + player.number.toString(),
-                      fontSize: getResponsiveWidth(26.0),
-                      family: FontFamily.ARIAL,
-                      weight: FontWeight.bold,
-                      color: Colors.white
-                  ),
-                ),
-              ),
-            ],
-          ),
+            )
         ),
         Expanded(
           child: Center(
@@ -161,16 +133,10 @@ class _IndividualCardState extends State<IndividualCard> {
     );
   }
 
-  void _doubleTap() {
-    setState(() {
-      _charts = _buildCharts();
-    });
-  }
-
-  Widget _buildCharts() {
+  Widget _buildHomeCharts() {
     return HomeCharts(
-      team: widget.team,
-      player: widget.player,
+      team: team,
+      player: player,
     );
   }
 

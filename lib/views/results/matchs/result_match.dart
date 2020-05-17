@@ -67,30 +67,57 @@ class _ResultMatchState extends State<ResultMatch> {
         ),
         Expanded(
           flex: 9,
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                flex: 9,
-                child: ListView(
-                    padding: EdgeInsets.all(0.0),
-                    controller: _controller,
-                    children: _toggleLeft ?
-                    _buildResultMatchList(_pastGames) :
-                    _buildResultMatchList(_futureGames)
-                ),
-              ),
-              Expanded(
-                child: _scrollIndicator,
-              )
-            ],
-          ),
+          child: _toggleLeft
+              ? _buildMatchList(_pastGames)
+              : _futureGames.isNotEmpty
+              ? _buildMatchList(_futureGames)
+              : _buildFinishSeason(),
         )
       ],
     );
   }
 
-  _buildResultMatchList(List<Game> games) {
-    return games.map((game) => ResultMatchItem(game: game)).toList();
+  Column _buildMatchList(List<Game> games) {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          flex: 9,
+          child: ListView(
+              padding: EdgeInsets.all(0.0),
+              controller: _controller,
+              children: games.map((game) => ResultMatchItem(game: game)).toList()
+          ),
+        ),
+        Expanded(
+          child: _scrollIndicator,
+        )
+      ],
+    );
+  }
+
+  _buildFinishSeason() {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          flex: 3,
+          child: Center(
+            child: buildWidgetText(
+                text: "Fin de Saison ! A bientôt...",
+                color: Colors.white,
+                family: FontFamily.ARIAL,
+                weight: FontWeight.bold,
+                fontSize: getResponsiveHeight(20.0)
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 7,
+          child: Center(
+            child: Image.asset("assets/img/champions.gif")
+          ),
+        ),
+      ],
+    );
   }
 
   _buildToggleTopic(String topic, bool conditionToggle) {
