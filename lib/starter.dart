@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/services/data_service.dart';
-import 'package:my_team/services/logger_service.dart';
-import 'package:my_team/services/text_service.dart';
-import 'package:my_team/services/user_service.dart';
-import 'package:my_team/services/widget_service.dart';
-import 'package:my_team/theme/font_family.dart';
-import 'package:my_team/views/home/home.dart';
-import 'package:my_team/views/show_error.dart';
+import 'package:fc_parisii/services/data_service.dart';
+import 'package:fc_parisii/services/logger_service.dart';
+import 'package:fc_parisii/services/text_service.dart';
+import 'package:fc_parisii/services/user_service.dart';
+import 'package:fc_parisii/services/widget_service.dart';
+import 'package:fc_parisii/theme/font_family.dart';
+import 'package:fc_parisii/views/home/home.dart';
+import 'package:fc_parisii/views/show_error.dart';
 
 import 'services/responsive_size.dart';
 import 'views/intro/ready/ready.dart';

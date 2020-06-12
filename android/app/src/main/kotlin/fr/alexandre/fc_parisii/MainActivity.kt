@@ -1,4 +1,4 @@
-package com.example.my_team
+package fr.alexandre.fc_parisii
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

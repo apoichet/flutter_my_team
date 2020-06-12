@@ -1,5 +1,5 @@
-import 'package:my_team/domain/game_state.dart';
-import 'package:my_team/domain/game_type.dart';
+import 'package:fc_parisii/domain/game_state.dart';
+import 'package:fc_parisii/domain/game_type.dart';
 
 import 'game_composition_player.dart';
 import 'game_composition_strategy.dart';

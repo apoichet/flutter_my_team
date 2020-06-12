@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/background_gradient.dart';
-import 'package:my_team/components/footer_card.dart';
-import 'package:my_team/services/responsive_size.dart';
-import 'package:my_team/views/statistics/collective/collective_statistics_card_result.dart';
+import 'package:fc_parisii/components/background_gradient.dart';
+import 'package:fc_parisii/components/footer_card.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
+import 'package:fc_parisii/views/statistics/collective/collective_statistics_card_result.dart';
 
 import 'collective_statistics_result_factory.dart';
 

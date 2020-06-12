@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:my_team/services/data_service.dart';
-import 'package:my_team/services/responsive_size.dart';
-import 'package:my_team/services/route_service.dart';
-import 'package:my_team/services/widget_service.dart';
-import 'package:my_team/theme/font_family.dart';
-import 'package:my_team/views/results/matchs/result_match_card.dart';
+import 'package:fc_parisii/services/data_service.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
+import 'package:fc_parisii/services/route_service.dart';
+import 'package:fc_parisii/services/widget_service.dart';
+import 'package:fc_parisii/theme/font_family.dart';
+import 'package:fc_parisii/views/results/matchs/result_match_card.dart';
 
 class NextGame extends StatelessWidget {
 

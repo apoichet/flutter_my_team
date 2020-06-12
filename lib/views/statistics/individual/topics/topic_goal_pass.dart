@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/chart/box_circular_chart.dart';
-import 'package:my_team/components/chart/box_linear_chart.dart';
-import 'package:my_team/components/chart/circular_chart.dart';
-import 'package:my_team/components/chart/linear_chart.dart';
-import 'package:my_team/domain/player.dart';
-import 'package:my_team/services/data_service.dart';
-import 'package:my_team/services/responsive_size.dart';
-import 'package:my_team/theme/colors.dart';
+import 'package:fc_parisii/components/chart/box_circular_chart.dart';
+import 'package:fc_parisii/components/chart/box_linear_chart.dart';
+import 'package:fc_parisii/components/chart/circular_chart.dart';
+import 'package:fc_parisii/components/chart/linear_chart.dart';
+import 'package:fc_parisii/domain/player.dart';
+import 'package:fc_parisii/services/data_service.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
+import 'package:fc_parisii/theme/colors.dart';
 
 class TopicGoalPass extends StatelessWidget {
 

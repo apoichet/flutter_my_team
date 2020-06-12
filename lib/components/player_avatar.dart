@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/domain/player.dart';
+import 'package:fc_parisii/domain/player.dart';
 
 class PlayerAvatar extends StatelessWidget {
   final Player player;

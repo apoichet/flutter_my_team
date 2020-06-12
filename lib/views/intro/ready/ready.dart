@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/background_image.dart';
-import 'package:my_team/components/button.dart';
-import 'package:my_team/components/view_padding.dart';
-import 'package:my_team/services/responsive_size.dart';
+import 'package:fc_parisii/components/background_image.dart';
+import 'package:fc_parisii/components/button.dart';
+import 'package:fc_parisii/components/view_padding.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
 
 import '../intro.dart';
 

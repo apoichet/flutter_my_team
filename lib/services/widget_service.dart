@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/theme/font_family.dart';
+import 'package:fc_parisii/theme/font_family.dart';
 
 AutoSizeText buildWidgetText({
   @required String text,

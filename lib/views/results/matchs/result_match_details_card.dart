@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:maps_launcher/maps_launcher.dart';
-import 'package:my_team/domain/game.dart';
-import 'package:my_team/domain/game_composition_player.dart';
-import 'package:my_team/domain/game_type.dart';
-import 'package:my_team/services/data_service.dart';
-import 'package:my_team/services/responsive_size.dart';
-import 'package:my_team/services/text_service.dart';
-import 'package:my_team/services/widget_service.dart';
-import 'package:my_team/theme/font_family.dart';
-import 'package:my_team/views/results/matchs/result_match_player_details.dart';
+import 'package:fc_parisii/domain/game.dart';
+import 'package:fc_parisii/domain/game_composition_player.dart';
+import 'package:fc_parisii/domain/game_type.dart';
+import 'package:fc_parisii/services/data_service.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
+import 'package:fc_parisii/services/text_service.dart';
+import 'package:fc_parisii/services/widget_service.dart';
+import 'package:fc_parisii/theme/font_family.dart';
+import 'package:fc_parisii/views/results/matchs/result_match_player_details.dart';
 
 class ResultMatchDetailsCard extends StatefulWidget {
 

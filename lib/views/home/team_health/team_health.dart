@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/domain/game.dart';
-import 'package:my_team/services/data_service.dart';
-import 'package:my_team/services/responsive_size.dart';
-import 'package:my_team/services/widget_service.dart';
-import 'package:my_team/theme/font_family.dart';
+import 'package:fc_parisii/domain/game.dart';
+import 'package:fc_parisii/services/data_service.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
+import 'package:fc_parisii/services/widget_service.dart';
+import 'package:fc_parisii/theme/font_family.dart';
 
 import 'game_state_icon.dart';
 

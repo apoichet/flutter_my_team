@@ -1,4 +1,4 @@
-import 'package:my_team/domain/player.dart';
+import 'package:fc_parisii/domain/player.dart';
 
 class CollectiveStatisticsResult {
   final Player player;

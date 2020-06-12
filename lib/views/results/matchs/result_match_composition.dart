@@ -3,13 +3,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_team/domain/game.dart';
-import 'package:my_team/services/responsive_size.dart';
-import 'package:my_team/services/route_service.dart';
-import 'package:my_team/services/widget_service.dart';
-import 'package:my_team/theme/font_family.dart';
-import 'package:my_team/views/compositions/compositions.dart';
-import 'package:my_team/views/compositions/compositions_page_view.dart';
+import 'package:fc_parisii/domain/game.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
+import 'package:fc_parisii/services/route_service.dart';
+import 'package:fc_parisii/services/widget_service.dart';
+import 'package:fc_parisii/theme/font_family.dart';
+import 'package:fc_parisii/views/compositions/compositions.dart';
+import 'package:fc_parisii/views/compositions/compositions_page_view.dart';
 
 class ResultMatchComposition extends StatelessWidget {
 

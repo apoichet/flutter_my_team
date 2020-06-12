@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:my_team/theme/colors.dart';
+import 'package:fc_parisii/theme/colors.dart';
 
 class BackgroundGradient extends StatelessWidget {
 

@@ -1,11 +1,11 @@
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/background_image.dart';
-import 'package:my_team/components/header.dart';
-import 'package:my_team/components/nav_bar/nav_bar.dart';
-import 'package:my_team/components/view_scaffold.dart';
-import 'package:my_team/domain/game.dart';
-import 'package:my_team/views/results/matchs/result_match_composition.dart';
-import 'package:my_team/views/results/matchs/result_match_details.dart';
+import 'package:fc_parisii/components/background_image.dart';
+import 'package:fc_parisii/components/header.dart';
+import 'package:fc_parisii/components/nav_bar/nav_bar.dart';
+import 'package:fc_parisii/components/view_scaffold.dart';
+import 'package:fc_parisii/domain/game.dart';
+import 'package:fc_parisii/views/results/matchs/result_match_composition.dart';
+import 'package:fc_parisii/views/results/matchs/result_match_details.dart';
 
 class ResultMatchCard extends StatelessWidget {
 

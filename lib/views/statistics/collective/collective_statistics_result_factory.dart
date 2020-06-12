@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:my_team/domain/player.dart';
-import 'package:my_team/services/data_service.dart';
-import 'package:my_team/services/number_service.dart';
-import 'package:my_team/views/statistics/collective/collective_statistics_card_result.dart';
-import 'package:my_team/views/statistics/collective/collective_statistics_result.dart';
+import 'package:fc_parisii/domain/player.dart';
+import 'package:fc_parisii/services/data_service.dart';
+import 'package:fc_parisii/services/number_service.dart';
+import 'package:fc_parisii/views/statistics/collective/collective_statistics_card_result.dart';
+import 'package:fc_parisii/views/statistics/collective/collective_statistics_result.dart';
 
 Widget buildCardResult(CollectiveStatisticsEnum collectiveStatisticsEnum) {
 

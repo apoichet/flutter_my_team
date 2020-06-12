@@ -3,9 +3,9 @@ import 'dart:convert';
 
 import 'package:connectivity/connectivity.dart';
 import 'package:http/http.dart' as http;
-import 'package:my_team/domain/player.dart';
-import 'package:my_team/domain/team.dart';
-import 'package:my_team/services/io_service.dart';
+import 'package:fc_parisii/domain/player.dart';
+import 'package:fc_parisii/domain/team.dart';
+import 'package:fc_parisii/services/io_service.dart';
 
 import 'logger_service.dart';
 

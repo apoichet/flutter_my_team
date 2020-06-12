@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/nav_bar/nav_bar.dart';
-import 'package:my_team/components/view_padding.dart';
-import 'package:my_team/views/loader.dart';
+import 'package:fc_parisii/components/nav_bar/nav_bar.dart';
+import 'package:fc_parisii/components/view_padding.dart';
+import 'package:fc_parisii/views/loader.dart';
 
 class ViewScaffold extends StatefulWidget {
 

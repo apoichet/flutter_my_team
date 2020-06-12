@@ -8,20 +8,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:210575183244:android:2b0a1094b6bec43f87daa9",
+        "mobilesdk_app_id": "1:210575183244:android:d36af378ed1180ee87daa9",
         "android_client_info": {
-          "package_name": "com.example.my_team"
+          "package_name": "fr.alexandre.fc_parisii"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "210575183244-f09t7ifudduinqo99e1d4m0369bm8rbk.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.my_team",
-            "certificate_hash": "661a5eba0e5990b5a38d93e10ec79ed4cdc5b4e0"
-          }
-        },
         {
           "client_id": "210575183244-5t8q96qhohef33378d4itd7c9thbqail.apps.googleusercontent.com",
           "client_type": 3

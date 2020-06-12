@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/footer_card.dart';
-import 'package:my_team/domain/game.dart';
-import 'package:my_team/services/data_service.dart';
-import 'package:my_team/services/route_service.dart';
-import 'package:my_team/views/compositions/composition.dart';
-import 'package:my_team/views/results/matchs/result_match_card.dart';
+import 'package:fc_parisii/components/footer_card.dart';
+import 'package:fc_parisii/domain/game.dart';
+import 'package:fc_parisii/services/data_service.dart';
+import 'package:fc_parisii/services/route_service.dart';
+import 'package:fc_parisii/views/compositions/composition.dart';
+import 'package:fc_parisii/views/results/matchs/result_match_card.dart';
 
 class CompositionPageView extends StatefulWidget {
 

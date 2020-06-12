@@ -1,5 +1,5 @@
-import 'package:my_team/domain/player_game_state.dart';
-import 'package:my_team/domain/player_position.dart';
+import 'package:fc_parisii/domain/player_game_state.dart';
+import 'package:fc_parisii/domain/player_position.dart';
 
 class GameCompositionPlayer {
 

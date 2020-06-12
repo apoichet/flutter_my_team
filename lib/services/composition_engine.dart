@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:my_team/const/composition_player_card_size.dart';
-import 'package:my_team/domain/game_composition_strategy.dart';
-import 'package:my_team/domain/player_position.dart';
-import 'package:my_team/services/responsive_size.dart';
+import 'package:fc_parisii/const/composition_player_card_size.dart';
+import 'package:fc_parisii/domain/game_composition_strategy.dart';
+import 'package:fc_parisii/domain/player_position.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
 
 
 class PlayerPositionEngine {

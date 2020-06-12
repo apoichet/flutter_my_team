@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/services/number_service.dart';
+import 'package:fc_parisii/services/number_service.dart';
 
 import 'circular_percent_indicator.dart';
 

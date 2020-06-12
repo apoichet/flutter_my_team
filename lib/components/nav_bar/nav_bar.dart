@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/services/responsive_size.dart';
-import 'package:my_team/services/route_service.dart';
-import 'package:my_team/theme/colors.dart';
-import 'package:my_team/views/compositions/compositions.dart';
-import 'package:my_team/views/home/home.dart';
-import 'package:my_team/views/results/results.dart';
-import 'package:my_team/views/statistics/statistics.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
+import 'package:fc_parisii/services/route_service.dart';
+import 'package:fc_parisii/theme/colors.dart';
+import 'package:fc_parisii/views/compositions/compositions.dart';
+import 'package:fc_parisii/views/home/home.dart';
+import 'package:fc_parisii/views/results/results.dart';
+import 'package:fc_parisii/views/statistics/statistics.dart';
 
 import 'nav_bar_icon.dart';
 

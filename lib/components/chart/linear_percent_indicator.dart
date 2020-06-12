@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_team/services/responsive_size.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
 
 enum LinearStrokeCap { butt, round, roundAll }
 

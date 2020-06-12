@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/background_image.dart';
-import 'package:my_team/components/header.dart';
-import 'package:my_team/components/nav_bar/nav_bar.dart';
-import 'package:my_team/components/view_scaffold.dart';
-import 'package:my_team/views/statistics/collective/collective_statistics_page_view.dart';
+import 'package:fc_parisii/components/background_image.dart';
+import 'package:fc_parisii/components/header.dart';
+import 'package:fc_parisii/components/nav_bar/nav_bar.dart';
+import 'package:fc_parisii/components/view_scaffold.dart';
+import 'package:fc_parisii/views/statistics/collective/collective_statistics_page_view.dart';
 
 class CollectiveStatistics extends StatelessWidget {
 

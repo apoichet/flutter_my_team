@@ -2,11 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/domain/game.dart';
-import 'package:my_team/domain/player_game_state.dart';
-import 'package:my_team/services/composition_engine.dart';
-import 'package:my_team/views/compositions/composition_player.dart';
-import 'package:my_team/views/compositions/composition_players.dart';
+import 'package:fc_parisii/domain/game.dart';
+import 'package:fc_parisii/domain/player_game_state.dart';
+import 'package:fc_parisii/services/composition_engine.dart';
+import 'package:fc_parisii/views/compositions/composition_player.dart';
+import 'package:fc_parisii/views/compositions/composition_players.dart';
 
 class Composition extends StatelessWidget {
 

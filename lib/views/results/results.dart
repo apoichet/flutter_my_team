@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/background_image.dart';
-import 'package:my_team/components/header.dart';
-import 'package:my_team/components/menu_toggle.dart';
-import 'package:my_team/components/nav_bar/nav_bar.dart';
-import 'package:my_team/components/view_scaffold.dart';
-import 'package:my_team/services/responsive_size.dart';
-import 'package:my_team/views/results/matchs/result_match.dart';
-import 'package:my_team/views/results/ranking/result_ranking.dart';
+import 'package:fc_parisii/components/background_image.dart';
+import 'package:fc_parisii/components/header.dart';
+import 'package:fc_parisii/components/menu_toggle.dart';
+import 'package:fc_parisii/components/nav_bar/nav_bar.dart';
+import 'package:fc_parisii/components/view_scaffold.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
+import 'package:fc_parisii/views/results/matchs/result_match.dart';
+import 'package:fc_parisii/views/results/ranking/result_ranking.dart';
 
 class Results extends StatefulWidget {
 

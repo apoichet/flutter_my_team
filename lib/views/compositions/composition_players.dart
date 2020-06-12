@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
-import 'package:my_team/domain/game_composition_player.dart';
-import 'package:my_team/domain/game_composition_strategy.dart';
-import 'package:my_team/services/composition_engine.dart';
+import 'package:fc_parisii/domain/game_composition_player.dart';
+import 'package:fc_parisii/domain/game_composition_strategy.dart';
+import 'package:fc_parisii/services/composition_engine.dart';
 
 import 'composition_player.dart';
 

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:my_team/domain/player.dart';
+import 'package:fc_parisii/domain/player.dart';
 
 import 'game.dart';
 

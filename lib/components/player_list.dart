@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/background_gradient.dart';
-import 'package:my_team/components/player_list_item.dart';
-import 'package:my_team/domain/player.dart';
-import 'package:my_team/services/data_service.dart';
-import 'package:my_team/theme/colors.dart';
+import 'package:fc_parisii/components/background_gradient.dart';
+import 'package:fc_parisii/components/player_list_item.dart';
+import 'package:fc_parisii/domain/player.dart';
+import 'package:fc_parisii/services/data_service.dart';
+import 'package:fc_parisii/theme/colors.dart';
 
 class PlayerList extends StatefulWidget {
   final Function onTapPlayerParent;

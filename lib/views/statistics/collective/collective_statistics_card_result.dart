@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_team/components/player_avatar.dart';
-import 'package:my_team/domain/player.dart';
-import 'package:my_team/services/responsive_size.dart';
-import 'package:my_team/services/route_service.dart';
-import 'package:my_team/services/widget_service.dart';
-import 'package:my_team/theme/font_family.dart';
-import 'package:my_team/views/statistics/collective/collective_statistics_result.dart';
-import 'package:my_team/views/statistics/individual/individual_statistics.dart';
+import 'package:fc_parisii/components/player_avatar.dart';
+import 'package:fc_parisii/domain/player.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
+import 'package:fc_parisii/services/route_service.dart';
+import 'package:fc_parisii/services/widget_service.dart';
+import 'package:fc_parisii/theme/font_family.dart';
+import 'package:fc_parisii/views/statistics/collective/collective_statistics_result.dart';
+import 'package:fc_parisii/views/statistics/individual/individual_statistics.dart';
 
 class CollectiveStatisticsCardResult extends StatefulWidget {
 
