@@ -19,7 +19,7 @@ class _CircularChartState extends State<CircularChart> {
     return new CircularPercentIndicator(
       circularStrokeCap: CircularStrokeCap.round,
       animation: true,
-      animationDuration: 1500,
+      animationDuration: 1200,
       arcType: ArcType.FULL,
       radius: widget.width,
       lineWidth: widget.strokeWidth,
