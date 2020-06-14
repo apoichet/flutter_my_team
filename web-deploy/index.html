@@ -4,32 +4,66 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FC Parisii</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
-<div class="grid">
+<div class="container">
 
-    <img class="logo" alt="logo fc parisii" src="img/logo.png">
+    <div class="item-logo">
+        <img alt="logo fc parisii" src="img/logo.png">
+    </div>
 
-    <div class="grid-download-os">
-        <div class="os-download-button-header">
+    <div class="item">
+        <div class="item-header">
             <label>Installer sur IOS :</label>
         </div>
-        <a class="os-download-button" href="" download="">
-            <img class="download" alt="ios download"  src="img/ios_download.png">
-        </a>
+        <div class="item-button">
+            <a target="_blank" href="itms-services://?action=download-manifest&amp;url=https://fc-parisii-f139f.web.app/apps/ios/manifest.plist">
+                <img alt="ios download"  src="img/ios_download.png">
+            </a>
+        </div>
     </div>
-    <div class="grid-download-os">
-        <div class="os-download-button-header">
+
+    <div class="item">
+        <div class="item-header">
             <label>Installer sur Android :</label>
         </div>
-        <a target="_blank" class="os-download-button" download="apps/app-release.apk" href="https://fc-parisii-f139f.web.app/app-release.apk">
-            <img class="download" alt="android download" src="img/android_download.png">
-        </a>
+        <div class="item-button">
+            <a target="_blank"  download="apps/android/app-release.apk" href="https://fc-parisii-f139f.web.app/apps/android/app-release.apk">
+                <img alt="android download" src="img/android_download.png">
+            </a>
+        </div>
     </div>
+
 </div>
+
+<script>
+
+    let agent = navigator.userAgent;
+    let stylePath;
+
+    if (agent.includes('Chrome')) {
+        stylePath = 'style-chrome.css';
+    }
+    else {
+        stylePath = 'style-safari.css';
+    }
+
+    let css = document.createElement('link');
+    css.type = "text/css";
+    css.rel = "stylesheet";
+    css.href = stylePath;
+
+    let header = document.getElementsByTagName('head')[0];
+    header.appendChild(css);
+
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+</script>
 
 
 </body>
+
+
 </html>

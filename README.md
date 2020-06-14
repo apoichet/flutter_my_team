@@ -1,16 +1,19 @@
-# fc_parisii
+# FC Parisii
 
-A new Flutter project.
+## Web Page hosting apps
 
-## Getting Started
+https://fc-parisii-f139f.web.app/
 
-This project is a starting point for a Flutter application.
+## Mise à jour ios
+- flutter build ios
+- archive ad-hoc ios depuis Xcode
+- nom ipa : FC-Parisii
+- url ipa : https://fc-parisii-f139f.web.app/apps/ios/FC-Parisii.ipa
+- copier le manifets.plist et les ipa de /Apps/* dans web-deploy/apps/ios/ 
 
-A few resources to get you started if this is your first Flutter project:
+## Mise à jour android
+- flutter build android
+- copier build/app/outputs/apk/release/app-release.apk dans web-deploy/apps/android/
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Dans les deux cas terminer par la commande :
+``firebase deploy``
