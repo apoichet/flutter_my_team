@@ -8,6 +8,7 @@ import 'package:fc_parisii/services/responsive_size.dart';
 import 'package:fc_parisii/services/widget_service.dart';
 import 'package:fc_parisii/theme/font_family.dart';
 import 'package:fc_parisii/views/results/matchs/result_match_item.dart';
+import 'package:fc_parisii/services/responsive_size.dart';
 
 class ResultMatch extends StatefulWidget {
   final String menuTitle1 = 'Matchs passés';
@@ -96,27 +97,32 @@ class _ResultMatchState extends State<ResultMatch> {
   }
 
   _buildFinishSeason() {
-    return Column(
-      children: <Widget>[
-        Expanded(
-          flex: 3,
-          child: Center(
-            child: buildWidgetText(
-                text: "Fin de Saison ! A bientôt...",
-                color: Colors.white,
-                family: FontFamily.ARIAL,
-                weight: FontWeight.bold,
-                fontSize: getResponsiveHeight(20.0)
+    return Container(
+      padding: EdgeInsets.only(
+          bottom: getResponsiveHeight(30.0)
+      ),
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 3,
+            child: Center(
+              child: buildWidgetText(
+                  text: "Fin de Saison ! A bientôt...",
+                  color: Colors.white,
+                  family: FontFamily.ARIAL,
+                  weight: FontWeight.bold,
+                  fontSize: getResponsiveHeight(20.0)
+              ),
             ),
           ),
-        ),
-        Expanded(
-          flex: 7,
-          child: Center(
-            child: Image.asset("assets/img/champions.gif")
+          Expanded(
+            flex: 7,
+            child: Center(
+              child: Image.asset("assets/img/champions.gif")
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

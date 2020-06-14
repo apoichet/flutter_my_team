@@ -42,6 +42,7 @@ class _ResultsState extends State<Results> {
         navBarSelected: NavBarEnum.CALENDAR,
         rightPadding: 0.0,
         leftPadding: 0.0,
+        bottomPadding: 8.0,
         header: Header(textHeader: title,
           backgroundColor: _toggleLeft ? Color.fromRGBO(255, 255, 255, 0.45) :
           Color.fromRGBO(255, 255, 255, 0.45),
@@ -52,7 +53,6 @@ class _ResultsState extends State<Results> {
           toggleLeft: _toggleLeft,
           rightPadding: 0.0,
           leftPadding: 0.0,
-          bottomPadding: 5.0,
           image1: imgBackgroundName1,
           image2: imgBackgroundName2,
           header: title,

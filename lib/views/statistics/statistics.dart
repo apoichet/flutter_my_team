@@ -54,6 +54,7 @@ class _StatisticsState extends State<Statistics> {
         navBarSelected: NavBarEnum.STATISTICS,
         rightPadding: 0.0,
         leftPadding: 0.0,
+        bottomPadding: 8.0,
         header: Header(textHeader: title,
             backgroundColor: _toggleLeft ? Color.fromRGBO(0, 0, 0, 0.5) :
             Color.fromRGBO(255, 255, 255, 0.5),
