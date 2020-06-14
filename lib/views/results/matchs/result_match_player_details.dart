@@ -88,7 +88,7 @@ class _ResultMatchPlayerDetailsState extends State<ResultMatchPlayerDetails> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: SvgPicture.asset(
-                    'assets/icon/detail_icon.svg',
+                    'assets/icon/info_icon.svg',
                     fit: BoxFit.fill,
                     width: getResponsiveWidth(23.0),
                     height: getResponsiveHeight(23.0),

@@ -56,9 +56,9 @@ class NextGame extends StatelessWidget {
             flex: 2,
             child: Center(
               child: SvgPicture.asset(
-                  'assets/icon/detail_icon.svg',
-                  height: getResponsiveHeight(30.0),
-                  semanticsLabel: 'Nav Bar Icon'),
+                  'assets/icon/info_icon.svg',
+                  height: getResponsiveHeight(35.0),
+                  semanticsLabel: 'Info Icon'),
             ),
           )
         ],

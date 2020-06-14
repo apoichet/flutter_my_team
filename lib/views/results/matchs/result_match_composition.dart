@@ -86,7 +86,7 @@ class ResultMatchComposition extends StatelessWidget {
             Expanded(
                 flex: 1,
                 child: SvgPicture.asset(
-                  "assets/icon/detail_icon.svg",
+                  "assets/icon/info_icon.svg",
                   height: getResponsiveHeight(30.0),
                   width: getResponsiveWidth(30.0),
                 )

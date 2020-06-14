@@ -71,7 +71,7 @@ class CollectiveStatisticsMenu extends StatelessWidget {
                               flex: 2,
                               child: Center(
                                 child: SvgPicture.asset(
-                                    "assets/icon/detail_icon.svg"
+                                    "assets/icon/forward_icon.svg"
                                 ),
                               ),
                             )

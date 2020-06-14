@@ -87,7 +87,7 @@ class ResultMatchItem extends StatelessWidget {
                               child: Align(
                                 alignment: Alignment.topRight,
                                 child: SvgPicture.asset(
-                                    'assets/icon/detail_icon.svg',
+                                    'assets/icon/info_icon.svg',
                                     fit: BoxFit.fill,
                                     width: getResponsiveWidth(30.0),
                                     height: getResponsiveHeight(30.0),

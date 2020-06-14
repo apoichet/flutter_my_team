@@ -140,11 +140,11 @@ class _ResultMatchDetailsCardState extends State<ResultMatchDetailsCard> {
                       flex: 2,
                       child: Center(
                         child: SvgPicture.asset(
-                            'assets/icon/detail_icon.svg',
+                            'assets/icon/place_icon.svg',
                             fit: BoxFit.fill,
                             width: getResponsiveWidth(28.0),
                             height: getResponsiveHeight(28.0),
-                            semanticsLabel: 'Nav Bar Icon'),
+                            semanticsLabel: 'Maps Icon'),
                       ),
                     )
                   ]),
