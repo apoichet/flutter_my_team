@@ -39,3 +39,4 @@ lib/generated_plugin_registrant.dart
 # Web deploy apps
 web-deploy/apps/ios/*
 web-deploy/apps/android/*
+.firebase/*
