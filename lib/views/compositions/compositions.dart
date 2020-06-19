@@ -13,7 +13,7 @@ import '../../components/view_scaffold.dart';
 
 class Compositions extends StatelessWidget {
 
-  final String imgBackgroundName = 'background_12.png';
+  final String imgBackgroundName = 'background_10.png';
   final String title = 'Compositions';
 
   final Game initialGameToShow;

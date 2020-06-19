@@ -18,9 +18,9 @@ class Results extends StatefulWidget {
 class _ResultsState extends State<Results> {
   final String title = 'Résultats';
 
-  final String imgBackgroundName1 = 'background_14.png';
+  final String imgBackgroundName1 = 'background_12.png';
 
-  final String imgBackgroundName2 = 'background_13.png';
+  final String imgBackgroundName2 = 'background_11.png';
 
   final String menuTitle1 = 'Matchs';
 

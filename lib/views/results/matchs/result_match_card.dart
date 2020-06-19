@@ -16,7 +16,7 @@ class ResultMatchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackgroundImage(
-        image: "background_16.png",
+        image: "background_14.png",
         child: ViewScaffold(
           navBarSelected: NavBarEnum.CALENDAR,
           bottomPadding: 0.0,

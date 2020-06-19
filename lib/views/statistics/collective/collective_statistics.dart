@@ -8,7 +8,7 @@ import 'package:fc_parisii/views/statistics/collective/collective_statistics_pag
 
 class CollectiveStatistics extends StatelessWidget {
 
-  final String imgBackgroundName = 'background_15.png';
+  final String imgBackgroundName = 'background_13.png';
   final String title = 'Fiches collectives';
 
   final List<String> topics;
