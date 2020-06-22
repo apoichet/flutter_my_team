@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
     <title>FC Parisii</title>
 </head>
 <body>
@@ -13,55 +14,19 @@
         <img alt="logo fc parisii" src="img/logo.png">
     </div>
 
-    <div class="item">
-        <div class="item-header">
-            <label>Installer sur IOS :</label>
-        </div>
-        <div class="item-button">
-            <a target="_blank" href="itms-services://?action=download-manifest&amp;url=https://fc-parisii-f139f.web.app/apps/ios/manifest.plist">
-                <img alt="ios download"  src="img/ios_download.png">
-            </a>
-        </div>
+    <div class="item-button">
+        <a target="_blank" href="https://apps.apple.com/us/app/id1512648067">
+            <img alt="apple store"  src="img/apple_store.png">
+        </a>
     </div>
 
-    <div class="item">
-        <div class="item-header">
-            <label>Installer sur Android :</label>
-        </div>
-        <div class="item-button">
-            <a target="_blank"  download="apps/android/app-release.apk" href="https://fc-parisii-f139f.web.app/apps/android/app-release.apk">
-                <img alt="android download" src="img/android_download.png">
-            </a>
-        </div>
+    <div class="item-button">
+        <a target="_blank"  download="apps/android/app-release.apk" href="https://fc-parisii-f139f.web.app/apps/android/app-release.apk">
+            <img alt="android download" src="img/android_store.png">
+        </a>
     </div>
 
 </div>
-
-<script>
-
-    let agent = navigator.userAgent;
-    let stylePath;
-
-    if (agent.includes('Chrome')) {
-        stylePath = 'style-chrome.css';
-    }
-    else {
-        stylePath = 'style-safari.css';
-    }
-
-    let css = document.createElement('link');
-    css.type = "text/css";
-    css.rel = "stylesheet";
-    css.href = stylePath;
-
-    let header = document.getElementsByTagName('head')[0];
-    header.appendChild(css);
-
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-</script>
-
 
 </body>
 
