@@ -40,3 +40,7 @@ lib/generated_plugin_registrant.dart
 web-deploy/apps/ios/*
 web-deploy/apps/android/*
 .firebase/*
+
+# Properties
+android/key.properties
+android/app/local.properties
