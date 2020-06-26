@@ -40,19 +40,29 @@ html, body {
 .item-button {
   height: 100%;
   width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
 }
 
 .item-button a {
-  height: 100%;
-  width: 100%;
+  max-width: 270px;
   display: grid;
   justify-items: center;
   align-items: center;
 }
 
 .item-button img {
-  max-height: 100px;
-  max-width: 60%;
+  width: 100%;
+}
+
+.noSelect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 
