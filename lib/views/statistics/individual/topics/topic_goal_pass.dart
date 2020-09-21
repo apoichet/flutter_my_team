@@ -1,3 +1,4 @@
+import 'package:fc_parisii/services/number_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fc_parisii/components/chart/box_circular_chart.dart';
@@ -98,7 +99,7 @@ class TopicGoalPass extends StatelessWidget {
         color: CustomColors.GreenApple,
         valueColor: CustomColors.GreenApple,
         backgroundColor: CustomColors.GreenAppleTransparent,
-        value: player.nbrGoal / player.nbrGame,
+        value: divide(player.nbrGoal, player.nbrGame),
         valueMax: getTeam().maxPlayerGoalPerMatch,
         width: 15.0);
   }
@@ -110,7 +111,7 @@ class TopicGoalPass extends StatelessWidget {
         footer: "Passes / Match",
         valueColor: CustomColors.RedGradientEnd,
         backgroundColor: CustomColors.RedTransparent,
-        value: player.nbrPass / player.nbrGame,
+        value: divide(player.nbrPass, player.nbrGame),
         valueMax: getTeam().maxPlayerPassPerMatch,
         width: 15.0,
         linearGradient: LinearGradient(
@@ -125,7 +126,7 @@ class TopicGoalPass extends StatelessWidget {
       footer: "Décisif / Match",
       valueColor: CustomColors.OrangeGradientStart,
       backgroundColor: CustomColors.OrangeTransparent,
-      value: player.nbrGoal / player.nbrGame + player.nbrPass / player.nbrGame,
+      value: divide(player.nbrGoal, player.nbrGame),
       valueMax: getTeam().maxPlayerDecisivePerMatch,
       width: 15.0,
       last: true,

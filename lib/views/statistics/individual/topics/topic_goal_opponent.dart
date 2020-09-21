@@ -1,3 +1,4 @@
+import 'package:fc_parisii/services/number_service.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fc_parisii/components/chart/box_circular_chart.dart';
 import 'package:fc_parisii/components/chart/box_linear_chart.dart';
@@ -97,7 +98,7 @@ class TopicGoalOpponent extends StatelessWidget {
         color: CustomColors.GreenApple,
         valueColor: CustomColors.GreenApple,
         backgroundColor: CustomColors.GreenAppleTransparent,
-        value: player.nbrGoalOpponent / player.nbrGame,
+        value: divide(player.nbrGoalOpponent, player.nbrGame),
         valueMax: getTeam().maxPlayerGoalOpponentPerMatch,
         width: 15.0);
   }

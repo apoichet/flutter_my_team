@@ -1,3 +1,4 @@
+import 'package:fc_parisii/services/number_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fc_parisii/components/chart/box_circular_chart.dart';
@@ -127,7 +128,7 @@ class TopicGame extends StatelessWidget {
         footer: "Minutes / Match",
         valueColor: CustomColors.RedGradientEnd,
         backgroundColor: CustomColors.RedTransparent,
-        value: (player.gameTime / player.nbrGame),
+        value: divide(player.gameTime, player.nbrGame),
         valueMax: getTeam().maxPlayerMinutePerMatch,
         width: 15.0,
         linearGradient: LinearGradient(

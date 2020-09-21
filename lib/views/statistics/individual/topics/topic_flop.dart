@@ -1,3 +1,4 @@
+import 'package:fc_parisii/services/number_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fc_parisii/components/chart/linear_percent_indicator.dart';
@@ -108,7 +109,7 @@ class TopicFlop extends StatelessWidget {
                       lineHeight: 15.0,
                       animation: true,
                       backgroundColor: color.withOpacity(0.3),
-                      percent: value / valueMax,
+                      percent: calcPercent(value.toDouble(), valueMax.toDouble()),
                       linearGradient: linearGradient,
                     )
                 ),

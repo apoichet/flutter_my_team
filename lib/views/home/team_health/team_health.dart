@@ -34,7 +34,7 @@ class TeamHealth extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: lastGames.map((game) =>
                     GameStateIcon(game))
-                    .toList()) : SizedBox()
+                    .toList()) : SizedBox.shrink()
             ,
           )
         ]

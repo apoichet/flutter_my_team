@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:fc_parisii/domain/player.dart';
+import 'package:fc_parisii/services/number_service.dart';
 
 import 'game.dart';
 import 'games.dart';
@@ -99,13 +100,17 @@ class Team {
     var maxPlayerMissingGame = players.map((p) => p.nbrMissingGame).reduce(max);
     var maxPlayerYellowCard = players.map((p) => p.nbrYellowCard).reduce(max);
     var maxPlayerLaterGame = players.map((p) => p.nbrLateGame).reduce(max);
-    var maxGoalPerMatch = players.map((p) => (p.nbrGoal / p.nbrGame)).reduce(
-        max);
-    var maxPassPerMatch = players.map((p) => (p.nbrPass / p.nbrGame)).reduce(
-        max);
-    var maxDecisivePerMatch = players.map((p) =>
-    (p.nbrGoal / p.nbrGame) + (p.nbrPass / p.nbrGame)).reduce(max);
-    var maxPlayerMinutePerMatch = players.map((p) => (p.gameTime / p.nbrGame))
+    var maxGoalPerMatch = players
+        .map((p) => divide(p.nbrGoal, p.nbrGame))
+        .reduce(max);
+    var maxPassPerMatch = players
+        .map((p) => divide(p.nbrPass, p.nbrGame))
+        .reduce(max);
+    var maxDecisivePerMatch = players
+        .map((p) => divide(p.nbrGoal, p.nbrGame) + divide(p.nbrPass, p.nbrGame))
+        .reduce(max);
+    var maxPlayerMinutePerMatch = players
+        .map((p) => divide(p.gameTime, p.nbrGame))
         .reduce(max);
     var maxPlayerSubstitute = players.map((p) => p.nbrSubstitute).reduce(max);
     var maxPlayerStarter = players.map((p) => p.nbrStarter).reduce(max);
@@ -115,9 +120,9 @@ class Team {
     var maxPlayerRest = players.map((p) => p.nbrRest).reduce(max);
     var maxPlayerGoalOpponent = players.map((p) => p.nbrGoalOpponent).reduce(
         max);
-    var maxPlayerGoalOpponentPerMatch = players.map((p) =>
-    (p.nbrGoalOpponent / p.nbrGame)).reduce(max);
-
+    var maxPlayerGoalOpponentPerMatch = players
+        .map((p) => divide(p.nbrGoalOpponent, p.nbrGame))
+        .reduce(max);
     var maxPlayerOpponentGoalPenaltyCollected = players.map((p) =>
     p.nbrOpponentGoalPenaltyCollected).reduce(max);
     var maxPlayerOpponentGoalCornerFreeKickCollected = players.map((p) =>

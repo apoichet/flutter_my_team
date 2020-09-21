@@ -2,7 +2,7 @@ import 'dart:math';
 
 double roundDouble(double value, int places) {
   double mod = pow(10.0, places);
-  return ((value * mod).round().toDouble() / mod);
+  return divide((value * mod).round(), mod.floor());
 }
 
 String roundDoubleToString(double value, int places) {
@@ -13,9 +13,20 @@ String roundDoubleToString(double value, int places) {
 }
 
 double calcPercent(double value, double valueMax) {
-  var percent = value / valueMax;
+  var percent = divide(value.floor(), valueMax.floor());
   if(percent.isNaN) {
     return 0.0;
   }
   return percent;
+}
+
+double divide(int numerator, int denominator) {
+  if(numerator.isNaN
+      || denominator.isNaN
+      || numerator == 0
+      || denominator == 0
+  ) {
+    return 0.toDouble();
+  }
+  return numerator / denominator;
 }

@@ -27,21 +27,21 @@ Widget buildCardResult(CollectiveStatisticsEnum collectiveStatisticsEnum) {
     }
     case CollectiveStatisticsEnum.GOAL_PER_MATCH : {
       playerToResult = (Player player) => _buildResult(player,
-          value: player.nbrGoal / player.nbrGame,
+          value: divide(player.nbrGoal, player.nbrGame),
           nbrRoundDecimal: 2);
       unit = "Buts / Match";
       break;
     }
     case CollectiveStatisticsEnum.PASS_PER_MATCH : {
       playerToResult = (Player player) => _buildResult(player,
-          value: player.nbrPass / player.nbrGame,
+          value: divide(player.nbrPass, player.nbrGame),
           nbrRoundDecimal: 2);
       unit = "Passes D / Match";
       break;
     }
     case CollectiveStatisticsEnum.DECISIVE_PER_MATCH : {
       playerToResult = (Player player) => _buildResult(player,
-          value: player.nbrPass / player.nbrGame + player.nbrGoal / player.nbrGame,
+          value: divide(player.nbrPass, player.nbrGame) + divide(player.nbrGoal, player.nbrGame),
           nbrRoundDecimal: 2);
       unit = "Décisif / Match";
       break;
@@ -69,7 +69,7 @@ Widget buildCardResult(CollectiveStatisticsEnum collectiveStatisticsEnum) {
     }
     case CollectiveStatisticsEnum.TIME_PER_GAME : {
       playerToResult = (Player player) => _buildResult(player,
-          value: player.gameTime / player.nbrGame,
+          value: divide(player.gameTime, player.nbrGame),
           nbrRoundDecimal: 0);
       unit = "Minutes / Match";
       break;
@@ -97,7 +97,7 @@ Widget buildCardResult(CollectiveStatisticsEnum collectiveStatisticsEnum) {
     }
     case CollectiveStatisticsEnum.GOAL_OPPONENT_COLLECTED_PER_MATCH : {
       playerToResult = (Player player) => _buildResult(player,
-          value: player.nbrGoalOpponent /player.nbrGame,
+          value: divide(player.nbrGoalOpponent, player.nbrGame),
           nbrRoundDecimal: 2);
       unit = "Buts Encaissés / Match";
       break;
