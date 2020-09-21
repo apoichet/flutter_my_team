@@ -3,9 +3,10 @@ import 'dart:math';
 import 'package:fc_parisii/domain/player.dart';
 
 import 'game.dart';
+import 'games.dart';
 
 class Team {
-  final List<Game> games;
+  final Games games;
   final List<Player> players;
 
   final int nbrTeamGoal;
@@ -79,16 +80,16 @@ class Team {
       }
       return lastNameCompare;
     });
-    List<Game> games = (json['games'] as List)
+    List<Game> gameList = (json['games'] as List)
         .map((g) => Game.fromJson(g))
         .toList();
-    games.sort((g1, g2) => g1.date.compareTo(g2.date));
+    gameList.sort((g1, g2) => g1.date.compareTo(g2.date));
     var nbrTeamGoal = players.map((p) => p.nbrGoal).reduce((goal1,
         goal2) => goal1 + goal2);
     var nbrTeamPass = players.map((p) => p.nbrPass).reduce((pass1,
         pass2) => pass1 + pass2);
-    var nbrTeamGame = games.length;
-    var teamGameTime = games.length * 90;
+    var nbrTeamGame = gameList.length;
+    var teamGameTime = gameList.length * 90;
     var nbrTeamYellowCard = players.map((p) => p.nbrYellowCard).reduce((card1,
         card2) => card1 + card2);
     var maxPlayerGoal = players.map((p) => p.nbrGoal).reduce(max);
@@ -123,7 +124,7 @@ class Team {
     p.nbrOpponentGoalCornerFreeKickCollected).reduce(max);
     var maxPlayerCleanSheet = players.map((p) => p.nbrCleanSheet).reduce(max);
     return Team(
-        games: games,
+        games: Games(gameList),
         players: players,
         nbrTeamGoal: nbrTeamGoal,
         nbrTeamPass: nbrTeamPass,

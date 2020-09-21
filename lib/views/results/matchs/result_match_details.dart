@@ -42,7 +42,7 @@ class ResultMatchDetails extends StatelessWidget {
 
   String _buildHeader() {
 
-    int indexOfGame =  getTeam().games
+    int indexOfGame =  getTeam().games.gameList
         .where((g) => g.type == game.type)
         .toList()
         .indexOf(game) + 1;

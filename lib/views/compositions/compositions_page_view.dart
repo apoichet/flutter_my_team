@@ -30,7 +30,7 @@ class _CompositionPageViewState extends State<CompositionPageView> {
 
   @override
   void initState() {
-    _gameCompositionList = getTeam().games
+    _gameCompositionList = getTeam().games.gameList
         .where((g) => g.gameCompositionPlayers.isNotEmpty)
         .toList()
     ;

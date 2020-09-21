@@ -14,6 +14,7 @@ class GameStateIcon extends StatelessWidget {
   final String  letterLostGame = 'D';
   final String letterVictoryGame = 'V';
   final String letterEqualityGame = 'N';
+  final String undefinedGame = '-';
   final Game game;
 
   GameStateIcon(this.game);
@@ -73,8 +74,12 @@ class GameStateIcon extends StatelessWidget {
           letter: letterVictoryGame,
           color: CustomColors.GreenVictoryGameState,
         );
+      default:
+        return _GameStateIcon(
+          letter: undefinedGame,
+          color: CustomColors.GrayUndefinedGameState,
+        );
     }
-    throw new Exception("No Game State detected !");
   }
 
 }

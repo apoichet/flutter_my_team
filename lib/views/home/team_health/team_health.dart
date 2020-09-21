@@ -9,10 +9,8 @@ import 'package:fc_parisii/theme/font_family.dart';
 import 'game_state_icon.dart';
 
 class TeamHealth extends StatelessWidget {
-  final List<Game> lastGames = getTeam().games
-      .where((game) => game.state != null)
-      .toList().reversed.toList()
-      .sublist(0, 5);
+  final List<Game> lastGames = getTeam().games.gameList.toList()
+      .sublist(0, getTeam().games.gameList.length > 4 ? 5 : getTeam().games.gameList.length);
   final String headerText = 'Forme du moment';
 
   @override
@@ -32,14 +30,12 @@ class TeamHealth extends StatelessWidget {
           ),
           Expanded(
             flex: 2,
-            child: Row(
+            child: lastGames.isNotEmpty ? Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: lastGames.map((game) =>
                     GameStateIcon(game))
-                    .toList()
-                    .reversed
-                    .toList()
-            ),
+                    .toList()) : SizedBox()
+            ,
           )
         ]
     );

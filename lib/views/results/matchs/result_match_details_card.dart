@@ -252,7 +252,7 @@ class _ResultMatchDetailsCardState extends State<ResultMatchDetailsCard> {
 
   String _findFirstMatchScore() {
     if (widget.game.type == GameType.CHAMPIONSHIP) {
-      Game firstMatch = getTeam().games
+      Game firstMatch = getTeam().games.gameList
           .singleWhere((g) =>
       g.type == GameType.CHAMPIONSHIP &&
           g.opponent == widget.game.opponent &&

@@ -13,7 +13,7 @@ var team;
 var player;
 
 final String dataFileName = 'data.json';
-final String appScriptUrl = 'https://script.googleusercontent.com/macros/echo?user_content_key=4Kf9UyTbX6kWvNk9ympZSnGBDi0eLxxRIGaJZMoooWGOowoArPlHcW8mXBNLUarotC5Yjq5mCuZDlUrtJqmuYY7_cmmy96Nkm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnM-ZhxYhH8JVX6ZA016_PjVZfB3Lqr-FAdNSgGLaeY7ypZIFofQDOXa8mzDTCqnGIg&lib=MyqGG5TeYaZyOzm4JsxBVf8nujT8rVGfZ';
+final String appScriptUrl = 'https://script.google.com/macros/s/AKfycbw6z6Uha9bOOJs9Qa6NGThnbB95mFkLaa2rLPHV7f7U5CHcDQvj/exec';
 
 Future<DataResponse> fetchDataResponse() async {
   final Connectivity connectivity = Connectivity();

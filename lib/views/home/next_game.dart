@@ -10,7 +10,7 @@ import 'package:fc_parisii/views/results/matchs/result_match_card.dart';
 
 class NextGame extends StatelessWidget {
 
-  final nextGame = getTeam().games.last;
+  final nextGame = getTeam().games.gameList.last;
   final String lastGameText = 'Dernier Match';
   final String nextGameText = 'Prochain Match';
 
