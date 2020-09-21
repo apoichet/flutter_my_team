@@ -27,8 +27,8 @@ class Game {
     return scoreRight + " - " + scoreLeft;
   }
 
-  bool isAfterNow() {
-    return this.date.toLocal().isAfter(DateTime.now().toLocal());
+  bool isAfter(Duration duration) {
+    return this.date.isAfter(DateTime.now().toLocal().subtract(duration));
   }
 
   String getOpponentMatchDay() {

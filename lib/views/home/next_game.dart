@@ -1,3 +1,4 @@
+import 'package:fc_parisii/domain/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
@@ -10,7 +11,7 @@ import 'package:fc_parisii/views/results/matchs/result_match_card.dart';
 
 class NextGame extends StatelessWidget {
 
-  final nextGame = getTeam().games.gameList.last;
+  final nextGame = getTeam().games.getNextGame();
   final String lastGameText = 'Dernier Match';
   final String nextGameText = 'Prochain Match';
 
@@ -32,7 +33,7 @@ class NextGame extends StatelessWidget {
                       alignment: Alignment.center,
                       child: buildWidgetText(
                         fontSize: getResponsiveWidth(22.0),
-                        text: nextGame.isAfterNow() ? nextGameText : lastGameText,
+                        text: nextGame.isAfter(Duration(minutes: 60)) ? nextGameText : lastGameText,
                         family: FontFamily.ARIAL,
                       ),
                     ),
