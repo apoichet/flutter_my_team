@@ -34,17 +34,19 @@ class _CompositionPageViewState extends State<CompositionPageView> {
         .where((g) => g.gameCompositionPlayers.isNotEmpty)
         .toList()
     ;
-    _game = widget.initialGameToShow == null ?
-    _gameCompositionList.last :
-    widget.initialGameToShow;
-    _indexGame = _gameCompositionList.indexOf(_game);
-    _gameCompositionWidgetList = _gameCompositionList
-        .map((g) => Composition(gameComposition: g))
-        .toList();
-    _controller = PageController(
-        initialPage: _indexGame,
-        keepPage: true
-    );
+    if(_gameCompositionList.isNotEmpty) {
+      _game = widget.initialGameToShow == null ?
+      _gameCompositionList.last :
+      widget.initialGameToShow;
+      _indexGame = _gameCompositionList.indexOf(_game);
+      _gameCompositionWidgetList = _gameCompositionList
+          .map((g) => Composition(gameComposition: g))
+          .toList();
+      _controller = PageController(
+          initialPage: _indexGame,
+          keepPage: true
+      );
+    }
     super.initState();
   }
 
@@ -57,7 +59,7 @@ class _CompositionPageViewState extends State<CompositionPageView> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Column(
+    return _game != null ? Column(
       children: <Widget>[
         Expanded(
             flex: 8,
@@ -80,7 +82,7 @@ class _CompositionPageViewState extends State<CompositionPageView> {
           ),
         )
       ],
-    );
+    ) : SizedBox.shrink();
   }
 
   _buildCompoFooter(Game gameComposition) {
