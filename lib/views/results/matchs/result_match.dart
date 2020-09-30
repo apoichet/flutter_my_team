@@ -107,7 +107,7 @@ class _ResultMatchState extends State<ResultMatch> {
             flex: 3,
             child: Center(
               child: buildWidgetText(
-                  text: "Fin de Saison ! A bientôt...",
+                  text: "Pas de match en prévision !?",
                   color: Colors.white,
                   family: FontFamily.ARIAL,
                   weight: FontWeight.bold,
@@ -118,7 +118,7 @@ class _ResultMatchState extends State<ResultMatch> {
           Expanded(
             flex: 7,
             child: Center(
-              child: Image.asset("assets/img/champions.gif")
+              child: Image.asset("assets/img/no_more_games.gif")
             ),
           ),
         ],
