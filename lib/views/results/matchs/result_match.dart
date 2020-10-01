@@ -117,8 +117,10 @@ class _ResultMatchState extends State<ResultMatch> {
           ),
           Expanded(
             flex: 7,
-            child: Center(
-              child: Image.asset("assets/img/no_more_games.gif")
+            child: Container(
+              alignment: Alignment.center,
+              width: getResponsiveWidth(300),
+              child: Image.asset("assets/img/no_more_games.gif"),
             ),
           ),
         ],
