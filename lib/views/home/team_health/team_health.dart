@@ -11,7 +11,7 @@ import 'game_state_icon.dart';
 class TeamHealth extends StatelessWidget {
   final List<Game> lastGames = getTeam().games.gameList.toList()
       .sublist(0, getTeam().games.gameList.length > 4 ? 5 : getTeam().games.gameList.length);
-  final String headerText = 'Forme du moment';
+  final String headerText = "Forme de l'équipe";
 
   @override
   Widget build(BuildContext context) {
