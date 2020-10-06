@@ -75,7 +75,7 @@ class _ResultMatchDetailsCardState extends State<ResultMatchDetailsCard> {
   }
 
   Widget _getDetails() {
-    return widget.game.gameCompositionPlayers.isEmpty ? _buildStadiumAddress() : _buildPlayerListView();
+    return widget.game.state == null ? _buildStadiumAddress() : _buildPlayerListView();
   }
 
   Widget _buildStadiumAddress() {
