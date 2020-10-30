@@ -9,8 +9,7 @@ import 'package:fc_parisii/theme/font_family.dart';
 import 'game_state_icon.dart';
 
 class TeamHealth extends StatelessWidget {
-  final List<Game> lastGames = getTeam().games.gameList.toList()
-      .sublist(0, getTeam().games.gameList.length > 4 ? 5 : getTeam().games.gameList.length);
+  final List<Game> lastGames = _getLastGames(getTeam().games.gameList.toList());
   final String headerText = "Forme de l'équipe";
 
   @override
@@ -41,3 +40,21 @@ class TeamHealth extends StatelessWidget {
     );
   }
 }
+
+List<Game> _getLastGames(List<Game> games) {
+  if(games.length <= 4) {
+    return games
+        .sublist(0, games.length)
+        .reversed
+        .toList();
+  }
+  return games
+      .reversed
+      .where((game) => game.hasState())
+      .toList()
+      .sublist(0, 5);
+}
+
+
+
+

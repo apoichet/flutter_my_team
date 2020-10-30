@@ -40,6 +40,10 @@ class Game {
     return opponent + " " + day + "/" + month;
   }
 
+  bool hasState() {
+    return this.state != null;
+  }
+
   Game({
     this.opponent,
     this.address,
