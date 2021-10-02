@@ -33,7 +33,7 @@ class NavBar extends StatelessWidget {
             NavBarIcon(pathIcon: 'foot_boots_icon', title: 'Statistiques',
                 select: _isSelected(NavBarEnum.STATISTICS),
                 width: 37, height: 37,
-                onTap: () => _goTo(Statistics(), context)),
+                onTap: () => _goTo(Statistics(players: [],), context)),
             NavBarIcon(pathIcon: 'composition_icon', title: 'Compositions',
                 width: 30, height: 30,
                 select: _isSelected(NavBarEnum.COMPOSITIONS),
@@ -60,5 +60,3 @@ class NavBar extends StatelessWidget {
 enum NavBarEnum {
   HOME, STATISTICS, COMPOSITIONS, CALENDAR
 }
-
-

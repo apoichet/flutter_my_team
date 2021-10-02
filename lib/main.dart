@@ -17,7 +17,21 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             scaffoldBackgroundColor: Colors.transparent,
             backgroundColor: Colors.transparent,
-            accentColor: Colors.white
+            colorScheme: ColorScheme(
+              primary: Colors.white,
+              primaryVariant: Colors.white,
+              onPrimary: Colors.white,
+              brightness: Brightness.dark,
+              secondary: Colors.white,
+              secondaryVariant: Colors.white,
+              background: Colors.transparent,
+              onBackground: Colors.transparent,
+              error: Colors.red,
+              onError: Colors.red,
+              onSecondary: Colors.white,
+              onSurface: Colors.white,
+              surface: Colors.white,
+            ),
         ),
         home: Starter()
     );

@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fc_parisii/services/responsive_size.dart';
-import 'package:fc_parisii/services/route_service.dart';
 import 'package:fc_parisii/services/widget_service.dart';
 import 'package:fc_parisii/theme/font_family.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class PreventingWidget extends StatefulWidget {
 

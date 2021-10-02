@@ -13,44 +13,44 @@ var team;
 var player;
 
 final String dataFileName = 'data.json';
-final String appScriptUrl = 'https://script.google.com/macros/s/AKfycbw6z6Uha9bOOJs9Qa6NGThnbB95mFkLaa2rLPHV7f7U5CHcDQvj/exec';
+final String appScriptAuthority = 'script.google.com';
+final String appScriptPath = '/macros/s/AKfycbw6z6Uha9bOOJs9Qa6NGThnbB95mFkLaa2rLPHV7f7U5CHcDQvj/exec';
 
 Future<DataResponse> fetchDataResponse() async {
   final Connectivity connectivity = Connectivity();
   connectivity.checkConnectivity();
-  final ConnectivityResult connectivityResult = await connectivity.checkConnectivity();
+  final ConnectivityResult connectivityResult =
+      await connectivity.checkConnectivity();
 
   try {
-    if(ConnectivityResult.none == connectivityResult) {
+    if (ConnectivityResult.none == connectivityResult) {
       return await _getLocalData();
-    }
-    else {
+    } else {
       try {
         return await _getApiData();
-      }
-      catch (errorApi) {
+      } catch (errorApi) {
         logger().i(errorApi.toString());
         return await _getLocalData();
       }
     }
-  }
-  catch (error) {
+  } catch (error) {
     return Future.error(error);
   }
 }
 
 Future<DataResponse> _getApiData() async {
-  http.Response responseGet = await http.get(appScriptUrl)
+  final responseGet = await http
+      .get(Uri.https(appScriptAuthority, appScriptPath))
       .timeout(Duration(milliseconds: 8000))
       .catchError((error) => throw Exception(error));
-  Team team =  await _parseTeamFrom(responseGet.body);
+  Team team = await _parseTeamFrom(responseGet.body);
   await writeData(dataFileName, responseGet.body);
   return DataResponse(team: team, fromApi: true);
 }
 
 Future<DataResponse> _getLocalData() async {
   String data = await readData(dataFileName);
-  Team team =  await _parseTeamFrom(data);
+  Team team = await _parseTeamFrom(data);
   return DataResponse(team: team, fromApi: false);
 }
 
@@ -58,9 +58,12 @@ class DataResponse {
   Team _team;
   bool _fromApi;
 
-  DataResponse({Team team, bool fromApi}) : _team = team, _fromApi = fromApi;
+  DataResponse({Team team, bool fromApi})
+      : _team = team,
+        _fromApi = fromApi;
 
   Team get team => _team;
+
   bool get isFromApi => _fromApi;
 }
 
@@ -77,7 +80,9 @@ Team getTeam() {
 }
 
 void setPlayerFromId(String playerId) {
-  player = getTeam().players.singleWhere((p) => p.getId() == playerId, orElse: () => null);
+  player = getTeam()
+      .players
+      .singleWhere((p) => p.getId() == playerId, orElse: () => null);
 }
 
 void setPlayer(Player playerSet) {
@@ -87,4 +92,3 @@ void setPlayer(Player playerSet) {
 Player getPlayer() {
   return player;
 }
-

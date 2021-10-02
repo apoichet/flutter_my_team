@@ -44,3 +44,6 @@ web-deploy/apps/android/*
 # Properties
 android/key.properties
 android/app/local.properties
+
+# fvm
+.fvm

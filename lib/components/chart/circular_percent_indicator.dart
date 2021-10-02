@@ -22,9 +22,7 @@ class CircularPercentIndicator extends StatefulWidget {
   ///First color applied to the complete circle
   final Color backgroundColor;
 
-  Color get progressColor => _progressColor;
-
-  Color _progressColor;
+  final Color progressColor;
 
   ///true if you want the circle to have animation
   final bool animation;
@@ -89,12 +87,11 @@ class CircularPercentIndicator extends StatefulWidget {
         this.animateFromLastPercent = false,
         this.reverse = false,
         this.maskFilter})
-      : super(key: key) {
+      : this.progressColor = progressColor ?? Colors.red, super(key: key) {
     if (linearGradient != null && progressColor != null) {
       throw ArgumentError(
           'Cannot provide both linearGradient and progressColor');
     }
-    _progressColor = progressColor ?? Colors.red;
 
     assert(startAngle >= 0.0);
     if (percent < 0.0 || percent > 1.0) {
@@ -179,7 +176,7 @@ class _CircularPercentIndicatorState extends State<CircularPercentIndicator>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    var items = List<Widget>();
+    var items = <Widget>[];
     if (widget.header != null) {
       items.add(widget.header);
     }

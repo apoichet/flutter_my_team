@@ -46,16 +46,16 @@ class PlayerPositionEngine {
           left: mapWidth/6
       );
       case PlayerPosition.CENTER_BACK : return PlayerPhysicPosition(
-          bottom: cardHeight * factorLine,
+          bottom: cardHeight * (factorLine - 0.2),
           left: mapWidth/2 - cardWidth/2
       );
       case PlayerPosition.CENTER_BACK_LEFT : return PlayerPhysicPosition(
-          bottom: cardHeight * factorLine,
-          left: mapWidth/4
+          bottom: cardHeight * (factorLine - 0.2),
+          left: mapWidth/6
       );
       case PlayerPosition.CENTER_BACK_RIGHT : return PlayerPhysicPosition(
-          bottom: cardHeight * factorLine,
-          right: mapWidth/4
+          bottom: cardHeight * (factorLine - 0.2),
+          right: mapWidth/6
       );
       case PlayerPosition.DEFENSIVE_MIDFIELDER : return PlayerPhysicPosition(
           bottom: cardHeight * 2.1 * factorLine,

@@ -32,4 +32,10 @@
             android:value="2" />
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <queries>
+    <intent>
+        <action android:name="android.intent.action.VIEW" />
+        <data android:scheme="https://www.fff.fr/championnats/fff/ligue-de-paris-ile-de-france/2019/365904-chpt-franciliens/phase-1/poule-3/derniers-resultats" />
+    </intent>
+    </queries>
 </manifest>

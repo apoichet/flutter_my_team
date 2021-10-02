@@ -16,7 +16,7 @@ class ViewScaffold extends StatefulWidget {
   final bool loader;
 
   ViewScaffold({
-    @required this.header,
+    this.header,
     @required this.body,
     @required this.navBarSelected,
     this.topPadding = 30.0,

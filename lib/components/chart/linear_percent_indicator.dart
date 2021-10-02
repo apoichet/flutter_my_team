@@ -20,9 +20,7 @@ class LinearPercentIndicator extends StatefulWidget {
   ///Border color applied to the complete line
   final Color borderColor;
 
-  Color get progressColor => _progressColor;
-
-  Color _progressColor;
+  final Color progressColor;
 
   ///true if you want the Line to have animation
   final bool animation;
@@ -92,12 +90,11 @@ class LinearPercentIndicator extends StatefulWidget {
     this.alignment = MainAxisAlignment.start,
     this.maskFilter,
     this.clipLinearGradient = false,
-  }) : super(key: key) {
+  })  : this.progressColor = progressColor ?? Colors.red, super(key: key) {
     if (linearGradient != null && progressColor != null) {
       throw ArgumentError(
           'Cannot provide both linearGradient and progressColor');
     }
-    _progressColor = progressColor ?? Colors.red;
 
     if (percent < 0.0 || percent > 1.0) {
       throw new Exception("Percent value must be a double between 0.0 and 1.0");
@@ -174,7 +171,7 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    var items = List<Widget>();
+    var items = <Widget>[];
     if (widget.leading != null) {
       items.add(widget.leading);
     }

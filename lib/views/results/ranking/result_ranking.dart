@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:fc_parisii/services/data_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
@@ -13,7 +14,7 @@ class ResultRanking extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        launchURL(rankingUrl);
+        launchURL(getTeam().linkRankingTeam);
       },
       child: Align(
         alignment: Alignment.center,

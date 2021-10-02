@@ -12,7 +12,7 @@ class CompositionPlayers extends StatelessWidget {
   final PlayerPositionEngine playerPositionEngine;
 
   CompositionPlayers({
-    @required this.strategy,
+    this.strategy,
     @required this.gameCompositionPlayers,
     @required this.playerPositionEngine
   });

@@ -1,14 +1,10 @@
-import 'package:flutter/widgets.dart';
 import 'package:fc_parisii/components/background_gradient.dart';
-import 'package:fc_parisii/components/background_image.dart';
 import 'package:fc_parisii/components/footer_card.dart';
-import 'package:fc_parisii/components/header.dart';
-import 'package:fc_parisii/components/nav_bar/nav_bar.dart';
-import 'package:fc_parisii/components/view_scaffold.dart';
 import 'package:fc_parisii/domain/player.dart';
 import 'package:fc_parisii/services/data_service.dart';
 import 'package:fc_parisii/services/responsive_size.dart';
 import 'package:fc_parisii/views/statistics/individual/individual_statistics_card.dart';
+import 'package:flutter/widgets.dart';
 
 class IndividualStatisticsPageView extends StatefulWidget {
 

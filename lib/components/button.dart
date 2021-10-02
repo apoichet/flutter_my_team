@@ -23,19 +23,19 @@ class Button extends StatelessWidget {
     return ClipRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
-        child: RaisedButton(
-          splashColor: CustomColors.ButtonSplashColor,
-          disabledColor: Colors.transparent,
-          onPressed: onPressed,
-          colorBrightness: Brightness.light,
-          color: CustomColors.ButtonBackgroundColor,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-              side: BorderSide(
-                  color: CustomColors.ButtonBorderColor,
-                  width: 2
-              )
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: CustomColors.ButtonBackgroundColor,
+            onPrimary: CustomColors.ButtonSplashColor,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50),
+                side: BorderSide(
+                    color: CustomColors.ButtonBorderColor,
+                    width: 2
+                )
+            ),
           ),
+          onPressed: onPressed,
           child: Container(
               width: getResponsiveWidth(315.0) * getResponsiveWidth(0.7),
               height: getResponsiveHeight(60.0 * 0.9),
@@ -51,4 +51,3 @@ class Button extends StatelessWidget {
     );
   }
 }
-

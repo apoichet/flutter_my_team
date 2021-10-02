@@ -37,10 +37,12 @@ class Team {
   final int maxPlayerOpponentGoalPenaltyCollected;
   final int maxPlayerOpponentGoalCornerFreeKickCollected;
   final int maxPlayerCleanSheet;
+  final String linkRankingTeam;
 
   Team({
     this.games,
     this.players,
+    this.linkRankingTeam,
     this.nbrTeamGoal = 0,
     this.nbrTeamPass = 0,
     this.nbrTeamGame = 0,
@@ -157,8 +159,8 @@ class Team {
         maxPlayerGoalOpponentPerMatch: maxPlayerGoalOpponentPerMatch,
         maxPlayerOpponentGoalPenaltyCollected: maxPlayerOpponentGoalPenaltyCollected,
         maxPlayerOpponentGoalCornerFreeKickCollected: maxPlayerOpponentGoalCornerFreeKickCollected,
-        maxPlayerCleanSheet: maxPlayerCleanSheet
+        maxPlayerCleanSheet: maxPlayerCleanSheet,
+        linkRankingTeam: json["summaryGame"]["linkRankingTeam"]
     );
   }
 }
-
