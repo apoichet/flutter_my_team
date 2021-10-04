@@ -29,32 +29,20 @@ class TeamHealth extends StatelessWidget {
           ),
           Expanded(
             flex: 2,
-            child: lastGames.isNotEmpty ? Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: lastGames.map((game) =>
-                    GameStateIcon(game))
-                    .toList()) : SizedBox.shrink()
-            ,
+            child: lastGames.isNotEmpty
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children:
+                        lastGames.map((game) => GameStateIcon(game)).toList())
+                : SizedBox.shrink(),
           )
-        ]
-    );
+        ]);
   }
 }
 
 List<Game> _getLastGames(List<Game> games) {
-  if(games.length <= 4) {
-    return games
-        .sublist(0, games.length)
-        .reversed
-        .toList();
-  }
-  return games
-      .reversed
-      .where((game) => game.hasState())
+  var gamesWithState = games.where((game) => game.hasState()).toList();
+  return gamesWithState.reversed
       .toList()
-      .sublist(0, 5);
+      .sublist(0, gamesWithState.length <= 4 ? gamesWithState.length : 5);
 }
-
-
-
-
