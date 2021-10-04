@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fc_parisii/services/data_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fc_parisii/domain/player.dart';
@@ -39,9 +41,13 @@ class PlayerAvatar extends StatelessWidget {
                 ),
               )]
         ),
-        child: Image.asset(
-          "assets/img/player/" + player.avatar + ".png",
-          filterQuality: FilterQuality.high,
+        child: CachedNetworkImage(
+          imageUrl: getUrlImagePlayer(player.number.toString()),
+          placeholder: (context, url) => CircularProgressIndicator(),
+          errorWidget: (context, url, error) => Image.asset(
+            "assets/img/player/avatar.png",
+            filterQuality: FilterQuality.high,
+          ),
         ),
       ),
     );

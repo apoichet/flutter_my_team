@@ -92,3 +92,5 @@ void setPlayer(Player playerSet) {
 Player getPlayer() {
   return player;
 }
+
+String getUrlImagePlayer(number) => "https://firebasestorage.googleapis.com/v0/b/fc-parisii-f139f.appspot.com/o/images%2Fplayers%2F" + number + ".png?alt=media";

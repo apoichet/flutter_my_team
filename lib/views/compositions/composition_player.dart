@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fc_parisii/const/composition_player_card_size.dart';
@@ -31,10 +32,15 @@ class CompositionPlayer extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset(
-              "assets/img/player/" + _player.avatar + ".png",
-              width: getResponsiveWidth(CompositionPlayerCardSize.widthAvatar),
+            CachedNetworkImage(
               height: getResponsiveHeight(CompositionPlayerCardSize.heightAvatar),
+              width: getResponsiveWidth(CompositionPlayerCardSize.widthAvatar),
+              imageUrl: getUrlImagePlayer(_player.number.toString()),
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Image.asset(
+                "assets/img/player/avatar.png",
+                filterQuality: FilterQuality.high,
+              ),
             ),
             buildWidgetText(
                 text: _player.firstName,
